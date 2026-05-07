@@ -6,7 +6,7 @@
 ## About this project
 
 - This is AlphaRelay operator documentation built on [Mintlify](https://mintlify.com)
-- Primary guide: `alpharelay/zero-to-live-mission-guide.mdx`
+- Mission guide hub: `alpharelay/guide-overview.mdx` (chapters live as separate files under `alpharelay/`)
 - Pages are MDX files with YAML frontmatter
 - Configuration lives in `docs.json`
 - Run `mint dev` to preview locally (use an LTS Node.js version if the CLI warns about unsupported Node)

@@ -5,7 +5,8 @@ Operator documentation for [AlphaRelay](https://www.alpha-relay.com), built with
 ## Content
 
 - **Home** — `index.mdx`
-- **Zero to live mission guide** — `alpharelay/zero-to-live-mission-guide.mdx`
+- **Mission guide overview** — `alpharelay/guide-overview.mdx`
+- **Chapters** — `alpharelay/one-time-setup.mdx`, `alpharelay/mission-setup.mdx`, `alpharelay/mission-execution.mdx`, `alpharelay/event-logging.mdx`, `alpharelay/completing-a-mission.mdx`, `alpharelay/footage-upload.mdx`, `alpharelay/footage-playback.mdx`, `alpharelay/report-generation.mdx`, `alpharelay/export-offline-package.mdx`, `alpharelay/mission-lifecycle-summary.mdx`
 
 ## Local preview
 

@@ -15,9 +15,22 @@
         "groups": [
           {
             "group": "AlphaRelay",
+            "pages": ["index"]
+          },
+          {
+            "group": "Zero to live mission guide",
             "pages": [
-              "index",
-              "alpharelay/zero-to-live-mission-guide"
+              "alpharelay/guide-overview",
+              "alpharelay/one-time-setup",
+              "alpharelay/mission-setup",
+              "alpharelay/mission-execution",
+              "alpharelay/event-logging",
+              "alpharelay/completing-a-mission",
+              "alpharelay/footage-upload",
+              "alpharelay/footage-playback",
+              "alpharelay/report-generation",
+              "alpharelay/export-offline-package",
+              "alpharelay/mission-lifecycle-summary"
             ]
           }
         ]
@@ -34,8 +47,8 @@
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/alpharelay.png",
+    "dark": "/logo/alpharelay.png"
   },
   "navbar": {
     "links": [
