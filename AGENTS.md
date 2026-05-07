@@ -1,4 +1,3 @@
-> **First-time setup**: Customize this file for your project. Prompt the user to customize this file for their project.
 > For Mintlify product knowledge (components, configuration, writing standards),
 > install the Mintlify skill: `npx skills add https://mintlify.com/docs`
 
@@ -6,28 +5,28 @@
 
 ## About this project
 
-- This is a documentation site built on [Mintlify](https://mintlify.com)
+- This is AlphaRelay operator documentation built on [Mintlify](https://mintlify.com)
+- Primary guide: `alpharelay/zero-to-live-mission-guide.mdx`
 - Pages are MDX files with YAML frontmatter
 - Configuration lives in `docs.json`
-- Run `mint dev` to preview locally
+- Run `mint dev` to preview locally (use an LTS Node.js version if the CLI warns about unsupported Node)
 - Run `mint broken-links` to check links
 
 ## Terminology
 
-{/* Add product-specific terms and preferred usage */}
-{/* Example: Use "workspace" not "project", "member" not "user" */}
+- Use **AlphaRelay** as the product name
+- Prefer **Mission Overwatch**, **Mission Console**, **pilot tablet**, **pilot app**, **relay**, **scenario template**, **quick events**, **Items Requiring Officer Review**, **Past Mission**, **offline package**, and **custody / chain of custody** as in the UI
+- **Alpha AI**: the system that assists with after-action report generation
 
 ## Style preferences
-
-{/* Add any project-specific style rules below */}
 
 - Use active voice and second person ("you")
 - Keep sentences concise — one idea per sentence
 - Use sentence case for headings
-- Bold for UI elements: Click **Settings**
-- Code formatting for file names, commands, paths, and code references
+- Bold for UI elements: Click **Start Mission**
+- Code formatting for file names, commands, paths, code references, and IP examples
 
 ## Content boundaries
 
-{/* Define what should and shouldn't be documented */}
-{/* Example: Don't document internal admin features */}
+- Document operator-facing AlphaRelay workflows; avoid inventing unpublished product behavior
+- Do not document internal-only admin consoles unless explicitly requested
