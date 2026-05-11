@@ -1,0 +1,91 @@
+---
+title: "Connectivity guide"
+description: "Understand local relay networking, internet sync, offline behavior, and queued uploads."
+icon: "tower-broadcast"
+---
+
+AlphaRelay uses two kinds of connectivity during a mission:
+
+- **Local relay connectivity** between the pilot tablet and Mission Overwatch
+- **Internet connectivity** for sign-in, cloud sync, footage upload, and shared records
+
+These can be the same network, but they do not have to be.
+
+## Local relay connectivity
+
+The pilot tablet and Mission Overwatch device must be able to reach each other on the same local network.
+
+Local relay connectivity powers:
+
+- Live video in Mission Overwatch
+- Telemetry display
+- Pilot quick events
+- Local event screenshots
+- Mission control handoff between the pilot app and browser
+
+If Mission Overwatch cannot connect to the pilot relay:
+
+- Confirm both devices are on the same Wi-Fi network.
+- Confirm the pilot app shows the relay as running.
+- Use the IPv4 address shown on the pilot tablet.
+- Try **Scan LAN** when available.
+- Trust the relay certificate if the browser prompts for it.
+
+## Internet connectivity
+
+Internet connectivity is needed for cloud-backed work.
+
+Internet connectivity powers:
+
+- Operator sign-in
+- Mission sync
+- Uploaded mission footage
+- Playback links
+- Cloud evidence records
+- Organization data
+- Cross-device review
+
+If internet is unavailable, AlphaRelay can still support local mission work, but cloud sync waits until the device is online again.
+
+## What works offline or on local network only
+
+Depending on the current mission state and device setup, AlphaRelay can continue to support:
+
+- Local relay viewing
+- Event logging
+- Screenshots captured from the pilot relay
+- Local mission state
+- Deferred footage queueing
+
+Keep AlphaRelay open when possible so queued changes can sync when connectivity returns.
+
+## What queued status means
+
+You may see messages such as:
+
+- **Queued for cloud sync**
+- **Loading playback link**
+- A pending mission video count
+- A pilot tablet upload banner
+
+These usually mean AlphaRelay has local mission data or footage that still needs to reach the cloud.
+
+When you see these states:
+
+1. Stay signed in.
+2. Keep the browser or pilot app open.
+3. Move the device to a network with internet access when practical.
+4. Use **Upload now** on the pilot tablet if it appears and the device is online.
+5. Wait for the upload and playback link to finish before final review.
+
+## Switching networks after a mission
+
+Field networks are often optimized for the pilot relay, not internet upload. After the mission:
+
+1. Land and close the mission.
+2. Confirm critical events and screenshots are present.
+3. Stop the relay when it is safe to do so.
+4. Move the device to an internet-connected network.
+5. Let cloud sync and footage upload complete.
+
+If footage is queued locally, AlphaRelay retries upload when internet access returns.

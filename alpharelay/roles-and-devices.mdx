@@ -1,0 +1,88 @@
+---
+title: "Roles and devices"
+description: "Understand who uses AlphaRelay and which device each part of the workflow runs on."
+icon: "users"
+---
+
+AlphaRelay connects field devices, command review, cloud sync, and evidence packaging. This page explains the moving parts before you run a mission.
+
+## Pilot operator
+
+The pilot operator uses the Android pilot tablet with the AlphaRelay pilot app.
+
+The pilot tablet is responsible for:
+
+- Connecting to the drone controller
+- Starting the local relay
+- Showing the live pilot interface
+- Sending live video and telemetry to Mission Overwatch
+- Logging quick events from the field
+- Recording or forwarding mission footage
+- Queuing footage locally when cloud upload is not available
+
+## Mission Overwatch operator
+
+The Mission Overwatch operator uses the AlphaRelay web app in a browser.
+
+Mission Overwatch is responsible for:
+
+- Starting and closing missions
+- Connecting to the pilot relay
+- Viewing the live feed
+- Logging manual and quick events
+- Reviewing mission footage
+- Running **Play with Events**
+- Generating reports and offline packages
+
+The Mission Overwatch device can be a laptop, desktop, tablet, phone, or the same device running the web app, as long as it can reach the pilot relay on the local network.
+
+## Reviewer or officer
+
+The reviewer or officer works after the mission is closed.
+
+The reviewer is responsible for:
+
+- Confirming the event timeline
+- Reviewing uploaded footage
+- Tagging post-mission events when needed
+- Reviewing and editing the after-action report
+- Addressing items requiring officer review
+- Sealing the evidence record when ready
+
+## Supervisor
+
+The supervisor reviews the completed mission record when it is ready for approval.
+
+The supervisor may review:
+
+- Mission summary
+- Event timeline
+- Footage and screenshots
+- After-action report
+- Chain-of-custody record
+- Offline package, when exported for handoff or archive
+
+## Organization admin
+
+The organization admin manages account and setup tasks.
+
+The admin may handle:
+
+- Operator accounts
+- Organization settings
+- Pilot tablet license keys
+- Scenario templates
+- Access to mission records
+
+## Core devices
+
+| Device | Used for |
+|--------|----------|
+| Android pilot tablet | Pilot app, relay, live controls, quick events, footage handoff |
+| Drone controller | DJI flight control connection |
+| Aircraft | Mission flight and recording |
+| Mission Overwatch device | Browser-based command view, event logging, review, reports |
+| Cloud account | Sign-in, sync, uploaded footage, shared mission records |
+| SD card or aircraft storage | Source footage when manual upload is needed |
+
+Most setup problems come from mixing local relay requirements with cloud sync requirements. The next page explains that connectivity model.

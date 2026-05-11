@@ -1,0 +1,103 @@
+---
+title: "Troubleshooting"
+description: "Common fixes for setup, relay connection, sync, footage, playback, and export issues."
+icon: "wrench"
+---
+
+Use this page when AlphaRelay is not behaving as expected during setup, mission review, or export.
+
+## Mission Overwatch cannot see the pilot feed
+
+Check the local relay path first.
+
+1. Confirm the pilot app is open and the relay is running.
+2. Confirm the pilot tablet and Mission Overwatch device are on the same Wi-Fi network.
+3. Enter the IPv4 address shown on the pilot tablet.
+4. Try **Scan LAN** if it is available.
+5. If the browser asks to trust the relay certificate, complete that step and connect again.
+6. Restart the relay if the tablet IP address changed.
+
+## Cloud sync is not up to date
+
+Cloud sync needs internet access and an active sign-in session.
+
+1. Confirm the browser is signed in.
+2. Move the device to a network with internet access.
+3. Keep AlphaRelay open until queued work finishes.
+4. Avoid refreshing or closing the browser while sync is still pending.
+
+If the mission was run on a local-only field network, sync may complete after returning to an internet-connected network.
+
+## Pilot video is queued locally
+
+Queued pilot video usually means the pilot tablet or Mission Overwatch device received footage but could not upload it to the cloud yet.
+
+1. Keep the pilot app or browser open.
+2. Connect to an internet-accessible network.
+3. Use **Upload now** on the pilot tablet if the button appears.
+4. Wait for upload progress to complete.
+5. In Mission Overwatch, wait for **Loading playback link** to resolve.
+
+## Manual upload will not start
+
+Check these items:
+
+- The mission is saved and available in AlphaRelay.
+- You are signed in.
+- The browser can reach the cloud.
+- The selected file is the correct mission MP4.
+- Another footage upload is not already running.
+
+If cloud upload fails, AlphaRelay may keep the file locally and retry later.
+
+## Play with Events has no markers
+
+Event markers depend on the mission timeline and footage mapping.
+
+Check that:
+
+- The mission has logged events.
+- The correct mission is open.
+- The clip is playable.
+- The clip is the primary footage or has a sync offset to the primary timeline.
+- The mission was closed and the footage is linked.
+
+If markers appear on the primary clip but not on a secondary angle, adjust the secondary sync to primary.
+
+## Secondary angle is out of sync
+
+Use the timeline viewer sync tools.
+
+1. Open **Play with Events**.
+2. Switch to the secondary angle.
+3. Click **Adjust sync to primary**.
+4. Slide the secondary clip until the same moment matches the primary drone video.
+5. Save the sync offset.
+
+After saving, event markers should map to the secondary angle more accurately.
+
+## Tag event cannot capture a screenshot
+
+The browser must be able to read the current video frame.
+
+Try this:
+
+1. Wait for the video to finish loading.
+2. Play or scrub to the frame again.
+3. Confirm the footage playback link is working.
+4. Try the primary clip if a secondary clip fails.
+
+If the video source blocks frame capture, use normal event logging and add context in the event note.
+
+## Offline package video will not play
+
+Some browsers restrict local file playback after a ZIP is extracted.
+
+Try this:
+
+- Use Chrome or Edge for large packages.
+- Keep the extracted folder intact.
+- Open `index.html` from inside the extracted folder.
+- If the browser blocks local video, run a static server from the extracted folder with `python3 -m http.server 8765`, then open `http://localhost:8765`.
+
+Do not move files out of the extracted folder unless your records process requires it.

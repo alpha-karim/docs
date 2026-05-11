@@ -18,6 +18,17 @@
             "pages": ["index"]
           },
           {
+            "group": "New user onboarding",
+            "pages": [
+              "alpharelay/quick-start-checklist",
+              "alpharelay/roles-and-devices",
+              "alpharelay/connectivity-guide",
+              "alpharelay/training-mission",
+              "alpharelay/troubleshooting",
+              "alpharelay/glossary"
+            ]
+          },
+          {
             "group": "Zero to live mission guide",
             "pages": [
               "alpharelay/guide-overview",
