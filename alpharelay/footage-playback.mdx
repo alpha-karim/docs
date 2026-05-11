@@ -10,6 +10,7 @@ Uploaded clips appear under **Mission Footage**. From there, operators can:
 - Play, pause, and scrub through clips
 - Save a copy using the browser’s normal save or download options
 - Open the clip with timeline events using **Play with Events**
+- Review multiple uploaded angles from the same mission
 
 There is a separate download button on each clip.
 
@@ -18,6 +19,30 @@ There is a separate download button on each clip.
 Use **Play with Events** to open the timeline view with event markers, synced data, mission timestamps, and related logged activity.
 
 After the mission is closed, use **Play with Events** in the sticky header for that past mission.
+
+The timeline viewer supports:
+
+- Orange event markers on the scrubber
+- Event screenshots in the side panel
+- Active-event highlighting as the video plays
+- Angle tabs for switching between primary and secondary clips
+- **All angles** to tile every available feed in a synchronized view
+- **Adjust sync to primary** on secondary clips, so teams can slide a secondary angle until it matches the primary drone timeline
+
+Mission events stay tied to the primary mission timeline. When a secondary angle has a sync offset, AlphaRelay maps those same events onto the secondary video so review teams can inspect the same moment from another view.
+
+## Tag post-mission events from footage
+
+For closed missions, the Play with Events viewer includes an **Event name** field and **Tag event** button. Use this when review reveals something important after the flight.
+
+1. Open a closed mission.
+2. Click **Play with Events**.
+3. Switch to the angle that shows the moment clearly.
+4. Scrub to the frame you want to capture.
+5. Enter a short event name.
+6. Click **Tag event**.
+
+AlphaRelay captures the current video frame as an event screenshot, adds the event to the mission timeline, and places a new marker on the footage timeline. If you leave the event name blank, AlphaRelay creates a default post-mission event label with the clip and time.
 
 ## Evidence controls
 

@@ -12,6 +12,8 @@ For auto upload to work, the pilot tablet must be connected to a network with in
 
 If you do not want to wait for auto upload, or if battery life is a concern, tap **Skip**, then manually upload the footage later.
 
+When the pilot app has mission video ready after stopping the relay, it shows a footage upload banner. The banner can show upload progress, the number of mission videos waiting locally, and an **Upload now** action when the tablet can reach the cloud.
+
 **To manually upload the file**
 
 1. Remove the SD card from the aircraft or connect the aircraft to a computer.
@@ -23,4 +25,14 @@ If you do not want to wait for auto upload, or if battery life is a concern, tap
 
 Use auto upload when you have a reliable internet-connected network and enough battery remaining. Use manual upload when you need to preserve battery, leave the field quickly, or upload the file from a computer later.
 
-If you see **Queued for cloud sync** or **Loading playback link**, stay signed in and online. The footage may take time to finish uploading or linking after the flight.
+## Deferred local upload
+
+If AlphaRelay receives a mission video but cannot reach the cloud, it can keep the file locally and upload it automatically later. This can happen when:
+
+- The pilot tablet sends video over the local relay network but the Mission Console does not have internet access
+- A manual browser upload starts while cloud connectivity is unavailable
+- A cloud upload begins but fails before the file is saved
+
+Stay signed in and bring the device back online when possible. AlphaRelay retries queued footage automatically, and the pilot tablet may also offer **Upload now** when pending mission videos are available.
+
+If you see **Queued for cloud sync**, **Loading playback link**, or a pending-video count, keep AlphaRelay open and online until the upload and playback link finish.
