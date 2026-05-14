@@ -21,12 +21,12 @@ After the relay starts, the pilot app shows the tablet IPv4 and secure relay URL
 
 In Mission Overwatch:
 
-1. Confirm **Tablet IP (LAN)** is prepopulated with the discovered pilot tablet.
-2. Click **Connect** so Mission Overwatch uses the discovered LAN relay.
-3. AlphaRelay uses `wss://` and port `8789` automatically for normal LAN relay connections.
+1. If **Tablet IP (LAN)** is blank, click **Connect** to scan the LAN for the pilot relay.
+2. If an IP address is already shown, confirm it matches the pilot tablet, then click **Connect**.
+3. AlphaRelay uses `wss://` and port `8789` automatically for normal LAN relay connections when you enter only the tablet IPv4.
 4. If prompted, trust the relay or live-video certificate, then connect again.
 
-Manual IPv4 entry is a fallback for networks where discovery is blocked or the prepopulated address is wrong. For cloud tunnels or non-LAN setups, paste the full `ws://` or `wss://` URL provided by the team.
+Manual IPv4 entry is a fallback for networks where discovery is blocked or the saved address is wrong. For cloud tunnels or non-LAN setups, paste the full `ws://` or `wss://` URL provided by the team.
 
 ## Flight controls and controller-first flying
 
@@ -57,16 +57,9 @@ Local AI is optional on-device detection in the Android pilot app.
 
 When enabled, it samples the same live relay frames used by the MJPEG feed. It does not add a separate camera pipeline. Detected items can auto-log local AI events with screenshots and metadata.
 
-Current detection categories include:
+The current pilot setting emits **Person detected** events. The codebase also contains mapping hooks for additional tags, such as multiple persons, prone/down posture, unattended objects, large blocking objects, low visibility, sudden movement, and door-open labels when a future or custom model exposes those signals.
 
-- Person detected
-- Multiple persons detected
-- Person prone or down
-- Unattended object
-- Large object blocking path
-- Door open when supported by the model
-
-To configure it, open **Pilot console** → **Local AI**, enable on-device detection, adjust sample rate, confidence, persistence, and cooldown settings, then save.
+To configure it, open **Pilot console** or **Controls** → **Local AI**, enable on-device detection, adjust sample rate, confidence, persistence, and cooldown settings, then save. Detection mode is fixed to person-detected events in this build.
 
 <Warning>
   Local AI supports review and event triage, but it does not replace pilot judgment, agency policy, or required human confirmation.

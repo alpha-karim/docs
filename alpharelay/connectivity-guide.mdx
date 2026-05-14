@@ -27,8 +27,8 @@ If Mission Overwatch cannot connect to the pilot relay:
 
 - Confirm both devices are on the same Wi-Fi network.
 - Confirm the pilot app shows the relay as running.
-- Confirm **Tablet IP (LAN)** is prepopulated with the discovered pilot tablet.
-- Use the IPv4 address shown on the pilot tablet only if discovery is blocked or the prepopulated address is wrong.
+- If **Tablet IP (LAN)** is blank, click **Connect** to scan the LAN.
+- If discovery is blocked or the saved address is wrong, enter the IPv4 address shown on the pilot tablet.
 - Trust the relay certificate if the browser prompts for it.
 
 ## Internet connectivity
@@ -57,7 +57,7 @@ Depending on the current mission state and device setup, AlphaRelay can continue
 - Event logging
 - Screenshots captured from the pilot relay
 - Local mission state
-- Deferred footage queueing
+- Deferred pilot-handoff footage queueing
 - Recently validated pilot tablet licensing within the app's offline validation window
 
 Keep AlphaRelay open when possible so queued changes can sync when connectivity returns.
@@ -71,7 +71,7 @@ You may see messages such as:
 - A pending mission video count
 - A pilot tablet upload banner
 
-These usually mean AlphaRelay has local mission data or footage that still needs to reach the cloud.
+These usually mean AlphaRelay has local mission data or pilot-handoff footage that still needs to reach the cloud.
 
 When you see these states:
 
@@ -91,4 +91,4 @@ Field networks are often optimized for the pilot relay, not internet upload. Aft
 4. Move the device to an internet-connected network.
 5. Let cloud sync and footage upload complete.
 
-If footage is queued locally, AlphaRelay retries upload when internet access returns.
+If pilot-handoff footage is queued locally, AlphaRelay retries upload when internet access returns.

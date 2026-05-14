@@ -12,8 +12,8 @@ Check the local relay path first.
 
 1. Confirm the pilot app is open and the relay is running.
 2. Confirm the pilot tablet and Mission Overwatch device are on the same Wi-Fi network.
-3. Confirm **Tablet IP (LAN)** is prepopulated with the discovered pilot tablet.
-4. If discovery fails or the prepopulated address is wrong, enter the IPv4 address shown on the pilot tablet as a fallback.
+3. If **Tablet IP (LAN)** is blank, click **Connect** to scan the LAN.
+4. If discovery fails or the saved address is wrong, enter the IPv4 address shown on the pilot tablet as a fallback.
 5. If the browser asks to trust the relay certificate, complete that step and connect again.
 6. Restart the relay if the tablet IP address changed.
 
@@ -62,7 +62,7 @@ Check these items:
 - The selected file is the correct mission MP4.
 - Another footage upload is not already running.
 
-If cloud upload fails, AlphaRelay may keep the file locally and retry later.
+Manual browser uploads do not queue before they start. If the cloud is unreachable, keep the MP4 on your computer and retry after sign-in and internet connectivity are restored. Pilot handoff footage received over the LAN can be queued locally and retried automatically.
 
 ## Mission photo upload will not start
 
@@ -122,13 +122,13 @@ If the video source blocks frame capture, use normal event logging and add conte
 Check the pilot app first.
 
 - Start the relay before expecting local AI samples.
-- Open **Pilot console** → **Local AI** and confirm detection is enabled.
+- Open **Pilot console** or **Controls** → **Local AI** and confirm detection is enabled.
 - Confirm the on-device model is available in the app build.
 - Lower the confidence threshold only during testing and restore the team's normal threshold afterward.
 - Check the cooldown and persistence settings; a detection may need several hits before AlphaRelay logs an event.
 - Confirm the aircraft is in the expected flight state. Some auto-tagging is designed to avoid repeated grounded detections.
 
-Local AI events should appear in Mission Overwatch as local AI or Android pilot local AI entries.
+In this build, Local AI is fixed to person-detected events. Local AI events should appear in Mission Overwatch as local AI or Android pilot local AI entries.
 
 ## Report approval buttons are disabled
 
