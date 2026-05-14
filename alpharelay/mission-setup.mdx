@@ -19,8 +19,11 @@ The command device can be a laptop, desktop, another tablet or phone, or the sam
 
 **On the pilot tablet**
 
-1. Tap **Start Relay + DJI**.
-2. Complete any license step if prompted.
+1. Choose the mission mode.
+2. Use **Full relay** when Mission Overwatch will connect to this tablet for a live browser view.
+3. Use **Pilot only** when the pilot app should create a field mission without a live Mission Overwatch browser session.
+4. Tap **Start Relay + DJI**.
+5. Complete any license step if prompted.
 
 **In the web app**
 
@@ -28,11 +31,11 @@ The command device can be a laptop, desktop, another tablet or phone, or the sam
 2. Under **Mission**, enter the mission name.
 3. Select a **Scenario Template**, if your team uses one.
 4. Click **Start Mission**.
-5. Under **Live Overwatch Screen**, enter the IPv4 address shown on the pilot tablet (for example, `192.168.1.224`).
-6. Click **Connect**.
+5. Under **Live Overwatch Screen**, confirm **Tablet IP (LAN)** is prepopulated with the discovered pilot tablet.
+6. Click **Connect**. Mission Overwatch uses the discovered LAN relay and connects automatically.
 
 <Tip>
-  You can also leave the IP field blank and use **Connect** or **Scan LAN**, depending on the on-screen hint.
+  Manual IP entry is only a fallback. Use it if the prepopulated address is wrong, or paste a full `ws://` or `wss://` URL if your team is using a tunnel.
 </Tip>
 
 If the browser asks you to trust the pilot relay certificate:
@@ -41,3 +44,9 @@ If the browser asks you to trust the pilot relay certificate:
 2. Complete the trust page in the new tab.
 3. Return to Mission Overwatch.
 4. Connect again.
+
+## Remote live option
+
+If your team has remote live streaming configured, the pilot app can start a remote live stream for an active mission. Mission Overwatch can then switch the feed source to **Live stream (WebRTC)** instead of using the local relay feed.
+
+Use the local relay when the command device is on the same network as the tablet. Use remote live when remote reviewers need to watch without joining the tablet LAN.

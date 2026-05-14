@@ -16,6 +16,7 @@ During flight, use the on-screen pilot controls to adjust:
 - Yaw / rotation
 - Gimbal angle
 - Camera positioning
+- Obstacle avoidance and related DJI controls when available
 
 Teams that prefer flying with only the physical controller can simplify the overlay. Quick events and telemetry remain available.
 
@@ -26,3 +27,9 @@ To use tap-to-fly:
 1. Touch and hold on the live video feed.
 
 The aircraft will move in that direction based on DJI tap-to-fly behavior. Supported directions include forward, back, left, and right.
+
+## Local AI during flight
+
+If your team enables local AI in the pilot app, on-device detection samples the same live relay frames used by Mission Overwatch. Confirmed detections can create local AI events with screenshots and metadata.
+
+Use local AI as an assistive signal only. Review auto-tagged events the same way you review pilot quick events and voice relay entries.

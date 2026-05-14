@@ -22,6 +22,8 @@
             "pages": [
               "alpharelay/quick-start-checklist",
               "alpharelay/roles-and-devices",
+              "alpharelay/dashboard-account-organization",
+              "alpharelay/pilot-app-and-local-ai",
               "alpharelay/connectivity-guide",
               "alpharelay/training-mission",
               "alpharelay/evidence-sealing",

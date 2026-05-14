@@ -5,7 +5,7 @@ Operator documentation for [AlphaRelay](https://www.alpha-relay.com), built with
 ## Content
 
 - **Home** — `index.mdx`
-- **New user onboarding** — `alpharelay/quick-start-checklist.mdx`, `alpharelay/roles-and-devices.mdx`, `alpharelay/connectivity-guide.mdx`, `alpharelay/training-mission.mdx`, `alpharelay/evidence-sealing.mdx`, `alpharelay/troubleshooting.mdx`, `alpharelay/glossary.mdx`
+- **New user onboarding** — `alpharelay/quick-start-checklist.mdx`, `alpharelay/roles-and-devices.mdx`, `alpharelay/dashboard-account-organization.mdx`, `alpharelay/pilot-app-and-local-ai.mdx`, `alpharelay/connectivity-guide.mdx`, `alpharelay/training-mission.mdx`, `alpharelay/evidence-sealing.mdx`, `alpharelay/troubleshooting.mdx`, `alpharelay/glossary.mdx`
 - **Mission guide overview** — `alpharelay/guide-overview.mdx`
 - **Chapters** — `alpharelay/one-time-setup.mdx`, `alpharelay/mission-setup.mdx`, `alpharelay/mission-execution.mdx`, `alpharelay/event-logging.mdx`, `alpharelay/completing-a-mission.mdx`, `alpharelay/footage-upload.mdx`, `alpharelay/footage-playback.mdx`, `alpharelay/report-generation.mdx`, `alpharelay/export-offline-package.mdx`, `alpharelay/mission-lifecycle-summary.mdx`
 

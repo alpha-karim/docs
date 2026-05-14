@@ -14,9 +14,12 @@ The pilot tablet is responsible for:
 
 - Connecting to the drone controller
 - Starting the local relay
+- Choosing pilot-only or full-relay mission mode
 - Showing the live pilot interface
 - Sending live video and telemetry to Mission Overwatch
 - Logging quick events from the field
+- Logging voice relay events when enabled
+- Running optional local AI detection when configured
 - Recording or forwarding mission footage
 - Queuing footage locally when cloud upload is not available
 
@@ -28,8 +31,9 @@ Mission Overwatch is responsible for:
 
 - Starting and closing missions
 - Connecting to the pilot relay
-- Viewing the live feed
+- Viewing the live feed over local relay or configured remote live stream
 - Logging manual and quick events
+- Uploading mission photos
 - Reviewing mission footage
 - Running **Play with Events**
 - Generating reports and offline packages
@@ -70,6 +74,9 @@ The admin may handle:
 
 - Operator accounts
 - Organization settings
+- Member names, ranks, roles, and statuses
+- Organization time zone
+- Organization storage review
 - Pilot tablet license keys
 - Scenario templates
 - Access to mission records

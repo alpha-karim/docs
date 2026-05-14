@@ -13,6 +13,8 @@ AlphaRelay uses Alpha AI to build the after-action report from the mission recor
 
 The report is generated from the structured mission timeline, helping turn live mission activity into a clear, review-ready after-action report.
 
+Report generation also considers mission photos, local AI events, voice relay entries, footage links, organization time zone, and any available custody snapshot.
+
 ## Review and edit the report
 
 After Alpha AI generates the report, AlphaRelay displays a structured after-action report that may include sections such as:
@@ -21,6 +23,9 @@ After Alpha AI generates the report, AlphaRelay displays a structured after-acti
 - Important timeline
 - Evidence notes
 - Items requiring officer review
+- Mission photos
+- Evidence custody summary
+- Review history and approval status
 
 The officer should carefully review the full report before finalizing it. Pay special attention to **Items Requiring Officer Review**. These are areas Alpha AI has identified as needing human confirmation, clarification, or additional detail.
 
@@ -43,7 +48,6 @@ For a fuller onboarding explanation, see [Evidence sealing](/alpharelay/evidence
 Under **Mission Chain of Custody**, the officer may see options such as:
 
 - **Download Mission Custody Certificate (HTML)**
-- **Seal Entire Mission**
 - **Seal Entire Mission and Verify Downloads**
 
 Use these controls when the mission record is ready to be preserved.
@@ -72,9 +76,11 @@ Click **Submit for Supervisor Approval** when the mission report is complete and
 - Evidence has been reviewed
 - The mission record is ready for approval
 
+You can add an optional note to the supervisor during submission. While the report is awaiting supervisor approval, operator edits to the report, mission timeline, and photos are restricted.
+
 **Return to draft**
 
-Click **Return to Draft** if more changes are needed. Use **Return to Draft** when:
+Organization admins acting as supervisors can approve the report or click **Return to Draft** if more changes are needed. Use **Return to Draft** when:
 
 - The report needs additional edits
 - Evidence notes need correction
@@ -82,3 +88,7 @@ Click **Return to Draft** if more changes are needed. Use **Return to Draft** wh
 - The mission record is not ready for supervisor approval
 
 This allows the officer to continue working on the report before final submission.
+
+**Approve report**
+
+Click **Approve Report** only when the final reviewed version should become the permanent record. Once approved, the after-action report cannot be regenerated or edited, and timeline events and photos stay locked.

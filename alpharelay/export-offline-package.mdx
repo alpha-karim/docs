@@ -18,11 +18,14 @@ The offline package may include:
 - After-action report HTML file
 - Footage clips, when available
 - Event screenshots, when available
+- Mission photos, when available
 - A small offline viewer for reviewing the mission timeline and media
 
 Footage and screenshots are placed inside a `media/` folder when the browser is able to download them.
 
 The offline viewer preserves the mission review experience as closely as possible. When multiple angles are exported, reviewers can switch angles or use **All angles** to view synchronized feeds. Event thumbnails and screenshots remain available in the side panel, including screenshots created during post-mission tagging.
+
+Timeline photos and evidence-only mission photos are included when AlphaRelay can download them during export.
 
 ## How to export the offline package
 
@@ -50,6 +53,8 @@ The offline package may include the following files and folders:
 | `README.txt` | Instructions for opening and reviewing the offline package, including what to do if your browser blocks video playback from a local file. |
 | `manifest.json` | A package index that lists the format of the export and the files included. |
 | `media/` | Downloaded mission media when available, including footage clips and event screenshots. |
+
+Mission photos are stored under `media/` along with the other exported mission media when the browser can retrieve them.
 
 ## How to open the offline package
 

@@ -1,0 +1,79 @@
+---
+title: "Pilot app and local AI"
+description: "Understand Android pilot app mission modes, relay controls, quick events, voice logging, remote live, and optional on-device detection."
+icon: "tablet-screen-button"
+---
+
+The Android pilot app connects to the aircraft controller, starts the local relay, shows the pilot interface, and sends mission events and media handoff data back to AlphaRelay.
+
+## Mission modes
+
+When starting work on the pilot tablet, choose a mission mode:
+
+- **Pilot only** creates a pilot-side mission flow for field use without requiring a live Mission Overwatch browser session.
+- **Full relay** starts a mission path intended to connect with Mission Overwatch over the local relay.
+
+For a full relay mission, keep the pilot tablet and Mission Overwatch browser on the same local network unless your team is using a remote live stream path.
+
+## Relay connection
+
+After the relay starts, the pilot app shows the tablet IPv4 and secure relay URL.
+
+In Mission Overwatch:
+
+1. Confirm **Tablet IP (LAN)** is prepopulated with the discovered pilot tablet.
+2. Click **Connect** so Mission Overwatch uses the discovered LAN relay.
+3. AlphaRelay uses `wss://` and port `8789` automatically for normal LAN relay connections.
+4. If prompted, trust the relay or live-video certificate, then connect again.
+
+Manual IPv4 entry is a fallback for networks where discovery is blocked or the prepopulated address is wrong. For cloud tunnels or non-LAN setups, paste the full `ws://` or `wss://` URL provided by the team.
+
+## Flight controls and controller-first flying
+
+The pilot app includes takeoff, land, yaw, altitude, gimbal, tap-to-fly, and related command controls.
+
+Pilots who prefer the physical DJI controller can hide the on-screen drone controls from the pilot console. Quick events, telemetry, and relay status remain visible.
+
+## Quick events and voice relay
+
+The pilot app supports several event logging paths:
+
+- Quick event buttons such as **Subject**, **Entry**, **Evidence**, **Support**, **Secured**, and **Relay**
+- A quick event wheel for faster field tagging
+- Manual event notes from the pilot console
+- Voice relay logging with the phrase `relay <event details>`
+
+Pilot events appear in Mission Overwatch and the mission timeline. Voice events are labeled as voice relay events.
+
+## Remote live stream
+
+When configured, the pilot app can publish a remote live stream for an active pilot or Overwatch mission. This lets remote Mission Overwatch users watch the live feed through AlphaRelay without being on the tablet's LAN.
+
+Remote live uses AlphaRelay's Cloudflare live-stream path. The normal LAN relay remains the primary local mission connection when the command device is on the same network.
+
+## Local AI
+
+Local AI is optional on-device detection in the Android pilot app.
+
+When enabled, it samples the same live relay frames used by the MJPEG feed. It does not add a separate camera pipeline. Detected items can auto-log local AI events with screenshots and metadata.
+
+Current detection categories include:
+
+- Person detected
+- Multiple persons detected
+- Person prone or down
+- Unattended object
+- Large object blocking path
+- Door open when supported by the model
+
+To configure it, open **Pilot console** → **Local AI**, enable on-device detection, adjust sample rate, confidence, persistence, and cooldown settings, then save.
+
+<Warning>
+  Local AI supports review and event triage, but it does not replace pilot judgment, agency policy, or required human confirmation.
+</Warning>
+
+## Footage handoff
+
+After takeoff, the pilot app can start aircraft SD recording when supported. After landing or stopping the relay, it can hand off mission video to Mission Overwatch for upload.
+
+If the handoff cannot complete, use the pilot app's upload action when online or upload the MP4 manually from Mission Overwatch.
