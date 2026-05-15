@@ -8,15 +8,14 @@ AlphaRelay connects field devices, command review, cloud sync, and evidence pack
 
 ## Pilot operator
 
-The pilot operator uses the Android pilot tablet with the AlphaRelay pilot app.
+The pilot operator uses an Android tablet or phone with the AlphaRelay pilot app.
 
-The pilot tablet is responsible for:
+The pilot tablet or phone is responsible for:
 
 - Connecting to the drone controller
-- Starting the local relay
-- Choosing pilot-only or full-relay mission mode
+- **Starting missions** via **Choose Mission Mode** (**Pilot only** or **Full relay**) and kicking off the LAN relay (**full relay**) or remote-live publishing (**pilot only** when reviewers watch off LAN)
 - Showing the live pilot interface
-- Sending live video and telemetry to Mission Overwatch
+- Sending live video and telemetry to Mission Overwatch (LAN relay/WebSocket path **or** configured WebRTC ingest from the pilot)
 - Logging quick events from the field
 - Logging voice relay events when enabled
 - Running optional local AI detection when configured
@@ -29,16 +28,15 @@ The Mission Overwatch operator uses the AlphaRelay web app in a browser.
 
 Mission Overwatch is responsible for:
 
-- Starting and closing missions
-- Connecting to the pilot relay
-- Viewing the live feed over local relay or configured remote live stream
+- **Closing missions from the browser when required** (**Stop Mission** on the pilot is the typical paired shutdown step)
+- Consuming **full relay** feeds after dashboard hand-off (LAN metadata prefill/autoconnect, with Connect/scan/manual fallbacks only when needed), or tuning into **Live stream (WebRTC)** when the pilot publishes it
 - Logging manual and quick events
 - Uploading mission photos
 - Reviewing mission footage
 - Running **Play with Events**
 - Generating reports and offline packages
 
-The Mission Overwatch device can be a laptop, desktop, tablet, phone, or the same device running the web app, as long as it can reach the pilot relay on the local network.
+The Mission Overwatch device can be any supported browser workstation. LAN relay watchers must share the pilot Wi‑Fi/VLAN; reviewers using **Live stream (WebRTC)** intentionally do **not** need direct relay reachability.
 
 ## Reviewer or officer
 
@@ -77,7 +75,7 @@ The admin may handle:
 - Member names, ranks, roles, and statuses
 - Organization time zone
 - Organization storage review
-- Pilot tablet license keys
+- Pilot tablet/phone license keys
 - Scenario templates
 - Access to mission records
 
@@ -85,7 +83,7 @@ The admin may handle:
 
 | Device | Used for |
 |--------|----------|
-| Android pilot tablet | Pilot app, relay, live controls, quick events, footage handoff |
+| Android pilot tablet or phone | Pilot app, relay, live controls, quick events, footage handoff |
 | Drone controller | DJI flight control connection |
 | Aircraft | Mission flight and recording |
 | Mission Overwatch device | Browser-based command view, event logging, review, reports |

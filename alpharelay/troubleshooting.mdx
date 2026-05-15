@@ -11,25 +11,25 @@ Use this page when AlphaRelay is not behaving as expected during setup, mission 
 Check the local relay path first.
 
 1. Confirm the pilot app is open and the relay is running.
-2. Confirm the pilot tablet and Mission Overwatch device are on the same Wi-Fi network.
-3. If **Tablet IP (LAN)** is blank, click **Connect** to scan the LAN.
-4. If discovery fails or the saved address is wrong, enter the IPv4 address shown on the pilot tablet as a fallback.
+2. Confirm the pilot tablet or phone and the Mission Overwatch device are on the same Wi-Fi network.
+3. Confirm the dashboard mission synced after takeoff — the browser usually **prefills** the pilot IPv4 from cloud metadata before connecting; give sync a beat if IP was recently assigned by DHCP.
+4. If discovery fails or the saved address still looks wrong after sync, click **Connect** with a blank field (LAN scan), or paste the IPv4 shown on the pilot tablet or phone manually.
 5. If the browser asks to trust the relay certificate, complete that step and connect again.
-6. Restart the relay if the tablet IP address changed.
+6. Restart the relay if the pilot device IP address changed.
 
 If you are trying to watch remotely, confirm the pilot app shows remote live as running and switch Mission Overwatch to **Live stream (WebRTC)**.
 
 ## Pilot app license check fails
 
-License checks require a valid pilot bridge license and internet access unless the tablet is still inside its recent offline validation window.
+License checks require a valid pilot bridge license and internet access unless the tablet or phone is still inside its recent offline validation window.
 
 Try this:
 
 - Confirm the key starts with `ar-`.
-- Scan the QR again from **Organization**.
-- Connect the tablet to the internet and retry.
+- Scan the QR again from **Organization**, or long-press **Choose Mission Mode** on the pilot tablet or phone to open **License settings** and paste the key by hand.
+- Connect the tablet or phone to the internet and retry.
 - Ask an admin to confirm the key is active and the seat limit has not been reached.
-- If the tablet installation was revoked, use a different active key or ask an admin to reactivate access.
+- If the pilot device installation was revoked, use a different active key or ask an admin to reactivate access.
 
 ## Cloud sync is not up to date
 
@@ -44,11 +44,11 @@ If the mission was run on a local-only field network, sync may complete after re
 
 ## Pilot video is queued locally
 
-Queued pilot video usually means the pilot tablet or Mission Overwatch device received footage but could not upload it to the cloud yet.
+Queued pilot video usually means the pilot tablet or phone, or the Mission Overwatch device, received footage but could not upload it to the cloud yet.
 
 1. Keep the pilot app or browser open.
 2. Connect to an internet-accessible network.
-3. Use **Upload now** on the pilot tablet if the button appears.
+3. Use **Upload now** on the pilot tablet or phone if the button appears.
 4. Wait for upload progress to complete.
 5. In Mission Overwatch, wait for **Loading playback link** to resolve.
 
@@ -121,14 +121,22 @@ If the video source blocks frame capture, use normal event logging and add conte
 
 Check the pilot app first.
 
-- Start the relay before expecting local AI samples.
-- Open **Pilot console** or **Controls** → **Local AI** and confirm detection is enabled.
+- Start the relay (tap **Choose Mission Mode**, then **Pilot only** or **Full relay**) before expecting local AI samples.
+- Open **Pilot console → Mission → Local AI** and confirm detection is enabled.
 - Confirm the on-device model is available in the app build.
 - Lower the confidence threshold only during testing and restore the team's normal threshold afterward.
 - Check the cooldown and persistence settings; a detection may need several hits before AlphaRelay logs an event.
 - Confirm the aircraft is in the expected flight state. Some auto-tagging is designed to avoid repeated grounded detections.
 
 In this build, Local AI is fixed to person-detected events. Local AI events should appear in Mission Overwatch as local AI or Android pilot local AI entries.
+
+## Pilot tablet or phone says an update is available
+
+The pilot app can check for newer APK builds.
+
+- Open **Pilot console → App update → Check for App Update** to look for a newer build.
+- When the app prompts about a newer upload, tap **Download** to open the install link in the browser, then install the APK as usual.
+- If the check fails, confirm the tablet or phone is online and try again.
 
 ## Report approval buttons are disabled
 

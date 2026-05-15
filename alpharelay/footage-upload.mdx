@@ -8,11 +8,11 @@ icon: "cloud-arrow-up"
 
 After the mission, the pilot app may attempt to automatically upload the recorded footage.
 
-For direct tablet-to-cloud upload, the pilot tablet must be connected to a network with internet access. If the tablet hands the video to Mission Overwatch over the LAN, the Mission Overwatch browser needs internet access to upload it immediately; otherwise the handoff can queue locally for later sync. Automatic upload can take time and may continue using the drone, controller, or tablet battery while the file is transferring.
+For direct pilot-device-to-cloud upload, the pilot tablet or phone must be connected to a network with internet access. If the device hands the video to Mission Overwatch over the LAN, the Mission Overwatch browser needs internet access to upload it immediately; otherwise the handoff can queue locally for later sync. Automatic upload can take time and may continue using the drone, controller, or pilot device battery while the file is transferring.
 
 If you do not want to wait for auto upload, or if battery life is a concern, tap **Skip**, then manually upload the footage later.
 
-When the pilot app has mission video ready after landing or stopping the relay, it shows a footage upload banner. The banner can show upload progress, the number of mission videos waiting locally, and an **Upload now** action when the tablet can reach the cloud.
+When the pilot app has mission video ready after landing or stopping the relay, it shows a footage upload banner. The banner can show upload progress, the number of mission videos waiting locally, and an **Upload now** action when the tablet or phone can reach the cloud.
 
 For supported aircraft workflows, the pilot app may start SD recording after takeoff and stop recording after a successful land command. If no SD clip is pulled, record with DJI during flight, check the aircraft storage path, or upload the MP4 manually from Mission Overwatch.
 
@@ -29,14 +29,14 @@ Use auto upload when you have a reliable internet-connected network and enough b
 
 ## Deferred pilot handoff upload
 
-If Mission Overwatch receives a mission video from the pilot tablet over the local relay but cannot reach the cloud, it can keep that pilot-handoff file locally and upload it automatically later. This can happen when:
+If Mission Overwatch receives a mission video from the pilot tablet or phone over the local relay but cannot reach the cloud, it can keep that pilot-handoff file locally and upload it automatically later. This can happen when:
 
-- The pilot tablet sends video over the local relay network but the Mission Console does not have internet access
+- The pilot tablet or phone sends video over the local relay network but Mission Overwatch in the browser does not have internet access
 - A pilot handoff cloud upload begins but fails before the file is saved
 
 Manual **Upload MP4** from a computer requires the browser to be signed in and able to reach the cloud before upload starts. If the network is unavailable, keep the MP4 and retry the manual upload after reconnecting.
 
-Stay signed in and bring the device back online when possible. AlphaRelay retries queued pilot-handoff footage automatically, and the pilot tablet may also offer **Upload now** when pending mission videos are available.
+Stay signed in and bring the device back online when possible. AlphaRelay retries queued pilot-handoff footage automatically, and the pilot tablet or phone may also offer **Upload now** when pending mission videos are available.
 
 If you see **Queued for cloud sync**, **Loading playback link**, or a pending-video count, keep AlphaRelay open and online until the upload and playback link finish.
 

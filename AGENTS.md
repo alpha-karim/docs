@@ -23,7 +23,7 @@
 - Use active voice and second person ("you")
 - Keep sentences concise — one idea per sentence
 - Use sentence case for headings
-- Bold for UI elements: Click **Start Mission**
+- Bold for UI elements: Click **Open in console**
 - Code formatting for file names, commands, paths, code references, and IP examples
 
 ## Content boundaries

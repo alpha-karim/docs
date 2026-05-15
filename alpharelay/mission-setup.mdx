@@ -1,6 +1,6 @@
 ---
 title: "Mission setup"
-description: "Network and hardware checks, then start the relay and connect Mission Overwatch."
+description: "Network and hardware checks, starting the relay from Android, opening Mission Overwatch from the dashboard, and connecting to the relay."
 icon: "wifi"
 ---
 
@@ -8,45 +8,51 @@ icon: "wifi"
 
 Before starting a mission:
 
-- Put the pilot tablet and command device on the same Wi-Fi network.
-- Connect the pilot tablet to the drone controller.
+- Put the pilot tablet or phone and command device on the same Wi‑Fi network **when using the LAN relay** (unless the team relies on configured **remote live** instead).
+- Connect the pilot tablet or phone to the drone controller.
 - Power on the drone controller.
 - Power on the aircraft.
 
-The command device can be a laptop, desktop, another tablet or phone, or the same device running the app.
+The pilot app runs on an approved Android tablet or phone. The command device can be a laptop, desktop, tablet, phone, or another browser profile.
 
-## Start the relay and mission console
+## Start the mission from the Android pilot tablet or phone
 
-**On the pilot tablet**
+Mission records are created on the pilot device. **Mission Overwatch no longer starts missions from the browser** — always begin from the app.
 
-1. Choose the mission mode.
-2. Use **Full relay** when Mission Overwatch will connect to this tablet for a live browser view.
-3. Use **Pilot only** when the pilot app should create a field mission without a live Mission Overwatch browser session.
-4. Tap **Start Relay + DJI**.
-5. Complete any license step if prompted.
+On the pilot tablet or phone:
 
-**In the web app**
+1. Tap **Choose Mission Mode**.
+2. In the **Choose mission mode** overlay, optionally type a mission name (otherwise defaults apply), pick a scenario template (or **No scenario template**), then tap one of:
+   - **Pilot only** — field mission without LAN relay panels in Mission Overwatch; remote reviewers can still use **Live stream (WebRTC)** when that path is configured and running on the pilot.
+   - **Full relay** — mission intended for the LAN relay/JPEG/WSS path as well as Mission Overwatch logging alongside the pilot.
+3. Complete the license step if prompted.
 
-1. From the home or command dashboard, click **Open Mission Console**.
-2. Under **Mission**, enter the mission name.
-3. Select a **Scenario Template**, if your team uses one.
-4. Click **Start Mission**.
-5. Under **Live Overwatch Screen**, leave **Tablet IP (LAN)** blank to scan the LAN, or confirm the saved tablet IP if one is already shown.
-6. Click **Connect**. Mission Overwatch scans for the LAN relay or connects to the entered tablet IP.
+The app syncs mission metadata (including the tablet’s LAN IPv4 and relay URLs when available) so the browser can reconnect without you retyping addresses.
 
 <Tip>
-  Manual IP entry is a fallback. Use it if LAN scan does not find the tablet, or paste a full `ws://` or `wss://` URL if your team is using a tunnel.
+  Long-press **Choose Mission Mode** to open the **AlphaRelay license** settings without starting the relay.
 </Tip>
 
-If the browser asks you to trust the pilot relay certificate:
+## Open Mission Overwatch from the dashboard
 
-1. Click **Trust Relay Certificate**.
-2. Complete the trust page in the new tab.
-3. Return to Mission Overwatch.
-4. Connect again.
+After the pilot starts a mission and cloud sync catches up, the mission appears under **Active missions** on the **Mission Dashboard**.
 
-## Remote live option
+1. Click **Open in console** for that mission. Mission Overwatch opens already focused on that mission (URL includes `?mission=…`).
 
-If your team has remote live streaming configured, the pilot app can start a remote live stream for an active mission. Mission Overwatch can then switch the feed source to **Live stream (WebRTC)** instead of using the local relay feed.
+### LAN relay (**Full relay**)
 
-Use the local relay when the command device is on the same network as the tablet. Use remote live when remote reviewers need to watch without joining the tablet LAN.
+For **full relay** missions, use the **Live Overwatch Screen** card:
+
+- AlphaRelay fills **Tablet/phone IP (LAN)** from the synced mission metadata and attempts relay connection automatically when the pilot address is known.
+- If connection does not succeed, use **Connect** with the field blank to **scan the LAN**, or enter the IPv4 shown on the pilot UI as a fallback. Optional **Relay token** remains for deployments that enforce it.
+- If the browser prompts for TLS, use **Trust relay certificate**, complete trust, return here, then connect again.
+
+Overwatch uses `wss://` and port `8789` when you supply only an IPv4. For tunnels or unusual routing, paste a full `ws://` or `wss://` URL.
+
+### Pilot-only + remote reviewers
+
+When the mission was started as **pilot only**, Mission Overwatch hides the LAN relay/event console blocks that assume a bridged relay, but **Playback / events / footage / reports** remain for review.
+
+If remote live streaming is configured, the pilot publishes from **Pilot console → Remote live stream → Start remote live**; reviewers then use **Live stream (WebRTC)** in the feed shell when offered.
+
+Use the LAN relay path when the command device is on the same network as the pilot tablet or phone (lowest latency). Use **Live stream (WebRTC)** when reviewers are off the pilot LAN.

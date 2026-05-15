@@ -18,37 +18,35 @@ Use a training mission before operational use. The goal is not flight complexity
 
 ## Training script
 
-1. Start the pilot relay.
-2. Start a mission named `Training mission`.
-3. Connect Mission Overwatch to the pilot tablet.
-4. Confirm live video and telemetry.
-5. Log a pilot quick event.
-6. Log a voice relay or manual pilot event if enabled.
-7. Log a Mission Overwatch manual event.
-8. Fly or record briefly using normal DJI safety procedures.
-9. Land the aircraft.
-10. Close the mission.
-11. Upload the mission footage, or confirm pilot-handoff footage queues if the network is offline.
-12. Upload one mission photo.
-13. Open **Play with Events**.
-14. Confirm the event markers appear on the timeline.
-15. Add one post-mission **Tag event** from the video.
-16. Generate the after-action report.
-17. Submit, return, or approve the report if testing the supervisor flow.
-18. Export the offline package.
+1. On the pilot tablet or phone, tap **Choose Mission Mode**, pick a scenario in the overlay (or **No scenario template**), set the mission name to `Training mission`, and tap **Full relay**.
+2. On the command workstation, sign in at the AlphaRelay **Mission Dashboard** and click **Open in console** for the active mission. Confirm Mission Overwatch auto-loads relay info from synced metadata and attaches to the LAN relay (`Connect`/scan remains a troubleshooting fallback **only if** attachment fails).
+3. Confirm live video and telemetry.
+4. Log a pilot quick event.
+5. Log a voice relay or manual pilot event if enabled.
+6. Log a Mission Overwatch manual event.
+7. Fly or record briefly using normal DJI safety procedures.
+8. Tap **Land**.
+9. Tap **Stop Mission** on the pilot tablet or phone to close the mission and end the relay session.
+10. Upload the mission footage, or confirm pilot-handoff footage queues if the network is offline.
+11. Upload one mission photo from Mission Overwatch.
+12. Open **Play with events**.
+13. Confirm the event markers appear on the timeline.
+14. Add one post-mission **Tag event** from the video.
+15. Generate the after-action report.
+16. Submit, return, or approve the report if testing the supervisor flow.
+17. Export the offline package.
 
 ## What the team should learn
 
 After the training mission, every operator should be able to answer:
 
-- Which device starts the relay?
-- Which device starts and closes the mission?
-- How does Mission Overwatch connect to the pilot tablet?
+- Which device starts the relay and the mission?
+- How does Mission Overwatch consume the relay after the dashboard hands off the focused mission (`Open in console`), and when do ops fall back to **Connect**, scan, or manual IPv4?
 - Where do live events appear?
 - What happens when internet is unavailable?
 - How does footage get uploaded, and when can pilot-handoff footage queue?
 - How do mission photos attach to the timeline or evidence record?
-- How do reviewers use **Play with Events**?
+- How do reviewers use **Play with events**?
 - Who can submit, return, or approve the after-action report?
 - When should an officer seal the evidence record?
 - What is included in an offline package?
@@ -57,10 +55,10 @@ After the training mission, every operator should be able to answer:
 
 The training mission is successful when:
 
-- Mission Overwatch connects to the pilot relay.
+- Mission Overwatch reaches the pilot relay reliably (automatic connection after dashboard hand-off, otherwise scan/manual recovery).
 - At least two events appear in the event log.
 - Mission footage appears, or pilot-handoff footage is queued for upload.
-- **Play with Events** opens and shows the event timeline.
+- **Play with events** opens and shows the event timeline.
 - A post-mission tagged event appears in the event log.
 - A mission photo appears in the mission record.
 - The after-action report generates.

@@ -1,52 +1,28 @@
 ---
 title: "Quick start checklist"
-description: "Run your first successful AlphaRelay test mission from setup through playback."
+description: "Run your first successful AlphaRelay test mission in the fewest steps possible."
 icon: "list-check"
 ---
 
-Use this checklist for a first training run or a quick pre-mission rehearsal.
+Short path for a standard **full relay** test. Each bullet is roughly one checkpoint. The pilot app runs on approved Android tablets or phones.
 
-## Before you start
+## Before you fly (once)
 
-- Sign in at [https://www.alpha-relay.com](https://www.alpha-relay.com).
-- Save your name and rank in **Account** if this is the first run.
-- Install and open the AlphaRelay pilot app on the Android pilot tablet.
-- Activate the pilot license if prompted.
-- Confirm the organization time zone and pilot license visibility if you are an organization admin.
-- Connect the pilot tablet to the drone controller.
-- Power on the controller and aircraft.
-- Put the pilot tablet and Mission Overwatch device on the same local Wi-Fi network.
+- Sign in at [alpha-relay.com](https://www.alpha-relay.com); save **name** and **rank** under **Account**.
+- Install the pilot app from [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html) and activate your license (QR or `ar-…` key from **Organization**).
 
-## Start a test mission
+## Live test (minimal)
 
-1. On the pilot tablet, tap **Start Relay + DJI**.
-2. Choose **Full relay** when Mission Overwatch will connect to the tablet.
-3. In the web app, open **Mission Console**.
-4. Enter a mission name such as `Training mission`.
-5. Select a scenario template if your team uses one.
-6. Click **Start Mission**.
-7. Leave **Tablet IP (LAN)** blank to scan, or confirm the saved tablet IP if one is already shown.
-8. Click **Connect**.
-9. Confirm the live pilot feed appears in Mission Overwatch.
+1. Power on drone and RC; plug the pilot device into the RC; put the pilot device and command laptop on the **same Wi‑Fi**.
+2. Pilot app: **Choose Mission Mode** → pick scenario (optional) → **Full relay**.
+3. Command browser: open the **dashboard**, click **Open in console** on the active mission (Mission Overwatch opens for that mission). If prompted, trust the relay certificate once; **Connect / Scan LAN** are only fallback tools if automatic relay connection does not come up.
 
-## Prove the workflow
+## Logging and shutdown
 
-1. Log one quick event from the pilot tablet.
-2. Log one event from Mission Overwatch.
-3. Confirm both entries appear in the **Event Log**.
-4. Capture a short flight or short test recording.
-5. Land the aircraft using normal DJI safety procedures.
-6. Click **Close Mission** in Mission Overwatch.
-7. Optional: upload one mission photo as a timeline or evidence-only photo.
+- Log one quick event from the pilot and one from Mission Overwatch, then fly briefly per DJI rules, **Land**, and tap **Stop Mission** on the pilot.
 
-## Review the mission
+## Wrap-up (optional smoke test)
 
-1. Upload or wait for the mission footage.
-2. Open **Play with Events**.
-3. Confirm event markers appear on the timeline.
-4. Use **Tag event** to add one post-mission event from a video frame.
-5. Generate the after-action report.
-6. Submit the report for supervisor approval if your team is testing approvals.
-7. Export an offline package.
+- After sync, open **Play with events** (confirm markers), optionally **Generate Report** and **Export Offline Package**.
 
-When this checklist passes, the team has validated the core AlphaRelay path: live relay, structured events, footage review, post-mission tagging, report generation, and offline export.
+For detail on networks, streaming, or **pilot-only** missions, continue with [Mission setup](/alpharelay/mission-setup) and [Pilot app and local AI](/alpharelay/pilot-app-and-local-ai).

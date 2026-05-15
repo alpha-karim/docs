@@ -18,7 +18,7 @@ The process that saves local mission changes, events, screenshots, footage recor
 
 ## Event
 
-A timestamped mission entry. Events can be logged from the pilot tablet, Mission Overwatch, or post-mission footage review.
+A timestamped mission entry. Events can be logged from the pilot tablet or phone, Mission Overwatch, or post-mission footage review.
 
 ## Event screenshot
 
@@ -34,7 +34,7 @@ The web app landing area after sign-in. It shows active and closed missions, mis
 
 ## Mission Console
 
-The web app area where operators start missions, connect to the pilot relay, view Mission Overwatch, log events, upload footage, generate reports, and export offline packages.
+Focused Mission Overwatch workspace for one mission (`mission-overwatch.html`). Operators open it from **Open in console** on the dashboard row for that flight. Starting a mission stays on the Android pilot app; Mission Overwatch handles relay/WebRTC feeds (when exposed), structured logging, uploads, playback, Alpha AI reporting, approvals, sealing, and offline export.
 
 ## Mission photo
 
@@ -42,7 +42,7 @@ An uploaded image linked to a mission. Mission photos can be timeline items or e
 
 ## Mission Overwatch
 
-The live mission view in the browser. It shows the pilot relay feed, telemetry, mission controls, event logging, and review tools.
+The focused mission workspace in the browser (opened from dashboard **Open in console**). It consumes synced mission metadata so the LAN relay URI can preload for **full relay** flights, exposes **Live stream (WebRTC)** when configured, manages events, uploads, custody, playback, Alpha AI reporting, approvals, sealing, and export. **Pilot Android always starts** the mission; Overwatch participates after dashboard hand-off.
 
 ## Offline package
 
@@ -50,15 +50,15 @@ A downloadable ZIP archive containing a point-in-time copy of the mission record
 
 ## Pilot app
 
-The AlphaRelay Android app used on the pilot tablet. It connects to the drone controller, starts the relay, displays pilot controls, logs quick events, and helps transfer mission footage.
+The AlphaRelay Android app used on the pilot tablet or phone. It connects to the drone controller, starts the relay, displays pilot controls, logs quick events, and helps transfer mission footage.
 
 ## Pilot relay
 
-The local connection served by the pilot tablet so Mission Overwatch can view the live feed and mission data on the same local network.
+The local connection served by the pilot tablet or phone so Mission Overwatch can view the live feed and mission data on the same local network.
 
 ## Remote live
 
-A configured live-stream path that lets Mission Overwatch view the active pilot feed over the internet instead of the tablet LAN.
+A configured live-stream path that lets Mission Overwatch view the active pilot feed over the internet instead of the pilot device LAN.
 
 ## Play with Events
 
