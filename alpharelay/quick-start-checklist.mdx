@@ -4,25 +4,35 @@ description: "Run your first successful AlphaRelay test mission in the fewest st
 icon: "list-check"
 ---
 
-Short path for a standard **full relay** test. Each bullet is roughly one checkpoint. The pilot app runs on approved Android tablets or phones.
+This checklist is a practical **full relay** rehearsal—enough steps to validate live video, synced events from two sides, and post-flight review. The pilot app runs on approved Android tablets or phones; the command side is any laptop or workstation with a browser.
 
 ## Before you fly (once)
 
-- Sign in at [alpha-relay.com](https://www.alpha-relay.com); save **name** and **rank** under **Account**.
-- Install the pilot app from [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html) and activate your license (QR or `ar-…` key from **Organization**).
+- Sign in at [alpha-relay.com](https://www.alpha-relay.com). Under **Account**, save **full name** and **rank/title** so mission and custody attribution look right later.
+- Download the pilot app from [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html), install it, grant permissions when prompted, and step through the **First-Time Guide** on first launch.
+- Activate the bridge license (**Organization** gives the QR code or pasteable `ar-…` key). Long-pressing **Choose Mission Mode** opens license settings anytime without starting a mission.
+- Optional but useful: once signed in from the workstation browser, use **Install app** in Mission Overwatch so the shell can reopen after brief offline stretches (sign-in and cloud sync still need the network).
 
 ## Live test (minimal)
 
-1. Power on drone and RC; plug the pilot device into the RC; put the pilot device and command laptop on the **same Wi‑Fi**.
-2. Pilot app: **Choose Mission Mode** → pick scenario (optional) → **Full relay**.
-3. Command browser: open the **dashboard**, click **Open in console** on the active mission (Mission Overwatch opens for that mission). If prompted, trust the relay certificate once; **Connect / Scan LAN** are only fallback tools if automatic relay connection does not come up.
+1. Preflight as your agency requires: aircraft and controller powered, pilot tablet/phone on the RC, **command laptop on the same Wi‑Fi subnet** as the pilot device for this exercise.
+2. On the pilot: **Choose Mission Mode** → optional mission name/scenario → **Full relay**. Make sure licensing does not block the start.
+3. Give the workstation and pilot a moment online so **Active missions** on the AlphaRelay **dashboard** picks up the new mission (metadata includes the relay LAN hints for the tablet).
+4. On the workstation: click **Open in console** for that mission so Mission Overwatch opens already focused (`?mission=…`).
+5. Let the relay attempt complete automatically once the synced IP fills in. Only if the feed does **not** come up: trust the relay certificate if the browser prompts, retry **Connect**, leave **Tablet/phone IP (LAN)** empty and scan, or paste the IPv4 shown on the pilot—see [Mission setup](/alpharelay/mission-setup).
+6. Confirm you see meaningful live feed or telemetry HUD text (Exact visuals depend on aircraft state and relay health).
 
 ## Logging and shutdown
 
-- Log one quick event from the pilot and one from Mission Overwatch, then fly briefly per DJI rules, **Land**, and tap **Stop Mission** on the pilot.
+- Log at least one pilot quick tap (buttons or wheel) and either a Mission Overwatch quick button **or** a short **Manual Event (fast)** note so both sides hit the timeline.
+- Keep the flight short and within DJI and local policy—this pass is about workflow, not duration.
+- **Land** cleanly, then tap **Stop Mission** on the pilot to end relay + mission together. If bandwidth is flaky, skim the pilot/handoff banners for queued footage before disconnecting Wi‑Fi.
 
 ## Wrap-up (optional smoke test)
 
-- After sync, open **Play with events** (confirm markers), optionally **Generate Report** and **Export Offline Package**.
+- After the pilot or browser catches up online, confirm footage status (uploaded versus queued) before deep review—see [Footage upload](/alpharelay/footage-upload) when something looks stuck.
+- Open **Play with events**, scrub briefly, confirm event markers align; add one **Tag event** if you want extra confidence in evidence capture.
+- **Generate Report** for the closed mission (and **Submit for supervisor approval** only if testing that role).
+- **Export Offline Package** if you must prove chain-of-handoff/offline readability.
 
-For detail on networks, streaming, or **pilot-only** missions, continue with [Mission setup](/alpharelay/mission-setup) and [Pilot app and local AI](/alpharelay/pilot-app-and-local-ai).
+Pilot-only rehearsals (no LAN relay assumptions) or teams that rely solely on remote **Live stream (WebRTC)** should read [Mission setup](/alpharelay/mission-setup) and [Pilot app and local AI](/alpharelay/pilot-app-and-local-ai) alongside this list.
