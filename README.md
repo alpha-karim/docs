@@ -2,8 +2,6 @@
 
 Operator documentation for [AlphaRelay](https://www.alpha-relay.com), built with [Mintlify](https://mintlify.com).
 
-`alpharelay-notebooklm-consolidated.md` is a **short single-file** operator summary for NotebookLM and similar tools; detailed guides live in `alpharelay/*.mdx`.
-
 ## Content
 
 - **Home** — `index.mdx`

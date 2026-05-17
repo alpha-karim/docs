@@ -32,10 +32,10 @@ For **full relay**, keep the pilot tablet or phone and the Mission Overwatch bro
 After a **full relay** mission syncs:
 
 1. Open the mission via the dashboard (**Open in console**). Focused Mission Overwatch loads mission metadata first.
-2. On the **Live Overwatch Screen**, when the pilot LAN IP was uploaded with the mission, **Tablet/phone IP (LAN)** is filled automatically and the client attempts **Connect**.
-3. If auto-connect stalls (network discovery blocked, DHCP change, tunnel, etc.), click **Connect** with a blank field to **Scan LAN**, type the IPv4 shown on the pilot tablet, or paste a full `ws://` / `wss://` relay URL supplied by ops.
+2. When the pilot LAN IP was uploaded with the mission, **Tablet/phone IP (LAN)** is filled automatically and the client attempts **Connect**.
+3. If auto-connect stalls (network discovery blocked, DHCP change, tunnel, etc.), click **Connect** with a blank field to **scan LAN**, type the IPv4 shown on the pilot tablet, or paste a full `ws://` / `wss://` relay URL supplied by ops.
 
-Bare IPv4 still normalizes to `wss://…:8789`. Trust the relay certificate when the browser first asks.
+Relay URL normalization still maps bare IPv4 to `wss://…:8789`. Trust any pilot relay certificate when the browser first asks.
 
 ## Flight controls and controller-first flying
 
@@ -58,7 +58,7 @@ Pilot events appear in Mission Overwatch and the mission timeline. Voice events 
 
 ## Remote live stream
 
-When configured, the pilot app can publish remote live from **Pilot console → Remote live stream → Start remote live**. Remote Mission Overwatch users use **Live stream (WebRTC)** without joining the pilot LAN.
+When configured, the pilot app can publish a remote live stream for an active mission from **Pilot console → Remote live stream → Start remote live**. Remote Mission Overwatch users can watch through **Live stream (WebRTC)** without joining the pilot LAN.
 
 Remote live uses AlphaRelay's Cloudflare live-stream path. LAN relay remains lowest latency when the command device sits on the same network as the pilot.
 
