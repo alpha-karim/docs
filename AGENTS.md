@@ -15,7 +15,7 @@
 ## Terminology
 
 - Use **AlphaRelay** as the product name
-- Prefer **Mission Overwatch**, **Mission Console**, **pilot tablet**, **pilot app**, **relay**, **scenario template**, **quick events**, **Items Requiring Officer Review**, **Past Mission**, **offline package**, and **custody / chain of custody** as in the UI
+- Prefer **Mission Overwatch**, **Mission console**, **Live Overwatch Screen**, **pilot tablet**, **AlphaRelay Pilot**, **relay**, **scenario template**, **quick events**, **Items Requiring Officer Review**, **Past mission:**, **Export offline package…**, **Play with events**, and **custody / chain of custody** wording consistent with the live UI
 - **Alpha AI**: the system that assists with after-action report generation
 
 ## Style preferences

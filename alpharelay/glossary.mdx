@@ -32,9 +32,9 @@ Optional on-device detection in the Android pilot app. It samples the live relay
 
 The web app landing area after sign-in. It shows active and closed missions, mission search, operational metrics, report queues, and after-action report actions.
 
-## Mission Console
+## Mission console
 
-Focused Mission Overwatch workspace for one mission (`mission-overwatch.html`). Operators open it from **Open in console** on the dashboard row for that flight. Starting a mission stays on the Android pilot app; Mission Overwatch handles relay/WebRTC feeds (when exposed), structured logging, uploads, playback, Alpha AI reporting, approvals, sealing, and offline export.
+Focused Mission Overwatch workspace for one mission (`mission-overwatch.html`). Open it from **Open in console**. Missions start only on the pilot app; Mission Overwatch handles the **Live Overwatch Screen** (full relay), **Live stream (WebRTC)** when published, logging, uploads, playback, reporting, sealing, approval, and **Export offline package…**.
 
 ## Mission photo
 
@@ -42,7 +42,15 @@ An uploaded image linked to a mission. Mission photos can be timeline items or e
 
 ## Mission Overwatch
 
-The focused mission workspace in the browser (opened from dashboard **Open in console**). It consumes synced mission metadata so the LAN relay URI can preload for **full relay** flights, exposes **Live stream (WebRTC)** when configured, manages events, uploads, custody, playback, Alpha AI reporting, approvals, sealing, and export. **Pilot Android always starts** the mission; Overwatch participates after dashboard hand-off.
+Focused browser workspace opened from **Open in console**. Synced metadata preloads **Tablet/phone IP (LAN)** for **full relay**; remote viewers use **Live stream (WebRTC)** when the pilot starts remote live. **Pilot Android always starts** the mission.
+
+## Live Overwatch Screen
+
+Mission Overwatch panel for the LAN pilot relay: **Tablet/phone IP (LAN)**, optional relay token, **Connect**, **Scan LAN**. Not shown for **pilot only** missions that skip LAN relay UI.
+
+## Live stream (WebRTC)
+
+Internet path for remote viewers when the pilot runs **Remote live stream → Start remote live**. Separate from the LAN relay.
 
 ## Offline package
 
@@ -56,13 +64,13 @@ The AlphaRelay Android app used on the pilot tablet or phone. It connects to the
 
 The local connection served by the pilot tablet or phone so Mission Overwatch can view the live feed and mission data on the same local network.
 
-## Remote live
+## Remote live stream
 
-A configured live-stream path that lets Mission Overwatch view the active pilot feed over the internet instead of the pilot device LAN.
+Pilot-side publishing (**Start remote live**) so browsers off the pilot LAN can open **Live stream (WebRTC)**. Distinct from the LAN relay.
 
-## Play with Events
+## Play with events
 
-The footage review view that combines video playback, event markers, event screenshots, multi-angle controls, sync tools, and post-mission event tagging.
+Footage review combining playback, event markers, screenshots, multi-angle controls, sync tools, and **Tag event**.
 
 ## Primary footage
 
@@ -78,4 +86,4 @@ The time adjustment used to align a secondary angle with the primary footage tim
 
 ## Tag event
 
-A post-mission review action in **Play with Events**. It creates a new event at the current video frame and stores a screenshot from that frame.
+A post-mission action in **Play with events**: creates an event at the current frame and saves a screenshot from the video.
