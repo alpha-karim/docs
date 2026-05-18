@@ -21,6 +21,7 @@ AlphaRelay may use different connections depending on the mission type and workf
 
 - Field Mission can run from the Android field device and be reviewed later.
 - Relay Mission needs the Android field device and Mission Overwatch device to reach each other on the same local network.
+- Both mission types can support livestreaming when the field device has internet and livestreaming is configured.
 - Cloud sync, sign-in, uploaded footage, reports, and export data need internet.
 - Some events, screenshots, or pilot-handoff footage can queue and sync later.
 - Mission Overwatch needs the correct local connection to watch a Relay Mission.
@@ -82,13 +83,13 @@ AlphaRelay uses separate connection paths:
 ```text
 Android Field Device
   |-- Local Relay -> Mission Overwatch on same field Wi-Fi
-  |-- WebRTC Remote Live -> Off-site reviewers over internet
+  |-- WebRTC Livestreaming -> Mission Overwatch users over internet
   `-- Cloud Sync -> Events, footage, reports, evidence records
 ```
 
 Relay Mission local viewing uses the local relay path. Mission Overwatch can fill the Android field device address from synced mission metadata and attempt connection. If the field stays blank or the address looks wrong after sync, leave it empty and click **Connect** to scan, or paste the IPv4 shown on the field device.
 
-When configured, remote live uses **Live stream (WebRTC)** for reviewers who are not on the field network. Use this only when the field app has remote live running.
+When configured, livestreaming uses **Live stream (WebRTC)** for Mission Overwatch users over the internet. It can be used with Field Mission or Relay Mission when the field device has internet and livestreaming is running.
 
 Mission Overwatch installs a service worker on first online visit and can also be installed as a PWA from the **Install app** button when the browser supports it. The offline app shell only covers the page itself. Cloud sign-in, mission sync, footage uploads, and playback links still need the network and a signed-in session.
 

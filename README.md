@@ -5,9 +5,11 @@ Operator documentation for [AlphaRelay](https://www.alpha-relay.com), built with
 ## Content
 
 - **Home** — `index.mdx`
-- **New user onboarding** — `alpharelay/quick-start-checklist.mdx`, `alpharelay/roles-and-devices.mdx`, `alpharelay/dashboard-account-organization.mdx`, `alpharelay/pilot-app-and-local-ai.mdx`, `alpharelay/connectivity-guide.mdx`, `alpharelay/training-mission.mdx`, `alpharelay/evidence-sealing.mdx`, `alpharelay/troubleshooting.mdx`, `alpharelay/glossary.mdx`
-- **Mission guide overview** — `alpharelay/guide-overview.mdx`
-- **Chapters** — `alpharelay/one-time-setup.mdx`, `alpharelay/mission-setup.mdx`, `alpharelay/mission-execution.mdx`, `alpharelay/event-logging.mdx`, `alpharelay/completing-a-mission.mdx`, `alpharelay/footage-upload.mdx`, `alpharelay/footage-playback.mdx`, `alpharelay/report-generation.mdx`, `alpharelay/export-offline-package.mdx`, `alpharelay/mission-lifecycle-summary.mdx`
+- **Start Here** — `alpharelay/plain-english.mdx`, `alpharelay/guide-overview.mdx`, `alpharelay/roles-and-devices.mdx`, `alpharelay/field-vs-relay.mdx`, `alpharelay/training-mission.mdx`
+- **Run a Mission** — `alpharelay/before-you-go-to-the-field.mdx`, `alpharelay/start-field-mission.mdx`, `alpharelay/start-relay-mission.mdx`, `alpharelay/watch-in-mission-overwatch.mdx`, `alpharelay/event-logging.mdx`, `alpharelay/completing-a-mission.mdx`
+- **Review and Report** — `alpharelay/footage-upload.mdx`, `alpharelay/footage-playback.mdx`, `alpharelay/report-generation.mdx`, `alpharelay/evidence-sealing.mdx`, `alpharelay/export-offline-package.mdx`
+- **Admin Setup** — `alpharelay/dashboard-account-organization.mdx`, `alpharelay/one-time-setup.mdx`, `alpharelay/security-privacy-ai-processing.mdx`, `alpharelay/minimum-requirements.mdx`
+- **Help** — `alpharelay/troubleshooting.mdx`, `alpharelay/connectivity-guide.mdx`, `alpharelay/known-limitations.mdx`, `alpharelay/glossary.mdx`
 
 ## Local preview
 

@@ -6,20 +6,25 @@ icon: "split"
 
 AlphaRelay has two main mission types. Choose the one that matches how your team is working.
 
+<Note>
+  Both mission types can support livestreaming when the field device has internet and livestreaming is configured. The main difference is whether Mission Overwatch also needs a local Relay Mission connection during the mission.
+</Note>
+
 ## Field Mission
 
-Use Field Mission when the field device is the main tool and the mission can be reviewed later.
+Use Field Mission when the field device is the main tool and the mission can be reviewed later. Use livestreaming with Field Mission when the field device has internet and your team needs live viewing without the local Relay Mission connection.
 
 Best for:
 
 - Simple field recording
 - Offline or limited-connectivity work
-- Missions where live local viewing is not needed
+- Missions where local Relay Mission viewing is not needed
+- Missions that need livestreaming from an internet-connected field device
 - Missions that will be reviewed after the fact
 
 ## Relay Mission
 
-Use Relay Mission when Mission Overwatch needs to connect to the field device during the mission.
+Use Relay Mission when Mission Overwatch needs to connect to the field device during the mission over the local mission connection.
 
 Best for:
 
@@ -27,25 +32,27 @@ Best for:
 - Live event logging from Mission Overwatch
 - Team-based mission monitoring
 - Missions where another user needs to follow the live mission timeline
+- Livestreaming from an internet-connected field device when that workflow is configured
 
 ## Simple decision guide
 
 Choose Field Mission if:
 
 - One operator is capturing the mission
-- Live local viewing is not required
+- Local Relay Mission viewing is not required
 - The team can review the mission afterward
+- The team wants livestreaming from an internet-connected field device without the local Relay Mission connection
 
 Choose Relay Mission if:
 
-- Mission Overwatch needs to connect during the mission
+- Mission Overwatch needs the local Relay Mission connection during the mission
 - Another user needs to watch or log events live
 - The team is working from a local command or review position
 
 <Tip>
-  Use Field Mission when one operator is capturing the mission and the team will review it later.
+  Use Field Mission when one operator is capturing the mission and local Relay Mission viewing is not required.
 </Tip>
 
 <Tip>
-  Use Relay Mission when Mission Overwatch needs to connect during the mission.
+  Use Relay Mission when Mission Overwatch needs the local mission connection during the mission.
 </Tip>
