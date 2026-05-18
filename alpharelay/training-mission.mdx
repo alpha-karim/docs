@@ -19,7 +19,7 @@ Use a training mission before operational use. The goal is not flight complexity
 ## Training script
 
 1. On the pilot tablet or phone, tap **Choose Mission Mode**, pick a scenario in the overlay (or **No scenario template**), set the mission name to `Training mission`, and tap **Relay mission**.
-2. On the command workstation, sign in at the AlphaRelay **Mission Dashboard** and click **Open in console** for the active mission. Confirm Mission Overwatch auto-loads relay info from synced metadata and attaches to the LAN relay (`Connect`/scan remains a troubleshooting fallback **only if** attachment fails).
+2. On the command workstation, sign in at the AlphaRelay **Mission Dashboard** and select the active mission. Confirm Mission Overwatch auto-loads relay info from synced metadata and attaches to the LAN relay (`Connect`/scan remains a troubleshooting fallback **only if** attachment fails).
 3. Confirm live video and telemetry.
 4. Log a pilot quick event.
 5. Log a voice relay or manual pilot event if enabled.
@@ -41,7 +41,7 @@ Use a training mission before operational use. The goal is not flight complexity
 After the training mission, every operator should be able to answer:
 
 - Which device starts the relay and the mission?
-- How does Mission Overwatch consume the relay after the dashboard hands off the focused mission (`Open in console`), and when do ops fall back to **Connect**, scan, or manual IPv4?
+- How does Mission Overwatch consume the relay after the active mission is selected from the dashboard, and when do ops fall back to **Connect**, scan, or manual IPv4?
 - Where do live events appear?
 - What happens when internet is unavailable?
 - How does footage get uploaded, and when can pilot-handoff footage queue?
@@ -55,7 +55,7 @@ After the training mission, every operator should be able to answer:
 
 The training mission is successful when:
 
-- Mission Overwatch reaches the pilot relay reliably (automatic connection after dashboard hand-off, otherwise scan/manual recovery).
+- Mission Overwatch reaches the pilot relay reliably after the active mission is selected from the dashboard (automatic connection first, otherwise scan/manual recovery).
 - At least two events appear in the event log.
 - Mission footage appears, or pilot-handoff footage is queued for upload.
 - **Play with events** opens and shows the event timeline.
