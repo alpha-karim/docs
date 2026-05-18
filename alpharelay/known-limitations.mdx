@@ -1,33 +1,54 @@
 ---
-title: "Known limitations"
-description: "Transparent field limitations for LAN relay, remote live, cloud sync, local AI, reports, and offline packages."
+title: "Known Limitations"
+description: "Transparent field limitations for local connection, remote live, cloud sync, local AI, reports, and offline packages."
 icon: "triangle-alert"
 ---
 
-This page is for operators, reviewers, and supervisors who need realistic expectations before using AlphaRelay in the field. Review it during onboarding and before missions with unusual network, footage, or evidence requirements.
+## What this is
 
-## Connectivity
+This page sets realistic expectations before training or field use.
+
+## When to use it
+
+- You are planning a mission in a difficult network environment.
+- You need to explain sync or upload limits.
+- You are using optional local AI.
+- You are preparing reports, approval, sealing, or export.
+
+## Basic steps
+
+1. Confirm whether the mission needs local viewing, internet sync, or both.
+2. Confirm footage upload can finish before final review.
+3. Review local AI events before treating them as operational facts.
+4. Resolve report review items before finalization.
+5. Export only after the mission record is ready.
+
+## What good looks like
+
+- The team understands what requires internet.
+- Queued upload finishes before final review.
+- AI events and AI report drafts receive human review.
+- Evidence sealing and supervisor approval are handled separately.
+
+## Common problems
+
+- WebRTC remote live is expected without internet.
+- Relay Mission local viewing is expected across networks that cannot reach each other.
+- Manual upload is expected to queue before it starts.
+- Offline export is expected to include media that was not available at export time.
+
+## More detail
 
 - WebRTC remote live requires internet.
-- LAN relay requires the Android field device and Mission Overwatch device to be on the same reachable local network.
+- Relay Mission local viewing requires the Android field device and Mission Overwatch device to be on the same reachable local network.
 - Cloud sync waits for internet.
-- Losing LAN relay, WebRTC remote live, or cloud sync does not always stop the entire mission because these are separate paths.
-
-## Footage and sync
-
+- Losing local viewing, WebRTC remote live, or cloud sync does not always stop the entire mission because these are separate paths.
 - Some uploaded footage may require manual review or sync adjustment.
 - Manual browser uploads require a signed-in browser with internet access before upload starts.
 - Queued pilot-handoff footage should be allowed to finish uploading before final review.
 - Offline packages are only as complete as the reviewed and synced mission record available at export time.
-
-## Local AI
-
 - Local AI detection capabilities may vary by device, model, app build, and configuration.
 - Local AI events require human review before they are treated as operational facts.
-- Local AI does not replace pilot judgment, reviewer judgment, or agency policy.
-
-## Reports and approval
-
 - Alpha AI report drafts require officer review.
 - Items Requiring Officer Review must be resolved before finalization.
 - Supervisor approval makes the report permanent and locks timeline events and photos.

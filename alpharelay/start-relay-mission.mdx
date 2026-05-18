@@ -1,0 +1,52 @@
+---
+title: "Start a Relay Mission"
+description: "Start a mission when Mission Overwatch needs to connect during the mission."
+icon: "tower-broadcast"
+---
+
+## What this is
+
+Relay Mission connects the Android field device to Mission Overwatch during the mission for live local viewing and command-side event logging.
+
+## When to use it
+
+- Mission Overwatch needs to connect during the mission.
+- Another user needs to watch or log events live.
+- The team has a local command or review position.
+- The Android field device and Mission Overwatch device can use the same reachable local network.
+
+<Tip>
+  Use Relay Mission when Mission Overwatch needs to connect during the mission.
+</Tip>
+
+## Basic steps
+
+1. Put the Android field device and Mission Overwatch device on the same reachable local network.
+2. Open the Android field app.
+3. Tap **Choose Mission Mode**.
+4. Enter a mission name if needed.
+5. Select a scenario template, or choose **No scenario template**.
+6. Tap **Relay Mission**.
+7. Complete the license step if prompted.
+8. Open the active mission from the Mission Dashboard.
+9. Let Mission Overwatch connect using the synced mission details.
+
+## What good looks like
+
+- The mission starts from the Android field device.
+- The active mission appears in the dashboard after sync.
+- Mission Overwatch opens the selected mission.
+- Live viewing and command-side event logging work when the local connection is available.
+
+## Common problems
+
+- The devices are not on the same reachable local network.
+- The mission has not synced to the dashboard yet.
+- The browser needs the relay certificate trusted before it can connect.
+- The field device network address changed during the mission.
+
+## More detail
+
+After a Relay Mission syncs, Mission Overwatch can fill the field device address from mission metadata and attempt connection. If connection does not succeed, use **Connect** with the field blank to scan, or enter the address shown on the Android field device.
+
+For deeper connection troubleshooting, see [Connectivity](/alpharelay/connectivity-guide) and [Troubleshooting](/alpharelay/troubleshooting).

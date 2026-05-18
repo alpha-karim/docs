@@ -1,43 +1,46 @@
 ---
-title: "Mission execution"
-description: "Takeoff, in-flight controls, and tap-to-fly during a live relay."
+title: "Mission Controls"
+description: "Use field controls during a mission from the Android field app."
 icon: "plane"
 ---
 
-This page is for Android field operators running the mission once setup is complete. Use it during flight to understand AlphaRelay controls, controller-first flying, tap-to-fly, and local AI event support.
+## What this is
 
-## What happens if internet drops?
+This page explains the field controls available during a mission after setup is complete.
 
-AlphaRelay is built for imperfect field networks. Local mission work can continue when supported by the current mission mode. Events and footage can queue locally, and cloud sync resumes when connectivity returns. LAN relay, WebRTC remote live, and cloud sync are separate paths, so losing one connection type does not always mean the entire mission stops.
+## When to use it
 
-## Takeoff
+- You are the Android field operator.
+- You need to understand takeoff, landing, camera, or tap-to-fly controls.
+- Your team wants to fly mostly from the physical controller.
+- You need to know where optional local AI fits.
 
-On the pilot tablet or phone, tap **Takeoff**, then follow all standard DJI safety steps.
+## Basic steps
 
-## Flight and camera controls
+1. Start the mission from the Android field app.
+2. Tap **Takeoff**, then follow standard DJI safety steps.
+3. Use the on-screen controls only when appropriate for your workflow.
+4. Log important events during the mission.
+5. Tap **Land**, then follow normal landing and safety procedures.
+6. Tap **Stop Mission** when the mission is complete.
 
-During flight, use the on-screen pilot controls to adjust:
+## What good looks like
 
-- Altitude
-- Yaw / rotation
-- Gimbal angle
-- Camera positioning
-- Obstacle avoidance and related DJI controls when available
+- The pilot follows normal aircraft and agency safety procedures.
+- Mission events are captured as they happen.
+- Footage recording or handoff follows the documented workflow.
+- The mission is closed cleanly before review begins.
 
-Teams that prefer flying with only the physical controller can simplify the overlay. Quick events and telemetry remain available.
+## Common problems
 
-## Tap-to-fly
+- On-screen controls are left visible when the pilot prefers the physical controller.
+- Local AI events are treated as final facts without review.
+- The app is closed before upload or queued sync can finish.
 
-To use tap-to-fly:
+## More detail
 
-1. Touch and hold on the live video feed.
-2. Hold in the direction you want the aircraft to move.
-3. Release to stop movement.
+During flight, the Android field app can support altitude, yaw or rotation, gimbal angle, camera positioning, and related DJI controls when available. Pilots who prefer the physical controller can use the app option to hide on-screen drone controls while keeping quick events, telemetry, and relay status visible.
 
-AlphaRelay maps the touch position to DJI virtual-stick pitch and roll. The aircraft must be airborne with telemetry available, and the pilot can choose slow, medium, or fast tap-to-fly speed in the pilot app.
+To use tap-to-fly, touch and hold on the live video feed, hold in the direction you want the aircraft to move, and release to stop movement. The aircraft must be airborne with telemetry available. The pilot can choose slow, medium, or fast tap-to-fly speed in the app.
 
-## Local AI during flight
-
-If your team enables local AI in the pilot app, on-device detection samples the same live relay frames used by Mission Overwatch. Confirmed detections can create local AI events with screenshots and metadata.
-
-Use local AI as an assistive signal only. Review auto-tagged events the same way you review pilot quick events and voice relay entries.
+If your team enables local AI, on-device detection can create local AI events with screenshots and metadata. Use local AI as an assistive signal only. Review auto-tagged events the same way you review other mission events.

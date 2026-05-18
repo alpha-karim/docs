@@ -1,95 +1,51 @@
 ---
-title: "Roles and devices"
+title: "Devices and Roles"
 description: "Understand who uses AlphaRelay and which device each part of the workflow runs on."
 icon: "users"
 ---
 
-This page is for new agencies deciding who does what during setup, live operations, review, approval, and export. Use it before the first training mission so each person knows their device and responsibility.
+## What this is
 
-AlphaRelay connects field devices, command review, cloud sync, and evidence packaging. This page explains the moving parts before you run a mission.
+AlphaRelay uses an Android field device, Mission Overwatch in a browser, reviewer tools, and admin setup. This page explains who does what.
 
-## Android field operator
+## When to use it
 
-The Android field operator uses an Android tablet or phone with the AlphaRelay pilot app.
+- You are assigning roles before training.
+- You need to know which device starts the mission.
+- You are setting up reviewers or supervisors.
+- You are onboarding an admin.
 
-The pilot tablet or phone is responsible for:
+## Basic steps
 
-- Connecting to the drone controller
-- **Starting missions** via **Choose Mission Mode**. **Field-device mission** runs from the Android field device without requiring a LAN Mission Overwatch session. **Relay mission** connects Mission Overwatch on the same field Wi-Fi.
-- Showing the live pilot interface
-- Sending live video and telemetry to Mission Overwatch (LAN relay/WebSocket path **or** configured WebRTC ingest from the pilot)
-- Logging quick events from the field
-- Logging voice relay events when enabled
-- Running optional local AI detection when configured
-- Recording or forwarding mission footage
-- Queuing pilot-handoff footage locally when cloud upload is not available
+1. Assign the Android field operator.
+2. Assign the Mission Overwatch user if Relay Mission or browser review is needed.
+3. Assign the reviewer or officer.
+4. Assign the supervisor if approval is part of the workflow.
+5. Assign the organization admin for accounts, access, licenses, and setup.
 
-## Mission Overwatch operator
+## What good looks like
 
-The Mission Overwatch operator uses the AlphaRelay web app in a browser.
+- The Android field operator starts the mission.
+- Mission Overwatch opens missions from the dashboard.
+- Reviewers check footage, events, reports, and custody.
+- Supervisors approve only when the record is final.
+- Admins manage people, organization details, and device access.
 
-Mission Overwatch is responsible for:
+## Common problems
 
-- **Closing missions from the browser when required** (**Stop Mission** on the pilot is the typical paired shutdown step)
-- Consuming relay mission feeds after selecting the active mission from the dashboard (LAN metadata prefill/autoconnect, with Connect/scan/manual fallbacks only when needed), or tuning into **Live stream (WebRTC)** when the pilot publishes it
-- Logging manual and quick events
-- Uploading mission photos
-- Reviewing mission footage
-- Running **Play with Events**
-- Generating reports and offline packages
+- Someone expects Mission Overwatch to start a mission.
+- Reviewers start final reporting before footage sync is complete.
+- Admin setup is left until the field exercise starts.
 
-The Mission Overwatch device can be any supported browser workstation. LAN relay watchers must share the pilot Wi‑Fi/VLAN; reviewers using **Live stream (WebRTC)** intentionally do **not** need direct relay reachability.
+## More detail
 
-## Reviewer or officer
-
-The reviewer or officer works after the mission is closed.
-
-The reviewer is responsible for:
-
-- Confirming the event timeline
-- Reviewing uploaded footage
-- Tagging post-mission events when needed
-- Reviewing and editing the after-action report
-- Addressing items requiring officer review
-- Sealing the evidence record when ready
-
-## Supervisor
-
-The supervisor reviews the completed mission record when it is ready for approval.
-
-The supervisor may review:
-
-- Mission summary
-- Event timeline
-- Footage and screenshots
-- After-action report
-- Chain-of-custody record
-- Offline package, when exported for handoff or archive
-
-## Organization admin
-
-The organization admin manages account and setup tasks.
-
-The admin may handle:
-
-- Operator accounts
-- Organization settings
-- Member names, ranks, roles, and statuses
-- Organization time zone
-- Organization storage review
-- Pilot tablet/phone license keys
-- Scenario templates
-- Access to mission records
-
-## Core devices
-
-| Device or service | Primary use | Field note |
-|-------------------|-------------|------------|
-| Android pilot tablet or phone | Pilot app, relay, live controls, quick events, footage handoff | Starts the mission and may queue footage when internet is unavailable. |
-| Drone controller | DJI flight control connection | Confirm connection before the mission starts. |
-| Aircraft | Mission flight and recording | Confirm recording and storage behavior before deployment. |
-| Mission Overwatch device | Browser-based command view, event logging, review, reports | Must share field Wi-Fi for LAN relay, or use WebRTC remote live when off-site. |
-| Cloud account | Sign-in, sync, uploaded footage, shared mission records | Requires internet for cloud-backed work. |
-| SD card or aircraft storage | Source footage when manual upload is needed | Keep the source file until upload and review are complete. |
-
-Most setup problems come from mixing local relay requirements with cloud sync requirements. The next page explains that connectivity model.
+| Role or device | Primary responsibility |
+| --- | --- |
+| Android field operator | Starts Field Mission or Relay Mission, logs field events, manages mission closeout, and supports footage handoff. |
+| Mission Overwatch user | Opens active or closed missions from the dashboard, watches Relay Mission when connected, logs events, uploads media, reviews footage, reports, seals, and exports. |
+| Reviewer or officer | Reviews the timeline, footage, photos, report draft, Items Requiring Officer Review, and custody state. |
+| Supervisor | Reviews the completed mission record and approves or returns the report when authorized. |
+| Organization admin | Manages accounts, roles, time zone, storage visibility, scenario templates, and Android field device licenses. |
+| Android field device | Runs the field app and starts missions. |
+| Mission Overwatch device | Browser-based workspace for live Relay Mission use, review, reporting, sealing, and export. |
+| Cloud account | Supports sign-in, sync, uploaded footage, shared records, and organization data. |

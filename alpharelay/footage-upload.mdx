@@ -1,28 +1,52 @@
 ---
-title: "Footage upload"
-description: "Automatic and manual upload of mission footage after the flight."
+title: "Upload Footage"
+description: "Upload, queue, or manually add mission footage after the mission."
 icon: "cloud-arrow-up"
 ---
 
-This page is for field operators and reviewers who need mission video to reach the review record. Use it after landing or mission closeout to understand auto upload, queued handoff, and manual upload.
+## What this is
 
-## Auto upload or manual upload
+Footage upload makes mission video available for review, reports, custody work, and offline export.
 
-After the mission, the pilot app may attempt to automatically upload the recorded footage.
+## When to use it
 
-For direct pilot-device-to-cloud upload, the pilot tablet or phone must be connected to a network with internet access. If the device hands the video to Mission Overwatch over the LAN, the Mission Overwatch browser needs internet access to upload it immediately; otherwise the handoff can queue locally for later sync. Automatic upload can take time and may continue using the drone, controller, or pilot device battery while the file is transferring.
+- The mission has ended.
+- The Android field device has mission footage ready.
+- Footage is queued for later sync.
+- You need to manually upload an MP4.
+
+## Basic steps
+
+1. End the mission.
+2. Watch the Android field app or Mission Overwatch for upload or queued status.
+3. Keep the app or browser open while upload or queue behavior completes.
+4. Move the device to an internet-connected network if upload needs to finish.
+5. Use **Upload now** if it appears and the device is online.
+6. If automatic upload is not practical, upload the MP4 manually from **Mission Footage**.
+
+## What good looks like
+
+- The correct mission footage is linked to the mission.
+- Playback links finish loading.
+- Queued footage is allowed to sync before final review.
+- Manual uploads use the correct MP4 file.
+
+## Common problems
+
+- The field network supports local mission work but not cloud upload.
+- Battery or bandwidth is not enough for immediate upload.
+- Manual upload is attempted while the browser is offline.
+- The team starts final review before playback links are ready.
+
+## More detail
+
+After the mission, the Android field app may attempt to automatically upload recorded footage. For direct field-device-to-cloud upload, the Android field device must have internet access.
+
+If the device hands video to Mission Overwatch over the local connection, the Mission Overwatch browser needs internet access to upload it immediately. If the browser does not have internet access, the handoff can queue locally for later sync.
 
 If you do not want to wait for auto upload, or if battery life is a concern, tap **Skip**, then manually upload the footage later.
 
-When the pilot app has mission video ready after landing or stopping the relay, it shows a footage upload banner. The banner can show upload progress, the number of mission videos waiting locally, and an **Upload now** action when the tablet or phone can reach the cloud.
-
-<Note>
-  Screenshot placeholder: footage upload or queued upload banner with demo progress, pending count, and **Upload now** action.
-</Note>
-
-For supported aircraft workflows, the pilot app may start SD recording after takeoff and stop recording after a successful land command. If no SD clip is pulled, record with DJI during flight, check the aircraft storage path, or upload the MP4 manually from Mission Overwatch.
-
-**To manually upload the file**
+To manually upload a file:
 
 1. Remove the SD card from the aircraft or connect the aircraft to a computer.
 2. Copy the mission MP4 file to your computer.
@@ -31,28 +55,8 @@ For supported aircraft workflows, the pilot app may start SD recording after tak
 5. Click **Upload MP4**.
 6. Select the correct video file.
 
-Use auto upload when you have a reliable internet-connected network and enough battery remaining. Use manual upload when you need to preserve battery, leave the field quickly, or upload the file from a computer later.
+Mission Overwatch also supports mission photo uploads through **Mission photos** / **Upload Photos**. Photos can be timeline photos or evidence-only photos, and can include a caption, category, notes, and timeline placement.
 
-## Deferred pilot handoff upload
-
-If Mission Overwatch receives a mission video from the pilot tablet or phone over the local relay but cannot reach the cloud, it can keep that pilot-handoff file locally and upload it automatically later. This can happen when:
-
-- The pilot tablet or phone sends video over the local relay network but Mission Overwatch in the browser does not have internet access
-- A pilot handoff cloud upload begins but fails before the file is saved
-
-Manual **Upload MP4** from a computer requires the browser to be signed in and able to reach the cloud before upload starts. If the network is unavailable, keep the MP4 and retry the manual upload after reconnecting.
-
-Stay signed in and bring the device back online when possible. AlphaRelay retries queued pilot-handoff footage automatically, and the pilot tablet or phone may also offer **Upload now** when pending mission videos are available.
-
-If you see **Queued for cloud sync**, **Loading playback link**, or a pending-video count, keep AlphaRelay open and online until the upload and playback link finish.
-
-## Mission photos
-
-Mission Overwatch also supports mission photo uploads.
-
-Use **Mission photos** / **Upload Photos** to upload images that should travel with the mission record. During upload, choose whether the photos are:
-
-- **Timeline photos**, tied to a mission time
-- **Evidence-only photos**, stored with the mission but not inserted into the event timeline
-
-You can add a caption, category, notes, and timeline placement. Mission photos appear in the mission timeline, report, custody views, storage summary, and offline package when available.
+<Warning>
+  Do not close the app before footage upload or queue behavior has completed according to the documented workflow.
+</Warning>

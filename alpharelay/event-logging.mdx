@@ -1,48 +1,45 @@
 ---
-title: "Event logging"
-description: "Log events from the pilot tablet or phone and Mission Overwatch, and understand what is stored."
+title: "Log Events"
+description: "Capture important mission moments from the field device, Mission Overwatch, or footage review."
 icon: "list"
 ---
 
-This page is for field operators and Mission Overwatch operators who need to capture key mission moments. Use it during live operations and again during post-mission review when you need to tag events from footage.
+## What this is
 
-## Logging events on the pilot tablet or phone
+Events are timestamped mission notes. Use them to mark important activity during the mission or while reviewing footage.
 
-On the pilot tablet or phone, operators can log events in several ways:
+## When to use it
 
-- Tap the quick event buttons (**Subject**, **Entry**, **Evidence**, **Support**, **Secured**, **Relay**, **Custom**).
-- Use the quick event wheel for faster field tagging.
-- Say `relay <event details>` when voice logging is enabled (the keyword is `relay`).
-- Type a custom event line in the pilot console's manual log field, then tap **Log Manual Event**.
-- Let optional local AI create auto-tagged events when configured.
+- Something important happens during the mission.
+- The field operator needs to mark a moment quickly.
+- Mission Overwatch needs to add a command-side note.
+- A reviewer finds something during footage playback.
 
-Quick event presets can match what Mission Overwatch displays for the selected scenario.
+## Basic steps
 
-## Logging events in Mission Overwatch
+1. Start the mission.
+2. Log quick events from the Android field device when field activity happens.
+3. Log Mission Overwatch events when command-side notes are needed.
+4. After the mission, open **Play with Events** if you need to tag a moment from footage.
+5. Review the timeline to confirm events appear in the right place.
 
-In Mission Overwatch, use either the **Event Logging** quick buttons (**Subject Spotted**, **Entry Cleared**, **Evidence Located**, **Officer Support**, **Area Secured**, **Relay Request**) or the **Manual Event (fast)** card, where you can type a note and click **Log Manual Event**.
+## What good looks like
 
-<Note>
-  Screenshot placeholder: **Event Logging** panel in Mission Overwatch with demo quick events and a redacted manual note.
-</Note>
+- Events are short and specific.
+- Events appear on the mission timeline.
+- Screenshots are linked when the documented workflow supports them.
+- Post-mission tags are added only after the mission is closed.
 
-## Tagging events after the mission
+## Common problems
 
-After a mission is closed, reviewers can still add evidence-backed events from uploaded footage.
+- Events are too vague to help during review.
+- Mission Overwatch event logging is expected during a Field Mission without the correct live workflow.
+- Events are not reviewed against footage before the report is finalized.
 
-Open **Play with events**, scrub to the relevant frame, enter an **Event name**, and click **Tag event**. AlphaRelay adds the event to the mission log, stores a screenshot from the video frame, and links the event to the same mission timeline used by the footage viewer.
+## More detail
 
-This is useful when an important detail is easier to identify during post-mission review than during the live flight.
+On the Android field device, operators can use quick event buttons, the quick event wheel, manual event notes, voice relay logging when enabled, and optional local AI events when configured.
 
-## What gets stored
+In Mission Overwatch, use the **Event Logging** quick buttons or the **Manual Event (fast)** card.
 
-Logged events are:
-
-- Timestamped
-- Added to the **Event Log**
-- Associated with mission activity
-- Linked to screenshots from the pilot view when the relay is connected
-- Linked to footage screenshots when tagged from post-mission playback
-- Labeled by source, such as quick event, manual event, voice relay, Mission Overwatch, or local AI
-
-If the system is offline or delayed, events and screenshots may sync once connectivity returns.
+After a mission is closed, reviewers can open **Play with Events**, scrub to the relevant frame, enter an **Event name**, and click **Tag event**. AlphaRelay adds the event to the mission log, stores a screenshot from the video frame, and links the event to the mission timeline.

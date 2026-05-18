@@ -1,173 +1,89 @@
 ---
 title: "Troubleshooting"
-description: "Common fixes for setup, relay connection, sync, footage, playback, and export issues."
+description: "Common fixes for setup, connection, sync, footage, playback, reports, and export."
 icon: "wrench"
 ---
 
-Use this page when AlphaRelay is not behaving as expected during setup, mission review, or export.
+## What this is
 
-## What happens if internet drops?
+Use this page when AlphaRelay is not behaving as expected during setup, mission work, review, or export.
 
-<Warning>
-  AlphaRelay is built for imperfect field networks. Local mission work can continue when supported by the current mission mode. Events and footage can queue locally, and cloud sync resumes when connectivity returns. LAN relay, WebRTC remote live, and cloud sync are separate paths, so losing one connection type does not always mean the entire mission stops.
-</Warning>
+## When to use it
 
-## Mission Overwatch cannot see the pilot feed
+- Mission Overwatch cannot connect.
+- Sync or upload is delayed.
+- Footage playback or markers are missing.
+- Report, sealing, or export actions are blocked.
 
-Check the local relay path first.
+## Basic steps
 
-1. Confirm the pilot app is open and the relay is running.
-2. Confirm the pilot tablet or phone and the Mission Overwatch device are on the same Wi-Fi network.
-3. Confirm the dashboard mission synced after takeoff — the browser usually **prefills** the pilot IPv4 from cloud metadata before connecting; give sync a beat if IP was recently assigned by DHCP.
-4. If discovery fails or the saved address still looks wrong after sync, click **Connect** with a blank field (LAN scan), or paste the IPv4 shown on the pilot tablet or phone manually.
-5. If the browser asks to trust the relay certificate, complete that step and connect again.
-6. Restart the relay if the pilot device IP address changed.
+1. Confirm the correct mission is open.
+2. Confirm the user is signed in.
+3. Confirm whether the problem is local connection or internet sync.
+4. Keep the app or browser open while queued work finishes.
+5. Move to an internet-connected network when cloud sync or upload is needed.
 
-If you are trying to watch remotely, confirm the pilot app shows remote live as running and switch Mission Overwatch to **Live stream (WebRTC)**.
+## What good looks like
 
-## Pilot app license check fails
+- The mission type matches the workflow.
+- Relay Mission devices can reach each other locally.
+- Cloud-backed work resumes when internet is available.
+- Footage is uploaded or clearly queued.
+- Review and export happen after sync is complete.
 
-License checks require a valid pilot bridge license and internet access unless the tablet or phone is still inside its recent offline validation window.
+## Common problems
 
-Try this:
+### Mission Overwatch cannot see the field feed
 
-- Confirm the key starts with `ar-`.
-- Scan the QR again from **Organization**, or long-press **Choose Mission Mode** on the pilot tablet or phone to open **License settings** and paste the key by hand.
-- Connect the tablet or phone to the internet and retry.
-- Ask an admin to confirm the key is active and the seat limit has not been reached.
-- If the pilot device installation was revoked, use a different active key or ask an admin to reactivate access.
+1. Confirm the field app is open and the mission connection is running.
+2. Confirm you are using Relay Mission.
+3. Confirm both devices are on the same reachable local network.
+4. Wait for the mission to sync into the dashboard.
+5. Click **Connect** with the field blank to scan.
+6. Enter the address shown on the Android field device if needed.
+7. Trust the relay certificate if the browser prompts.
 
-## Cloud sync is not up to date
+### Cloud sync is not up to date
 
-Cloud sync needs internet access and an active sign-in session.
-
-1. Confirm the browser is signed in.
+1. Confirm the browser or field app is signed in.
 2. Move the device to a network with internet access.
 3. Keep AlphaRelay open until queued work finishes.
-4. Avoid refreshing or closing the browser while sync is still pending.
+4. Avoid refreshing or closing the browser while sync is pending.
 
-If the mission was run on a local-only field network, sync may complete after returning to an internet-connected network.
+### Pilot video is queued locally
 
-## Pilot video is queued locally
-
-Queued pilot video usually means the pilot tablet or phone, or the Mission Overwatch device, received footage but could not upload it to the cloud yet.
-
-1. Keep the pilot app or browser open.
+1. Keep the field app or browser open.
 2. Connect to an internet-accessible network.
-3. Use **Upload now** on the pilot tablet or phone if the button appears.
+3. Use **Upload now** if the button appears.
 4. Wait for upload progress to complete.
-5. In Mission Overwatch, wait for **Loading playback link** to resolve.
+5. Wait for **Loading playback link** to resolve in Mission Overwatch.
 
-## Manual upload will not start
+### Manual upload will not start
 
-Check these items:
+1. Confirm the mission is saved and available in AlphaRelay.
+2. Confirm you are signed in.
+3. Confirm the browser can reach the cloud.
+4. Confirm the selected file is the correct mission MP4.
+5. Confirm another footage upload is not already running.
 
-- The mission is saved and available in AlphaRelay.
-- You are signed in.
-- The browser can reach the cloud.
-- The selected file is the correct mission MP4.
-- Another footage upload is not already running.
+### Play with Events has no markers
 
-Manual browser uploads do not queue before they start. If the cloud is unreachable, keep the MP4 on your computer and retry after sign-in and internet connectivity are restored. Pilot handoff footage received over the LAN can be queued locally and retried automatically.
+1. Confirm the mission has logged events.
+2. Confirm the correct mission is open.
+3. Confirm the clip is playable.
+4. Confirm the clip is the primary footage or aligned to the primary timeline.
+5. Confirm the mission is closed and the footage is linked.
 
-## Mission photo upload will not start
+## More detail
 
-Mission photos require a synced mission and an active cloud connection.
+Manual browser uploads do not queue before they start. If the cloud is unreachable, keep the MP4 and retry after sign-in and internet connectivity are restored. Pilot handoff footage received over the local connection can be queued locally and retried automatically.
 
-Check that:
+Mission photos require a synced mission and an active cloud connection. Report submission or approval can lock timeline events and photos.
 
-- You are signed in.
-- The mission exists in AlphaRelay cloud sync.
-- The browser can reach the cloud.
-- The selected files are images.
-- The report is not already submitted or approved, because timeline events and photos can be locked during review.
+If a secondary angle is out of sync, open **Play with Events**, switch to the secondary angle, click **Adjust sync to primary**, align the same moment, and save the sync offset.
 
-If the report was returned to draft, refresh the mission and try the photo upload again.
+If local AI is not creating events, confirm the mission has started, open **Pilot console → Mission → Local AI**, confirm detection is enabled, and check confidence, persistence, cooldown, and model availability. In this build, local AI is fixed to person-detected events.
 
-## Play with Events has no markers
+Report actions depend on mission state, role, and report status. Approved reports are permanent and cannot be regenerated or edited.
 
-Event markers depend on the mission timeline and footage mapping.
-
-Check that:
-
-- The mission has logged events.
-- The correct mission is open.
-- The clip is playable.
-- The clip is the primary footage or has a sync offset to the primary timeline.
-- The mission was closed and the footage is linked.
-
-If markers appear on the primary clip but not on a secondary angle, adjust the secondary sync to primary.
-
-## Secondary angle is out of sync
-
-Use the timeline viewer sync tools.
-
-1. Open **Play with Events**.
-2. Switch to the secondary angle.
-3. Click **Adjust sync to primary**.
-4. Slide the secondary clip until the same moment matches the primary drone video.
-5. Save the sync offset.
-
-After saving, event markers should map to the secondary angle more accurately.
-
-## Tag event cannot capture a screenshot
-
-The browser must be able to read the current video frame.
-
-Try this:
-
-1. Wait for the video to finish loading.
-2. Play or scrub to the frame again.
-3. Confirm the footage playback link is working.
-4. Try the primary clip if a secondary clip fails.
-
-If the video source blocks frame capture, use normal event logging and add context in the event note.
-
-## Local AI is not creating events
-
-Check the pilot app first.
-
-- Start the mission (tap **Choose Mission Mode**, then **Field-device mission** or **Relay mission**) before expecting local AI samples.
-- Open **Pilot console → Mission → Local AI** and confirm detection is enabled.
-- Confirm the on-device model is available in the app build.
-- Lower the confidence threshold only during testing and restore the team's normal threshold afterward.
-- Check the cooldown and persistence settings; a detection may need several hits before AlphaRelay logs an event.
-- Confirm the aircraft is in the expected flight state. Some auto-tagging is designed to avoid repeated grounded detections.
-
-In this build, Local AI is fixed to person-detected events. Local AI events should appear in Mission Overwatch as local AI or Android pilot local AI entries.
-
-## Pilot tablet or phone says an update is available
-
-The pilot app can check for newer APK builds.
-
-- Open **Pilot console → App update → Check for App Update** to look for a newer build.
-- When the app prompts about a newer upload, tap **Download** to open the install link in the browser, then install the APK as usual.
-- If the check fails, confirm the tablet or phone is online and try again.
-
-## Report approval buttons are disabled
-
-Report actions depend on mission state, role, and report status.
-
-Check that:
-
-- The mission is closed.
-- The after-action report has displayable content.
-- You are signed in with a cloud-backed session.
-- The report is still in draft before submitting.
-- You are an organization admin before approving or returning a report.
-- The report has not already been approved.
-
-Approved reports are permanent and cannot be regenerated or edited.
-
-## Offline package video will not play
-
-Some browsers restrict local file playback after a ZIP is extracted.
-
-Try this:
-
-- Use Chrome or Edge for large packages.
-- Keep the extracted folder intact.
-- Open `index.html` from inside the extracted folder.
-- If the browser blocks local video, run a static server from the extracted folder with `python3 -m http.server 8765`, then open `http://localhost:8765`.
-
-Do not move files out of the extracted folder unless your records process requires it.
+If an offline package video will not play, keep the extracted folder intact and open `index.html` from inside the folder. Chrome or Edge is recommended for large packages.

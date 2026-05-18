@@ -1,72 +1,47 @@
 ---
-title: "Mission setup"
-description: "Network and hardware checks, starting the relay from Android, opening Mission Overwatch from the dashboard, and connecting to the relay."
+title: "Mission Setup Reference"
+description: "Reference details for hardware, mission start, Mission Overwatch selection, and live connection paths."
 icon: "wifi"
 ---
 
-## Network and hardware
+## What this is
 
-This page is for field teams preparing to start a live AlphaRelay mission. Use it before launch to confirm hardware, mission mode, Mission Overwatch access, and the live-view path.
+This reference keeps setup details for teams that need more than the beginner pages.
 
-Before starting a mission:
+## When to use it
 
-- Put the pilot tablet or phone and command device on the same Wi‑Fi network **when using the LAN relay** (unless the team relies on configured **remote live** instead).
-- Connect the pilot tablet or phone to the drone controller.
-- Power on the drone controller.
-- Power on the aircraft.
+- You need hardware and network reminders.
+- You need details about Mission Overwatch connection behavior.
+- You need to troubleshoot a Relay Mission.
+- You need to understand remote live at a high level.
 
-The pilot app runs on an approved Android tablet or phone. The command device can be a laptop, desktop, tablet, phone, or another browser profile.
+## Basic steps
 
-## Start the mission from the Android pilot tablet or phone
-
-Mission records are created on the pilot device. **Mission Overwatch no longer starts missions from the browser** — always begin from the app.
-
-On the pilot tablet or phone:
-
-1. Tap **Choose Mission Mode**.
-2. In the **Choose mission mode** overlay, optionally type a mission name (otherwise defaults apply), pick a scenario template (or **No scenario template**), then tap one of:
-   - **Field-device mission** — the mission can run from the Android field device without requiring a LAN Mission Overwatch session. Remote reviewers can still use **Live stream (WebRTC)** when that path is configured and running on the pilot.
-   - **Relay mission** — the Android field device connects to Mission Overwatch on the same field Wi-Fi for live LAN viewing and command-side event logging.
+1. Prepare the Android field device, controller, and aircraft.
+2. Choose Field Mission or Relay Mission from the Android field app.
 3. Complete the license step if prompted.
+4. Open the active mission from **Mission Dashboard**.
+5. Use Mission Overwatch if the selected workflow needs it.
 
-The app syncs mission metadata (including the tablet’s LAN IPv4 and relay URLs when available) so the browser can reconnect without you retyping addresses.
+## What good looks like
 
-<Tip>
-  Long-press **Choose Mission Mode** to open the **AlphaRelay license** settings without starting the relay.
-</Tip>
+- The mission starts from the Android field device.
+- Relay Mission devices share a reachable local network.
+- Mission Overwatch opens the active mission from the dashboard.
+- Review tools remain available after mission closeout.
 
-<Note>
-  Screenshot placeholder: **Choose Mission Mode** screen with demo mission name, scenario template, **Field-device mission**, and **Relay mission** buttons. Use demo data and redact organization or user details.
-</Note>
+## Common problems
 
-## Open Mission Overwatch from the dashboard
+- The team expects browser mission start.
+- Relay Mission local connection is attempted across unreachable networks.
+- Remote live is confused with Relay Mission local viewing.
 
-After the pilot starts a mission and cloud sync catches up, the mission appears under **Active missions** on the **Mission Dashboard**.
+## More detail
 
-1. Select the active mission. Mission Overwatch opens for that mission.
+Before starting a mission, connect the Android field device to the controller, power on the controller, and power on the aircraft when applicable.
 
-<Note>
-  Screenshot placeholder: active Mission Dashboard row with demo mission data and selected-mission state.
-</Note>
+Mission records are created on the Android field device. Mission Overwatch does not start missions from the browser.
 
-### LAN relay
+For Relay Mission, AlphaRelay syncs mission metadata so Mission Overwatch can attempt connection after the active mission is selected. If connection does not succeed, use **Connect** with the field blank to scan, or enter the address shown on the Android field device. If the browser prompts for TLS, use **Trust relay certificate**, complete trust, return, and connect again.
 
-For relay missions, use the **Live Overwatch Screen** card:
-
-- AlphaRelay fills **Tablet/phone IP (LAN)** from the synced mission metadata and attempts relay connection automatically when the pilot address is known.
-- If connection does not succeed, use **Connect** with the field blank to **scan the LAN**, or enter the IPv4 shown on the pilot UI as a fallback. Optional **Relay token** remains for deployments that enforce it.
-- If the browser prompts for TLS, use **Trust relay certificate**, complete trust, return here, then connect again.
-
-Overwatch uses `wss://` and port `8789` when you supply only an IPv4. For tunnels or unusual routing, paste a full `ws://` or `wss://` URL.
-
-<Note>
-  Screenshot placeholder: live Mission Overwatch view showing demo video/telemetry, LAN relay connection state, and no sensitive location or user data.
-</Note>
-
-### Field-device mission plus remote reviewers
-
-When the mission was started as **Field-device mission**, Mission Overwatch hides the LAN relay/event console blocks that assume a bridged relay, but **Playback / events / footage / reports** remain for review.
-
-If remote live streaming is configured, the pilot publishes from **Pilot console → Remote live stream → Start remote live**; reviewers then use **Live stream (WebRTC)** in the feed shell when offered.
-
-Use the LAN relay path when the command device is on the same network as the pilot tablet or phone (lowest latency). Use **Live stream (WebRTC)** when reviewers are off the pilot LAN.
+When remote live streaming is configured, the field app publishes from **Pilot console → Remote live stream → Start remote live**. Reviewers then use **Live stream (WebRTC)** in Mission Overwatch when offered.

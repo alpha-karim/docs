@@ -1,108 +1,59 @@
 ---
-title: "Report generation"
-description: "Generate after-action reports with Alpha AI, review and edit, seal evidence, and submit for approval."
+title: "Generate a Report"
+description: "Generate, review, edit, submit, and approve an after-action report."
 icon: "file-lines"
 ---
 
-This page is for officers, reviewers, and supervisors preparing the after-action report. Use it after the mission is closed and the timeline, footage, photos, and custody record are ready for review.
+## What this is
+
+Alpha AI drafts an after-action report from the structured mission record. A human reviewer must verify it before submission or approval.
 
 <Warning>
-  Alpha AI drafts the after-action report from structured mission data. It does not replace officer review. Operators must verify the timeline, evidence notes, media references, and Items Requiring Officer Review before submission or approval.
+  Alpha AI drafts report material. It does not replace officer review.
 </Warning>
 
-## Generate the after-action report
+## When to use it
 
-1. Scroll to **After-Action Report**.
-2. Click **Generate Report**.
+- The mission is closed.
+- Footage and events have been reviewed.
+- Items Requiring Officer Review need attention.
+- The report is ready for supervisor review.
 
-AlphaRelay uses Alpha AI to build the after-action report from the mission record, including events, screenshots, timestamps, mission metadata, scenario information, footage blocks, and custody and integrity data.
+## Basic steps
 
-The report is draft material generated from the structured mission timeline. It helps turn live mission activity into a clear, review-ready after-action report, but it is not the final authority.
+1. Open the closed mission.
+2. Review the timeline, footage, photos, and custody state.
+3. Scroll to **After-Action Report**.
+4. Click **Generate Report**.
+5. Review the generated report.
+6. Resolve **Items Requiring Officer Review**.
+7. Edit the narrative or executive summary as needed.
+8. Submit for supervisor approval when the record is ready.
+9. Approve or return to draft if you have the supervisor role.
 
-Report generation also considers mission photos, local AI events, voice relay entries, footage links, organization time zone, and any available custody snapshot.
+## What good looks like
 
-<Note>
-  Screenshot placeholder: **After-Action Report** panel with **Generate Report**, draft status, and demo mission data.
-</Note>
+- The report matches the mission timeline.
+- Footage, screenshots, and photos are accurate.
+- Items Requiring Officer Review are resolved.
+- The officer has reviewed the draft before submission.
+- Approval happens only when the final report should become permanent.
 
-## Review and edit the report narrative
+## Common problems
 
-After Alpha AI generates the report, AlphaRelay displays a structured after-action report that may include sections such as:
+- The report is generated before footage review is complete.
+- AI draft language is treated as final without human review.
+- Timeline events or photos need edits after submission.
+- Sealing evidence is confused with approving the report.
 
-- Narrative summary
-- Important timeline
-- Evidence notes
-- Items requiring officer review
-- Mission photos
-- Evidence custody summary
-- Review history and approval status
+## More detail
 
-Use **Edit executive summary** next to **Generate Report** to refine the short summary that appears in the sticky mission header (and in the dashboard executive summary for closed missions) without regenerating the rest of the report.
+AlphaRelay uses Alpha AI to build the after-action report from mission data, including events, screenshots, timestamps, mission metadata, scenario information, footage blocks, and custody and integrity data.
 
-The officer should carefully review the full report before finalizing it. Pay special attention to **Items Requiring Officer Review**. These are areas Alpha AI has identified as needing human confirmation, clarification, or additional detail in the written report.
+The report may include a narrative summary, important timeline, evidence notes, **Items Requiring Officer Review**, mission photos, evidence custody summary, review history, and approval status.
 
-The officer should:
+Use **Edit executive summary** next to **Generate Report** to refine the short summary that appears in the mission header and dashboard.
 
-- Review each item listed under **Items Requiring Officer Review**.
-- Confirm whether the report accurately reflects the mission.
-- Edit the generated narrative sections or executive summary as needed.
-- Add any missing context, corrections, or officer observations.
-- Verify that the timeline, evidence notes, and mission summary are accurate.
+**Submit for supervisor approval** when the mission report is complete and ready for command or supervisory review. While the report is awaiting supervisor approval, operator edits to the report, mission timeline, and photos are restricted.
 
-The report should remain in draft form until the officer has reviewed and addressed any required items. Timeline events and mission photos should be corrected in their own mission review tools before submission.
-
-Items Requiring Officer Review must be resolved before finalization. Human review is required before approval.
-
-## Seal the mission evidence
-
-Once the report and evidence have been reviewed, the officer can seal the registered custody evidence. Sealing locks custody evidence rows after download verification; supervisor approval is the separate step that makes the report permanent and locks timeline events and photos.
-
-For a fuller onboarding explanation, see [Evidence sealing](/alpharelay/evidence-sealing).
-
-Under **Mission chain of custody**, the officer may see options such as:
-
-- **Download mission custody certificate (HTML)**
-- **Seal entire mission (verify downloads)**
-
-Use these controls when the mission record is ready to be preserved.
-
-**Before sealing, make sure**
-
-- The correct footage is uploaded
-- Events are accurate
-- The report has been reviewed
-- Items requiring officer review have been addressed
-- Any needed edits have been completed
-- The custody record is ready to be locked
-
-Once custody evidence is sealed, those sealed evidence rows should be treated as preserved records.
-
-## Submit for supervisor approval or return to draft
-
-After reviewing the report and evidence, the officer can choose the next step.
-
-**Submit for supervisor approval**
-
-Click **Submit for supervisor approval** when the mission report is complete and ready for command or supervisory review. Do this after:
-
-- The report has been edited and verified
-- Items requiring officer review have been addressed
-- Evidence has been reviewed
-- The mission record is ready for approval
-
-You can add an optional note to the supervisor during submission. While the report is awaiting supervisor approval, operator edits to the report, mission timeline, and photos are restricted.
-
-**Return to draft**
-
-Organization admins acting as supervisors can approve the report or click **Return to draft** if more changes are needed. Use **Return to draft** when:
-
-- The report needs additional edits
-- Evidence notes need correction
-- Officer review items still need to be addressed
-- The mission record is not ready for supervisor approval
-
-This allows the officer to continue working on the report before final submission.
-
-**Approve report**
-
-Click **Approve report** only when the final reviewed version should become the permanent record. Once approved, the after-action report cannot be regenerated or edited, and timeline events and photos stay locked.
+Organization admins acting as supervisors can approve the report or click **Return to draft** if more changes are needed. Once approved, the after-action report cannot be regenerated or edited, and timeline events and photos stay locked.

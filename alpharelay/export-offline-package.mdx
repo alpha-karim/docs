@@ -1,16 +1,46 @@
 ---
-title: "Export offline package"
-description: "Create a downloadable ZIP archive of the mission record for offline review and retention."
+title: "Export the Offline Package"
+description: "Create a downloadable ZIP archive of the mission record."
 icon: "box-archive"
 ---
 
-## What the offline package is
+## What this is
 
-This page is for reviewers, supervisors, and records staff who need a self-contained mission archive. Use it after mission review when your agency needs offline review, handoff, or retention.
+The offline package is a downloadable ZIP file that contains a point-in-time copy of the mission record for offline review, handoff, or retention.
 
-The **Export Offline Package** creates a downloadable ZIP file that contains a complete point-in-time copy of the mission record.
+## When to use it
 
-This package is designed for archival, handoff, and offline review. It allows the mission to be reviewed later without needing to access AlphaRelay’s servers.
+- The mission needs records retention.
+- A supervisor or command reviewer needs a package.
+- The team needs offline review.
+- The mission record is ready to hand off or archive.
+
+## Basic steps
+
+1. Open the closed mission from **Mission Dashboard**.
+2. Confirm the mission review is complete.
+3. Confirm needed footage, screenshots, photos, report data, and custody data are available.
+4. Click **Export Offline Package**.
+5. Choose a save location if your browser asks.
+6. Wait for the export to complete.
+7. Unzip the package.
+8. Open `index.html` from the extracted folder.
+
+## What good looks like
+
+- The ZIP file is created.
+- The extracted package includes the offline viewer.
+- Available footage, screenshots, photos, report, and custody data open from the package.
+- The package reflects the mission state at export time.
+
+## Common problems
+
+- Export starts before footage or media downloads are available.
+- Very large missions take longer to package.
+- Local browser restrictions prevent video playback after extraction.
+- Files are moved out of the extracted folder.
+
+## More detail
 
 The offline package may include:
 
@@ -23,65 +53,8 @@ The offline package may include:
 - Mission photos, when available
 - A small offline viewer for reviewing the mission timeline and media
 
-Footage and screenshots are placed inside a `media/` folder when the browser is able to download them.
+Footage and screenshots are placed inside a `media/` folder when the browser is able to download them. Mission photos are stored under `media/` when AlphaRelay can retrieve them during export.
 
-The offline viewer preserves the mission review experience as closely as possible. When multiple angles are exported, reviewers can switch angles or use **All angles** to view synchronized feeds. Event thumbnails and screenshots remain available in the side panel, including screenshots created during post-mission tagging.
-
-Timeline photos and evidence-only mission photos are included when AlphaRelay can download them during export.
-
-## How to export the offline package
-
-1. From the Mission Dashboard, select the closed mission to open Mission Overwatch.
-2. Confirm the sticky header shows **Past Mission:** (export lives in Mission Overwatch, not solely on dashboard cards).
-3. Click **Export Offline Package**.
-4. If your browser asks where to save the file, choose a folder.
-5. Wait for the export to complete. When the button shows a **Done** message, the ZIP file has been created.
-
-<Note>
-  Screenshot placeholder: **Export Offline Package** button in the closed mission header with demo mission data.
-</Note>
-
-Large missions may take longer because video files are streamed into the ZIP package during export. Chrome or Edge is recommended for very large missions because they can better support streaming large ZIP files directly to disk.
-
-## What is inside the ZIP
-
-The offline package may include the following files and folders:
-
-| Item | What it contains | How to use it |
-|------|------------------|---------------|
-| `index.html` | Local offline viewer | Open this file in a browser to review the mission package. |
-| `viewer.js` and `viewer.css` | Offline viewer assets | Keep these files with `index.html`. |
-| `mission.json` | Mission record and offline media paths | Used by the viewer to load timeline and media data. |
-| `chain_of_custody.json` | Evidence rows, custody events, and validation summary | Review when checking custody history. |
-| `custody-certificate.html` | Printable custody certificate frozen at export time | Open in a browser to print or save as PDF. |
-| `after-action-report.html` | Local after-action report | Open in a browser to print or save as PDF. |
-| `README.txt` | Package instructions and playback notes | Read first if local video playback is blocked. |
-| `manifest.json` | Package index and format details | Use for technical verification of package contents. |
-| `media/` | Downloaded footage, screenshots, and mission photos when available | Keep the folder with the package so media links work. |
-
-Mission photos are stored under `media/` along with the other exported mission media when the browser can retrieve them.
-
-## How to open the offline package
-
-1. Unzip the downloaded file.
-2. Open the extracted folder.
-3. Double-click `index.html`.
-
-That opens the offline mission viewer in your browser. From there, you can review the mission timeline, footage, screenshots, custody data, and report files included in the package.
-
-Event screenshots in the offline viewer are shown without cropping so the full captured frame remains visible during evidence review.
-
-## Important note
+Large missions may take longer because video files are streamed into the ZIP package during export. Chrome or Edge is recommended for very large missions.
 
 The offline package is not a replacement for live mission sync. It is a point-in-time archive created while you are signed in and connected to the internet.
-
-Use it for:
-
-- Offline review
-- Records retention
-- Evidence handoff
-- Supervisor or command review
-- Archival storage
-- Sharing a self-contained mission package when appropriate
-
-Once exported, the package reflects the mission data available at the time the ZIP was created.

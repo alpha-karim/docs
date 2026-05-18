@@ -14,41 +14,53 @@
         "tab": "Documentation",
         "groups": [
           {
-            "group": "AlphaRelay",
-            "pages": ["index"]
-          },
-          {
-            "group": "New user onboarding",
+            "group": "Start Here",
             "pages": [
-              "alpharelay/before-you-go-to-the-field",
-              "alpharelay/quick-start-checklist",
+              "index",
+              "alpharelay/plain-english",
+              "alpharelay/guide-overview",
               "alpharelay/roles-and-devices",
-              "alpharelay/dashboard-account-organization",
-              "alpharelay/pilot-app-and-local-ai",
-              "alpharelay/connectivity-guide",
-              "alpharelay/training-mission",
-              "alpharelay/evidence-sealing",
-              "alpharelay/troubleshooting",
-              "alpharelay/minimum-requirements",
-              "alpharelay/security-privacy-ai-processing",
-              "alpharelay/known-limitations",
-              "alpharelay/glossary"
+              "alpharelay/field-vs-relay",
+              "alpharelay/training-mission"
             ]
           },
           {
-            "group": "Zero to live mission guide",
+            "group": "Run a Mission",
             "pages": [
-              "alpharelay/guide-overview",
-              "alpharelay/one-time-setup",
-              "alpharelay/mission-setup",
-              "alpharelay/mission-execution",
+              "alpharelay/before-you-go-to-the-field",
+              "alpharelay/start-field-mission",
+              "alpharelay/start-relay-mission",
+              "alpharelay/watch-in-mission-overwatch",
               "alpharelay/event-logging",
-              "alpharelay/completing-a-mission",
+              "alpharelay/completing-a-mission"
+            ]
+          },
+          {
+            "group": "Review and Report",
+            "pages": [
               "alpharelay/footage-upload",
               "alpharelay/footage-playback",
               "alpharelay/report-generation",
-              "alpharelay/export-offline-package",
-              "alpharelay/mission-lifecycle-summary"
+              "alpharelay/evidence-sealing",
+              "alpharelay/export-offline-package"
+            ]
+          },
+          {
+            "group": "Admin Setup",
+            "pages": [
+              "alpharelay/dashboard-account-organization",
+              "alpharelay/one-time-setup",
+              "alpharelay/security-privacy-ai-processing",
+              "alpharelay/minimum-requirements"
+            ]
+          },
+          {
+            "group": "Help",
+            "pages": [
+              "alpharelay/troubleshooting",
+              "alpharelay/connectivity-guide",
+              "alpharelay/known-limitations",
+              "alpharelay/glossary"
             ]
           }
         ]

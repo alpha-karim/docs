@@ -1,40 +1,60 @@
 ---
-title: "Before you go to the field"
-description: "Pre-deployment checklist for devices, roles, connectivity, storage, licensing, and training."
+title: "Before You Go to the Field"
+description: "Prepare devices, roles, mission type, connectivity, and sync before a mission."
 icon: "clipboard-check"
 ---
 
-This page is for field teams preparing to run a live AlphaRelay mission. Use it before deployment to confirm your device, network, roles, and sync plan are ready.
+## What this is
 
-## Pre-deployment checklist
+Use this checklist before a training or operational mission so the team knows which devices, roles, and connection path it will use.
 
-- Android field device is charged.
-- Controller and drone are connected and tested, if applicable.
-- AlphaRelay Android app is installed and updated.
-- Operator is signed in.
-- License is activated.
-- Correct organization is selected.
-- Mission Overwatch has been opened once while online on the command device.
-- Field Wi-Fi is tested if using LAN relay.
-- Internet plan is known if using WebRTC remote live or cloud sync.
-- Storage and SD card are checked.
-- Roles are assigned: field operator, Overwatch reviewer, and supervisor.
-- First training mission is completed before operational use.
+## When to use it
 
-## Choose the mission path
+- You are preparing for a mission.
+- You are training a new team.
+- You changed devices, networks, or operators.
+- You need to confirm the mission type before launch.
+
+## Basic steps
+
+1. Charge the Android field device.
+2. Confirm the controller and aircraft are connected and tested, if applicable.
+3. Confirm the AlphaRelay Android field app is installed and updated.
+4. Sign in with the correct operator account.
+5. Confirm the pilot license is active.
+6. Confirm the correct organization is selected.
+7. Open Mission Overwatch once while online on the command device.
+8. Choose Field Mission or Relay Mission.
+9. Test the local network if using Relay Mission.
+10. Confirm the internet plan for sync, upload, reports, and export.
+11. Check storage and SD card access.
+12. Assign the field operator, Mission Overwatch user, reviewer, and supervisor.
+
+## What good looks like
+
+- The selected mission type matches the team's workflow.
+- The Android field device can start a mission.
+- Mission Overwatch users can sign in.
+- The team knows what needs internet and what can wait for sync.
+- Everyone knows who starts, watches, logs, reviews, and approves.
+
+## Common problems
+
+- Field Mission and Relay Mission are confused before launch.
+- Relay Mission devices are not on the same reachable local network.
+- The team expects cloud sync or upload without internet.
+- The pilot license has not been activated.
+
+## More detail
 
 | Field condition | Use this path |
-|-----------------|---------------|
-| One Android field device will run the mission without a same-LAN command laptop | Field-device mission |
-| Command laptop is on the same field Wi-Fi as the Android field device | Relay mission with LAN relay |
-| Off-site reviewer needs live viewing | WebRTC remote live |
+| --- | --- |
+| One Android field device will run the mission without a same-local-network command device | Field Mission |
+| Mission Overwatch needs to connect from the same local network | Relay Mission |
+| Off-site reviewer needs live viewing | Configured remote live through **Live stream (WebRTC)** |
 | Field site has no internet | Local mission work, then sync later |
-| Agency needs an evidence package | Upload, review, seal, approve, then export |
+| Agency needs a final record | Upload, review, report, seal, approve when needed, then export |
 
-## Read next
-
-- [Quick Start Checklist](/alpharelay/quick-start-checklist)
-- [Connectivity Guide](/alpharelay/connectivity-guide)
-- [First Training Mission](/alpharelay/training-mission)
-- [Mission Setup](/alpharelay/mission-setup)
-- [Troubleshooting](/alpharelay/troubleshooting)
+<Warning>
+  Internet access and local mission connectivity are not the same thing. Follow the connection requirements for the mission type you are using.
+</Warning>

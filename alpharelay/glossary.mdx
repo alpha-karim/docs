@@ -1,77 +1,77 @@
 ---
 title: "Glossary"
-description: "Common AlphaRelay terms for operators, reviewers, and supervisors."
+description: "Plain-English definitions for common AlphaRelay terms."
 icon: "book"
 ---
 
 ## Alpha AI
 
-AlphaRelay's report generation assistant. It drafts after-action report content from the structured mission record, events, screenshots, footage references, and custody context.
+Alpha AI drafts after-action report content from the structured mission record.
 
 ## Chain of custody
 
-The evidence history for a mission. It helps show what media and records were captured, reviewed, sealed, exported, or handed off.
+Chain of custody is the evidence history for a mission record.
 
 ## Cloud sync
 
-The process that saves local mission changes, events, screenshots, footage records, and review state to AlphaRelay cloud services.
+Cloud sync saves mission data to AlphaRelay cloud services when internet is available.
+
+## Device license
+
+A device license lets an approved Android field device use the AlphaRelay field app.
 
 ## Event
 
-A timestamped mission entry. Events can be logged from the pilot tablet or phone, Mission Overwatch, or post-mission footage review.
+An event is a timestamped mission note from the field device, Mission Overwatch, or footage review.
 
-## Event screenshot
+## Evidence sealing
 
-An image linked to an event. It may come from the live pilot relay or from a captured video frame during post-mission tagging.
+Evidence sealing preserves reviewed custody evidence and hashes.
 
-## Local AI
+## Field Mission
 
-Optional on-device detection in the Android pilot app. It samples the live relay frames and can create local AI events with screenshots and metadata. In the current build, the pilot setting is fixed to person-detected events.
+Field Mission is the mission type for using the Android field device as the main tool when live local viewing is not required.
+
+## Footage review
+
+Footage review is the process of checking uploaded mission video against events, photos, and the timeline.
 
 ## Mission Dashboard
 
-The web app landing area after sign-in. It shows active and closed missions, mission search, operational metrics, report queues, and after-action report actions.
-
-## Mission photo
-
-An uploaded image linked to a mission. Mission photos can be timeline items or evidence-only items and can appear in reports, custody records, storage summaries, and offline packages.
+Mission Dashboard is the web app area where you find active and closed missions.
 
 ## Mission Overwatch
 
-The focused mission workspace in the browser. Open it by selecting an active or closed mission from the Mission Dashboard. It consumes synced mission metadata so the LAN relay URI can preload for relay missions, exposes **Live stream (WebRTC)** when configured, manages events, uploads, custody, playback, Alpha AI reporting, approvals, sealing, and export. Android always starts the mission; Overwatch participates after the mission is selected in the dashboard.
+Mission Overwatch is the browser workspace for watching, logging, reviewing, reporting, sealing, and exporting one mission.
 
 ## Offline package
 
-A downloadable ZIP archive containing a point-in-time copy of the mission record. It can include the offline viewer, report, custody data, certificate, timeline, footage, and screenshots.
+An offline package is a downloadable ZIP archive with a point-in-time copy of the mission record.
 
-## Pilot app
+## Organization
 
-The AlphaRelay Android app used on the pilot tablet or phone. It connects to the drone controller, starts the relay, displays pilot controls, logs quick events, and helps transfer mission footage.
-
-## Pilot relay
-
-The local connection served by the pilot tablet or phone so Mission Overwatch can view the live feed and mission data on the same local network.
-
-## Remote live
-
-A configured live-stream path that lets Mission Overwatch view the active pilot feed over the internet instead of the pilot device LAN.
+An organization is the AlphaRelay team space that contains users, roles, settings, licenses, and mission records.
 
 ## Play with Events
 
-The footage review view that combines video playback, event markers, event screenshots, multi-angle controls, sync tools, and post-mission event tagging.
+Play with Events is the review view that plays footage alongside mission event markers.
 
-## Primary footage
+## Relay Mission
 
-The main reference video for the mission timeline. Event markers are mapped against this timeline first.
+Relay Mission is the mission type for connecting Mission Overwatch to the Android field device during the mission.
 
-## Secondary angle
+## Report
 
-Additional mission footage from another source or angle. Secondary clips can be synchronized to the primary footage so events line up across views.
+The report is the after-action report generated from mission data and reviewed by a human.
 
-## Sync offset
+## Sync
 
-The time adjustment used to align a secondary angle with the primary footage timeline.
+Sync is the process of moving local mission changes to AlphaRelay cloud services when connectivity is available.
 
-## Tag event
+## Timeline
 
-A post-mission review action in **Play with Events**. It creates a new event at the current video frame and stores a screenshot from that frame.
+The timeline is the mission sequence of events, photos, footage moments, and review markers.
+
+## Upload queue
+
+The upload queue holds footage or mission data that needs to sync when internet access is available.

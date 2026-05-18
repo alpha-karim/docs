@@ -1,89 +1,56 @@
 ---
-title: "Evidence sealing"
-description: "Understand when and how to lock a mission evidence record after review."
+title: "Seal the Mission Record"
+description: "Lock reviewed custody evidence when the mission record is ready."
 icon: "shield-check"
 ---
 
-This page is for officers and supervisors preparing a mission record for custody review, approval, export, or retention. Use it after footage, timeline events, photos, and report draft material have been reviewed.
+## What this is
 
-Evidence sealing is the point where registered custody evidence moves from draft review into a preserved evidence state.
-
-Use sealing only after the mission timeline, footage, screenshots, report, and custody record have been reviewed.
+Sealing preserves reviewed custody evidence and hashes. It is a separate step from supervisor approval.
 
 <Warning>
-  Important: Sealing evidence and approving the report are not the same action. Sealing preserves custody evidence and hashes. Supervisor approval finalizes the after-action report and locks timeline/photos. Complete all timeline, photo, and report edits before approval.
+  Sealing evidence and approving the report are not the same action. Sealing preserves custody evidence and hashes. Supervisor approval finalizes the after-action report and locks timeline events and photos.
 </Warning>
 
-## What sealing does
+## When to use it
 
-Sealing locks registered evidence rows in the custody ledger so the reviewed files and hashes cannot be changed casually after finalization.
+- The mission is closed.
+- Footage, screenshots, and photos have been reviewed.
+- The report has been generated and checked.
+- Items Requiring Officer Review have been addressed.
+- The custody record is ready to preserve.
 
-The sealed record helps preserve:
+## Basic steps
 
-- Mission events
-- Event screenshots
-- Uploaded footage references
-- Mission photos
-- Chain-of-custody data
-- Custody certificate state
-- After-action report context
-- Evidence review history
+1. Open the closed mission.
+2. Confirm footage is uploaded and playable.
+3. Review **Play with Events**.
+4. Confirm event names, screenshots, timestamps, and photos.
+5. Generate and review the after-action report.
+6. Address **Items Requiring Officer Review**.
+7. Open **Mission chain of custody**.
+8. Use **Download mission custody certificate (HTML)** if needed.
+9. Click **Seal entire mission (verify downloads)** when the record is ready.
 
-Once evidence is sealed, teams should treat those custody records as finalized for review, handoff, approval, export, and retention. Report approval is the separate step that locks the report and keeps timeline events and photos from further edits.
-
-## When to seal
-
-Seal evidence after:
-
-- The mission is closed
-- Footage has uploaded or queued pilot-handoff footage has finished syncing
-- **Play with Events** has been reviewed
-- Any needed post-mission events have been tagged
-- Event names, screenshots, and timestamps have been checked
-- The after-action report has been generated
-- Items requiring officer review have been addressed
-- The officer has confirmed the record is ready
-
-Do not seal while critical footage, screenshots, report edits, or officer review items are still pending.
-
-## Where sealing lives
-
-In Mission Overwatch, sealing controls appear under **Mission chain of custody** after the mission is ready for review.
-
-Depending on mission state, the officer may see:
-
-- **Download mission custody certificate (HTML)**
-- **Seal entire mission (verify downloads)**
-
-Use **Seal entire mission (verify downloads)** when the team wants AlphaRelay to download each unsealed evidence file, recompute SHA-256, and seal the custody rows as part of the same review step.
-
-<Note>
-  Screenshot placeholder: **Seal entire mission (verify downloads)** button under **Mission chain of custody** with demo mission data only.
-</Note>
-
-## Before sealing checklist
-
-Before clicking a sealing action, confirm:
+## What good looks like
 
 - The correct mission is open.
 - The mission status is closed.
-- The correct footage is uploaded and playable.
-- Mission photos have the right captions, categories, timeline placement, and notes.
-- Any secondary angles have been synced to the primary timeline.
-- Event markers line up with the footage.
-- Event screenshots are visible where expected.
-- Post-mission tagged events have clear names.
-- The after-action report has been reviewed and edited.
-- Items requiring officer review are resolved.
-- The custody certificate is ready to preserve.
-- Any required offline package export process is understood.
+- Footage and event markers have been checked.
+- The report has been reviewed.
+- Custody evidence is ready to preserve.
 
-## After sealing
+## Common problems
 
-After sealing the custody evidence, continue with the final review workflow:
+- Sealing is started before footage or queued sync has finished.
+- Report edits are still needed.
+- Items Requiring Officer Review are unresolved.
+- The team expects sealing to approve the report.
 
-1. Submit the report for supervisor approval when it is ready.
-2. Export an offline package if the mission needs archive, handoff, command review, or records retention.
-3. Store the exported package according to your team's evidence handling process.
+## More detail
 
-If more timeline, photo, or report edits are needed before approval, complete those edits before submitting the report for supervisor approval.
+Sealing locks registered evidence rows in the custody ledger so reviewed files and hashes cannot be changed casually after finalization.
+
+The sealed record helps preserve mission events, event screenshots, uploaded footage references, mission photos, chain-of-custody data, custody certificate state, report context, and evidence review history.
+
+After sealing, continue with supervisor approval when the report is ready, then export an offline package if the mission needs archive, handoff, command review, or records retention.
