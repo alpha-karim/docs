@@ -20,6 +20,7 @@
           {
             "group": "New user onboarding",
             "pages": [
+              "alpharelay/before-you-go-to-the-field",
               "alpharelay/quick-start-checklist",
               "alpharelay/roles-and-devices",
               "alpharelay/dashboard-account-organization",
@@ -28,6 +29,9 @@
               "alpharelay/training-mission",
               "alpharelay/evidence-sealing",
               "alpharelay/troubleshooting",
+              "alpharelay/minimum-requirements",
+              "alpharelay/security-privacy-ai-processing",
+              "alpharelay/known-limitations",
               "alpharelay/glossary"
             ]
           },

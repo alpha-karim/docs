@@ -4,7 +4,9 @@ description: "Understand Android pilot app mission modes, relay controls, quick 
 icon: "tablet-screen-button"
 ---
 
-The Android pilot app runs on an approved tablet or phone, connects to the aircraft controller, starts the local relay, shows the pilot interface, and sends mission events and media handoff data back to AlphaRelay. The same app is used on tablets and phones; phone layouts include a compact bottom strip and an option to hide on-screen flight controls.
+This page is for Android field operators and trainers. Use it to understand how missions start from the field device, how mission modes map to live review paths, and how local AI supports event review.
+
+The Android pilot app runs on an approved tablet or phone, connects to the aircraft controller, starts the local relay when needed, shows the field interface, and sends mission events and media handoff data back to AlphaRelay. The same app is used on tablets and phones; phone layouts include a compact bottom strip and an option to hide on-screen flight controls.
 
 ## Starting a mission
 
@@ -16,8 +18,8 @@ Tap **Choose Mission Mode** on the pilot tablet or phone. The **Choose mission m
 
 Choose a mode:
 
-- **Pilot only** creates a pilot-side mission flow for field use **without assuming a LAN relay session** in Mission Overwatch. Officers can still review events, footage, and reports afterward; reviewers watching live use **Live stream (WebRTC)** when the team has configured and started remote live on the pilot.
-- **Full relay** starts a mission intended to connect Mission Overwatch to the LAN relay/WebSocket/JPEG pipeline.
+- **Pilot only** means the mission can run from the Android field device without requiring a LAN Mission Overwatch session. Officers can still review events, footage, and reports afterward. Reviewers watching live use **Live stream (WebRTC)** when the team has configured and started remote live on the pilot.
+- **Full relay** means the Android field device connects to Mission Overwatch on the same field Wi-Fi for live LAN viewing and command-side event logging.
 
 Both modes create a mission record on the pilot device. Sync includes relay metadata (`pilot_lan_ip`, `wss://` URLs when the tablet has a LAN address) so the browser mission view can preload the relay field and attempt connection **without relying on manual IP entry** during normal workflows.
 
@@ -25,11 +27,15 @@ Operators **do not** start missions from the Mission Overwatch page anymore — 
 
 Long-press **Choose Mission Mode** to open license settings without starting the relay. To stop the relay and mission together after flight, tap **Stop Mission**.
 
-For **full relay**, keep the pilot tablet or phone and the Mission Overwatch browser on the same local network unless everyone is intentionally using remote live instead.
+For a relay mission, keep the pilot tablet or phone and the Mission Overwatch browser on the same local network unless everyone is intentionally using remote live instead.
+
+<Note>
+  Screenshot placeholder: **Choose Mission Mode** screen with demo data. Show the mission name field, scenario picker, and both mode buttons without exposing agency details.
+</Note>
 
 ## Relay connection (Mission Overwatch)
 
-After a **full relay** mission syncs:
+After a relay mission syncs:
 
 1. Open the mission via the dashboard (**Open in console**). Focused Mission Overwatch loads mission metadata first.
 2. When the pilot LAN IP was uploaded with the mission, **Tablet/phone IP (LAN)** is filled automatically and the client attempts **Connect**.

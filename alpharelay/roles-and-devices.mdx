@@ -4,16 +4,18 @@ description: "Understand who uses AlphaRelay and which device each part of the w
 icon: "users"
 ---
 
+This page is for new agencies deciding who does what during setup, live operations, review, approval, and export. Use it before the first training mission so each person knows their device and responsibility.
+
 AlphaRelay connects field devices, command review, cloud sync, and evidence packaging. This page explains the moving parts before you run a mission.
 
-## Pilot operator
+## Android field operator
 
-The pilot operator uses an Android tablet or phone with the AlphaRelay pilot app.
+The Android field operator uses an Android tablet or phone with the AlphaRelay pilot app.
 
 The pilot tablet or phone is responsible for:
 
 - Connecting to the drone controller
-- **Starting missions** via **Choose Mission Mode** (**Pilot only** or **Full relay**) and kicking off the LAN relay (**full relay**) or remote-live publishing (**pilot only** when reviewers watch off LAN)
+- **Starting missions** via **Choose Mission Mode**. **Pilot only** is a field-device mission. **Full relay** is a relay mission that connects Mission Overwatch on the same field Wi-Fi.
 - Showing the live pilot interface
 - Sending live video and telemetry to Mission Overwatch (LAN relay/WebSocket path **or** configured WebRTC ingest from the pilot)
 - Logging quick events from the field
@@ -29,7 +31,7 @@ The Mission Overwatch operator uses the AlphaRelay web app in a browser.
 Mission Overwatch is responsible for:
 
 - **Closing missions from the browser when required** (**Stop Mission** on the pilot is the typical paired shutdown step)
-- Consuming **full relay** feeds after dashboard hand-off (LAN metadata prefill/autoconnect, with Connect/scan/manual fallbacks only when needed), or tuning into **Live stream (WebRTC)** when the pilot publishes it
+- Consuming relay mission feeds after dashboard handoff (LAN metadata prefill/autoconnect, with Connect/scan/manual fallbacks only when needed), or tuning into **Live stream (WebRTC)** when the pilot publishes it
 - Logging manual and quick events
 - Uploading mission photos
 - Reviewing mission footage
@@ -81,13 +83,13 @@ The admin may handle:
 
 ## Core devices
 
-| Device | Used for |
-|--------|----------|
-| Android pilot tablet or phone | Pilot app, relay, live controls, quick events, footage handoff |
-| Drone controller | DJI flight control connection |
-| Aircraft | Mission flight and recording |
-| Mission Overwatch device | Browser-based command view, event logging, review, reports |
-| Cloud account | Sign-in, sync, uploaded footage, shared mission records |
-| SD card or aircraft storage | Source footage when manual upload is needed |
+| Device or service | Primary use | Field note |
+|-------------------|-------------|------------|
+| Android pilot tablet or phone | Pilot app, relay, live controls, quick events, footage handoff | Starts the mission and may queue footage when internet is unavailable. |
+| Drone controller | DJI flight control connection | Confirm connection before the mission starts. |
+| Aircraft | Mission flight and recording | Confirm recording and storage behavior before deployment. |
+| Mission Overwatch device | Browser-based command view, event logging, review, reports | Must share field Wi-Fi for LAN relay, or use WebRTC remote live when off-site. |
+| Cloud account | Sign-in, sync, uploaded footage, shared mission records | Requires internet for cloud-backed work. |
+| SD card or aircraft storage | Source footage when manual upload is needed | Keep the source file until upload and review are complete. |
 
 Most setup problems come from mixing local relay requirements with cloud sync requirements. The next page explains that connectivity model.

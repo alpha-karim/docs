@@ -4,18 +4,40 @@ description: "Understand local relay networking, internet sync, offline behavior
 icon: "tower-broadcast"
 ---
 
-AlphaRelay uses two kinds of connectivity during a mission:
+This page is for field operators, Mission Overwatch operators, and reviewers planning how a mission will stay connected. Use it before deployment and again when live video, remote viewing, upload, or sync behavior is unclear.
 
-- **Local relay connectivity** between the pilot tablet or phone and Mission Overwatch
-- **Internet connectivity** for sign-in, cloud sync, footage upload, and shared records
+AlphaRelay uses three separate connection paths during a mission:
 
-These can be the same network, but they do not have to be.
+```text
+Android Field Device
+  |-- LAN Relay -> Mission Overwatch on same field Wi-Fi
+  |-- WebRTC Remote Live -> Off-site reviewers over internet
+  `-- Cloud Sync -> Events, footage, reports, evidence records
+```
 
-## Local relay connectivity
+These paths can use the same network, but they do not have to.
+
+## Which path should I use?
+
+| Situation | Recommended path |
+|-----------|------------------|
+| Same field Wi-Fi with command laptop | LAN Relay |
+| Off-site reviewer needs live view | WebRTC Remote Live |
+| No internet in field | Local mission, sync later |
+| Need full evidence package | Upload footage, review, seal, export |
+| Training/demo | First Training Mission |
+
+## What happens if internet drops?
+
+<Warning>
+  AlphaRelay is built for imperfect field networks. Local mission work can continue when supported by the current mission mode. Events and footage can queue locally, and cloud sync resumes when connectivity returns. LAN relay, WebRTC remote live, and cloud sync are separate paths, so losing one connection type does not always mean the entire mission stops.
+</Warning>
+
+## LAN relay
 
 The pilot tablet or phone and the Mission Overwatch device must be able to reach each other on the same local network.
 
-Local relay connectivity powers:
+LAN relay powers:
 
 - Live video in Mission Overwatch
 - Telemetry display
@@ -26,18 +48,30 @@ Local relay connectivity powers:
 If Mission Overwatch cannot connect to the pilot relay:
 
 - Confirm both devices are on the same Wi-Fi network when using the LAN path.
-- Confirm the pilot app shows the relay as running (**full relay** missions).
+- Confirm the pilot app shows the relay as running for a relay mission.
 - Wait for pilot mission sync to populate LAN metadata; then **Tablet/phone IP (LAN)** should fill automatically and connection can proceed **without typing the IP**.
 - If the field stays blank or the address looks wrong after sync, leave it empty and click **Connect** to scan the LAN (or paste the IPv4 shown on the pilot screen / a supplied tunnel URL).
 - Trust the relay certificate if the browser prompts for it.
 
-If reviewers are deliberately off-LAN and **remote live** is configured instead, rely on **Live stream (WebRTC)** rather than troubleshooting local discovery.
+If reviewers are deliberately off-LAN and remote live is configured instead, rely on **Live stream (WebRTC)** rather than troubleshooting local discovery.
 
-## Internet connectivity
+## WebRTC remote live
+
+WebRTC remote live is the internet path for reviewers who are not on the field Wi-Fi.
+
+Remote live requires:
+
+- Internet access from the Android field device.
+- Remote live started from the pilot app when configured.
+- Reviewers to open Mission Overwatch and use **Live stream (WebRTC)** when offered.
+
+Use WebRTC remote live when an off-site reviewer needs live situational awareness. Use LAN relay when the command laptop is on the same field Wi-Fi and the team wants the lowest-latency local path.
+
+## Cloud sync
 
 Internet connectivity is needed for cloud-backed work.
 
-Internet connectivity powers:
+Cloud sync powers:
 
 - Operator sign-in
 - Mission sync

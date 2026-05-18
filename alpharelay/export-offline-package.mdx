@@ -6,6 +6,8 @@ icon: "box-archive"
 
 ## What the offline package is
 
+This page is for reviewers, supervisors, and records staff who need a self-contained mission archive. Use it after mission review when your agency needs offline review, handoff, or retention.
+
 The **Export Offline Package** creates a downloadable ZIP file that contains a complete point-in-time copy of the mission record.
 
 This package is designed for archival, handoff, and offline review. It allows the mission to be reviewed later without needing to access AlphaRelay’s servers.
@@ -35,23 +37,27 @@ Timeline photos and evidence-only mission photos are included when AlphaRelay ca
 4. If your browser asks where to save the file, choose a folder.
 5. Wait for the export to complete. When the button shows a **Done** message, the ZIP file has been created.
 
+<Note>
+  Screenshot placeholder: **Export Offline Package** button in the closed mission header with demo mission data.
+</Note>
+
 Large missions may take longer because video files are streamed into the ZIP package during export. Chrome or Edge is recommended for very large missions because they can better support streaming large ZIP files directly to disk.
 
 ## What is inside the ZIP
 
 The offline package may include the following files and folders:
 
-| Item | Description |
-|------|-------------|
-| `index.html` | The local offline viewer. Open this file to review the mission package in a browser. |
-| `viewer.js` and `viewer.css` | Files used by the offline viewer to display the mission timeline, footage, screenshots, and related data. |
-| `mission.json` | The mission data file, including the mission record and offline paths to any included media. |
-| `chain_of_custody.json` | The chain-of-custody data, including evidence rows, custody events, and validation summary. |
-| `custody-certificate.html` | A printable custody certificate frozen at the time of export. |
-| `after-action-report.html` | A local version of the after-action report. Open in a browser and print or save as a PDF. |
-| `README.txt` | Instructions for opening and reviewing the offline package, including what to do if your browser blocks video playback from a local file. |
-| `manifest.json` | A package index that lists the format of the export and the files included. |
-| `media/` | Downloaded mission media when available, including footage clips and event screenshots. |
+| Item | What it contains | How to use it |
+|------|------------------|---------------|
+| `index.html` | Local offline viewer | Open this file in a browser to review the mission package. |
+| `viewer.js` and `viewer.css` | Offline viewer assets | Keep these files with `index.html`. |
+| `mission.json` | Mission record and offline media paths | Used by the viewer to load timeline and media data. |
+| `chain_of_custody.json` | Evidence rows, custody events, and validation summary | Review when checking custody history. |
+| `custody-certificate.html` | Printable custody certificate frozen at export time | Open in a browser to print or save as PDF. |
+| `after-action-report.html` | Local after-action report | Open in a browser to print or save as PDF. |
+| `README.txt` | Package instructions and playback notes | Read first if local video playback is blocked. |
+| `manifest.json` | Package index and format details | Use for technical verification of package contents. |
+| `media/` | Downloaded footage, screenshots, and mission photos when available | Keep the folder with the package so media links work. |
 
 Mission photos are stored under `media/` along with the other exported mission media when the browser can retrieve them.
 

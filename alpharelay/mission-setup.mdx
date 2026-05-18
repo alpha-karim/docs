@@ -6,6 +6,12 @@ icon: "wifi"
 
 ## Network and hardware
 
+This page is for field teams preparing to start a live AlphaRelay mission. Use it before launch to confirm hardware, mission mode, Mission Overwatch access, and the live-view path.
+
+<Info>
+  Some current product screens may refer to these modes as Pilot only and Full relay. In this guide, Pilot only is described as a field-device mission, and Full relay is described as a relay mission.
+</Info>
+
 Before starting a mission:
 
 - Put the pilot tablet or phone and command device on the same Wi‑Fi network **when using the LAN relay** (unless the team relies on configured **remote live** instead).
@@ -23,8 +29,8 @@ On the pilot tablet or phone:
 
 1. Tap **Choose Mission Mode**.
 2. In the **Choose mission mode** overlay, optionally type a mission name (otherwise defaults apply), pick a scenario template (or **No scenario template**), then tap one of:
-   - **Pilot only** — field mission without LAN relay panels in Mission Overwatch; remote reviewers can still use **Live stream (WebRTC)** when that path is configured and running on the pilot.
-   - **Full relay** — mission intended for the LAN relay/JPEG/WSS path as well as Mission Overwatch logging alongside the pilot.
+   - **Pilot only** — a field-device mission. The mission can run from the Android field device without requiring a LAN Mission Overwatch session. Remote reviewers can still use **Live stream (WebRTC)** when that path is configured and running on the pilot.
+   - **Full relay** — a relay mission. The Android field device connects to Mission Overwatch on the same field Wi-Fi for live LAN viewing and command-side event logging.
 3. Complete the license step if prompted.
 
 The app syncs mission metadata (including the tablet’s LAN IPv4 and relay URLs when available) so the browser can reconnect without you retyping addresses.
@@ -33,15 +39,23 @@ The app syncs mission metadata (including the tablet’s LAN IPv4 and relay URLs
   Long-press **Choose Mission Mode** to open the **AlphaRelay license** settings without starting the relay.
 </Tip>
 
+<Note>
+  Screenshot placeholder: **Choose Mission Mode** screen with demo mission name, scenario template, **Pilot only**, and **Full relay** buttons. Use demo data and redact organization or user details.
+</Note>
+
 ## Open Mission Overwatch from the dashboard
 
 After the pilot starts a mission and cloud sync catches up, the mission appears under **Active missions** on the **Mission Dashboard**.
 
 1. Click **Open in console** for that mission. Mission Overwatch opens already focused on that mission (URL includes `?mission=…`).
 
-### LAN relay (**Full relay**)
+<Note>
+  Screenshot placeholder: **Open in console** button on an active Mission Dashboard row with demo mission data.
+</Note>
 
-For **full relay** missions, use the **Live Overwatch Screen** card:
+### LAN relay
+
+For relay missions, use the **Live Overwatch Screen** card:
 
 - AlphaRelay fills **Tablet/phone IP (LAN)** from the synced mission metadata and attempts relay connection automatically when the pilot address is known.
 - If connection does not succeed, use **Connect** with the field blank to **scan the LAN**, or enter the IPv4 shown on the pilot UI as a fallback. Optional **Relay token** remains for deployments that enforce it.
@@ -49,9 +63,13 @@ For **full relay** missions, use the **Live Overwatch Screen** card:
 
 Overwatch uses `wss://` and port `8789` when you supply only an IPv4. For tunnels or unusual routing, paste a full `ws://` or `wss://` URL.
 
-### Pilot-only + remote reviewers
+<Note>
+  Screenshot placeholder: live Mission Overwatch view showing demo video/telemetry, LAN relay connection state, and no sensitive location or user data.
+</Note>
 
-When the mission was started as **pilot only**, Mission Overwatch hides the LAN relay/event console blocks that assume a bridged relay, but **Playback / events / footage / reports** remain for review.
+### Field-device mission plus remote reviewers
+
+When the mission was started as **Pilot only**, Mission Overwatch hides the LAN relay/event console blocks that assume a bridged relay, but **Playback / events / footage / reports** remain for review.
 
 If remote live streaming is configured, the pilot publishes from **Pilot console → Remote live stream → Start remote live**; reviewers then use **Live stream (WebRTC)** in the feed shell when offered.
 

@@ -1,0 +1,63 @@
+---
+title: "Minimum requirements"
+description: "Device, browser, network, storage, permission, controller, and offline expectations for AlphaRelay."
+icon: "clipboard-list"
+---
+
+This page is for agency setup leads and field supervisors preparing AlphaRelay devices before training or deployment. Use it to confirm the environment is ready before relying on the system in the field.
+
+## Android field device
+
+Use an agency-approved Android tablet or phone that supports the current AlphaRelay Android app, your controller stack, and the mission duration you expect to fly.
+
+Recommended field-device qualities:
+
+- Current supported Android version for the installed AlphaRelay app.
+- Reliable Wi-Fi radio for field LAN relay work.
+- Enough CPU and memory for live video, telemetry, event logging, and optional local AI.
+- Enough battery for the mission plus footage handoff or upload.
+- Sufficient free storage for mission video, queued uploads, logs, and screenshots.
+- Screen brightness suitable for field use.
+
+## Browser support
+
+Use a current desktop browser for Mission Overwatch, review, reporting, and export. Chrome or Edge is recommended for large footage uploads and offline package exports.
+
+Keep the command device signed in and open during queued sync or upload work.
+
+## Network requirements
+
+| Workflow | Requirement |
+|----------|-------------|
+| LAN relay | Android field device and Mission Overwatch device must be reachable on the same local Wi-Fi or VLAN. |
+| WebRTC remote live | Android field device needs internet access and remote live must be started from the pilot app. |
+| Cloud sync | The active browser or Android device needs internet access and a signed-in session. |
+| Footage upload | Uploading video requires internet access and enough time, bandwidth, storage, and battery. |
+| Offline package export | Browser must be able to download the mission data and any included media at export time. |
+
+## Android permissions
+
+Grant the permissions requested by the AlphaRelay Android app. These may include camera, microphone, storage or media access, location, nearby device or network access, and controller-related permissions required by the Android and DJI environment.
+
+Do not disable permissions during a mission unless your agency process requires it.
+
+## Drone and controller assumptions
+
+AlphaRelay field workflows assume the aircraft, controller, Android device, and agency policy are compatible with the mission being flown.
+
+Before operational use:
+
+- Test the controller and aircraft outside of an incident response.
+- Confirm SD recording behavior.
+- Confirm manual footage access if auto upload is unavailable.
+- Complete a first training mission with the same device class.
+
+## Offline expectations
+
+AlphaRelay is designed for imperfect networks, but offline behavior depends on the workflow.
+
+- Local mission work can continue when supported by the selected mission mode.
+- LAN relay needs local network reachability, not internet.
+- WebRTC remote live needs internet.
+- Cloud sync waits for internet.
+- Queued events, screenshots, or pilot-handoff footage should be allowed to finish syncing before final review.

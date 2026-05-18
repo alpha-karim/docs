@@ -6,6 +6,12 @@ icon: "wrench"
 
 Use this page when AlphaRelay is not behaving as expected during setup, mission review, or export.
 
+## What happens if internet drops?
+
+<Warning>
+  AlphaRelay is built for imperfect field networks. Local mission work can continue when supported by the current mission mode. Events and footage can queue locally, and cloud sync resumes when connectivity returns. LAN relay, WebRTC remote live, and cloud sync are separate paths, so losing one connection type does not always mean the entire mission stops.
+</Warning>
+
 ## Mission Overwatch cannot see the pilot feed
 
 Check the local relay path first.
@@ -121,7 +127,7 @@ If the video source blocks frame capture, use normal event logging and add conte
 
 Check the pilot app first.
 
-- Start the relay (tap **Choose Mission Mode**, then **Pilot only** or **Full relay**) before expecting local AI samples.
+- Start the mission (tap **Choose Mission Mode**, then **Pilot only** or **Full relay**) before expecting local AI samples.
 - Open **Pilot console → Mission → Local AI** and confirm detection is enabled.
 - Confirm the on-device model is available in the app build.
 - Lower the confidence threshold only during testing and restore the team's normal threshold afterward.
