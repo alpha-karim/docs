@@ -1,54 +1,31 @@
 ---
 title: "Devices and Licenses"
-description: "Install the Android field app, sign in, and activate device access."
+description: "Install the pilot app and activate device access."
 icon: "screwdriver-wrench"
 ---
 
-## What this is
+## Web sign-in
 
-Use this page when setting up AlphaRelay before the first training mission.
+1. Go to [alpha-relay.com](https://www.alpha-relay.com) and sign in.
+2. Open **Mission Overwatch** once while online on each browser profile used in the field.
 
-## When to use it
+## Pilot app setup
 
-- A new operator needs browser access.
-- A new Android field device needs the app.
-- A license needs to be activated.
-- A browser profile needs Mission Overwatch ready before field use.
+1. Download the APK from [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html).
+2. Install and open **AlphaRelay Pilot**.
+3. Grant requested permissions.
+4. Complete the **First-Time Guide** on first launch.
 
-## Basic steps
+## Device license
 
-1. Go to [https://www.alpha-relay.com](https://www.alpha-relay.com).
-2. Sign in using your operator credentials.
-3. Download the Android field app from [https://www.alpha-relay.com/download.html](https://www.alpha-relay.com/download.html).
-4. Install and open the app.
-5. Grant the requested permissions.
-6. Step through the **First-Time Guide** on first launch.
-7. Activate the pilot license when prompted.
-8. Open Mission Overwatch once while online on each browser profile that will use it.
+The pilot app uses an org license key — not a Supabase login.
 
-## What good looks like
+1. In **Organization**, copy the license key or scan the QR code (opens `alpharelay://license?key=…`).
+2. Enter or scan the key when the pilot app prompts.
+3. Update later from **Pilot console → System → AlphaRelay license**, or long-press **Choose Mission Mode**.
 
-- The operator can sign in.
-- The Android field app opens.
-- The field device license is active.
-- Mission Overwatch has been opened online before field use.
-- Account and organization details are ready.
+The app validates against AlphaRelay and keeps a **10-day offline grace** after the last successful check. Connect to the internet before starting if the grace window expired.
 
-## Common problems
+Keys are issued by org admins from **Organization** or internal admin tools.
 
-- The license key is missing or inactive.
-- The Android field device cannot validate after the offline validation window expires.
-- The browser has not opened Mission Overwatch before low-connectivity field work.
-
-## More detail
-
-To activate a license:
-
-1. In AlphaRelay, go to **Organization**.
-2. Find the Android field device license row.
-3. Use the QR code or license key issued by your admin.
-4. Scan or enter the license inside the field app when prompted.
-
-You can update the license later from **Pilot console → System → AlphaRelay license**, or by long-pressing **Choose Mission Mode** on the main screen.
-
-The field app validates license keys against AlphaRelay and can continue within its offline validation window after a recent successful check. If the validation window expires, connect the device to the internet before starting again.
+→ [Before you go to the field](/alpharelay/before-you-go-to-the-field)

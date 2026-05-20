@@ -1,55 +1,34 @@
 ---
 title: "Known Limitations"
-description: "Transparent field limitations for local connection, remote live, cloud sync, local AI, reports, and offline packages."
+description: "Realistic expectations for field use."
 icon: "triangle-alert"
 ---
 
-## What this is
+## Network
 
-This page sets realistic expectations before training or field use.
+- **Relay mission** LAN viewing requires same reachable Wi‑Fi — not cellular-only on the pilot device.
+- **Live stream (WebRTC)** requires internet on the pilot device.
+- Cloud sync, upload, and export wait for internet.
+- Losing relay, remote live, or cloud sync does not always end the mission — paths are independent.
 
-## When to use it
+## Media
 
-- You are planning a mission in a difficult network environment.
-- You need to explain sync or upload limits.
-- You are using optional local AI.
-- You are preparing reports, approval, sealing, or export.
+- Footage often uploads after the mission ends.
+- Queued pilot-handoff footage must finish before final review.
+- Manual browser MP4 upload requires internet before upload starts (no pre-queue).
+- Offline packages only include media available at export time.
 
-## Basic steps
+## AI
 
-1. Confirm whether the mission needs local viewing, internet sync, or both.
-2. Confirm footage upload can finish before final review.
-3. Review local AI events before treating them as operational facts.
-4. Resolve report review items before finalization.
-5. Export only after the mission record is ready.
+- **Local AI** depends on device, model file, and configuration — review auto-tags before relying on them.
+- **Alpha AI** report drafts require officer review; resolve **Items Requiring Officer Review** before finalization.
 
-## What good looks like
+## Workflow locks
 
-- The team understands what requires internet.
-- Queued upload finishes before final review.
-- AI events and AI report drafts receive human review.
-- Evidence sealing and supervisor approval are handled separately.
-
-## Common problems
-
-- WebRTC remote live is expected without internet.
-- Relay Mission local viewing is expected across networks that cannot reach each other.
-- Manual upload is expected to queue before it starts.
-- Offline export is expected to include media that was not available at export time.
-
-## More detail
-
-- WebRTC remote live requires internet.
-- Relay Mission local viewing requires the Android field device and Mission Overwatch device to be on the same reachable local network.
-- Cloud sync waits for internet.
-- Losing local viewing, WebRTC remote live, or cloud sync does not always stop the entire mission because these are separate paths.
-- Some uploaded footage may require manual review or sync adjustment.
-- Manual browser uploads require a signed-in browser with internet access before upload starts.
-- Queued pilot-handoff footage should be allowed to finish uploading before final review.
-- Offline packages are only as complete as the reviewed and synced mission record available at export time.
-- Local AI detection capabilities may vary by device, model, app build, and configuration.
-- Local AI events require human review before they are treated as operational facts.
-- Alpha AI report drafts require officer review.
-- Items Requiring Officer Review must be resolved before finalization.
 - Supervisor approval makes the report permanent and locks timeline events and photos.
-- Evidence sealing preserves custody evidence and hashes, but it is not the same action as supervisor approval.
+- Evidence sealing preserves custody hashes — it is not report approval.
+
+## Browser
+
+- Large offline ZIP exports work best in Chrome or Edge.
+- Self-signed relay certificates require a one-time browser trust step on HTTPS Mission Overwatch.

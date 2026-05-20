@@ -1,62 +1,34 @@
 ---
 title: "Upload Footage"
-description: "Upload, queue, or manually add mission footage after the mission."
+description: "Automatic upload, queued handoff, and manual MP4 upload."
 icon: "cloud-arrow-up"
 ---
 
-## What this is
+Footage often uploads **after** the mission when the pilot device or Overwatch browser regains internet. Queued uploads are normal, not errors.
 
-Footage upload makes mission video available for review, reports, custody work, and offline export.
+## Automatic upload
 
-## When to use it
+After **Stop Mission**, the pilot app attempts to upload recorded footage when online. If the pilot hands video to Mission Overwatch over the LAN relay, the **browser** needs internet to upload immediately — otherwise it queues locally.
 
-- The mission has ended.
-- The Android field device has mission footage ready.
-- Footage is queued for later sync.
-- You need to manually upload an MP4.
+Watch for upload banners, **Upload now**, or **Loading playback link** status in Mission Overwatch.
 
-## Basic steps
+## Manual MP4 upload
 
-1. End the mission.
-2. Watch the Android field app or Mission Overwatch for upload or queued status.
-3. Keep the app or browser open while upload or queue behavior completes.
-4. Move the device to an internet-connected network if upload needs to finish.
-5. Use **Upload now** if it appears and the device is online.
-6. If automatic upload is not practical, upload the MP4 manually from **Mission Footage**.
+When auto upload is impractical:
 
-## What good looks like
+1. Copy the mission MP4 from the aircraft SD card or computer.
+2. Open the closed mission in Mission Overwatch.
+3. Go to **Mission Footage** → **Upload MP4**.
+4. Select the correct file.
 
-- The correct mission footage is linked to the mission.
-- Playback links finish loading.
-- Queued footage is allowed to sync before final review.
-- Manual uploads use the correct MP4 file.
+Tap **Skip** during auto upload if you plan to upload manually later.
 
-## Common problems
+## Mission photos
 
-- The field network supports local mission work but not cloud upload.
-- Battery or bandwidth is not enough for immediate upload.
-- Manual upload is attempted while the browser is offline.
-- The team starts final review before playback links are ready.
-
-## More detail
-
-After the mission, the Android field app may attempt to automatically upload recorded footage. For direct field-device-to-cloud upload, the Android field device must have internet access.
-
-If the device hands video to Mission Overwatch over the local connection, the Mission Overwatch browser needs internet access to upload it immediately. If the browser does not have internet access, the handoff can queue locally for later sync.
-
-If you do not want to wait for auto upload, or if battery life is a concern, tap **Skip**, then manually upload the footage later.
-
-To manually upload a file:
-
-1. Remove the SD card from the aircraft or connect the aircraft to a computer.
-2. Copy the mission MP4 file to your computer.
-3. Open the mission in AlphaRelay.
-4. Go to **Mission Footage**.
-5. Click **Upload MP4**.
-6. Select the correct video file.
-
-Mission Overwatch also supports mission photo uploads through **Mission photos** / **Upload Photos**. Photos can be timeline photos or evidence-only photos, and can include a caption, category, notes, and timeline placement.
+Use **Mission photos** / **Upload Photos** to add timeline photos or evidence-only photos with caption, category, and notes.
 
 <Warning>
-  Do not close the app before footage upload or queue behavior has completed according to the documented workflow.
+  Keep the app or browser open until upload or queue processing finishes.
 </Warning>
+
+→ [Review footage](/alpharelay/footage-playback) · [Troubleshooting](/alpharelay/troubleshooting)

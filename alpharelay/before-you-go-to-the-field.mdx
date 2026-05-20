@@ -1,62 +1,32 @@
 ---
 title: "Before You Go to the Field"
-description: "Prepare devices, roles, mission type, connectivity, and sync before a mission."
+description: "Pre-mission checklist for devices, licenses, and connectivity."
 icon: "clipboard-check"
 ---
 
-## What this is
+## Checklist
 
-Use this checklist before a training or operational mission so the team knows which devices, roles, and connection path it will use.
+1. Charge the pilot tablet or phone and confirm aircraft/controller are ready.
+2. Install or update the **pilot app** from [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html).
+3. Confirm the **device license** is active (scan QR or enter `ar-…` key).
+4. Sign in to the web app with the correct operator account.
+5. Open **Mission Overwatch** once while online on each browser that will use it in the field (installs the offline app shell).
+6. Choose **Field-device mission** or **Relay mission** before launch.
+7. For **Relay mission**: confirm pilot device and Overwatch computer are on the **same Wi‑Fi**.
+8. Plan for internet when you need sync, upload, reports, or export.
+9. Assign pilot, overwatch user, reviewer, and supervisor roles.
 
-## When to use it
+## Connection quick reference
 
-- You are preparing for a mission.
-- You are training a new team.
-- You changed devices, networks, or operators.
-- You need to confirm the mission type before launch.
-
-## Basic steps
-
-1. Charge the Android field device.
-2. Confirm the controller and aircraft are connected and tested, if applicable.
-3. Confirm the AlphaRelay Android field app is installed and updated.
-4. Sign in with the correct operator account.
-5. Confirm the pilot license is active.
-6. Confirm the correct organization is selected.
-7. Open Mission Overwatch once while online on the command device.
-8. Choose Field Mission or Relay Mission.
-9. Test the local network if using Relay Mission.
-10. Confirm the internet plan for livestreaming, sync, upload, reports, and export.
-11. Check storage and SD card access.
-12. Assign the field operator, Mission Overwatch user, reviewer, and supervisor.
-
-## What good looks like
-
-- The selected mission type matches the team's workflow.
-- The Android field device can start a mission.
-- Mission Overwatch users can sign in.
-- The team knows what needs internet and what can wait for sync.
-- Everyone knows who starts, watches, logs, reviews, and approves.
-
-## Common problems
-
-- Field Mission and Relay Mission are confused before launch.
-- Relay Mission devices are not on the same reachable local network.
-- The team expects cloud sync or upload without internet.
-- The pilot license has not been activated.
-
-## More detail
-
-| Field condition | Use this path |
+| Need | Requirement |
 | --- | --- |
-| One Android field device will run the mission without a same-local-network command device | Field Mission |
-| Mission Overwatch needs to connect from the same local network | Relay Mission |
-| Mission Overwatch user needs livestreaming and the field device has internet | Configured livestreaming through **Live stream (WebRTC)** |
-| Field site has no internet | Local mission work, then sync later |
-| Agency needs a final record | Upload, review, report, seal, approve when needed, then export |
-
-During a mission, the Android field app can support takeoff, land, yaw or rotation, altitude, gimbal, camera positioning, tap-to-fly, and related DJI controls when available. Pilots who prefer the physical controller can hide on-screen drone controls while keeping quick events, telemetry, and relay status visible.
+| Relay mission live viewing | Same reachable Wi‑Fi between pilot device and Overwatch |
+| Remote live (**Live stream (WebRTC)**) | Pilot device has internet; pilot starts live from app |
+| Cloud sync / upload / reports | Internet on the active device |
+| Field work with no internet | Supported; data queues until sync |
 
 <Warning>
-  Internet access and local mission connectivity are not the same thing. Follow the connection requirements for the mission type you are using.
+  Internet and local relay connectivity are different. Relay mission viewing does not require internet, but it does require local Wi‑Fi reachability.
 </Warning>
+
+Pilots can hide on-screen drone controls and use the physical controller while keeping quick events and relay status visible. See [Minimum requirements](/alpharelay/minimum-requirements) for device specs.

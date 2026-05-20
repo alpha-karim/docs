@@ -1,0 +1,44 @@
+---
+title: "Start a Mission"
+description: "Start a field-device or relay mission from the pilot app."
+icon: "tablet-screen-button"
+---
+
+Missions always start from the **pilot app**. Mission Overwatch cannot start missions.
+
+## Steps (both modes)
+
+1. Open the pilot app on the Android tablet or phone.
+2. Tap **Choose Mission Mode**.
+3. Enter a mission name if useful.
+4. Select a scenario category and template, or **No scenario template**.
+5. Tap **Field-device mission** or **Relay mission**.
+6. Complete the license check if prompted.
+7. Fly the mission from the pilot view. Use **Takeoff**, **Land**, quick events, and **Stop Mission** when finished.
+
+## Field-device mission
+
+- Works on **cellular or Wi‑Fi**
+- No **Live Overwatch Screen** during the live mission
+- Review, reporting, and export happen in Mission Overwatch after sync
+
+Optional: start **Live stream (WebRTC)** from the pilot app so remote Overwatch users can watch over the internet.
+
+## Relay mission
+
+- Requires **Wi‑Fi** on the pilot device
+- Starts the LAN relay for Mission Overwatch
+- After the mission syncs to Mission Dashboard, open the mission and use **Live Overwatch Screen**:
+  1. Leave **Tablet/phone IP (LAN)** blank and click **Connect** to scan, or enter the IPv4 shown on the pilot device.
+  2. Add **Relay token** if the relay uses one.
+  3. Trust the self-signed relay certificate if the browser prompts.
+
+Mission Overwatch uses `wss://` on port **8789** automatically when you enter a LAN IP.
+
+## After start
+
+- The mission appears in **Mission Dashboard** after cloud sync.
+- Footage and events may upload during or after the mission depending on connectivity.
+- Tap **Stop Mission** in the pilot app (or **Close Mission** in Mission Overwatch) when field work is done.
+
+→ [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Connectivity](/alpharelay/connectivity-guide)

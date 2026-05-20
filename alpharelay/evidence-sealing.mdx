@@ -1,56 +1,36 @@
 ---
 title: "Seal the Mission Record"
-description: "Lock reviewed custody evidence when the mission record is ready."
+description: "Preserve custody evidence and export court-ready JSON."
 icon: "shield-check"
 ---
 
-## What this is
-
-Sealing preserves reviewed custody evidence and hashes. It is a separate step from supervisor approval.
+Sealing locks reviewed custody evidence and hashes. It is **separate** from supervisor report approval.
 
 <Warning>
-  Sealing evidence and approving the report are not the same action. Sealing preserves custody evidence and hashes. Supervisor approval finalizes the after-action report and locks timeline events and photos.
+  Sealing ≠ approving the report. Sealing preserves custody hashes. Approval locks the after-action report and timeline.
 </Warning>
 
-## When to use it
+## When to seal
 
-- The mission is closed.
-- Footage, screenshots, and photos have been reviewed.
-- The report has been generated and checked.
-- Items Requiring Officer Review have been addressed.
-- The custody record is ready to preserve.
+After footage, events, photos, and the report draft have been reviewed and **Items Requiring Officer Review** are resolved.
 
-## Basic steps
+## Steps
 
 1. Open the closed mission.
-2. Confirm footage is uploaded and playable.
-3. Review **Play with Events**.
-4. Confirm event names, screenshots, timestamps, and photos.
-5. Generate and review the after-action report.
-6. Address **Items Requiring Officer Review**.
-7. Open **Mission chain of custody**.
-8. Use **Download mission custody certificate (HTML)** if needed.
-9. Click **Seal entire mission (verify downloads)** when the record is ready.
+2. Confirm footage plays and **Play with Events** markers look correct.
+3. Open **Mission chain of custody**.
+4. Click **Seal entire mission (verify downloads)** when ready.
+5. Optionally download **Download mission custody certificate (HTML)**.
 
-## What good looks like
+Sealing verifies downloaded bytes against stored hashes and locks registered evidence rows in the custody ledger.
 
-- The correct mission is open.
-- The mission status is closed.
-- Footage and event markers have been checked.
-- The report has been reviewed.
-- Custody evidence is ready to preserve.
+## Export evidence package (JSON)
 
-## Common problems
+For a machine-readable, court-ready bundle with cryptographic chain verification:
 
-- Sealing is started before footage or queued sync has finished.
-- Report edits are still needed.
-- Items Requiring Officer Review are unresolved.
-- The team expects sealing to approve the report.
+1. Open **Mission chain of custody**.
+2. Click **Export evidence package (JSON)** on an evidence item.
 
-## More detail
+Use this when your agency needs JSON rather than (or in addition to) the HTML custody certificate or offline ZIP.
 
-Sealing locks registered evidence rows in the custody ledger so reviewed files and hashes cannot be changed casually after finalization.
-
-The sealed record helps preserve mission events, event screenshots, uploaded footage references, mission photos, chain-of-custody data, custody certificate state, report context, and evidence review history.
-
-After sealing, continue with supervisor approval when the report is ready, then export an offline package if the mission needs archive, handoff, command review, or records retention.
+→ [Export offline package](/alpharelay/export-offline-package) · [Generate a report](/alpharelay/report-generation)

@@ -1,47 +1,34 @@
 ---
 title: "Watch in Mission Overwatch"
-description: "Open an active or closed mission in the Mission Overwatch browser workspace."
+description: "Open a mission, connect the relay, and use live viewing tools."
 icon: "monitor-play"
 ---
 
-## What this is
+Mission Overwatch is the per-mission browser workspace. Open it from **Mission Dashboard** by selecting a mission (the dashboard may label this **Open Mission Console**).
 
-Mission Overwatch is the browser workspace for one mission. Use it to watch configured livestreaming from either mission type, watch a Relay Mission through the local connection, log events, review footage, generate reports, seal records, and export packages.
+Sign in at [alpha-relay.com](https://www.alpha-relay.com). For LAN-only field use, the dashboard can open Mission Overwatch in offline-ready mode when internet is unavailable.
 
-## When to use it
+## Relay mission — Live Overwatch Screen
 
-- Livestreaming is configured and you need live viewing.
-- A Relay Mission is active and you need local command-side viewing.
-- You need to log events from the browser.
-- You are reviewing a closed mission.
-- You need report, custody, sealing, or export tools.
+Shown only for **Relay mission** (hidden for field-device missions).
 
-## Basic steps
+1. Confirm the pilot app relay is running and both devices share the same Wi‑Fi.
+2. In **Live Overwatch Screen**, leave **Tablet/phone IP (LAN)** blank and click **Connect** to scan, or enter the pilot device IPv4.
+3. Enter **Relay token** if required.
+4. If connection fails on HTTPS, use **Trust relay certificate** and proceed through the browser warning, then retry.
 
-1. Sign in at [https://www.alpha-relay.com](https://www.alpha-relay.com).
-2. Open **Mission Dashboard**.
-3. Select the active or closed mission.
-4. For livestreaming, use **Live stream (WebRTC)** when offered.
-5. For Relay Mission local viewing, let Mission Overwatch connect to the Android field device.
-6. Use the mission workspace for event logging, footage review, reports, sealing, and export as needed.
+You get LAN MJPEG video, telemetry, and command-side event logging with lowest latency.
 
-## What good looks like
+## Remote live — Live stream (WebRTC)
 
-- The correct mission is open.
-- Configured livestreaming is available when the field device has internet.
-- Active Relay Mission details load from the dashboard when local viewing is being used.
-- Event logging and review tools match the selected mission.
-- Closed missions show review, report, custody, and export tools.
+When the pilot starts live from the app, Overwatch users on the internet can click **Live stream (WebRTC)**. This uses Cloudflare WebRTC (WHEP) — sub-second latency over the public internet, separate from the LAN relay.
 
-## Common problems
+Works with either mission mode when the pilot device has internet.
 
-- The active mission has not synced yet.
-- Relay Mission devices are not on the same reachable local network.
-- The user is not signed in.
-- The mission is already closed and only review tools are available.
+## Closed missions
 
-## More detail
+After **Stop Mission**, Mission Overwatch switches to review tabs: footage timeline, **Play with Events**, after-action report, chain of custody, and export actions.
 
-Mission Overwatch can also show **Live stream (WebRTC)** when remote live is configured and running from the Android field app. Use that path only when your team has configured it.
+## Offline app shell
 
-Mission Overwatch can install an offline app shell after an online visit. The shell helps the page reopen in the same browser profile, but sign-in, sync, uploads, and playback links still need network access.
+Mission Overwatch installs a service worker on first online visit. You can also use **Install app** for a PWA shell. The shell helps the page reopen offline, but sign-in, sync, uploads, and playback links still need network access.

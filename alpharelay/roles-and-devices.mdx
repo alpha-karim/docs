@@ -1,51 +1,20 @@
 ---
 title: "Devices and Roles"
-description: "Understand who uses AlphaRelay and which device each part of the workflow runs on."
+description: "Who uses AlphaRelay and which device runs each part of the workflow."
 icon: "users"
 ---
 
-## What this is
+| Role | Device | Responsibility |
+| --- | --- | --- |
+| Pilot | Pilot app (Android tablet/phone) | Starts missions, flies, logs field events, ends mission, uploads footage |
+| Overwatch user | Browser — Mission Overwatch | Relay viewing, remote live, command-side events, review, report, seal, export |
+| Reviewer / officer | Browser — Mission Overwatch | Checks timeline, footage, report draft, and custody |
+| Supervisor | Browser — Mission Dashboard / Overwatch | Approves or returns after-action reports |
+| Org admin | Browser — Organization page | Members, roles, licenses, time zone, storage |
 
-AlphaRelay uses an Android field device, Mission Overwatch in a browser, reviewer tools, and admin setup. This page explains who does what.
+## Key rules
 
-## When to use it
-
-- You are assigning roles before training.
-- You need to know which device starts the mission.
-- You are setting up reviewers or supervisors.
-- You are onboarding an admin.
-
-## Basic steps
-
-1. Assign the Android field operator.
-2. Assign the Mission Overwatch user if Relay Mission or browser review is needed.
-3. Assign the reviewer or officer.
-4. Assign the supervisor if approval is part of the workflow.
-5. Assign the organization admin for accounts, access, licenses, and setup.
-
-## What good looks like
-
-- The Android field operator starts the mission.
-- Mission Overwatch opens missions from the dashboard.
-- Reviewers check footage, events, reports, and custody.
-- Supervisors approve only when the record is final.
-- Admins manage people, organization details, and device access.
-
-## Common problems
-
-- Someone expects Mission Overwatch to start a mission.
-- Reviewers start final reporting before footage sync is complete.
-- Admin setup is left until the field exercise starts.
-
-## More detail
-
-| Role or device | Primary responsibility |
-| --- | --- |
-| Android field operator | Starts Field Mission or Relay Mission, logs field events, manages mission closeout, and supports footage handoff. |
-| Mission Overwatch user | Opens active or closed missions from the dashboard, watches Relay Mission when connected, logs events, uploads media, reviews footage, reports, seals, and exports. |
-| Reviewer or officer | Reviews the timeline, footage, photos, report draft, Items Requiring Officer Review, and custody state. |
-| Supervisor | Reviews the completed mission record and approves or returns the report when authorized. |
-| Organization admin | Manages accounts, roles, time zone, storage visibility, scenario templates, and Android field device licenses. |
-| Android field device | Runs the field app and starts missions. |
-| Mission Overwatch device | Browser-based workspace for live Relay Mission use, review, reporting, sealing, and export. |
-| Cloud account | Supports sign-in, sync, uploaded footage, shared records, and organization data. |
+- Missions **always start from the pilot app**, not Mission Overwatch.
+- Open missions from **Mission Dashboard** (link may say **Open Mission Console**).
+- **Relay mission** needs the pilot device and Overwatch device on the same reachable Wi‑Fi.
+- **Field-device mission** does not show the LAN relay panel in Mission Overwatch during the live mission.

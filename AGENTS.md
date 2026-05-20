@@ -5,28 +5,29 @@
 
 ## About this project
 
-- This is AlphaRelay operator documentation built on [Mintlify](https://mintlify.com)
-- Mission guide hub: `alpharelay/guide-overview.mdx` (chapters live as separate files under `alpharelay/`)
-- Pages are MDX files with YAML frontmatter
-- Configuration lives in `docs.json`
-- Run `mint dev` to preview locally (use an LTS Node.js version if the CLI warns about unsupported Node)
+- AlphaRelay operator documentation built on [Mintlify](https://mintlify.com)
+- Mission guide hub: `alpharelay/guide-overview.mdx`
+- Pages are MDX with YAML frontmatter; navigation in `docs.json`
+- Run `mint dev` to preview locally
 - Run `mint broken-links` to check links
 
-## Terminology
+## Terminology (match the product UI)
 
-- Use **AlphaRelay** as the product name
-- Prefer **Mission Overwatch**, **Mission Console**, **pilot tablet**, **pilot app**, **relay**, **scenario template**, **quick events**, **Items Requiring Officer Review**, **Past Mission**, **offline package**, and **custody / chain of custody** as in the UI
-- **Alpha AI**: the system that assists with after-action report generation
+- **AlphaRelay** — product name
+- **Pilot app** — Android app on the pilot tablet or phone (`download.html`)
+- **Field-device mission** / **Relay mission** — mission mode buttons in the pilot app
+- **Pilot console** — in-app settings panel (Mission, Flight, Events, System)
+- **Mission Dashboard** — command home (`dashboard.html`)
+- **Mission Overwatch** / **Mission Console** — per-mission browser workspace (`mission-overwatch.html`; dashboard link says **Open Mission Console**)
+- **Live Overwatch Screen** — relay connection panel in Mission Overwatch
+- **Live stream (WebRTC)** — remote live viewing over the internet (Cloudflare)
+- **Quick events**, **scenario template**, **Items Requiring Officer Review**
+- **Export offline package…**, **Export evidence package (JSON)**
+- **Alpha AI** — after-action report drafting assistant
 
-## Style preferences
+## Style
 
-- Use active voice and second person ("you")
-- Keep sentences concise — one idea per sentence
-- Use sentence case for headings
-- Bold for UI elements: Click **Open in console**
-- Code formatting for file names, commands, paths, code references, and IP examples
-
-## Content boundaries
-
-- Document operator-facing AlphaRelay workflows; avoid inventing unpublished product behavior
-- Do not document internal-only admin consoles unless explicitly requested
+- Active voice, second person, sentence-case headings
+- Bold UI labels; code formatting for paths, commands, and IP examples
+- Keep pages short — link to Troubleshooting or Connectivity instead of repeating fixes
+- Document operator-facing workflows only; do not invent unpublished behavior

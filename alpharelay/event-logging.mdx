@@ -1,45 +1,34 @@
 ---
 title: "Log Events"
-description: "Capture important mission moments from the field device, Mission Overwatch, or footage review."
+description: "Capture mission moments from the pilot app, Mission Overwatch, or footage review."
 icon: "list"
 ---
 
-## What this is
+Events are timestamped notes on the mission timeline. Keep them short and specific.
 
-Events are timestamped mission notes. Use them to mark important activity during the mission or while reviewing footage.
+## During the mission
 
-## When to use it
+**Pilot app**
 
-- Something important happens during the mission.
-- The field operator needs to mark a moment quickly.
-- Mission Overwatch needs to add a command-side note.
-- A reviewer finds something during footage playback.
+- Tap **quick event** buttons or the quick event wheel (phone layouts)
+- Enter manual event notes
+- Voice relay: say `relay` followed by the event details (e.g. `relay suspect entered north door`)
+- Optional **Local AI** auto-tags (e.g. person detected) — review these before treating them as facts
 
-## Basic steps
+**Mission Overwatch**
 
-1. Start the mission.
-2. Log quick events from the Android field device when field activity happens.
-3. Log Mission Overwatch events when command-side notes are needed.
-4. After the mission, open **Play with Events** if you need to tag a moment from footage.
-5. Review the timeline to confirm events appear in the right place.
+- Use **Event Logging** quick buttons (match the scenario template labels)
+- Use **Manual Event (fast)** for free-text notes
+- Quick buttons hide while the relay is live if labels match the pilot device
 
-## What good looks like
+Screenshots from the live feed are captured automatically when the workflow supports them.
 
-- Events are short and specific.
-- Events appear on the mission timeline.
-- Screenshots are linked when the documented workflow supports them.
-- Post-mission tags are added only after the mission is closed.
+## After the mission
 
-## Common problems
+1. Open **Play with Events**.
+2. Scrub to the relevant frame.
+3. Enter an **Event name** and click **Tag event**.
 
-- Events are too vague to help during review.
-- Mission Overwatch event logging is expected during a Field Mission without the correct live workflow.
-- Events are not reviewed against footage before the report is finalized.
+AlphaRelay adds the event to the mission log, stores a screenshot from that frame, and links it to the timeline.
 
-## More detail
-
-On the Android field device, operators can use quick event buttons, the quick event wheel, manual event notes, voice relay logging when enabled, and optional local AI events when configured. When voice relay logging is enabled, use `relay <event details>`.
-
-In Mission Overwatch, use the **Event Logging** quick buttons or the **Manual Event (fast)** card.
-
-After a mission is closed, reviewers can open **Play with Events**, scrub to the relevant frame, enter an **Event name**, and click **Tag event**. AlphaRelay adds the event to the mission log, stores a screenshot from the video frame, and links the event to the mission timeline.
+Resolve event timing against footage before generating the final report.
