@@ -1,61 +1,31 @@
 ---
 title: "Minimum Requirements"
-description: "Device, browser, network, storage, permission, controller, and offline expectations for AlphaRelay."
+description: "Device, browser, network, and storage expectations."
 icon: "clipboard-list"
 ---
 
-## What this is
+## Pilot device (Android tablet or phone)
 
-Use this page to confirm the environment is ready before training or field use.
+- Supported Android version for the installed pilot app
+- Reliable Wi‑Fi for **Relay mission**
+- Enough CPU, memory, battery, and storage for live video, telemetry, event logging, and optional Local AI
+- DJI Mini 3 Pro workflow when using aircraft integration (see pilot app setup)
 
-## When to use it
+## Overwatch / review (desktop browser)
 
-- You are preparing devices for a team.
-- You are checking browser or network readiness.
-- You are planning upload, sync, or export.
-- You are testing a new aircraft or controller setup.
+- Current Chrome, Edge, or Safari for Mission Overwatch, dashboard, and export
+- Internet for sync, upload, reports, and export media downloads
 
-## Basic steps
-
-1. Use an agency-approved Android tablet or phone for the field app.
-2. Use a current desktop browser for Mission Overwatch, review, reporting, and export.
-3. Confirm the selected mission type has the connection it needs.
-4. Grant the Android permissions requested by the field app.
-5. Confirm storage, battery, controller, and aircraft readiness.
-6. Run a first training mission with the same device class.
-
-## What good looks like
-
-- The Android field device can run the current AlphaRelay app.
-- Mission Overwatch opens in a supported browser.
-- Relay Mission devices can reach each other locally.
-- Cloud sync and upload have internet when needed.
-- Storage and battery are sufficient for the mission and handoff.
-
-## Common problems
-
-- The team expects Relay Mission viewing without local network reachability.
-- Upload or export is attempted without internet.
-- Android permissions are disabled during a mission.
-- Manual footage access is not tested before field use.
-
-## More detail
-
-Recommended Android field-device qualities:
-
-- Current supported Android version for the installed AlphaRelay app
-- Reliable Wi-Fi radio for Relay Mission local connection work
-- Enough CPU and memory for live video, telemetry, event logging, and optional local AI
-- Enough battery for the mission plus footage handoff or upload
-- Sufficient free storage for mission video, queued uploads, logs, and screenshots
-- Screen brightness suitable for field use
+## By workflow
 
 | Workflow | Requirement |
 | --- | --- |
-| Relay Mission local connection | Android field device and Mission Overwatch device must be reachable on the same local Wi-Fi or VLAN. |
-| WebRTC remote live | Android field device needs internet access and remote live must be started from the field app. |
-| Cloud sync | The active browser or Android device needs internet access and a signed-in session. |
-| Footage upload | Uploading video requires internet access and enough time, bandwidth, storage, and battery. |
-| Offline package export | Browser must be able to download the mission data and any included media at export time. |
+| Relay mission LAN viewing | Pilot device + Overwatch on same reachable Wi‑Fi |
+| Field-device mission | Cellular or Wi‑Fi on pilot device |
+| **Live stream (WebRTC)** | Pilot device internet; live started from pilot app |
+| Cloud sync / upload | Internet + signed-in session |
+| Offline package export | Internet at export time to download media |
 
-Offline behavior depends on the workflow. Local mission work can continue when supported by the selected mission type. Relay Mission local viewing needs local network reachability, not internet. WebRTC remote live, cloud sync, upload, playback links, and export media downloads need internet.
+Permissions: grant camera, microphone (voice relay), storage, and location prompts from the pilot app as requested.
+
+Run a [training mission](/alpharelay/training-mission) on the same device class before operational use.

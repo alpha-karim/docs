@@ -1,48 +1,26 @@
 ---
 title: "End a Mission"
-description: "Land, close the mission, and watch for upload or queue state."
+description: "Land, stop the mission, and wait for upload or queue to finish."
 icon: "flag-checkered"
 ---
 
-## What this is
+## Steps
 
-Use this page when the field work is complete and the team is ready to close the mission.
-
-## When to use it
-
-- The mission is ending.
-- The aircraft is ready to land or has landed.
-- You need to stop the mission and relay session.
-- Reviewers are waiting for footage or sync status.
-
-## Basic steps
-
-1. Tap **Land** on the Android field device when appropriate.
+1. Tap **Land** on the pilot device when appropriate.
 2. Follow normal landing and safety procedures.
-3. Tap **Stop Mission** on the Android field device when the mission is complete.
-4. If needed, close the mission from the **Mission** card in Mission Overwatch.
-5. Watch for footage upload, queued handoff, or sync messages.
-6. Keep AlphaRelay open while upload or queue behavior completes.
+3. Tap **Stop Mission** in the pilot app when field work is complete.
+4. Optionally tap **Close Mission** from the **Mission** card in Mission Overwatch.
+5. Keep the pilot app or browser open while upload or queue messages finish.
 
-## What good looks like
+## What happens
 
-- The mission is closed.
-- The relay session ends when the mission ends.
-- Footage is uploaded or clearly queued.
-- Review starts after the timeline and footage state are understood.
-
-## Common problems
-
-- The app or browser is closed while footage is still queued.
-- The team starts review before upload or playback links are ready.
-- Mission closeout happens before safety procedures are complete.
-
-## More detail
-
-Missions are always started from the Android field workflow. Closing can happen from the Android field device or Mission Overwatch.
-
-When supported, AlphaRelay stops aircraft SD recording after a successful land command and prepares the mission video for handoff.
+- The relay session ends with the mission.
+- SD recording stops after a successful land when supported.
+- Footage may upload immediately or queue for later sync.
+- Review should wait until footage status is clear.
 
 <Warning>
-  Do not close the app before footage upload or queue behavior has completed according to the documented workflow.
+  Do not force-close the pilot app or browser while footage is uploading or queued.
 </Warning>
+
+→ [Upload footage](/alpharelay/footage-upload)

@@ -1,60 +1,32 @@
 ---
 title: "Export the Offline Package"
-description: "Create a downloadable ZIP archive of the mission record."
+description: "Download a ZIP archive for offline review and records retention."
 icon: "box-archive"
 ---
 
-## What this is
+The offline package is a point-in-time ZIP of the mission record for handoff, command review, or retention.
 
-The offline package is a downloadable ZIP file that contains a point-in-time copy of the mission record for offline review, handoff, or retention.
+## Steps
 
-## When to use it
+1. Open the closed, reviewed mission in Mission Overwatch.
+2. Click **Export offline package…**
+3. Save the ZIP and wait for packaging to finish (large missions take longer).
+4. Unzip and open `index.html` from the extracted folder — keep files inside the folder.
 
-- The mission needs records retention.
-- A supervisor or command reviewer needs a package.
-- The team needs offline review.
-- The mission record is ready to hand off or archive.
+## Contents
 
-## Basic steps
+When available at export time:
 
-1. Open the closed mission from **Mission Dashboard**.
-2. Confirm the mission review is complete.
-3. Confirm needed footage, screenshots, photos, report data, and custody data are available.
-4. Click **Export Offline Package**.
-5. Choose a save location if your browser asks.
-6. Wait for the export to complete.
-7. Unzip the package.
-8. Open `index.html` from the extracted folder.
+- Mission record and timeline
+- After-action report HTML
+- Chain-of-custody data and frozen custody certificate
+- Footage, event screenshots, and mission photos under `media/`
+- Built-in offline viewer
 
-## What good looks like
+## Tips
 
-- The ZIP file is created.
-- The extracted package includes the offline viewer.
-- Available footage, screenshots, photos, report, and custody data open from the package.
-- The package reflects the mission state at export time.
+- Export needs internet to download mission data and media at export time.
+- Chrome or Edge is recommended for very large packages.
+- The ZIP reflects mission state at export time — it is not a live sync replacement.
 
-## Common problems
-
-- Export starts before footage or media downloads are available.
-- Very large missions take longer to package.
-- Local browser restrictions prevent video playback after extraction.
-- Files are moved out of the extracted folder.
-
-## More detail
-
-The offline package may include:
-
-- Mission record
-- Chain-of-custody data
-- Frozen custody certificate
-- After-action report HTML file
-- Footage clips, when available
-- Event screenshots, when available
-- Mission photos, when available
-- A small offline viewer for reviewing the mission timeline and media
-
-Footage and screenshots are placed inside a `media/` folder when the browser is able to download them. Mission photos are stored under `media/` when AlphaRelay can retrieve them during export.
-
-Large missions may take longer because video files are streamed into the ZIP package during export. Chrome or Edge is recommended for very large missions.
-
-The offline package is not a replacement for live mission sync. It is a point-in-time archive created while you are signed in and connected to the internet.
+For JSON evidence export, use **Export evidence package (JSON)** in chain of custody instead.

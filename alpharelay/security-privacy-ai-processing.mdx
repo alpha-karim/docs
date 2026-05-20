@@ -1,50 +1,34 @@
 ---
 title: "Security, Privacy, and AI"
-description: "Understand local processing, cloud sync, AI report drafting, custody hashes, and review responsibilities."
+description: "Local vs cloud processing, AI drafts, and review responsibilities."
 icon: "lock"
 ---
 
-## What this is
+## What runs locally
 
-This page explains what runs locally, what syncs to the cloud, and what must be reviewed before sharing, sealing, approving, or exporting a mission record.
+- **Pilot app**: flight controls, quick events, LAN relay, optional Local AI detection, voice relay
+- **Mission Overwatch PWA shell**: page cache after first online visit (sign-in and sync still need network)
 
-## When to use it
+## What syncs to the cloud
 
-- Your team needs to understand Alpha AI report drafting.
-- You are preparing to share or export a mission record.
-- You need to explain local processing and cloud sync.
-- You need to distinguish sealing from supervisor approval.
+When internet is available: mission metadata, events, screenshots, photos, footage references, reports, custody records, and org data — protected by sign-in and database access rules.
 
-## Basic steps
+## Alpha AI
 
-1. Confirm the correct mission is open.
-2. Confirm footage, screenshots, and photos are present.
-3. Review the Alpha AI draft as draft material.
-4. Resolve **Items Requiring Officer Review**.
-5. Confirm custody evidence is ready before sealing.
-6. Confirm supervisor approval is appropriate before making the report permanent.
-7. Confirm the offline package includes the records your agency needs.
+Drafts after-action report content from structured mission data. Always review:
 
-## What good looks like
+- Timeline accuracy
+- Footage and photo references
+- **Items Requiring Officer Review**
 
-- AI output is reviewed by a human.
-- Timeline and media references are verified.
-- Custody evidence is sealed only when ready.
-- Supervisor approval happens only when the report should become permanent.
-- Export happens from the correct reviewed mission.
+Treat AI output as draft material.
 
-## Common problems
+## Custody and approval
 
-- Alpha AI output is treated as final authority.
-- Sealing evidence is treated as report approval.
-- The package is shared before sync or review is complete.
+| Action | Effect |
+| --- | --- |
+| **Seal entire mission** | Locks custody evidence hashes |
+| **Supervisor approval** | Locks the report, timeline events, and photos |
+| **Export offline package…** / **Export evidence package (JSON)** | Point-in-time copies for retention or handoff |
 
-## More detail
-
-The Android field device runs the field app, mission controls, quick events, relay status, and optional local AI event detection when configured. Mission Overwatch can also keep a local app shell after it has been opened online, but sign-in, sync, uploads, and playback links still need network access.
-
-Cloud sync can include mission metadata, event records, screenshots, mission photos, report data, custody records, uploaded footage references, review status, and organization context needed to support shared review.
-
-Alpha AI drafts after-action report material from structured mission data. It can use events, timestamps, mission metadata, screenshots, photos, footage references, custody context, and review state. Treat AI output as draft material, not final authority.
-
-Custody hashes and sealing support evidentiary review by preserving records of reviewed files and custody evidence. Sealing preserves custody evidence and hashes. Supervisor approval finalizes the after-action report and locks timeline and photos.
+Do not share exports before sync and review are complete.

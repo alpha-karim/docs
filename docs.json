@@ -28,8 +28,7 @@
             "group": "Run a Mission",
             "pages": [
               "alpharelay/before-you-go-to-the-field",
-              "alpharelay/start-field-mission",
-              "alpharelay/start-relay-mission",
+              "alpharelay/start-a-mission",
               "alpharelay/watch-in-mission-overwatch",
               "alpharelay/event-logging",
               "alpharelay/completing-a-mission"
