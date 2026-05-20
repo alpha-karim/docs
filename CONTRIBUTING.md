@@ -25,3 +25,8 @@ Use an LTS Node.js version if the Mintlify CLI warns about unsupported Node.
 - Use active voice and address the reader as "you"
 - Keep pages short — link to Troubleshooting or Connectivity instead of repeating fixes
 - Do not document internal-only admin tools unless explicitly requested
+- After editing MDX, regenerate the NotebookLM export:
+
+```bash
+node scripts/generate-notebooklm-export.mjs
+```

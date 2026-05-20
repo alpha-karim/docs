@@ -10,6 +10,7 @@
 - Pages are MDX with YAML frontmatter; navigation in `docs.json`
 - Run `mint dev` to preview locally
 - Run `mint broken-links` to check links
+- After MDX changes, run `node scripts/generate-notebooklm-export.mjs` to refresh `notebooklm-export.md`
 
 ## Terminology (match the product UI)
 
