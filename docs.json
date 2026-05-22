@@ -37,6 +37,7 @@
           {
             "group": "Review and Report",
             "pages": [
+              "alpharelay/import-mission",
               "alpharelay/footage-upload",
               "alpharelay/footage-playback",
               "alpharelay/report-generation",

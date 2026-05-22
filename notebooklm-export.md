@@ -1,6 +1,6 @@
 # AlphaRelay Operator Documentation — NotebookLM Export
 
-Generated on 2026-05-20 by `scripts/generate-notebooklm-export.mjs`.
+Generated on 2026-05-22 by `scripts/generate-notebooklm-export.mjs`.
 
 **Web app:** https://www.alpha-relay.com
 **Pilot app (APK):** https://www.alpha-relay.com/download.html
@@ -18,6 +18,7 @@ Generated on 2026-05-20 by `scripts/generate-notebooklm-export.mjs`.
 - **Live Overwatch Screen** — relay connection panel in Mission Overwatch
 - **Live stream (WebRTC)** — remote live viewing over the internet (Cloudflare)
 - **Quick events**, **scenario template**, **Items Requiring Officer Review**
+- **Import mission** — Mission History action for creating a closed post-flight record from external footage and photos
 - **Export offline package…**, **Export evidence package (JSON)**
 - **Alpha AI** — after-action report drafting assistant
 
@@ -40,14 +41,18 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
 - **New users:** AlphaRelay in plain English.
 - **Pilots:** Start a mission from the pilot app.
 - **Overwatch users:** Watch and log in Mission Overwatch.
-- **Reviewers:** Review footage and generate a report.
+- **Reviewers:** Import or review footage and generate a report.
 - **Admins:** Accounts and organizations.
 - **Troubleshooting:** Common fixes.
+- **Ask the docs:** Chat with NotebookLM about AlphaRelay (Google sign-in required).
+
+**Note:** **Ask the docs** opens AlphaRelay’s NotebookLM chat in a new tab. You need a Google account and access to the shared notebook. Answers are AI-generated from the documentation — verify against the guides here for operational use.
 
 ## Links
 
 - **Web app:** [alpha-relay.com](https://www.alpha-relay.com)
 - **Pilot app (APK):** [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html)
+- **Ask the docs (NotebookLM):** [Chat with the documentation](https://notebooklm.google.com/notebook/d83a28f5-b26c-4908-8d5f-2c7fdfda2603)
 
 ---
 
@@ -59,7 +64,7 @@ The **pilot app** on an Android tablet or phone runs the mission, captures foota
 
 ## Basic flow
 
-1. Start a mission from the pilot app.
+1. Start a live mission from the pilot app.
 2. Watch live in Mission Overwatch when using relay viewing or remote live.
 3. End the mission when field work is complete.
 4. Upload and review footage.
@@ -74,7 +79,7 @@ The **pilot app** on an Android tablet or phone runs the mission, captures foota
 
 Both modes can start **Live stream (WebRTC)** when the pilot device has internet and remote live is enabled from the pilot app.
 
-Missions always start from the pilot app — not from the browser.
+Live missions start from the pilot app — not from the browser. For work that already happened outside AlphaRelay, **Import mission** in **Mission History** creates a closed post-flight record for review and reporting.
 
 ---
 
@@ -102,9 +107,9 @@ For **Relay mission**, connect Mission Overwatch through **Live Overwatch Screen
 
 ## 4. Review the mission
 
-End the mission, let footage upload or queue, then open **Play with Events** to check markers against video.
+End the mission, let footage upload or queue, then open **Play with Events** to check markers against video. For work captured outside AlphaRelay, use **Import mission** from **Mission History** to create a closed post-flight record first.
 
-→ End a mission · Upload footage · Review footage
+→ End a mission · Import a mission · Upload footage · Review footage
 
 ## 5. Finalize the record
 
@@ -364,6 +369,47 @@ Resolve event timing against footage before generating the final report.
 
 ---
 
+## Import a Mission
+
+Use **Import mission** when work happened outside AlphaRelay but still needs the Mission Overwatch review, report, custody, and export workflow.
+
+Imported missions are created as closed, post-flight records. They do not replace live AlphaRelay mission start, relay viewing, or pilot-side event capture.
+
+## Before you import
+
+- Sign in to AlphaRelay while online.
+- Confirm your account belongs to an organization.
+- Put the primary MP4 first if you are uploading multiple footage files; the first video becomes the reference footage.
+- Keep the browser open until the upload status finishes.
+
+## Steps
+
+1. Open **Mission Dashboard**.
+2. Go to **Mission History**.
+3. Click **Import mission**.
+4. Enter the **Mission name**.
+5. Add **Mission started**, **Mission ended**, **Pilot / operator**, and **Mission notes** when known.
+6. Select any **Mission footage** MP4 files that should be uploaded.
+7. Select any **Photos** that should be stored with the mission.
+8. Click **Create post-flight mission**.
+
+AlphaRelay creates the completed mission record, uploads selected footage and photos, then opens Mission Overwatch on the **Media** tab.
+
+## After import
+
+- Use **Upload MP4** or **Upload Photos** on the **Media** tab if an upload was skipped or needs to be retried.
+- Open **Play with Events** to review the imported footage.
+- Tag missing moments from the footage before submitting the report.
+- Generate the after-action report, seal evidence, submit for approval, and export when the record is complete.
+
+Imported photos are added as evidence-only mission photos. They are not automatically attached to timeline events.
+
+**Warning:** If the import reports an upload issue after creating the mission, stay on the opened **Media** tab and finish the missing uploads there.
+
+→ Upload footage · Review footage · Generate a report
+
+---
+
 ## Upload Footage
 
 Footage often uploads **after** the mission when the pilot device or Overwatch browser regains internet. Queued uploads are normal, not errors.
@@ -385,13 +431,19 @@ When auto upload is impractical:
 
 Tap **Skip** during auto upload if you plan to upload manually later.
 
+## Import external mission footage
+
+If the mission did not start in AlphaRelay, use **Mission Dashboard** → **Mission History** → **Import mission**. The import flow creates a closed mission record, uploads selected MP4 footage and photos, then opens Mission Overwatch on the **Media** tab.
+
+Use the normal **Upload MP4** and **Upload Photos** controls afterward if any media needs to be added or retried.
+
 ## Mission photos
 
 Use **Mission photos** / **Upload Photos** to add timeline photos or evidence-only photos with caption, category, and notes.
 
 **Warning:** Keep the app or browser open until upload or queue processing finishes.
 
-→ Review footage · Troubleshooting
+→ Import a mission · Review footage · Troubleshooting
 
 ---
 
@@ -526,11 +578,14 @@ Command home at [alpha-relay.com/dashboard.html](https://www.alpha-relay.com/das
 
 - Active mission roster and KPIs
 - Mission history with search and filters
+- **Import mission** for creating a closed post-flight record from external footage and photos
 - Intelligence search across missions, events, and footage
 - Supervisor inbox (pending approval) and operator returned-to-draft inbox
 - Analytics
 
 Select a mission to open **Mission Overwatch** (dashboard link: **Open Mission Console**).
+
+→ Import a mission
 
 ## Account
 
@@ -753,6 +808,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 - Footage often uploads after the mission ends.
 - Queued pilot-handoff footage must finish before final review.
 - Manual browser MP4 upload requires internet before upload starts (no pre-queue).
+- **Import mission** requires a signed-in, online browser and creates a closed post-flight record only.
 - Offline packages only include media available at export time.
 
 ## AI
@@ -779,6 +835,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 | **Alpha AI** | System that drafts after-action report content from mission data |
 | **Chain of custody** | Evidence history and hash verification for a mission |
 | **Field-device mission** | Pilot-only mode — no LAN relay panel during live mission |
+| **Import mission** | Mission History flow that creates a closed post-flight record from external footage and photos |
 | **Items Requiring Officer Review** | Report checklist items that need human resolution before submission |
 | **Live Overwatch Screen** | Mission Overwatch panel for LAN relay connection |
 | **Live stream (WebRTC)** | Remote live video over the internet (Cloudflare WHEP) |

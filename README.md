@@ -7,7 +7,7 @@ Operator documentation for [AlphaRelay](https://www.alpha-relay.com), built with
 - **Home** — `index.mdx`
 - **Start Here** — plain English intro, workflow overview, roles, mission types, training exercise
 - **Run a Mission** — field prep, start mission, Mission Overwatch, events, closeout
-- **Review and Report** — upload, playback, report, sealing, offline export
+- **Review and Report** — import, upload, playback, report, sealing, offline export
 - **Admin Setup** — dashboard, accounts, org licenses, security, requirements
 - **Help** — troubleshooting, connectivity, limitations, glossary
 

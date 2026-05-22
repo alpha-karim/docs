@@ -23,6 +23,7 @@
 - **Live Overwatch Screen** — relay connection panel in Mission Overwatch
 - **Live stream (WebRTC)** — remote live viewing over the internet (Cloudflare)
 - **Quick events**, **scenario template**, **Items Requiring Officer Review**
+- **Import mission** — Mission History action for creating a closed post-flight record from external footage and photos
 - **Export offline package…**, **Export evidence package (JSON)**
 - **Alpha AI** — after-action report drafting assistant
 
