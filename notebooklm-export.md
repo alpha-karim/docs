@@ -1,6 +1,6 @@
 # AlphaRelay Operator Documentation — NotebookLM Export
 
-Generated on 2026-05-22 by `scripts/generate-notebooklm-export.mjs`.
+Generated on 2026-07-09 by `scripts/generate-notebooklm-export.mjs`.
 
 **Web app:** https://www.alpha-relay.com
 **Pilot app (APK):** https://www.alpha-relay.com/download.html
@@ -251,6 +251,8 @@ Missions always start from the **pilot app**. Mission Overwatch cannot start mis
 6. Complete the license check if prompted.
 7. Fly the mission from the pilot view. Use **Takeoff**, **Land**, quick events, and **Stop Mission** when finished.
 
+When supported Matrice aircraft or controllers are detected, the pilot app may show additional camera tools such as wide/zoom/thermal source selection, visible zoom presets, thermal zoom, laser rangefinder, linked zoom, thermal super-resolution, or laser fill light. Validate those controls with the actual aircraft, payload, controller, and firmware before operational use.
+
 ## Field-device mission
 
 - Works on **cellular or Wi‑Fi**
@@ -471,6 +473,16 @@ After the mission is closed:
 
 Once a report is submitted for approval or approved, timeline events and photos are locked. Tag missing moments before submission.
 
+## AI Review
+
+For a closed synced mission, open **AI Review** and click **Analyze media** after footage, photos, or event screenshots are available. AlphaRelay may sample still frames from playable footage, analyze mission-relevant images, and show findings for human review.
+
+- **Accept** adds a timeline event for the finding when timeline edits are still allowed.
+- **Reject** keeps the finding out of the mission timeline.
+- Accepted findings may also run detailed screenshot analysis when a source image is available.
+
+AI Review findings are suggestions. Verify the source media before using them in the report or evidence workflow.
+
 → Generate a report
 
 ---
@@ -484,10 +496,12 @@ Alpha AI drafts the after-action report from mission events, footage references,
 ## Steps
 
 1. Open the closed mission and review timeline, footage, and photos.
-2. Scroll to **After-Action Report** and click **Generate Report**.
-3. Resolve **Items Requiring Officer Review**.
-4. Edit the narrative or use **Edit executive summary** for the dashboard header summary.
-5. Click **Submit for supervisor approval** when ready.
+2. Use **AI Review** if you want media findings suggested from uploaded footage, photos, or event screenshots.
+3. Accept only verified AI findings that should become timeline events.
+4. Scroll to **After-Action Report** and click **Generate Report**.
+5. Resolve **Items Requiring Officer Review**, including AI image analysis items.
+6. Edit the narrative or use **Edit executive summary** for the dashboard header summary.
+7. Click **Submit for supervisor approval** when ready.
 
 ## Supervisor actions
 
@@ -502,7 +516,7 @@ Supervisor and operator inboxes live on **Mission Dashboard** under Reports & Re
 
 When configured, AlphaRelay sends email on report workflow events (submit, approve, return).
 
-→ Seal the mission record
+→ Review footage · Seal the mission record
 
 ---
 
@@ -598,11 +612,57 @@ Owners and admins manage:
 - Team members, roles, and status
 - Organization time zone
 - Storage visibility
-- Pilot device license keys and QR codes for the pilot app
+- Pilot device license keys, QR codes, activation files, and controller pairing codes for the pilot app
 
 Only owners and admins can open **Organization**.
 
+## Organization Documents
+
+When signed pilot agreements are linked to your organization, **Organization Documents** lets signed-in users open completed agreement PDFs through short-lived signed links.
+
 → Devices and licenses
+→ Pilot agreements and documents
+
+---
+
+## Pilot Agreements and Documents
+
+Pilot agreement signing is used when AlphaRelay needs an agency or pilot representative to review and sign a prepared agreement before onboarding.
+
+## Sign an agreement
+
+1. Open the signing link from the AlphaRelay email.
+2. Review the agreement PDF in the browser.
+3. Confirm the agency, signer name, email, and title.
+4. Type the signer full name exactly as shown.
+5. Check the authorization statement.
+6. Click **Sign and save PDF**.
+
+After signing, AlphaRelay creates a completed signed PDF and sends the onboarding email. If the request was already signed, the page shows the completed signed copy.
+
+## Organization documents
+
+Signed pilot agreements are stored privately and can be opened from **Organization Documents** by signed-in users with access to the linked organization.
+
+1. Sign in to AlphaRelay.
+2. Open **Organization Documents** when it is available for your account.
+3. Click **Open PDF** on the signed agreement row.
+
+PDF links are short-lived signed URLs. Refresh the documents page if a link expires.
+
+## Admin workflow
+
+Internal AlphaRelay admins use **Admin → Pilot Documents** to:
+
+- Upload immutable prepared PDF agreement versions
+- Create signing requests
+- Monitor viewed, signed, organization-created, invitation-sent, expired, or failed states
+- Open original and signed PDFs
+- Retry onboarding or resend the invite when needed
+
+**Warning:** Do not treat a signing request as complete until the signed agreement PDF is saved and onboarding status is complete or intentionally retried.
+
+→ Accounts and Organizations · Security, Privacy, and AI
 
 ---
 
@@ -624,15 +684,25 @@ Only owners and admins can open **Organization**.
 
 The pilot app uses an org license key — not a Supabase login.
 
-1. In **Organization**, copy the license key or scan the QR code (opens `alpharelay://license?key=…`).
-2. Enter or scan the key when the pilot app prompts.
-3. Update later from **Pilot console → System → AlphaRelay license**, or long-press **Choose Mission Mode**.
+Use one of these activation paths:
+
+- Copy the full `ar-…` license key from **Organization**.
+- Scan the QR code, which opens `alpharelay://license?key=…`.
+- Import an activation file downloaded by an admin.
+- Enter a short controller pairing code generated by an admin.
+
+Update later from **Pilot console → System → AlphaRelay license**, or long-press **Choose Mission Mode**.
 
 The app validates against AlphaRelay and keeps a **10-day offline grace** after the last successful check. Connect to the internet before starting if the grace window expired.
 
 Keys are issued by org admins from **Organization** or internal admin tools.
 
+## Pilot agreements
+
+If your organization is onboarded through AlphaRelay pilot agreements, sign the agreement from the email link before relying on organization access. Completed signed PDFs are available from **Organization Documents** after onboarding.
+
 → Before you go to the field
+→ Pilot agreements and documents
 
 ---
 
@@ -649,13 +719,19 @@ When internet is available: mission metadata, events, screenshots, photos, foota
 
 ## Alpha AI
 
-Drafts after-action report content from structured mission data. Always review:
+Drafts after-action report content from structured mission data and can help review media when configured. Always review:
 
 - Timeline accuracy
 - Footage and photo references
+- Accepted AI Review findings
+- Event screenshot or media image analysis
 - **Items Requiring Officer Review**
 
-Treat AI output as draft material.
+Treat AI output as draft material. AI Review can sample frames from uploaded footage and analyze uploaded photos or event screenshots. Accepted findings are added to the timeline only after a human accepts them.
+
+## Pilot agreements
+
+Pilot agreement PDFs and signed copies are stored in private storage. Signing links use tokens, and completed PDFs are opened through short-lived signed URLs. Completed signing records may include signer details, timestamp, IP address when available, user agent, agreement version, PDF hash, and audit metadata.
 
 ## Custody and approval
 
@@ -676,12 +752,14 @@ Do not share exports before sync and review are complete.
 - Supported Android version for the installed pilot app
 - Reliable Wi‑Fi for **Relay mission**
 - Enough CPU, memory, battery, and storage for live video, telemetry, event logging, and optional Local AI
-- DJI Mini 3 Pro workflow when using aircraft integration (see pilot app setup)
+- DJI Mini 3 Pro workflow when using aircraft integration
+- Conditional Matrice camera tools on supported Matrice aircraft or Matrice controllers
 
 ## Overwatch / review (desktop browser)
 
 - Current Chrome, Edge, or Safari for Mission Overwatch, dashboard, and export
 - Internet for sync, upload, reports, and export media downloads
+- Internet and OpenAI configuration for Alpha AI report drafting or AI media review
 
 ## By workflow
 
@@ -690,10 +768,13 @@ Do not share exports before sync and review are complete.
 | Relay mission LAN viewing | Pilot device + Overwatch on same reachable Wi‑Fi |
 | Field-device mission | Cellular or Wi‑Fi on pilot device |
 | **Live stream (WebRTC)** | Pilot device internet; live started from pilot app |
+| AI Review | Closed, synced mission with uploaded photos, event screenshots, or playable footage; internet and AI configuration |
 | Cloud sync / upload | Internet + signed-in session |
 | Offline package export | Internet at export time to download media |
 
 Permissions: grant camera, microphone (voice relay), storage, and location prompts from the pilot app as requested.
+
+Matrice camera controls appear only when the pilot app detects supported aircraft or controller capability. Availability still depends on DJI firmware, payload, SDK support, and field validation.
 
 Run a training mission on the same device class before operational use.
 
@@ -815,6 +896,13 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 
 - **Local AI** depends on device, model file, and configuration — review auto-tags before relying on them.
 - **Alpha AI** report drafts require officer review; resolve **Items Requiring Officer Review** before finalization.
+- **AI Review** requires a closed synced mission, available media, internet, AI configuration, and installed analysis tables.
+- AI media findings are suggestions; accepted findings should be verified against source images or footage before report or evidence use.
+
+## Aircraft controls
+
+- Matrice camera tools appear only for supported aircraft/controllers and still depend on DJI firmware, payload, and SDK behavior.
+- Validate aircraft-specific controls in training before operational use.
 
 ## Workflow locks
 
@@ -832,17 +920,20 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 
 | Term | Meaning |
 | --- | --- |
-| **Alpha AI** | System that drafts after-action report content from mission data |
+| **Alpha AI** | System that drafts after-action report content and supports configured media/image analysis |
+| **AI Review** | Closed-mission tab for analyzing uploaded media and accepting or rejecting mission-relevant AI findings |
 | **Chain of custody** | Evidence history and hash verification for a mission |
 | **Field-device mission** | Pilot-only mode — no LAN relay panel during live mission |
 | **Import mission** | Mission History flow that creates a closed post-flight record from external footage and photos |
 | **Items Requiring Officer Review** | Report checklist items that need human resolution before submission |
 | **Live Overwatch Screen** | Mission Overwatch panel for LAN relay connection |
 | **Live stream (WebRTC)** | Remote live video over the internet (Cloudflare WHEP) |
+| **Organization Documents** | Signed pilot agreement PDFs linked to an organization |
 | **Mission Console** | Dashboard link name for opening Mission Overwatch |
 | **Mission Dashboard** | Command home — KPIs, history, search, AAR inboxes |
 | **Mission Overwatch** | Per-mission browser workspace for live view, review, report, seal, export |
 | **Offline package** | ZIP archive with viewer for point-in-time mission export |
+| **Pilot agreement** | Prepared agreement PDF signed through AlphaRelay before or during agency onboarding |
 | **Pilot app** | AlphaRelay Pilot Android app on tablet or phone |
 | **Pilot console** | In-app settings (Mission, Flight, Events, System) |
 | **Play with Events** | Footage player with synchronized event markers |

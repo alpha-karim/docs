@@ -49,6 +49,7 @@
             "group": "Admin Setup",
             "pages": [
               "alpharelay/dashboard-account-organization",
+              "alpharelay/pilot-agreements",
               "alpharelay/one-time-setup",
               "alpharelay/security-privacy-ai-processing",
               "alpharelay/minimum-requirements"

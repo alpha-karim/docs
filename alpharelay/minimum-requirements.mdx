@@ -9,12 +9,14 @@ icon: "clipboard-list"
 - Supported Android version for the installed pilot app
 - Reliable Wi‑Fi for **Relay mission**
 - Enough CPU, memory, battery, and storage for live video, telemetry, event logging, and optional Local AI
-- DJI Mini 3 Pro workflow when using aircraft integration (see pilot app setup)
+- DJI Mini 3 Pro workflow when using aircraft integration
+- Conditional Matrice camera tools on supported Matrice aircraft or Matrice controllers
 
 ## Overwatch / review (desktop browser)
 
 - Current Chrome, Edge, or Safari for Mission Overwatch, dashboard, and export
 - Internet for sync, upload, reports, and export media downloads
+- Internet and OpenAI configuration for Alpha AI report drafting or AI media review
 
 ## By workflow
 
@@ -23,9 +25,12 @@ icon: "clipboard-list"
 | Relay mission LAN viewing | Pilot device + Overwatch on same reachable Wi‑Fi |
 | Field-device mission | Cellular or Wi‑Fi on pilot device |
 | **Live stream (WebRTC)** | Pilot device internet; live started from pilot app |
+| AI Review | Closed, synced mission with uploaded photos, event screenshots, or playable footage; internet and AI configuration |
 | Cloud sync / upload | Internet + signed-in session |
 | Offline package export | Internet at export time to download media |
 
 Permissions: grant camera, microphone (voice relay), storage, and location prompts from the pilot app as requested.
+
+Matrice camera controls appear only when the pilot app detects supported aircraft or controller capability. Availability still depends on DJI firmware, payload, SDK support, and field validation.
 
 Run a [training mission](/alpharelay/training-mission) on the same device class before operational use.
