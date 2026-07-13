@@ -19,11 +19,15 @@ Shown only for **Relay mission** (hidden for field-device missions).
 
 You get LAN MJPEG video, telemetry, and command-side event logging with lowest latency.
 
+In **Companion Capture Mode**, the LAN live video source is the controller screen from DJI Pilot 2. AlphaRelay does not send aircraft commands in that mode.
+
 ## Remote live — Live stream (WebRTC)
 
 When the pilot starts live from the app, Overwatch users on the internet can click **Live stream (WebRTC)**. This uses Cloudflare WebRTC (WHEP) — sub-second latency over the public internet, separate from the LAN relay.
 
 Works with either mission mode when the pilot device has internet.
+
+In **Companion Capture Mode**, remote live publishes the controller screen.
 
 ## Closed missions
 

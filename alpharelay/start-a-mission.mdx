@@ -18,6 +18,8 @@ Missions always start from the **pilot app**. Mission Overwatch cannot start mis
 
 When supported Matrice aircraft or controllers are detected, the pilot app may show additional camera tools such as wide/zoom/thermal source selection, visible zoom presets, thermal zoom, laser rangefinder, linked zoom, thermal super-resolution, or laser fill light. Validate those controls with the actual aircraft, payload, controller, and firmware before operational use.
 
+On supported DJI RC Plus 2 family controllers, the pilot app may enable **Companion Capture Mode**. Approve the Android screen capture prompt, then operate the aircraft in DJI Pilot 2. AlphaRelay records and streams the controller screen instead of taking over DJI flight controls.
+
 ## Field-device mission
 
 - Works on **cellular or Wi‑Fi**
@@ -37,10 +39,18 @@ Optional: start **Live stream (WebRTC)** from the pilot app so remote Overwatch 
 
 Mission Overwatch uses `wss://` on port **8789** automatically when you enter a LAN IP.
 
+## Companion Capture Mode
+
+- Turns on automatically on supported DJI RC Plus 2 family controllers
+- Works after either **Field-device mission** or **Relay mission**
+- Uses DJI Pilot 2 for flight and camera operation
+- Blocks AlphaRelay aircraft command buttons such as **Takeoff**, **Land**, and camera controls
+- Records controller-screen footage in chunks and queues upload after **Stop Mission**
+
 ## After start
 
 - The mission appears in **Mission Dashboard** after cloud sync.
 - Footage and events may upload during or after the mission depending on connectivity.
 - Tap **Stop Mission** in the pilot app (or **Close Mission** in Mission Overwatch) when field work is done.
 
-→ [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Connectivity](/alpharelay/connectivity-guide)
+→ [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Companion Capture Mode](/alpharelay/companion-capture-mode) · [Connectivity](/alpharelay/connectivity-guide)

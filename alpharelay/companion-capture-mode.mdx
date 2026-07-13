@@ -1,0 +1,57 @@
+---
+title: "Companion Capture Mode"
+description: "Use AlphaRelay beside DJI Pilot 2 on supported enterprise controllers."
+icon: "tablet-screen-button"
+---
+
+Companion Capture Mode lets AlphaRelay run beside DJI Pilot 2 on supported DJI enterprise controllers. DJI Pilot 2 remains the flight control app; AlphaRelay captures the controller screen, streams it into the mission, records mission footage, and logs events.
+
+This is not a third mission button. Start the mission normally with **Field-device mission** or **Relay mission**. When the pilot app detects supported controller hardware, Companion Capture Mode turns on automatically.
+
+## When it appears
+
+Companion Capture Mode is available on supported DJI RC Plus 2 family controllers, including Matrice 4 Enterprise controller signatures. The pilot app shows a log message such as **Companion Capture Mode enabled** when the controller is detected.
+
+On phones, tablets, DJI RC Pro 2, or unsupported controllers, AlphaRelay uses the normal pilot workflow.
+
+## What changes
+
+- DJI Pilot 2 remains responsible for flight, camera, and safety controls.
+- AlphaRelay disables direct DJI SDK aircraft commands in the pilot app.
+- The live source becomes the controller screen instead of the in-app DJI SDK camera preview.
+- **Takeoff**, **Land**, camera controls, and other aircraft commands in AlphaRelay are blocked.
+- Controller screen recordings are saved in chunks and queued for upload after the mission.
+- Voice relay can still create timeline events when microphone permission is granted.
+
+## Start a mission
+
+1. Open AlphaRelay on the supported controller.
+2. Tap **Choose Mission Mode**.
+3. Name the mission and choose a scenario template if needed.
+4. Tap **Field-device mission** or **Relay mission**.
+5. If prompted, start **Live stream (WebRTC)** or choose **Not now**.
+6. Approve the Android screen capture prompt.
+7. Let AlphaRelay leave the foreground when prompted, then fly in DJI Pilot 2.
+
+Use DJI Pilot 2 for flight operation. Use AlphaRelay for mission start, event logging, relay/remote live setup, and mission closeout.
+
+## During the mission
+
+- In **Relay mission**, Mission Overwatch connects to the pilot device the same way it normally does; the LAN live view shows the controller screen.
+- In either mission mode, **Live stream (WebRTC)** can publish the controller screen to remote Overwatch users when the pilot device has internet.
+- Say `relay` followed by event details to create a voice relay event. AlphaRelay saves a current controller-screen screenshot with the event when available.
+
+## Stop and upload
+
+Tap **Stop Mission** from AlphaRelay or use the **Stop Mission** action in the Companion Capture Mode notification. AlphaRelay finalizes the current controller-screen recording chunk, queues recordings for upload, and closes the mission.
+
+Keep the controller powered on and connected to internet until queued uploads finish.
+
+## Limits
+
+- AlphaRelay does not fly the aircraft in Companion Capture Mode.
+- The captured footage is the controller screen, including DJI Pilot 2 overlays, not a raw camera file.
+- Android screen capture permission is required every time capture starts.
+- If microphone permission or speech recognition is unavailable, voice relay is disabled but screen capture can still run.
+
+→ [Start a mission](/alpharelay/start-a-mission) · [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Upload footage](/alpharelay/footage-upload)
