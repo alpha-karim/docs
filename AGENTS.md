@@ -15,9 +15,9 @@
 ## Terminology (match the product UI)
 
 - **AlphaRelay** — product name
-- **Pilot app** — Android app on the pilot tablet or phone (`download.html`)
+- **Pilot app** — Android app on the pilot tablet, phone, or Android drone controller (`download.html`)
 - **Field-device mission** / **Relay mission** — mission mode buttons in the pilot app
-- **Companion Capture Mode** — automatic pilot app mode on supported DJI RC Plus 2 family controllers where DJI Pilot 2 keeps flight control and AlphaRelay captures the controller screen
+- **Companion Capture Mode** — automatic pilot app mode on Android drone controllers where the controller's native flight app keeps flight control and AlphaRelay captures the controller screen
 - **Pilot console** — in-app settings panel (Mission, Flight, Events, System)
 - **Mission Dashboard** — command home (`dashboard.html`)
 - **Mission Overwatch** / **Mission Console** — per-mission browser workspace (`mission-overwatch.html`; dashboard link says **Open Mission Console**)

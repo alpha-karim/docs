@@ -4,14 +4,14 @@ description: "Device, browser, network, and storage expectations."
 icon: "clipboard-list"
 ---
 
-## Pilot device (Android tablet or phone)
+## Pilot device (Android tablet, phone, or controller)
 
 - Supported Android version for the installed pilot app
 - Reliable Wi‑Fi for **Relay mission**
 - Enough CPU, memory, battery, and storage for live video, telemetry, event logging, and optional Local AI
 - DJI Mini 3 Pro workflow when using aircraft integration
 - Conditional Matrice camera tools on supported Matrice aircraft or Matrice controllers
-- Supported DJI RC Plus 2 family controller for **Companion Capture Mode**
+- Android drone controller capable of installing **AlphaRelay Pilot** and granting screen capture permission for **Companion Capture Mode**
 
 ## Overwatch / review (desktop browser)
 
@@ -25,7 +25,7 @@ icon: "clipboard-list"
 | --- | --- |
 | Relay mission LAN viewing | Pilot device + Overwatch on same reachable Wi‑Fi |
 | Field-device mission | Cellular or Wi‑Fi on pilot device |
-| Companion Capture Mode | Supported DJI RC Plus 2 family controller; Android screen capture permission |
+| Companion Capture Mode | Android drone controller; AlphaRelay Pilot installed; Android screen capture permission |
 | **Live stream (WebRTC)** | Pilot device internet; live started from pilot app |
 | AI Review | Closed, synced mission with uploaded photos, event screenshots, or playable footage; internet and AI configuration |
 | Cloud sync / upload | Internet + signed-in session |
@@ -35,6 +35,6 @@ Permissions: grant camera, microphone (voice relay), storage, and location promp
 
 Matrice camera controls appear only when the pilot app detects supported aircraft or controller capability. Availability still depends on DJI firmware, payload, SDK support, and field validation.
 
-Companion Capture Mode appears only on supported DJI RC Plus 2 family controllers. DJI Pilot 2 remains responsible for aircraft operation in that mode.
+Companion Capture Mode appears on Android drone controllers that can run AlphaRelay Pilot and grant screen capture permission. The controller's native flight app remains responsible for aircraft operation in that mode.
 
 Run a [training mission](/alpharelay/training-mission) on the same device class before operational use.

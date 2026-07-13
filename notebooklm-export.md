@@ -10,9 +10,9 @@ Generated on 2026-07-13 by `scripts/generate-notebooklm-export.mjs`.
 ## Terminology (match the product UI)
 
 - **AlphaRelay** — product name
-- **Pilot app** — Android app on the pilot tablet or phone (`download.html`)
+- **Pilot app** — Android app on the pilot tablet, phone, or Android drone controller (`download.html`)
 - **Field-device mission** / **Relay mission** — mission mode buttons in the pilot app
-- **Companion Capture Mode** — automatic pilot app mode on supported DJI RC Plus 2 family controllers where DJI Pilot 2 keeps flight control and AlphaRelay captures the controller screen
+- **Companion Capture Mode** — automatic pilot app mode on Android drone controllers where the controller's native flight app keeps flight control and AlphaRelay captures the controller screen
 - **Pilot console** — in-app settings panel (Mission, Flight, Events, System)
 - **Mission Dashboard** — command home (`dashboard.html`)
 - **Mission Overwatch** / **Mission Console** — per-mission browser workspace (`mission-overwatch.html`; dashboard link says **Open Mission Console**)
@@ -32,7 +32,7 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
 ## Five-step workflow
 
 1. **Set up devices** — Install the pilot app, activate the device license, and sign in to the web app.
-2. **Start a mission** — Choose **Field-device mission** or **Relay mission** in the pilot app. On supported DJI enterprise controllers, Companion Capture Mode turns on automatically.
+2. **Start a mission** — Choose **Field-device mission** or **Relay mission** in the pilot app. On Android drone controllers, Companion Capture Mode turns on automatically.
 3. **Watch and log events** — Use Mission Overwatch for relay viewing, remote live, and command-side event logging.
 4. **Review the mission** — Upload or sync footage, then review with **Play with Events**.
 5. **Finalize the record** — Generate the report, seal evidence, get supervisor approval, and export when ready.
@@ -41,7 +41,7 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
 
 - **New users:** AlphaRelay in plain English.
 - **Pilots:** Start a mission from the pilot app.
-- **Enterprise controllers:** Use AlphaRelay beside DJI Pilot 2.
+- **Enterprise controllers:** Use AlphaRelay beside the controller flight app.
 - **Overwatch users:** Watch and log in Mission Overwatch.
 - **Reviewers:** Import or review footage and generate a report.
 - **Admins:** Accounts and organizations.
@@ -62,7 +62,7 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
 
 AlphaRelay helps teams run drone or field missions and produce a defensible record afterward.
 
-The **pilot app** on an Android tablet or phone runs the mission, captures footage, and logs events. **Mission Overwatch** in a browser is where command staff watch live feeds, add events, review footage, build after-action reports, seal evidence, and export packages. The **Mission Dashboard** is the command home for finding missions and supervisor review queues.
+The **pilot app** on an Android tablet, phone, or drone controller runs the mission, captures footage, and logs events. **Mission Overwatch** in a browser is where command staff watch live feeds, add events, review footage, build after-action reports, seal evidence, and export packages. The **Mission Dashboard** is the command home for finding missions and supervisor review queues.
 
 ## Basic flow
 
@@ -81,7 +81,7 @@ The **pilot app** on an Android tablet or phone runs the mission, captures foota
 
 Both modes can start **Live stream (WebRTC)** when the pilot device has internet and remote live is enabled from the pilot app.
 
-On supported DJI RC Plus 2 family controllers, the pilot app may enter **Companion Capture Mode** automatically. DJI Pilot 2 keeps flight control while AlphaRelay captures the controller screen, streams it into the mission, and records mission footage.
+On Android drone controllers, the pilot app may enter **Companion Capture Mode** automatically. The controller's native flight app keeps flight control while AlphaRelay captures the controller screen, streams it into the mission, and records mission footage.
 
 Live missions start from the pilot app — not from the browser. For work that already happened outside AlphaRelay, **Import mission** in **Mission History** creates a closed post-flight record for review and reporting.
 
@@ -99,7 +99,7 @@ Install the pilot app, activate the device license, sign in to the web app, and 
 
 ## 2. Start a mission
 
-Open the pilot app, tap **Choose Mission Mode**, name the mission, pick a scenario template (or **No scenario template**), then choose **Field-device mission** or **Relay mission**. On supported DJI RC Plus 2 family controllers, AlphaRelay uses **Companion Capture Mode** automatically so DJI Pilot 2 remains the flight control app.
+Open the pilot app, tap **Choose Mission Mode**, name the mission, pick a scenario template (or **No scenario template**), then choose **Field-device mission** or **Relay mission**. On Android drone controllers, AlphaRelay uses **Companion Capture Mode** automatically so the controller's native flight app remains responsible for flight control.
 
 → Start a mission · Field-device vs relay mission · Companion Capture Mode
 
@@ -129,7 +129,7 @@ Generate the after-action report with Alpha AI, resolve **Items Requiring Office
 
 | Role | Device | Responsibility |
 | --- | --- | --- |
-| Pilot | Pilot app (Android tablet/phone) | Starts missions, flies, logs field events, ends mission, uploads footage |
+| Pilot | Pilot app (Android tablet, phone, or drone controller) | Starts missions, flies, logs field events, ends mission, uploads footage |
 | Overwatch user | Browser — Mission Overwatch | Relay viewing, remote live, command-side events, review, report, seal, export |
 | Reviewer / officer | Browser — Mission Overwatch | Checks timeline, footage, report draft, and custody |
 | Supervisor | Browser — Mission Dashboard / Overwatch | Approves or returns after-action reports |
@@ -137,7 +137,7 @@ Generate the after-action report with Alpha AI, resolve **Items Requiring Office
 
 ## Companion controllers
 
-On supported DJI RC Plus 2 family controllers, the pilot device can run **Companion Capture Mode**. DJI Pilot 2 handles flight control while AlphaRelay captures the controller screen, streams it to the active mission, records controller-screen footage, and logs events.
+On Android drone controllers, the pilot device can run **Companion Capture Mode**. The controller's native flight app handles flight control while AlphaRelay captures the controller screen, streams it to the active mission, records controller-screen footage, and logs events.
 
 ## Key rules
 
@@ -188,9 +188,9 @@ See Connectivity for what requires internet vs local Wi‑Fi.
 
 ## Companion Capture Mode
 
-On supported DJI RC Plus 2 family controllers, AlphaRelay can enter **Companion Capture Mode** after either mission choice. You still choose **Field-device mission** or **Relay mission**; Companion Capture Mode changes the live source and aircraft-control behavior.
+On Android drone controllers, AlphaRelay can enter **Companion Capture Mode** after either mission choice. You still choose **Field-device mission** or **Relay mission**; Companion Capture Mode changes the live source and aircraft-control behavior.
 
-In this mode, DJI Pilot 2 controls the aircraft while AlphaRelay captures the controller screen, streams it to the mission, records screen footage, and logs events.
+In this mode, the controller's native flight app controls the aircraft while AlphaRelay captures the controller screen, streams it to the mission, records screen footage, and logs events.
 
 → Companion Capture Mode
 
@@ -198,21 +198,33 @@ In this mode, DJI Pilot 2 controls the aircraft while AlphaRelay captures the co
 
 ## Companion Capture Mode
 
-Companion Capture Mode lets AlphaRelay run beside DJI Pilot 2 on supported DJI enterprise controllers. DJI Pilot 2 remains the flight control app; AlphaRelay captures the controller screen, streams it into the mission, records mission footage, and logs events.
+Companion Capture Mode lets AlphaRelay run beside the native flight app on Android drone controllers. The controller's native flight app remains responsible for aircraft operation; AlphaRelay captures the controller screen, streams it into the mission, records mission footage, and logs events.
 
 This is not a third mission button. Start the mission normally with **Field-device mission** or **Relay mission**. When the pilot app detects supported controller hardware, Companion Capture Mode turns on automatically.
 
 ## When it appears
 
-Companion Capture Mode is available on supported DJI RC Plus 2 family controllers, including Matrice 4 Enterprise controller signatures. The pilot app shows a log message such as **Companion Capture Mode enabled** when the controller is detected.
+Companion Capture Mode is available on Android-based drone controllers that can install **AlphaRelay Pilot** and grant Android screen capture permission. It is not limited to DJI controllers. The pilot app shows a log message such as **Companion Capture Mode enabled** when the controller is detected.
 
-On phones, tablets, DJI RC Pro 2, or unsupported controllers, AlphaRelay uses the normal pilot workflow.
+On phones and tablets, AlphaRelay uses the normal pilot workflow.
+
+## Install on a controller
+
+1. Connect the controller to internet.
+2. Open the controller **Settings** app and turn on **Developer mode** if the controller requires it for third-party app installs. On many Android controllers, open **About device** and tap **Build number** seven times; the exact path can vary by manufacturer.
+3. Open the controller web browser.
+4. Go to [alpha-relay.com/dashboard.html](https://www.alpha-relay.com/dashboard.html) and sign in.
+5. Download **AlphaRelay Pilot** from the dashboard app download link. If needed, open [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html) directly.
+6. When Android asks about installing unknown apps, allow the browser or file manager to **install unknown apps** from that source.
+7. Install and open **AlphaRelay Pilot**.
+8. Grant requested permissions.
+9. Activate the app with the short controller pairing code generated by an admin, or use another device license method from Devices and Licenses.
 
 ## What changes
 
-- DJI Pilot 2 remains responsible for flight, camera, and safety controls.
-- AlphaRelay disables direct DJI SDK aircraft commands in the pilot app.
-- The live source becomes the controller screen instead of the in-app DJI SDK camera preview.
+- The controller's native flight app remains responsible for flight, camera, and safety controls.
+- AlphaRelay disables direct aircraft commands in the pilot app.
+- The live source becomes the controller screen instead of an in-app aircraft camera preview.
 - **Takeoff**, **Land**, camera controls, and other aircraft commands in AlphaRelay are blocked.
 - Controller screen recordings are saved in chunks and queued for upload after the mission.
 - Voice relay can still create timeline events when microphone permission is granted.
@@ -225,9 +237,9 @@ On phones, tablets, DJI RC Pro 2, or unsupported controllers, AlphaRelay uses th
 4. Tap **Field-device mission** or **Relay mission**.
 5. If prompted, start **Live stream (WebRTC)** or choose **Not now**.
 6. Approve the Android screen capture prompt.
-7. Let AlphaRelay leave the foreground when prompted, then fly in DJI Pilot 2.
+7. Let AlphaRelay leave the foreground when prompted, then fly in the controller's native flight app.
 
-Use DJI Pilot 2 for flight operation. Use AlphaRelay for mission start, event logging, relay/remote live setup, and mission closeout.
+Use the controller's native flight app for flight operation. Use AlphaRelay for mission start, event logging, relay/remote live setup, and mission closeout.
 
 ## During the mission
 
@@ -244,7 +256,7 @@ Keep the controller powered on and connected to internet until queued uploads fi
 ## Limits
 
 - AlphaRelay does not fly the aircraft in Companion Capture Mode.
-- The captured footage is the controller screen, including DJI Pilot 2 overlays, not a raw camera file.
+- The captured footage is the controller screen, including native flight-app overlays, not a raw camera file.
 - Android screen capture permission is required every time capture starts.
 - If microphone permission or speech recognition is unavailable, voice relay is disabled but screen capture can still run.
 
@@ -285,14 +297,14 @@ Repeat this exercise when devices, networks, or aircraft change.
 
 ## Checklist
 
-1. Charge the pilot tablet or phone and confirm aircraft/controller are ready.
+1. Charge the pilot tablet, phone, or drone controller and confirm aircraft/controller are ready.
 2. Install or update the **pilot app** from [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html).
 3. Confirm the **device license** is active (scan QR or enter `ar-…` key).
 4. Sign in to the web app with the correct operator account.
 5. Open **Mission Overwatch** once while online on each browser that will use it in the field (installs the offline app shell).
 6. Choose **Field-device mission** or **Relay mission** before launch.
 7. For **Relay mission**: confirm pilot device and Overwatch computer are on the **same Wi‑Fi**.
-8. For supported DJI enterprise controllers: run a test **Companion Capture Mode** mission and confirm Android screen capture permission works.
+8. For Android drone controllers: install AlphaRelay Pilot, activate the device license, run a test **Companion Capture Mode** mission, and confirm Android screen capture permission works.
 9. Plan for internet when you need sync, upload, reports, or export.
 10. Assign pilot, overwatch user, reviewer, and supervisor roles.
 
@@ -317,7 +329,7 @@ Missions always start from the **pilot app**. Mission Overwatch cannot start mis
 
 ## Steps (both modes)
 
-1. Open the pilot app on the Android tablet or phone.
+1. Open the pilot app on the Android tablet, phone, or drone controller.
 2. Tap **Choose Mission Mode**.
 3. Enter a mission name if useful.
 4. Select a scenario category and template, or **No scenario template**.
@@ -327,7 +339,7 @@ Missions always start from the **pilot app**. Mission Overwatch cannot start mis
 
 When supported Matrice aircraft or controllers are detected, the pilot app may show additional camera tools such as wide/zoom/thermal source selection, visible zoom presets, thermal zoom, laser rangefinder, linked zoom, thermal super-resolution, or laser fill light. Validate those controls with the actual aircraft, payload, controller, and firmware before operational use.
 
-On supported DJI RC Plus 2 family controllers, the pilot app may enable **Companion Capture Mode**. Approve the Android screen capture prompt, then operate the aircraft in DJI Pilot 2. AlphaRelay records and streams the controller screen instead of taking over DJI flight controls.
+On Android drone controllers, the pilot app may enable **Companion Capture Mode**. Approve the Android screen capture prompt, then operate the aircraft in the controller's native flight app. AlphaRelay records and streams the controller screen instead of taking over flight controls.
 
 ## Field-device mission
 
@@ -350,9 +362,9 @@ Mission Overwatch uses `wss://` on port **8789** automatically when you enter a 
 
 ## Companion Capture Mode
 
-- Turns on automatically on supported DJI RC Plus 2 family controllers
+- Turns on automatically on Android drone controllers
 - Works after either **Field-device mission** or **Relay mission**
-- Uses DJI Pilot 2 for flight and camera operation
+- Uses the controller's native flight app for flight and camera operation
 - Blocks AlphaRelay aircraft command buttons such as **Takeoff**, **Land**, and camera controls
 - Records controller-screen footage in chunks and queues upload after **Stop Mission**
 
@@ -383,7 +395,7 @@ Shown only for **Relay mission** (hidden for field-device missions).
 
 You get LAN MJPEG video, telemetry, and command-side event logging with lowest latency.
 
-In **Companion Capture Mode**, the LAN live video source is the controller screen from DJI Pilot 2. AlphaRelay does not send aircraft commands in that mode.
+In **Companion Capture Mode**, the LAN live video source is the controller screen from the native flight app. AlphaRelay does not send aircraft commands in that mode.
 
 ## Remote live — Live stream (WebRTC)
 
@@ -773,6 +785,20 @@ Internal AlphaRelay admins use **Admin → Pilot Documents** to:
 3. Grant requested permissions.
 4. Complete the **First-Time Guide** on first launch.
 
+## Android drone controller setup
+
+Use this path when the pilot device is an Android-based drone controller rather than a separate tablet or phone.
+
+1. Connect the controller to internet.
+2. Open the controller **Settings** app and turn on **Developer mode** if the controller requires it for third-party app installation. On many Android controllers, open **About device** and tap **Build number** seven times; the exact path can vary by manufacturer.
+3. Open the controller web browser.
+4. Go to [alpha-relay.com/dashboard.html](https://www.alpha-relay.com/dashboard.html) and sign in.
+5. Download **AlphaRelay Pilot** from the dashboard app download link. If needed, open [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html) directly.
+6. When Android prompts for unknown-source installation, allow the browser or file manager to **install unknown apps** from that source.
+7. Install and open **AlphaRelay Pilot**.
+8. Grant requested permissions.
+9. Activate with the short controller pairing code generated by an admin, or use another license method below.
+
 ## Device license
 
 The pilot app uses an org license key — not a Supabase login.
@@ -840,14 +866,14 @@ Do not share exports before sync and review are complete.
 
 ## Minimum Requirements
 
-## Pilot device (Android tablet or phone)
+## Pilot device (Android tablet, phone, or controller)
 
 - Supported Android version for the installed pilot app
 - Reliable Wi‑Fi for **Relay mission**
 - Enough CPU, memory, battery, and storage for live video, telemetry, event logging, and optional Local AI
 - DJI Mini 3 Pro workflow when using aircraft integration
 - Conditional Matrice camera tools on supported Matrice aircraft or Matrice controllers
-- Supported DJI RC Plus 2 family controller for **Companion Capture Mode**
+- Android drone controller capable of installing **AlphaRelay Pilot** and granting screen capture permission for **Companion Capture Mode**
 
 ## Overwatch / review (desktop browser)
 
@@ -861,7 +887,7 @@ Do not share exports before sync and review are complete.
 | --- | --- |
 | Relay mission LAN viewing | Pilot device + Overwatch on same reachable Wi‑Fi |
 | Field-device mission | Cellular or Wi‑Fi on pilot device |
-| Companion Capture Mode | Supported DJI RC Plus 2 family controller; Android screen capture permission |
+| Companion Capture Mode | Android drone controller; AlphaRelay Pilot installed; Android screen capture permission |
 | **Live stream (WebRTC)** | Pilot device internet; live started from pilot app |
 | AI Review | Closed, synced mission with uploaded photos, event screenshots, or playable footage; internet and AI configuration |
 | Cloud sync / upload | Internet + signed-in session |
@@ -871,7 +897,7 @@ Permissions: grant camera, microphone (voice relay), storage, and location promp
 
 Matrice camera controls appear only when the pilot app detects supported aircraft or controller capability. Availability still depends on DJI firmware, payload, SDK support, and field validation.
 
-Companion Capture Mode appears only on supported DJI RC Plus 2 family controllers. DJI Pilot 2 remains responsible for aircraft operation in that mode.
+Companion Capture Mode appears on Android drone controllers that can run AlphaRelay Pilot and grant screen capture permission. The controller's native flight app remains responsible for aircraft operation in that mode.
 
 Run a training mission on the same device class before operational use.
 
@@ -904,12 +930,13 @@ Manual browser uploads do **not** queue before starting — retry when online.
 
 ## Companion Capture Mode did not start
 
-1. Confirm the pilot device is a supported DJI RC Plus 2 family controller.
+1. Confirm the pilot device is an Android drone controller with **AlphaRelay Pilot** installed.
 2. Start the mission from **Choose Mission Mode**; Companion Capture Mode is automatic, not a separate button.
 3. Approve the Android screen capture prompt.
 4. If voice relay is needed, grant microphone permission and confirm speech recognition is available.
+5. If the app cannot be installed, enable controller developer mode if required and allow the browser or file manager to **install unknown apps**.
 
-DJI Pilot 2 remains the flight control app. AlphaRelay aircraft command buttons are intentionally disabled in Companion Capture Mode.
+The controller's native flight app remains the flight control app. AlphaRelay aircraft command buttons are intentionally disabled in Companion Capture Mode.
 
 ## Play with Events has no markers
 
@@ -993,7 +1020,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 ## Media
 
 - Footage often uploads after the mission ends.
-- **Companion Capture Mode** records the controller screen, including DJI Pilot 2 overlays, not a raw camera file.
+- **Companion Capture Mode** records the controller screen, including native flight-app overlays, not a raw camera file.
 - Queued pilot-handoff footage must finish before final review.
 - Manual browser MP4 upload requires internet before upload starts (no pre-queue).
 - **Import mission** requires a signed-in, online browser and creates a closed post-flight record only.
@@ -1009,7 +1036,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 ## Aircraft controls
 
 - Matrice camera tools appear only for supported aircraft/controllers and still depend on DJI firmware, payload, and SDK behavior.
-- **Companion Capture Mode** intentionally leaves flight and camera operation in DJI Pilot 2; AlphaRelay aircraft command buttons are blocked.
+- **Companion Capture Mode** intentionally leaves flight and camera operation in the controller's native flight app; AlphaRelay aircraft command buttons are blocked.
 - Validate aircraft-specific controls in training before operational use.
 
 ## Workflow locks
@@ -1031,7 +1058,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 | **Alpha AI** | System that drafts after-action report content and supports configured media/image analysis |
 | **AI Review** | Closed-mission tab for analyzing uploaded media and accepting or rejecting mission-relevant AI findings |
 | **Chain of custody** | Evidence history and hash verification for a mission |
-| **Companion Capture Mode** | Automatic mode on supported DJI RC Plus 2 family controllers where DJI Pilot 2 keeps flight control and AlphaRelay captures the controller screen |
+| **Companion Capture Mode** | Automatic mode on Android drone controllers where the controller's native flight app keeps flight control and AlphaRelay captures the controller screen |
 | **Field-device mission** | Pilot-only mode — no LAN relay panel during live mission |
 | **Import mission** | Mission History flow that creates a closed post-flight record from external footage and photos |
 | **Items Requiring Officer Review** | Report checklist items that need human resolution before submission |
@@ -1043,7 +1070,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 | **Mission Overwatch** | Per-mission browser workspace for live view, review, report, seal, export |
 | **Offline package** | ZIP archive with viewer for point-in-time mission export |
 | **Pilot agreement** | Prepared agreement PDF signed through AlphaRelay before or during agency onboarding |
-| **Pilot app** | AlphaRelay Pilot Android app on tablet or phone |
+| **Pilot app** | AlphaRelay Pilot Android app on tablet, phone, or Android drone controller |
 | **Pilot console** | In-app settings (Mission, Flight, Events, System) |
 | **Play with Events** | Footage player with synchronized event markers |
 | **Quick events** | One-tap event buttons from scenario templates |

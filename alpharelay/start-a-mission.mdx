@@ -8,7 +8,7 @@ Missions always start from the **pilot app**. Mission Overwatch cannot start mis
 
 ## Steps (both modes)
 
-1. Open the pilot app on the Android tablet or phone.
+1. Open the pilot app on the Android tablet, phone, or drone controller.
 2. Tap **Choose Mission Mode**.
 3. Enter a mission name if useful.
 4. Select a scenario category and template, or **No scenario template**.
@@ -18,7 +18,7 @@ Missions always start from the **pilot app**. Mission Overwatch cannot start mis
 
 When supported Matrice aircraft or controllers are detected, the pilot app may show additional camera tools such as wide/zoom/thermal source selection, visible zoom presets, thermal zoom, laser rangefinder, linked zoom, thermal super-resolution, or laser fill light. Validate those controls with the actual aircraft, payload, controller, and firmware before operational use.
 
-On supported DJI RC Plus 2 family controllers, the pilot app may enable **Companion Capture Mode**. Approve the Android screen capture prompt, then operate the aircraft in DJI Pilot 2. AlphaRelay records and streams the controller screen instead of taking over DJI flight controls.
+On Android drone controllers, the pilot app may enable **Companion Capture Mode**. Approve the Android screen capture prompt, then operate the aircraft in the controller's native flight app. AlphaRelay records and streams the controller screen instead of taking over flight controls.
 
 ## Field-device mission
 
@@ -41,9 +41,9 @@ Mission Overwatch uses `wss://` on port **8789** automatically when you enter a 
 
 ## Companion Capture Mode
 
-- Turns on automatically on supported DJI RC Plus 2 family controllers
+- Turns on automatically on Android drone controllers
 - Works after either **Field-device mission** or **Relay mission**
-- Uses DJI Pilot 2 for flight and camera operation
+- Uses the controller's native flight app for flight and camera operation
 - Blocks AlphaRelay aircraft command buttons such as **Takeoff**, **Land**, and camera controls
 - Records controller-screen footage in chunks and queues upload after **Stop Mission**
 
