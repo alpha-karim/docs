@@ -1,6 +1,6 @@
 ---
 title: "Start a Mission"
-description: "Start a field-device or relay mission from the pilot app."
+description: "Start an Internet or Local Network mission from the pilot app."
 icon: "tablet-screen-button"
 ---
 
@@ -12,7 +12,7 @@ Missions always start from the **pilot app**. Mission Overwatch cannot start mis
 2. Tap **Choose Mission Mode**.
 3. Enter a mission name if useful.
 4. Select a scenario category and template, or **No scenario template**.
-5. Tap **Field-device mission** or **Relay mission**.
+5. Tap **Internet** or **Local Network**.
 6. Complete the license check if prompted.
 7. Fly the mission from the pilot view. Use **Takeoff**, **Land**, quick events, and **Stop Mission** when finished.
 
@@ -20,7 +20,7 @@ When supported Matrice aircraft or controllers are detected, the pilot app may s
 
 On Android drone controllers, the pilot app may enable **Companion Capture Mode**. Approve the Android screen capture prompt, then operate the aircraft in the controller's native flight app. AlphaRelay records and streams the controller screen instead of taking over flight controls.
 
-## Field-device mission
+## Internet
 
 - Works on **cellular or Wi‑Fi**
 - No **Live Overwatch Screen** during the live mission
@@ -28,7 +28,7 @@ On Android drone controllers, the pilot app may enable **Companion Capture Mode*
 
 Optional: start **Live stream (WebRTC)** from the pilot app so remote Overwatch users can watch over the internet.
 
-## Relay mission
+## Local Network
 
 - Requires **Wi‑Fi** on the pilot device
 - Starts the LAN relay for Mission Overwatch
@@ -42,7 +42,7 @@ Mission Overwatch uses `wss://` on port **8789** automatically when you enter a 
 ## Companion Capture Mode
 
 - Turns on automatically on Android drone controllers
-- Works after either **Field-device mission** or **Relay mission**
+- Works after either **Internet** or **Local Network**
 - Uses the controller's native flight app for flight and camera operation
 - Blocks AlphaRelay aircraft command buttons such as **Takeoff**, **Land**, and camera controls
 - Records controller-screen footage in chunks and queues upload after **Stop Mission**

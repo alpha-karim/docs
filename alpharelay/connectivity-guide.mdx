@@ -1,6 +1,6 @@
 ---
 title: "Connectivity"
-description: "Local relay vs internet sync and queued uploads."
+description: "Local Network viewing vs internet sync and queued uploads."
 icon: "tower-broadcast"
 ---
 
@@ -8,14 +8,14 @@ AlphaRelay uses **three separate paths**. Losing one does not always stop the mi
 
 ```text
 Pilot app
-  |-- LAN relay (Relay mission) → Mission Overwatch on same Wi‑Fi
+  |-- LAN relay (Local Network) → Mission Overwatch on same Wi‑Fi
   |-- Live stream (WebRTC) → Remote Overwatch over internet
   `-- Cloud sync → Events, footage, reports, evidence
 ```
 
 ## Without internet
 
-- **Field-device mission** or **Relay mission** local work (relay needs Wi‑Fi, not internet)
+- **Internet** or **Local Network** local work (Local Network needs Wi‑Fi, not internet)
 - Event logging and LAN screenshots
 - Queued footage and deferred sync
 - Pilot license within the 10-day offline grace window
@@ -29,9 +29,9 @@ Pilot app
 - Report generation and supervisor workflow
 - Offline package and evidence JSON export downloads
 
-## Relay mission connection
+## Local Network connection
 
-1. Pilot app running **Relay mission** on Wi‑Fi.
+1. Pilot app running **Local Network** on Wi‑Fi.
 2. Open mission from Mission Dashboard.
 3. **Live Overwatch Screen** → **Connect** (scan or enter pilot device IP).
 4. Trust self-signed certificate on HTTPS if needed.
@@ -43,7 +43,7 @@ Mission Overwatch auto-fills the pilot IP from synced mission metadata when avai
 **Queued for cloud sync**, **Loading playback link**, or upload banners mean local data still needs to reach the cloud. Stay signed in, keep the app open, move to internet, and use **Upload now** when offered.
 
 <Warning>
-  Internet ≠ local relay. Relay mission viewing needs same-network reachability, not cloud access.
+  Internet sync and local relay viewing are different paths. Local Network viewing needs same-network reachability, not cloud access.
 </Warning>
 
 ## PWA / offline shell

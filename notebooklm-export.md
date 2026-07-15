@@ -1,6 +1,6 @@
 # AlphaRelay Operator Documentation — NotebookLM Export
 
-Generated on 2026-07-13 by `scripts/generate-notebooklm-export.mjs`.
+Generated on 2026-07-15 by `scripts/generate-notebooklm-export.mjs`.
 
 **Web app:** https://www.alpha-relay.com
 **Pilot app (APK):** https://www.alpha-relay.com/download.html
@@ -11,7 +11,7 @@ Generated on 2026-07-13 by `scripts/generate-notebooklm-export.mjs`.
 
 - **AlphaRelay** — product name
 - **Pilot app** — Android app on the pilot tablet, phone, or Android drone controller (`download.html`)
-- **Field-device mission** / **Relay mission** — mission mode buttons in the pilot app
+- **Internet** / **Local Network** — mission mode buttons in the pilot app. Use **Internet** when local LAN viewing is not required; use **Local Network** when Mission Overwatch must connect to the pilot device over the same Wi‑Fi.
 - **Companion Capture Mode** — automatic pilot app mode on Android drone controllers where the controller's native flight app keeps flight control and AlphaRelay captures the controller screen
 - **Pilot console** — in-app settings panel (Mission, Flight, Events, System)
 - **Mission Dashboard** — command home (`dashboard.html`)
@@ -32,7 +32,7 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
 ## Five-step workflow
 
 1. **Set up devices** — Install the pilot app, activate the device license, and sign in to the web app.
-2. **Start a mission** — Choose **Field-device mission** or **Relay mission** in the pilot app. On Android drone controllers, Companion Capture Mode turns on automatically.
+2. **Start a mission** — Choose **Internet** or **Local Network** in the pilot app. On Android drone controllers, Companion Capture Mode turns on automatically.
 3. **Watch and log events** — Use Mission Overwatch for relay viewing, remote live, and command-side event logging.
 4. **Review the mission** — Upload or sync footage, then review with **Play with Events**.
 5. **Finalize the record** — Generate the report, seal evidence, get supervisor approval, and export when ready.
@@ -76,8 +76,8 @@ The **pilot app** on an Android tablet, phone, or drone controller runs the miss
 
 | Mode | When to use |
 | --- | --- |
-| **Field-device mission** | One pilot captures the mission; local relay viewing is not required. Works on cellular. |
-| **Relay mission** | Mission Overwatch connects to the pilot device over the same Wi‑Fi for live viewing and command-side logging. Requires Wi‑Fi. |
+| **Internet** | One pilot captures the mission; local relay viewing is not required. Works on cellular or Wi‑Fi. |
+| **Local Network** | Mission Overwatch connects to the pilot device over the same Wi‑Fi for live viewing and command-side logging. Requires Wi‑Fi. |
 
 Both modes can start **Live stream (WebRTC)** when the pilot device has internet and remote live is enabled from the pilot app.
 
@@ -99,13 +99,13 @@ Install the pilot app, activate the device license, sign in to the web app, and 
 
 ## 2. Start a mission
 
-Open the pilot app, tap **Choose Mission Mode**, name the mission, pick a scenario template (or **No scenario template**), then choose **Field-device mission** or **Relay mission**. On Android drone controllers, AlphaRelay uses **Companion Capture Mode** automatically so the controller's native flight app remains responsible for flight control.
+Open the pilot app, tap **Choose Mission Mode**, name the mission, pick a scenario template (or **No scenario template**), then choose **Internet** or **Local Network**. On Android drone controllers, AlphaRelay uses **Companion Capture Mode** automatically so the controller's native flight app remains responsible for flight control.
 
-→ Start a mission · Field-device vs relay mission · Companion Capture Mode
+→ Start a mission · Internet vs Local Network · Companion Capture Mode
 
 ## 3. Watch and log events
 
-For **Relay mission**, connect Mission Overwatch through **Live Overwatch Screen**. For remote viewers, use **Live stream (WebRTC)** after the pilot starts live from the app. Log quick events from the pilot app or Mission Overwatch.
+For **Local Network**, connect Mission Overwatch through **Live Overwatch Screen**. For remote viewers, use **Live stream (WebRTC)** after the pilot starts live from the app. Log quick events from the pilot app or Mission Overwatch.
 
 → Watch in Mission Overwatch · Log events
 
@@ -143,17 +143,17 @@ On Android drone controllers, the pilot device can run **Companion Capture Mode*
 
 - Missions **always start from the pilot app**, not Mission Overwatch.
 - Open missions from **Mission Dashboard** (link may say **Open Mission Console**).
-- **Relay mission** needs the pilot device and Overwatch device on the same reachable Wi‑Fi.
-- **Field-device mission** does not show the LAN relay panel in Mission Overwatch during the live mission.
+- **Local Network** needs the pilot device and Overwatch device on the same reachable Wi‑Fi.
+- **Internet** does not show the LAN relay panel in Mission Overwatch during the live mission.
 - **Companion Capture Mode** is automatic on supported controller hardware; it is not a separate mission button.
 
 ---
 
-## Field-Device vs Relay Mission
+## Internet vs Local Network
 
 In the pilot app, tap **Choose Mission Mode** and pick one of two buttons:
 
-## Field-device mission
+## Internet
 
 Use when one pilot captures the mission and local relay viewing is not needed.
 
@@ -163,7 +163,7 @@ Use when one pilot captures the mission and local relay viewing is not needed.
 
 Best for: solo operations, offline field work, missions reviewed later.
 
-## Relay mission
+## Local Network
 
 Use when Mission Overwatch must connect to the pilot device **during** the mission over the local network.
 
@@ -177,10 +177,10 @@ Best for: command-side viewing, live event logging from the browser, team monito
 
 | Situation | Choose |
 | --- | --- |
-| One pilot, review later | Field-device mission |
-| Command staff watch live on same Wi‑Fi | Relay mission |
+| One pilot, review later | Internet |
+| Command staff watch live on same Wi‑Fi | Local Network |
 | Remote viewers over internet | Either mode + **Live stream (WebRTC)** from pilot app |
-| No Wi‑Fi at all | Field-device mission; sync when internet returns |
+| No Wi‑Fi at all | Internet; sync when internet returns |
 
 **Note:** Both modes can live stream over the internet. The difference is whether Mission Overwatch also needs the **local relay** connection during the mission.
 
@@ -188,7 +188,7 @@ See Connectivity for what requires internet vs local Wi‑Fi.
 
 ## Companion Capture Mode
 
-On Android drone controllers, AlphaRelay can enter **Companion Capture Mode** after either mission choice. You still choose **Field-device mission** or **Relay mission**; Companion Capture Mode changes the live source and aircraft-control behavior.
+On Android drone controllers, AlphaRelay can enter **Companion Capture Mode** after either mission choice. You still choose **Internet** or **Local Network**; Companion Capture Mode changes the live source and aircraft-control behavior.
 
 In this mode, the controller's native flight app controls the aircraft while AlphaRelay captures the controller screen, streams it to the mission, records screen footage, and logs events.
 
@@ -200,25 +200,24 @@ In this mode, the controller's native flight app controls the aircraft while Alp
 
 Companion Capture Mode lets AlphaRelay run beside the native flight app on Android drone controllers. The controller's native flight app remains responsible for aircraft operation; AlphaRelay captures the controller screen, streams it into the mission, records mission footage, and logs events.
 
-This is not a third mission button. Start the mission normally with **Field-device mission** or **Relay mission**. When the pilot app detects supported controller hardware, Companion Capture Mode turns on automatically.
+This is not a third mission button. Start the mission normally with **Internet** or **Local Network**. When the pilot app detects supported controller hardware, Companion Capture Mode turns on automatically.
 
 ## When it appears
 
 Companion Capture Mode is available on Android-based drone controllers that can install **AlphaRelay Pilot** and grant Android screen capture permission. It is not limited to DJI controllers. The pilot app shows a log message such as **Companion Capture Mode enabled** when the controller is detected.
 
-On phones and tablets, AlphaRelay uses the normal pilot workflow.
+AlphaRelay detects known drone-controller identity strings, including DJI RC / RC Pro / RC Plus / RM / Matrice controller families, Autel smart controllers, Herelink / CubePilot controllers, and Inspired Flight GS-ONE controllers. Generic Android phones, tablets, and rugged tablets use the normal pilot workflow.
 
 ## Install on a controller
 
 1. Connect the controller to internet.
 2. Open the controller **Settings** app and turn on **Developer mode** if the controller requires it for third-party app installs. On many Android controllers, open **About device** and tap **Build number** seven times; the exact path can vary by manufacturer.
 3. Open the controller web browser.
-4. Go to [alpha-relay.com/dashboard.html](https://www.alpha-relay.com/dashboard.html) and sign in.
-5. Download **AlphaRelay Pilot** from the dashboard app download link. If needed, open [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html) directly.
-6. When Android asks about installing unknown apps, allow the browser or file manager to **install unknown apps** from that source.
-7. Install and open **AlphaRelay Pilot**.
-8. Grant requested permissions.
-9. Activate the app with the short controller pairing code generated by an admin, or use another device license method from Devices and Licenses.
+4. Download **AlphaRelay Pilot** from the dashboard app download link. If needed, open [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html) directly.
+5. When Android asks about installing unknown apps, allow the browser or file manager to **install unknown apps** from that source.
+6. Install and open **AlphaRelay Pilot**.
+7. Grant requested permissions.
+8. Activate the app with the short controller pairing code generated by an admin, or use another device license method from Devices and Licenses.
 
 ## What changes
 
@@ -234,22 +233,43 @@ On phones and tablets, AlphaRelay uses the normal pilot workflow.
 1. Open AlphaRelay on the supported controller.
 2. Tap **Choose Mission Mode**.
 3. Name the mission and choose a scenario template if needed.
-4. Tap **Field-device mission** or **Relay mission**.
+4. Tap **Internet** or **Local Network**.
 5. If prompted, start **Live stream (WebRTC)** or choose **Not now**.
 6. Approve the Android screen capture prompt.
-7. Let AlphaRelay leave the foreground when prompted, then fly in the controller's native flight app.
+7. Wait for AlphaRelay to move itself to the background.
+8. Open or return to the controller's native flight app and fly from there.
 
-Use the controller's native flight app for flight operation. Use AlphaRelay for mission start, event logging, relay/remote live setup, and mission closeout.
+AlphaRelay starts a foreground capture service before it leaves the screen. The controller-screen recording begins after AlphaRelay is no longer the foreground app, so return to the native flight app before takeoff or before the operational portion you want to capture.
+
+Use the controller's native flight app for flight operation. Use AlphaRelay for mission start, event logging, relay / remote live setup, and mission closeout.
+
+## What to expect on the controller
+
+- Android shows a persistent **Companion Capture Mode** notification while screen capture is running.
+- The notification status may say **Starting companion capture**, **Waiting for AlphaRelay to close**, **Starting controller screen capture**, or the current mission-capture state.
+- AlphaRelay captures whatever is visible on the controller screen. If you open Android settings, the notification shade, or AlphaRelay itself, that screen is part of the recording until you return to the native flight app.
+- If the controller shows a screen-recording or screen-casting indicator, leave it enabled for the mission. Turning it off stops screen capture.
 
 ## During the mission
 
-- In **Relay mission**, Mission Overwatch connects to the pilot device the same way it normally does; the LAN live view shows the controller screen.
+- In **Local Network**, Mission Overwatch connects to the pilot device the same way it normally does; the LAN live view shows the controller screen.
 - In either mission mode, **Live stream (WebRTC)** can publish the controller screen to remote Overwatch users when the pilot device has internet.
 - Say `relay` followed by event details to create a voice relay event. AlphaRelay saves a current controller-screen screenshot with the event when available.
+- If you need AlphaRelay controls during the mission, return to AlphaRelay from recent apps or the notification, make the update, then return to the native flight app. The recording follows the visible screen.
 
 ## Stop and upload
 
-Tap **Stop Mission** from AlphaRelay or use the **Stop Mission** action in the Companion Capture Mode notification. AlphaRelay finalizes the current controller-screen recording chunk, queues recordings for upload, and closes the mission.
+After the flight, close the mission from AlphaRelay or from the notification:
+
+1. Land and finish any required work in the native flight app.
+2. Pull down the Android notification shade.
+3. Find the **Companion Capture Mode** notification.
+4. Tap **Stop Mission**.
+5. Let AlphaRelay reopen and finish mission closeout.
+
+The notification action uses the same closeout path as the in-app **Stop Mission** button. AlphaRelay finalizes the current controller-screen recording chunk, queues recordings for upload, closes the mission record, and removes the foreground capture notification when capture has stopped.
+
+If you are already in AlphaRelay, tap **Stop Mission** there instead. Do not force-close AlphaRelay or stop Android screen capture as the normal closeout method.
 
 Keep the controller powered on and connected to internet until queued uploads finish.
 
@@ -270,12 +290,12 @@ Run a short test mission to learn the workflow end to end.
 
 ## Steps
 
-1. Choose **Field-device mission** or **Relay mission** in the pilot app.
+1. Choose **Internet** or **Local Network** in the pilot app.
 2. Name the mission `Training mission` and pick a scenario template or **No scenario template**.
 3. Start the mission.
-4. If using **Relay mission**, open the mission from Mission Dashboard and connect **Live Overwatch Screen**.
+4. If using **Local Network**, open the mission from Mission Dashboard and connect **Live Overwatch Screen**.
 5. Add one event from the pilot app (quick event button or voice: `relay `).
-6. Add one event from Mission Overwatch if using relay or remote live.
+6. Add one event from Mission Overwatch if using Local Network or remote live.
 7. Run a short, safe exercise.
 8. Tap **Stop Mission** on the pilot device.
 9. Confirm footage uploaded or is queued (see upload banner / status).
@@ -302,8 +322,8 @@ Repeat this exercise when devices, networks, or aircraft change.
 3. Confirm the **device license** is active (scan QR or enter `ar-…` key).
 4. Sign in to the web app with the correct operator account.
 5. Open **Mission Overwatch** once while online on each browser that will use it in the field (installs the offline app shell).
-6. Choose **Field-device mission** or **Relay mission** before launch.
-7. For **Relay mission**: confirm pilot device and Overwatch computer are on the **same Wi‑Fi**.
+6. Choose **Internet** or **Local Network** before launch.
+7. For **Local Network**: confirm pilot device and Overwatch computer are on the **same Wi‑Fi**.
 8. For Android drone controllers: install AlphaRelay Pilot, activate the device license, run a test **Companion Capture Mode** mission, and confirm Android screen capture permission works.
 9. Plan for internet when you need sync, upload, reports, or export.
 10. Assign pilot, overwatch user, reviewer, and supervisor roles.
@@ -312,12 +332,12 @@ Repeat this exercise when devices, networks, or aircraft change.
 
 | Need | Requirement |
 | --- | --- |
-| Relay mission live viewing | Same reachable Wi‑Fi between pilot device and Overwatch |
+| Local Network live viewing | Same reachable Wi‑Fi between pilot device and Overwatch |
 | Remote live (**Live stream (WebRTC)**) | Pilot device has internet; pilot starts live from app |
 | Cloud sync / upload / reports | Internet on the active device |
 | Field work with no internet | Supported; data queues until sync |
 
-**Warning:** Internet and local relay connectivity are different. Relay mission viewing does not require internet, but it does require local Wi‑Fi reachability.
+**Warning:** Internet and local relay connectivity are different. Local Network viewing does not require internet, but it does require local Wi‑Fi reachability.
 
 Pilots can hide on-screen drone controls and use the physical controller while keeping quick events and relay status visible. See Minimum requirements for device specs.
 
@@ -333,7 +353,7 @@ Missions always start from the **pilot app**. Mission Overwatch cannot start mis
 2. Tap **Choose Mission Mode**.
 3. Enter a mission name if useful.
 4. Select a scenario category and template, or **No scenario template**.
-5. Tap **Field-device mission** or **Relay mission**.
+5. Tap **Internet** or **Local Network**.
 6. Complete the license check if prompted.
 7. Fly the mission from the pilot view. Use **Takeoff**, **Land**, quick events, and **Stop Mission** when finished.
 
@@ -341,7 +361,7 @@ When supported Matrice aircraft or controllers are detected, the pilot app may s
 
 On Android drone controllers, the pilot app may enable **Companion Capture Mode**. Approve the Android screen capture prompt, then operate the aircraft in the controller's native flight app. AlphaRelay records and streams the controller screen instead of taking over flight controls.
 
-## Field-device mission
+## Internet
 
 - Works on **cellular or Wi‑Fi**
 - No **Live Overwatch Screen** during the live mission
@@ -349,7 +369,7 @@ On Android drone controllers, the pilot app may enable **Companion Capture Mode*
 
 Optional: start **Live stream (WebRTC)** from the pilot app so remote Overwatch users can watch over the internet.
 
-## Relay mission
+## Local Network
 
 - Requires **Wi‑Fi** on the pilot device
 - Starts the LAN relay for Mission Overwatch
@@ -363,7 +383,7 @@ Mission Overwatch uses `wss://` on port **8789** automatically when you enter a 
 ## Companion Capture Mode
 
 - Turns on automatically on Android drone controllers
-- Works after either **Field-device mission** or **Relay mission**
+- Works after either **Internet** or **Local Network**
 - Uses the controller's native flight app for flight and camera operation
 - Blocks AlphaRelay aircraft command buttons such as **Takeoff**, **Land**, and camera controls
 - Records controller-screen footage in chunks and queues upload after **Stop Mission**
@@ -384,9 +404,9 @@ Mission Overwatch is the per-mission browser workspace. Open it from **Mission D
 
 Sign in at [alpha-relay.com](https://www.alpha-relay.com). For LAN-only field use, the dashboard can open Mission Overwatch in offline-ready mode when internet is unavailable.
 
-## Relay mission — Live Overwatch Screen
+## Local Network — Live Overwatch Screen
 
-Shown only for **Relay mission** (hidden for field-device missions).
+Shown only for **Local Network** (hidden for **Internet**).
 
 1. Confirm the pilot app relay is running and both devices share the same Wi‑Fi.
 2. In **Live Overwatch Screen**, leave **Tablet/phone IP (LAN)** blank and click **Connect** to scan, or enter the pilot device IPv4.
@@ -792,12 +812,11 @@ Use this path when the pilot device is an Android-based drone controller rather 
 1. Connect the controller to internet.
 2. Open the controller **Settings** app and turn on **Developer mode** if the controller requires it for third-party app installation. On many Android controllers, open **About device** and tap **Build number** seven times; the exact path can vary by manufacturer.
 3. Open the controller web browser.
-4. Go to [alpha-relay.com/dashboard.html](https://www.alpha-relay.com/dashboard.html) and sign in.
-5. Download **AlphaRelay Pilot** from the dashboard app download link. If needed, open [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html) directly.
-6. When Android prompts for unknown-source installation, allow the browser or file manager to **install unknown apps** from that source.
-7. Install and open **AlphaRelay Pilot**.
-8. Grant requested permissions.
-9. Activate with the short controller pairing code generated by an admin, or use another license method below.
+4. Download **AlphaRelay Pilot** from the dashboard app download link. If needed, open [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html) directly.
+5. When Android prompts for unknown-source installation, allow the browser or file manager to **install unknown apps** from that source.
+6. Install and open **AlphaRelay Pilot**.
+7. Grant requested permissions.
+8. Activate with the short controller pairing code generated by an admin, or use another license method below.
 
 ## Device license
 
@@ -869,7 +888,7 @@ Do not share exports before sync and review are complete.
 ## Pilot device (Android tablet, phone, or controller)
 
 - Supported Android version for the installed pilot app
-- Reliable Wi‑Fi for **Relay mission**
+- Reliable Wi‑Fi for **Local Network**
 - Enough CPU, memory, battery, and storage for live video, telemetry, event logging, and optional Local AI
 - DJI Mini 3 Pro workflow when using aircraft integration
 - Conditional Matrice camera tools on supported Matrice aircraft or Matrice controllers
@@ -885,8 +904,8 @@ Do not share exports before sync and review are complete.
 
 | Workflow | Requirement |
 | --- | --- |
-| Relay mission LAN viewing | Pilot device + Overwatch on same reachable Wi‑Fi |
-| Field-device mission | Cellular or Wi‑Fi on pilot device |
+| Local Network live viewing | Pilot device + Overwatch on same reachable Wi‑Fi |
+| Internet | Cellular or Wi‑Fi on pilot device |
 | Companion Capture Mode | Android drone controller; AlphaRelay Pilot installed; Android screen capture permission |
 | **Live stream (WebRTC)** | Pilot device internet; live started from pilot app |
 | AI Review | Closed, synced mission with uploaded photos, event screenshots, or playable footage; internet and AI configuration |
@@ -905,9 +924,9 @@ Run a training mission on the same device class before operational use.
 
 ## Troubleshooting
 
-## Mission Overwatch cannot connect (Relay mission)
+## Mission Overwatch cannot connect (Local Network)
 
-1. Confirm **Relay mission** is running on the pilot app (not field-device mission).
+1. Confirm **Local Network** is running on the pilot app (not **Internet**).
 2. Both devices on the **same Wi‑Fi** — not guest/isolated networks.
 3. Wait for the mission to appear in Mission Dashboard after sync.
 4. In **Live Overwatch Screen**, click **Connect** with IP blank to scan, or enter the pilot device IPv4.
@@ -966,14 +985,14 @@ AlphaRelay uses **three separate paths**. Losing one does not always stop the mi
 
 ```text
 Pilot app
-  |-- LAN relay (Relay mission) → Mission Overwatch on same Wi‑Fi
+  |-- LAN relay (Local Network) → Mission Overwatch on same Wi‑Fi
   |-- Live stream (WebRTC) → Remote Overwatch over internet
   `-- Cloud sync → Events, footage, reports, evidence
 ```
 
 ## Without internet
 
-- **Field-device mission** or **Relay mission** local work (relay needs Wi‑Fi, not internet)
+- **Internet** or **Local Network** local work (Local Network needs Wi‑Fi, not internet)
 - Event logging and LAN screenshots
 - Queued footage and deferred sync
 - Pilot license within the 10-day offline grace window
@@ -987,9 +1006,9 @@ Pilot app
 - Report generation and supervisor workflow
 - Offline package and evidence JSON export downloads
 
-## Relay mission connection
+## Local Network connection
 
-1. Pilot app running **Relay mission** on Wi‑Fi.
+1. Pilot app running **Local Network** on Wi‑Fi.
 2. Open mission from Mission Dashboard.
 3. **Live Overwatch Screen** → **Connect** (scan or enter pilot device IP).
 4. Trust self-signed certificate on HTTPS if needed.
@@ -1000,7 +1019,7 @@ Mission Overwatch auto-fills the pilot IP from synced mission metadata when avai
 
 **Queued for cloud sync**, **Loading playback link**, or upload banners mean local data still needs to reach the cloud. Stay signed in, keep the app open, move to internet, and use **Upload now** when offered.
 
-**Warning:** Internet ≠ local relay. Relay mission viewing needs same-network reachability, not cloud access.
+**Warning:** Internet sync and local relay viewing are different paths. Local Network viewing needs same-network reachability, not cloud access.
 
 ## PWA / offline shell
 
@@ -1012,7 +1031,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 
 ## Network
 
-- **Relay mission** LAN viewing requires same reachable Wi‑Fi — not cellular-only on the pilot device.
+- **Local Network** LAN viewing requires same reachable Wi‑Fi — not cellular-only on the pilot device.
 - **Live stream (WebRTC)** requires internet on the pilot device.
 - Cloud sync, upload, and export wait for internet.
 - Losing relay, remote live, or cloud sync does not always end the mission — paths are independent.
@@ -1059,7 +1078,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 | **AI Review** | Closed-mission tab for analyzing uploaded media and accepting or rejecting mission-relevant AI findings |
 | **Chain of custody** | Evidence history and hash verification for a mission |
 | **Companion Capture Mode** | Automatic mode on Android drone controllers where the controller's native flight app keeps flight control and AlphaRelay captures the controller screen |
-| **Field-device mission** | Pilot-only mode — no LAN relay panel during live mission |
+| **Internet** | Mission mode for pilot-first capture when local LAN viewing is not required |
 | **Import mission** | Mission History flow that creates a closed post-flight record from external footage and photos |
 | **Items Requiring Officer Review** | Report checklist items that need human resolution before submission |
 | **Live Overwatch Screen** | Mission Overwatch panel for LAN relay connection |
@@ -1074,7 +1093,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 | **Pilot console** | In-app settings (Mission, Flight, Events, System) |
 | **Play with Events** | Footage player with synchronized event markers |
 | **Quick events** | One-tap event buttons from scenario templates |
-| **Relay mission** | Mission mode with LAN WebSocket relay for Mission Overwatch |
+| **Local Network** | Mission mode with LAN WebSocket relay for Mission Overwatch on the same Wi‑Fi |
 | **Scenario template** | Preloaded objectives, events, and report sections for a mission type |
 | **Voice relay** | Voice logging with keyword `relay` before event details |
 

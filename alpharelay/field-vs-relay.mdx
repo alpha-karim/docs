@@ -1,12 +1,12 @@
 ---
-title: "Field-Device vs Relay Mission"
+title: "Internet vs Local Network"
 description: "Choose the mission mode that matches how your team works."
 icon: "split"
 ---
 
 In the pilot app, tap **Choose Mission Mode** and pick one of two buttons:
 
-## Field-device mission
+## Internet
 
 Use when one pilot captures the mission and local relay viewing is not needed.
 
@@ -16,7 +16,7 @@ Use when one pilot captures the mission and local relay viewing is not needed.
 
 Best for: solo operations, offline field work, missions reviewed later.
 
-## Relay mission
+## Local Network
 
 Use when Mission Overwatch must connect to the pilot device **during** the mission over the local network.
 
@@ -30,10 +30,10 @@ Best for: command-side viewing, live event logging from the browser, team monito
 
 | Situation | Choose |
 | --- | --- |
-| One pilot, review later | Field-device mission |
-| Command staff watch live on same Wi‑Fi | Relay mission |
+| One pilot, review later | Internet |
+| Command staff watch live on same Wi‑Fi | Local Network |
 | Remote viewers over internet | Either mode + **Live stream (WebRTC)** from pilot app |
-| No Wi‑Fi at all | Field-device mission; sync when internet returns |
+| No Wi‑Fi at all | Internet; sync when internet returns |
 
 <Note>
   Both modes can live stream over the internet. The difference is whether Mission Overwatch also needs the **local relay** connection during the mission.
@@ -43,7 +43,7 @@ See [Connectivity](/alpharelay/connectivity-guide) for what requires internet vs
 
 ## Companion Capture Mode
 
-On Android drone controllers, AlphaRelay can enter **Companion Capture Mode** after either mission choice. You still choose **Field-device mission** or **Relay mission**; Companion Capture Mode changes the live source and aircraft-control behavior.
+On Android drone controllers, AlphaRelay can enter **Companion Capture Mode** after either mission choice. You still choose **Internet** or **Local Network**; Companion Capture Mode changes the live source and aircraft-control behavior.
 
 In this mode, the controller's native flight app controls the aircraft while AlphaRelay captures the controller screen, streams it to the mission, records screen footage, and logs events.
 
