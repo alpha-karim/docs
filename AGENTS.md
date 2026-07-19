@@ -22,11 +22,12 @@
 - **Mission Dashboard** — command home (`dashboard.html`)
 - **Mission Overwatch** / **Mission Console** — per-mission browser workspace (`mission-overwatch.html`; dashboard link says **Open Mission Console**)
 - **Live Overwatch Screen** — relay connection panel in Mission Overwatch
-- **Live stream (WebRTC)** — remote live viewing over the internet (Cloudflare)
+- **Live stream (WebRTC)** — remote live viewing over the internet
+- **AI live watch** — optional Mission Overwatch control that analyzes sampled remote-live frames and logs officer-review alerts when configured
 - **Quick events**, **scenario template**, **Items Requiring Officer Review**
 - **Import mission** — Mission History action for creating a closed post-flight record from external footage and photos
 - **Export offline package…**, **Export evidence package (JSON)**
-- **Alpha AI** — after-action report drafting assistant
+- **AI** — configured report drafting, media review, screenshot analysis, and live-watch assistance
 
 ## Style
 

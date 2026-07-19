@@ -23,15 +23,27 @@ In **Companion Capture Mode**, the LAN live video source is the controller scree
 
 ## Remote live — Live stream (WebRTC)
 
-When the pilot starts live from the app, Overwatch users on the internet can click **Live stream (WebRTC)**. This uses Cloudflare WebRTC (WHEP) — sub-second latency over the public internet, separate from the LAN relay.
+When the pilot starts live from the app, Overwatch users on the internet can click **Live stream (WebRTC)**. This is the remote live path over the public internet, separate from the LAN relay.
 
 Works with either mission mode when the pilot device has internet.
 
 In **Companion Capture Mode**, remote live publishes the controller screen.
 
+## AI live watch
+
+When configured and remote live is active, Mission Overwatch can show **AI live watch** next to the live feed controls. Turning it on samples frames from **Live stream (WebRTC)** and logs mission timeline alerts only when AI flags a possible threat indicator for officer review.
+
+AI live watch alerts can show:
+
+- An **AI live alert** or **Urgent AI live alert** banner in Mission Overwatch
+- A timeline event with the sampled frame attached when available
+- A **LIVE AI ALERT - REVIEW NOW** badge and log entry in the pilot app while the same mission is active
+
+Treat these alerts as prompts for human review. They do not replace pilot judgment, command staff review, or final report approval.
+
 ## Closed missions
 
-After **Stop Mission**, Mission Overwatch switches to review tabs: footage timeline, **Play with Events**, after-action report, chain of custody, and export actions.
+After **Stop Mission**, Mission Overwatch switches to review tabs: footage timeline, **Play with Events**, **AI Review**, after-action report, chain of custody, and export actions.
 
 ## Offline app shell
 

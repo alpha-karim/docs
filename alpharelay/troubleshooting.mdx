@@ -43,6 +43,15 @@ The controller's native flight app remains the flight control app. AlphaRelay ai
 - Mission must be closed with footage linked.
 - Secondary angles may need **Adjust sync to primary**.
 
+## AI live watch is not showing
+
+1. Confirm the pilot started **Live stream (WebRTC)** and the remote live feed is visible in Mission Overwatch.
+2. Confirm Mission Overwatch is online and the mission is still active.
+3. Confirm AI live watch is enabled for the deployment and this mission.
+4. If the status says the request timed out or failed, leave the page open; Mission Overwatch retries bounded requests automatically.
+
+AI live watch does not run from the LAN-only relay video source and does not run after the mission is closed.
+
 ## Local AI not tagging
 
 Open **Pilot console → Mission → Local AI**, confirm detection is enabled, and the on-device model is present. Local AI requires the relay to be running. Review auto-tags before treating them as operational facts.

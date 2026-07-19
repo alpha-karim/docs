@@ -1,6 +1,6 @@
 # AlphaRelay Operator Documentation — NotebookLM Export
 
-Generated on 2026-07-15 by `scripts/generate-notebooklm-export.mjs`.
+Generated on 2026-07-19 by `scripts/generate-notebooklm-export.mjs`.
 
 **Web app:** https://www.alpha-relay.com
 **Pilot app (APK):** https://www.alpha-relay.com/download.html
@@ -17,11 +17,12 @@ Generated on 2026-07-15 by `scripts/generate-notebooklm-export.mjs`.
 - **Mission Dashboard** — command home (`dashboard.html`)
 - **Mission Overwatch** / **Mission Console** — per-mission browser workspace (`mission-overwatch.html`; dashboard link says **Open Mission Console**)
 - **Live Overwatch Screen** — relay connection panel in Mission Overwatch
-- **Live stream (WebRTC)** — remote live viewing over the internet (Cloudflare)
+- **Live stream (WebRTC)** — remote live viewing over the internet
+- **AI live watch** — optional Mission Overwatch control that analyzes sampled remote-live frames and logs officer-review alerts when configured
 - **Quick events**, **scenario template**, **Items Requiring Officer Review**
 - **Import mission** — Mission History action for creating a closed post-flight record from external footage and photos
 - **Export offline package…**, **Export evidence package (JSON)**
-- **Alpha AI** — after-action report drafting assistant
+- **AI** — configured report drafting, media review, screenshot analysis, and live-watch assistance
 
 ---
 
@@ -33,8 +34,8 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
 
 1. **Set up devices** — Install the pilot app, activate the device license, and sign in to the web app.
 2. **Start a mission** — Choose **Internet** or **Local Network** in the pilot app. On Android drone controllers, Companion Capture Mode turns on automatically.
-3. **Watch and log events** — Use Mission Overwatch for relay viewing, remote live, and command-side event logging.
-4. **Review the mission** — Upload or sync footage, then review with **Play with Events**.
+3. **Watch and log events** — Use Mission Overwatch for relay viewing, remote live, AI live watch when configured, and command-side event logging.
+4. **Review the mission** — Upload or sync footage, then review with **Play with Events** and **AI Review** when configured.
 5. **Finalize the record** — Generate the report, seal evidence, get supervisor approval, and export when ready.
 
 ## Start here
@@ -105,7 +106,7 @@ Open the pilot app, tap **Choose Mission Mode**, name the mission, pick a scenar
 
 ## 3. Watch and log events
 
-For **Local Network**, connect Mission Overwatch through **Live Overwatch Screen**. For remote viewers, use **Live stream (WebRTC)** after the pilot starts live from the app. Log quick events from the pilot app or Mission Overwatch.
+For **Local Network**, connect Mission Overwatch through **Live Overwatch Screen**. For remote viewers, use **Live stream (WebRTC)** after the pilot starts live from the app. When AI live watch is configured, Mission Overwatch can sample the remote live stream and log officer-review alerts. Log quick events from the pilot app or Mission Overwatch.
 
 → Watch in Mission Overwatch · Log events
 
@@ -117,7 +118,7 @@ End the mission, let footage upload or queue, then open **Play with Events** to 
 
 ## 5. Finalize the record
 
-Generate the after-action report with Alpha AI, resolve **Items Requiring Officer Review**, seal custody evidence, submit for supervisor approval, and export when the record is complete.
+Generate the after-action report with AI drafting when configured, resolve **Items Requiring Officer Review**, seal custody evidence, submit for supervisor approval, and export when the record is complete.
 
 → Generate a report · Seal the mission record · Export offline package
 
@@ -204,7 +205,7 @@ This is not a third mission button. Start the mission normally with **Internet**
 
 ## When it appears
 
-Companion Capture Mode is available on Android-based drone controllers that can install **AlphaRelay Pilot** and grant Android screen capture permission. It is not limited to DJI controllers. The pilot app shows a log message such as **Companion Capture Mode enabled** when the controller is detected.
+Companion Capture Mode is available on Android-based drone controllers that can install **AlphaRelay Pilot** and grant Android screen capture permission. It is not limited to one controller manufacturer. The pilot app shows a log message such as **Companion Capture Mode enabled** when the controller is detected.
 
 AlphaRelay detects known drone-controller identity strings, including DJI RC / RC Pro / RC Plus / RM / Matrice controller families, Autel smart controllers, Herelink / CubePilot controllers, and Inspired Flight GS-ONE controllers. Generic Android phones, tablets, and rugged tablets use the normal pilot workflow.
 
@@ -419,15 +420,27 @@ In **Companion Capture Mode**, the LAN live video source is the controller scree
 
 ## Remote live — Live stream (WebRTC)
 
-When the pilot starts live from the app, Overwatch users on the internet can click **Live stream (WebRTC)**. This uses Cloudflare WebRTC (WHEP) — sub-second latency over the public internet, separate from the LAN relay.
+When the pilot starts live from the app, Overwatch users on the internet can click **Live stream (WebRTC)**. This is the remote live path over the public internet, separate from the LAN relay.
 
 Works with either mission mode when the pilot device has internet.
 
 In **Companion Capture Mode**, remote live publishes the controller screen.
 
+## AI live watch
+
+When configured and remote live is active, Mission Overwatch can show **AI live watch** next to the live feed controls. Turning it on samples frames from **Live stream (WebRTC)** and logs mission timeline alerts only when AI flags a possible threat indicator for officer review.
+
+AI live watch alerts can show:
+
+- An **AI live alert** or **Urgent AI live alert** banner in Mission Overwatch
+- A timeline event with the sampled frame attached when available
+- A **LIVE AI ALERT - REVIEW NOW** badge and log entry in the pilot app while the same mission is active
+
+Treat these alerts as prompts for human review. They do not replace pilot judgment, command staff review, or final report approval.
+
 ## Closed missions
 
-After **Stop Mission**, Mission Overwatch switches to review tabs: footage timeline, **Play with Events**, after-action report, chain of custody, and export actions.
+After **Stop Mission**, Mission Overwatch switches to review tabs: footage timeline, **Play with Events**, **AI Review**, after-action report, chain of custody, and export actions.
 
 ## Offline app shell
 
@@ -604,7 +617,10 @@ For a closed synced mission, open **AI Review** and click **Analyze media** afte
 
 - **Accept** adds a timeline event for the finding when timeline edits are still allowed.
 - **Reject** keeps the finding out of the mission timeline.
+- **Redo analysis** deletes the current AI Review runs and findings, then runs analysis again. Accepted timeline entries stay in the mission timeline.
 - Accepted findings may also run detailed screenshot analysis when a source image is available.
+
+AI Review now collapses repeated video-frame findings from the same footage clip so reviewers are not asked to resolve the same routine person, object, or high-priority finding over and over. High-priority findings in different rough regions remain separately reviewable.
 
 AI Review findings are suggestions. Verify the source media before using them in the report or evidence workflow.
 
@@ -614,9 +630,9 @@ AI Review findings are suggestions. Verify the source media before using them in
 
 ## Generate a Report
 
-Alpha AI drafts the after-action report from mission events, footage references, photos, and custody data. A human must verify everything before submission.
+Configured AI can draft the after-action report from mission events, footage references, photos, and custody data. A human must verify everything before submission.
 
-**Warning:** Alpha AI output is draft material — not final authority.
+**Warning:** AI output is draft material — not final authority.
 
 ## Steps
 
@@ -820,7 +836,7 @@ Use this path when the pilot device is an Android-based drone controller rather 
 
 ## Device license
 
-The pilot app uses an org license key — not a Supabase login.
+The pilot app uses an org license key — not the web app email/password sign-in.
 
 Use one of these activation paths:
 
@@ -855,17 +871,18 @@ If your organization is onboarded through AlphaRelay pilot agreements, sign the 
 
 When internet is available: mission metadata, events, screenshots, photos, footage references, reports, custody records, and org data — protected by sign-in and database access rules.
 
-## Alpha AI
+## AI
 
-Drafts after-action report content from structured mission data and can help review media when configured. Always review:
+Configured AI can draft after-action report content from structured mission data, help review uploaded media, analyze selected event screenshots, and watch sampled remote-live frames when enabled. Always review:
 
 - Timeline accuracy
 - Footage and photo references
 - Accepted AI Review findings
 - Event screenshot or media image analysis
+- AI live watch alerts and attached frame evidence
 - **Items Requiring Officer Review**
 
-Treat AI output as draft material. AI Review can sample frames from uploaded footage and analyze uploaded photos or event screenshots. Accepted findings are added to the timeline only after a human accepts them.
+Treat AI output as draft material. AI Review can sample frames from uploaded footage and analyze uploaded photos or event screenshots. Accepted findings are added to the timeline only after a human accepts them. AI live watch alerts are logged as officer-review prompts, not final determinations.
 
 ## Pilot agreements
 
@@ -890,7 +907,7 @@ Do not share exports before sync and review are complete.
 - Supported Android version for the installed pilot app
 - Reliable Wi‑Fi for **Local Network**
 - Enough CPU, memory, battery, and storage for live video, telemetry, event logging, and optional Local AI
-- DJI Mini 3 Pro workflow when using aircraft integration
+- Supported aircraft-control workflow when using aircraft integration
 - Conditional Matrice camera tools on supported Matrice aircraft or Matrice controllers
 - Android drone controller capable of installing **AlphaRelay Pilot** and granting screen capture permission for **Companion Capture Mode**
 
@@ -898,7 +915,7 @@ Do not share exports before sync and review are complete.
 
 - Current Chrome, Edge, or Safari for Mission Overwatch, dashboard, and export
 - Internet for sync, upload, reports, and export media downloads
-- Internet and OpenAI configuration for Alpha AI report drafting or AI media review
+- Internet and AI configuration for report drafting, AI Review, event screenshot analysis, or AI live watch
 
 ## By workflow
 
@@ -909,12 +926,13 @@ Do not share exports before sync and review are complete.
 | Companion Capture Mode | Android drone controller; AlphaRelay Pilot installed; Android screen capture permission |
 | **Live stream (WebRTC)** | Pilot device internet; live started from pilot app |
 | AI Review | Closed, synced mission with uploaded photos, event screenshots, or playable footage; internet and AI configuration |
+| AI live watch | Active remote live stream; Mission Overwatch online; AI configuration enabled |
 | Cloud sync / upload | Internet + signed-in session |
 | Offline package export | Internet at export time to download media |
 
 Permissions: grant camera, microphone (voice relay), storage, and location prompts from the pilot app as requested.
 
-Matrice camera controls appear only when the pilot app detects supported aircraft or controller capability. Availability still depends on DJI firmware, payload, SDK support, and field validation.
+Aircraft camera controls appear only when the pilot app detects supported aircraft or controller capability. Availability still depends on aircraft firmware, payload, SDK support, and field validation.
 
 Companion Capture Mode appears on Android drone controllers that can run AlphaRelay Pilot and grant screen capture permission. The controller's native flight app remains responsible for aircraft operation in that mode.
 
@@ -962,6 +980,15 @@ The controller's native flight app remains the flight control app. AlphaRelay ai
 - Confirm events exist and the correct primary clip is selected.
 - Mission must be closed with footage linked.
 - Secondary angles may need **Adjust sync to primary**.
+
+## AI live watch is not showing
+
+1. Confirm the pilot started **Live stream (WebRTC)** and the remote live feed is visible in Mission Overwatch.
+2. Confirm Mission Overwatch is online and the mission is still active.
+3. Confirm AI live watch is enabled for the deployment and this mission.
+4. If the status says the request timed out or failed, leave the page open; Mission Overwatch retries bounded requests automatically.
+
+AI live watch does not run from the LAN-only relay video source and does not run after the mission is closed.
 
 ## Local AI not tagging
 
@@ -1048,13 +1075,14 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 ## AI
 
 - **Local AI** depends on device, model file, and configuration — review auto-tags before relying on them.
-- **Alpha AI** report drafts require officer review; resolve **Items Requiring Officer Review** before finalization.
+- AI report drafts require officer review; resolve **Items Requiring Officer Review** before finalization.
 - **AI Review** requires a closed synced mission, available media, internet, AI configuration, and installed analysis tables.
+- **AI live watch** requires active **Live stream (WebRTC)**, internet, Mission Overwatch online, and AI configuration. It samples the remote live stream and logs officer-review alerts only when the alert threshold is met.
 - AI media findings are suggestions; accepted findings should be verified against source images or footage before report or evidence use.
 
 ## Aircraft controls
 
-- Matrice camera tools appear only for supported aircraft/controllers and still depend on DJI firmware, payload, and SDK behavior.
+- Aircraft camera tools appear only for supported aircraft/controllers and still depend on aircraft firmware, payload, and SDK behavior.
 - **Companion Capture Mode** intentionally leaves flight and camera operation in the controller's native flight app; AlphaRelay aircraft command buttons are blocked.
 - Validate aircraft-specific controls in training before operational use.
 
@@ -1074,7 +1102,8 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 
 | Term | Meaning |
 | --- | --- |
-| **Alpha AI** | System that drafts after-action report content and supports configured media/image analysis |
+| **AI** | Configured assistance for report drafting, media review, screenshot analysis, and live-watch alerts |
+| **AI live watch** | Optional Mission Overwatch control that samples remote-live frames and logs officer-review alerts when configured |
 | **AI Review** | Closed-mission tab for analyzing uploaded media and accepting or rejecting mission-relevant AI findings |
 | **Chain of custody** | Evidence history and hash verification for a mission |
 | **Companion Capture Mode** | Automatic mode on Android drone controllers where the controller's native flight app keeps flight control and AlphaRelay captures the controller screen |
@@ -1082,7 +1111,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 | **Import mission** | Mission History flow that creates a closed post-flight record from external footage and photos |
 | **Items Requiring Officer Review** | Report checklist items that need human resolution before submission |
 | **Live Overwatch Screen** | Mission Overwatch panel for LAN relay connection |
-| **Live stream (WebRTC)** | Remote live video over the internet (Cloudflare WHEP) |
+| **Live stream (WebRTC)** | Remote live video over the internet |
 | **Organization Documents** | Signed pilot agreement PDFs linked to an organization |
 | **Mission Console** | Dashboard link name for opening Mission Overwatch |
 | **Mission Dashboard** | Command home — KPIs, history, search, AAR inboxes |
