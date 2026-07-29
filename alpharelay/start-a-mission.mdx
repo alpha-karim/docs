@@ -20,6 +20,8 @@ When supported Matrice aircraft or controllers are detected, the pilot app may s
 
 On Android drone controllers, the pilot app may enable **Companion Capture Mode**. Approve the Android screen capture prompt, then operate the aircraft in the controller's native flight app. AlphaRelay records and streams the controller screen instead of taking over flight controls.
 
+For Avata 2 with Goggles 3, first show the goggles live view in DJI Fly on the Android device. When Goggles Mode is active, opening AlphaRelay skips these mission-selection steps, starts an **Internet** mission with no scenario, starts remote live, requests screen capture, and returns to DJI Fly.
+
 ## Internet
 
 - Works on **cellular or Wi‑Fi**
@@ -47,10 +49,18 @@ Mission Overwatch uses `wss://` on port **8789** automatically when you enter a 
 - Blocks AlphaRelay aircraft command buttons such as **Takeoff**, **Land**, and camera controls
 - Records controller-screen footage in chunks and queues upload after **Stop Mission**
 
+## Avata 2 with Goggles 3
+
+- Runs on a separate Android phone or tablet with DJI Fly
+- Uses the DJI Fly goggles live view as the live and recorded source
+- Starts **Internet** and remote live automatically with no scenario template
+- Uses Goggles 3 and RC Motion 3 for aircraft operation
+- Finalizes and queues captured DJI Fly footage after **Stop Mission**
+
 ## After start
 
 - The mission appears in **Mission Dashboard** after cloud sync.
 - Footage and events may upload during or after the mission depending on connectivity.
 - Tap **Stop Mission** in the pilot app (or **Close Mission** in Mission Overwatch) when field work is done.
 
-→ [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Companion Capture Mode](/alpharelay/companion-capture-mode) · [Connectivity](/alpharelay/connectivity-guide)
+→ [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Companion Capture Mode](/alpharelay/companion-capture-mode) · [Avata 2 with Goggles 3](/alpharelay/avata-2-goggles-3) · [Connectivity](/alpharelay/connectivity-guide)

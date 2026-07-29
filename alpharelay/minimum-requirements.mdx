@@ -12,6 +12,7 @@ icon: "clipboard-list"
 - Supported aircraft-control workflow when using aircraft integration
 - Conditional Matrice camera tools on supported Matrice aircraft or Matrice controllers
 - Android drone controller capable of installing **AlphaRelay Pilot** and granting screen capture permission for **Companion Capture Mode**
+- For Avata 2 with Goggles 3: separate Android phone or tablet with **DJI Fly**, **AlphaRelay Pilot**, screen capture permission, and internet
 
 ## Overwatch / review (desktop browser)
 
@@ -26,6 +27,7 @@ icon: "clipboard-list"
 | Local Network live viewing | Pilot device + Overwatch on same reachable Wi‑Fi |
 | Internet | Cellular or Wi‑Fi on pilot device |
 | Companion Capture Mode | Android drone controller; AlphaRelay Pilot installed; Android screen capture permission |
+| Avata 2 with Goggles 3 | Linked Avata 2 / Goggles 3 / RC Motion 3; Android device with DJI Fly and AlphaRelay Pilot; goggles live-view connection; Android screen capture permission; internet |
 | **Live stream (WebRTC)** | Pilot device internet; live started from pilot app |
 | AI Review | Closed, synced mission with uploaded photos, event screenshots, or playable footage; internet and AI configuration |
 | AI live watch | Active remote live stream; Mission Overwatch online; AI configuration enabled |
@@ -37,5 +39,7 @@ Permissions: grant camera, microphone (voice relay), storage, and location promp
 Aircraft camera controls appear only when the pilot app detects supported aircraft or controller capability. Availability still depends on aircraft firmware, payload, SDK support, and field validation.
 
 Companion Capture Mode appears on Android drone controllers that can run AlphaRelay Pilot and grant screen capture permission. The controller's native flight app remains responsible for aircraft operation in that mode.
+
+The Avata 2 workflow uses a separate Android device to display the Goggles 3 live view in DJI Fly. AlphaRelay records that screen and does not control the aircraft or retrieve the original aircraft camera file.
 
 Run a [training mission](/alpharelay/training-mission) on the same device class before operational use.
