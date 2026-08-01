@@ -18,7 +18,7 @@ On Android drone controllers, the pilot device can run **Controller Screen Captu
 
 On a detected DJI SDK-controller setup, AlphaRelay also presents **Pilot mode**. It remains locked until the operator confirms a listed DJI MSDK 5.17 aircraft and AlphaRelay verifies a live flight-controller connection. Pilot mode lets AlphaRelay own the DJI SDK connection and present direct flight and camera controls; availability still depends on the aircraft, controller, payload, firmware, and field validation.
 
-For Avata 2 with Goggles 3, the pilot operates through Goggles 3 and RC Motion 3. A separate Android phone or tablet runs DJI Fly and AlphaRelay **Goggles Mode** to relay and record the goggles live view.
+For a DJI Avata with compatible DJI Goggles, the pilot operates through the goggles and their compatible controller. A separate Android phone or tablet runs DJI Fly and AlphaRelay **Goggles Mode** to relay and record the goggles live view.
 
 ## Key rules
 
@@ -29,4 +29,4 @@ For Avata 2 with Goggles 3, the pilot operates through Goggles 3 and RC Motion 3
 - **Local Network** is a deployment-specific LAN relay path and is not presented by the current public Pilot app.
 - **Controller Screen Capture** is automatic on integrated Android drone controllers and the recommended default on detected DJI SDK-controller setups; it is not a separate mission button.
 - **Pilot mode** is an explicit alternative on eligible DJI SDK-controller setups and requires supported-aircraft confirmation plus a successful live connection check.
-- **Goggles Mode** starts a mission automatically when a prepared Android device detects Goggles 3 over USB.
+- **Goggles Mode** starts a mission automatically when a prepared Android device detects compatible DJI Goggles over USB.

@@ -1,29 +1,29 @@
 ---
-title: "Avata 2 with Goggles 3"
-description: "Relay and record the DJI Goggles 3 live view through AlphaRelay."
+title: "DJI Avata with DJI Goggles"
+description: "Relay and record a compatible DJI Goggles live view through AlphaRelay."
 icon: "tablet-screen-button"
 ---
 
-Use **Goggles Mode** to run an AlphaRelay mission with DJI Avata 2, DJI Goggles 3, and DJI RC Motion 3. The goggles and motion controller remain responsible for the aircraft. A separate Android phone or tablet receives the goggles live view in DJI Fly, and AlphaRelay captures that DJI Fly screen for remote live viewing, event screenshots, and mission footage.
+Use **Goggles Mode** to run an AlphaRelay mission with a DJI Avata, compatible DJI Goggles, and a compatible controller. The goggles and controller remain responsible for the aircraft. A separate Android phone or tablet receives the goggles live view in DJI Fly, and AlphaRelay captures that DJI Fly screen for remote live viewing, event screenshots, and mission footage.
 
 <Note>
-  This workflow differs from [Controller Screen Capture](/alpharelay/companion-capture-mode) on an Android drone controller. Avata 2 uses DJI Fly on a separate Android device instead of a native flight app on an Android drone controller.
+  This workflow differs from [Controller Screen Capture](/alpharelay/companion-capture-mode) on an Android drone controller. The DJI Avata workflow uses DJI Fly on a separate Android device instead of a native flight app on an Android drone controller.
 </Note>
 
 ## What you need
 
-- DJI Avata 2, DJI Goggles 3, and DJI RC Motion 3 powered on, activated, updated, and linked
+- A DJI Avata, compatible DJI Goggles, and a compatible motion or FPV remote controller, powered on, activated, updated, and linked
 - An Android phone or tablet with both **DJI Fly** and **AlphaRelay Pilot** installed
 - An active AlphaRelay device license
 - Android screen capture permission
 - Internet on the Android device for mission sync, remote live, and footage upload
-- For the automatic wired workflow: the Goggles 3 USB-C OTG cable and a suitable data cable
+- For the automatic wired workflow: a compatible USB data/OTG cable for the goggles and Android device
 
 Run a complete test mission with the same phone, cables, and network before operational use.
 
 ## Install and activate the Android apps
 
-1. Install **DJI Fly** on the Android device from DJI's official [Goggles 3 downloads page](https://www.dji.com/goggles-3/downloads).
+1. Install **DJI Fly** on the Android device from DJI's official [DJI Fly download page](https://www.dji.com/downloads/djiapp/dji-fly).
 2. Download **AlphaRelay Pilot** from [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html).
 3. If Android prompts for unknown-source installation, allow the browser or file manager to **install unknown apps** from that source.
 4. Open AlphaRelay Pilot, grant the requested permissions, and activate it with the device license or short controller pairing code.
@@ -32,27 +32,27 @@ Android Developer mode is not required. See [Devices and Licenses](/alpharelay/o
 
 ## Show the goggles live view in DJI Fly
 
-Goggles 3 supports wired and Wi-Fi live-view sharing to DJI Fly. See DJI's [Avata 2 / Goggles 3 live-view sharing instructions](https://repair.dji.com/help/content?customId=01700010126&documentType=&lang=en&paperDocType=ARTICLE&re=US&spaceId=17) for the manufacturer workflow.
+Live-view sharing options vary by goggles model. Confirm that DJI supports your exact aircraft, goggles, and controller combination in [DJI's compatibility guide](https://repair.dji.com/help/content?customId=01700010143&lang=en&paperDocType=ARTICLE&re=US&spaceId=17), then follow the manufacturer's instructions to show the goggles live view in DJI Fly on the Android device.
 
 ### Wired — recommended for automatic detection
 
-1. Power on Avata 2, Goggles 3, and RC Motion 3. Confirm the aircraft and controls are linked.
-2. Connect the Goggles 3 USB-C port to the Android device using the USB-C OTG cable and a suitable data cable.
+1. Power on the DJI Avata, DJI Goggles, and paired controller. Confirm the aircraft and controls are linked.
+2. Connect the goggles to the Android device using the compatible USB data/OTG cable for your hardware.
 3. Open **DJI Fly** on the Android device.
 4. Tap **GO FLY** and confirm that the goggles live view appears on the Android screen.
 
-AlphaRelay can identify Goggles 3 over the wired USB connection and turn on Goggles Mode automatically.
+AlphaRelay can identify compatible DJI Goggles over the wired USB connection and turn on Goggles Mode automatically.
 
 ### Wireless
 
-1. In Goggles 3, open the quick settings panel and choose **Share Liveview to Mobile Device via Wi-Fi**.
+1. In the DJI Goggles, start wireless live-view sharing using the option provided by your goggles model.
 2. On the Android device, turn on Wi-Fi, Bluetooth, and Location.
 3. Open DJI Fly, select the goggles from the connection prompt, and tap **Watch Liveview**.
 4. The first time you connect, follow the DJI Fly prompt to confirm the goggles connection.
 
 Wireless sharing uses the Android device's Wi-Fi connection. Keep cellular data available for AlphaRelay remote live, mission sync, and upload.
 
-If Goggles Mode does not turn on automatically during a wireless connection, open **Choose Mission Mode**, enable **Use DJI Fly / goggles video feed**, choose **No scenario template**, and tap **Start Mission**. The setting remains enabled for the next Avata 2 mission; turn it off when returning to the normal phone or tablet workflow.
+If Goggles Mode does not turn on automatically during a wireless connection, open **Choose Mission Mode**, enable **Use DJI Fly / goggles video feed**, choose **No scenario template**, and tap **Start Mission**. The setting remains enabled for the next DJI Avata mission; turn it off when returning to the normal phone or tablet workflow.
 
 ## Start the AlphaRelay mission
 
@@ -64,7 +64,7 @@ With the DJI Fly live view working:
 4. Wait for AlphaRelay to start capture and return you to DJI Fly.
 5. Confirm that the DJI Fly live view is visible again before takeoff.
 
-When Goggles 3 is detected over USB, AlphaRelay skips mission and scenario selection. It automatically:
+When compatible DJI Goggles are detected over USB, AlphaRelay skips mission and scenario selection. It automatically:
 
 - Starts a cloud-backed mission with no scenario template
 - Starts remote **Live stream (WebRTC)**
@@ -75,7 +75,7 @@ Android requires screen capture approval each time a new capture starts. AlphaRe
 
 ## During the mission
 
-- Fly only with Goggles 3 and RC Motion 3. AlphaRelay does not control Avata 2.
+- Fly only with the DJI Goggles and their paired controller. AlphaRelay does not control the DJI Avata.
 - Keep DJI Fly in the foreground so the captured view remains the goggles live feed.
 - Mission Overwatch users can open **Live stream (WebRTC)** to watch over the internet.
 - Say `relay` followed by event details to create a voice relay event when microphone permission is granted. AlphaRelay can attach the current DJI Fly screen to the event.
@@ -94,9 +94,9 @@ After landing:
 5. Let AlphaRelay reopen and complete mission closeout.
 6. Keep the Android device powered on while queued footage remains. Upload resumes automatically when validated internet returns.
 
-The notification uses the shared capture-service name **Controller Screen Capture**, even during an Avata 2 Goggles Mode mission.
+The notification uses the shared capture-service name **Controller Screen Capture**, even during a DJI Avata Goggles Mode mission.
 
-When you stop the mission, AlphaRelay finalizes an MP4 from the live frames it captured from DJI Fly and queues that footage for upload. It does not pull video from the Avata 2 internal storage or microSD card.
+When you stop the mission, AlphaRelay finalizes an MP4 from the live frames it captured from DJI Fly and queues that footage for upload. It does not pull video from the DJI Avata's internal storage or microSD card.
 
 ## Limits
 
@@ -105,6 +105,6 @@ When you stop the mission, AlphaRelay finalizes an MP4 from the live frames it c
 - Remote live, cloud sync, and upload require a usable internet connection on the Android device.
 - Android screen capture permission is required each time capture starts.
 - If DJI Fly is not installed, AlphaRelay cannot open it automatically.
-- If you need the original aircraft recording, copy it from Avata 2 after the flight and use **Mission Footage → Upload MP4** in the closed mission.
+- If you need the original aircraft recording, copy it from the DJI Avata after the flight and use **Mission Footage → Upload MP4** in the closed mission.
 
 → [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [End a mission](/alpharelay/completing-a-mission) · [Upload footage](/alpharelay/footage-upload)

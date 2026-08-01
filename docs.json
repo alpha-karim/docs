@@ -2,6 +2,12 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "AlphaRelay",
+  "redirects": [
+    {
+      "source": "/alpharelay/avata-2-goggles-3",
+      "destination": "/alpharelay/avata-goggles"
+    }
+  ],
   "colors": {
     "primary": "#2563EB",
     "light": "#3B82F6",
@@ -22,7 +28,7 @@
               "alpharelay/roles-and-devices",
               "alpharelay/field-vs-relay",
               "alpharelay/companion-capture-mode",
-              "alpharelay/avata-2-goggles-3",
+              "alpharelay/avata-goggles",
               "alpharelay/training-mission"
             ]
           },

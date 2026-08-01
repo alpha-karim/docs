@@ -13,7 +13,7 @@ icon: "clipboard-list"
 - Conditional Matrice camera tools on supported Matrice aircraft or Matrice controllers
 - Android drone controller capable of installing **AlphaRelay Pilot** and granting screen capture permission for **Controller Screen Capture**
 - For **Pilot mode**: detected DJI SDK remote-controller setup, a listed DJI MSDK 5.17 aircraft, and a live flight-controller connection that AlphaRelay can verify
-- For Avata 2 with Goggles 3: separate Android phone or tablet with **DJI Fly**, **AlphaRelay Pilot**, screen capture permission, and internet
+- For a DJI Avata with compatible DJI Goggles: separate Android phone or tablet with **DJI Fly**, **AlphaRelay Pilot**, screen capture permission, and internet
 
 ## Overwatch / review (desktop browser)
 
@@ -30,7 +30,7 @@ icon: "clipboard-list"
 | Deployment-specific Local Network relay | Pilot device + Overwatch on same reachable Wi-Fi; not exposed by the current public Pilot app |
 | Controller Screen Capture | Android drone controller; AlphaRelay Pilot installed; Android screen capture permission |
 | Pilot mode | Detected DJI SDK-controller setup; aircraft in the Pilot app's DJI MSDK 5.17 list; successful live connection check |
-| Avata 2 with Goggles 3 | Linked Avata 2 / Goggles 3 / RC Motion 3; Android device with DJI Fly and AlphaRelay Pilot; goggles live-view connection; Android screen capture permission; internet |
+| DJI Avata with DJI Goggles | Linked DJI Avata, compatible DJI Goggles, and compatible controller; Android device with DJI Fly and AlphaRelay Pilot; goggles live-view connection; Android screen capture permission; internet |
 | **Live stream (WebRTC)** | Validated pilot-device internet; starts automatically with the mission and can be retried from the Pilot console |
 | AI Review | Closed, synced mission with uploaded photos, event screenshots, or playable footage; internet and AI configuration |
 | Ask AI | Closed, synced mission with uploaded photos, event screenshots, or playable footage; internet and AI configuration |
@@ -46,6 +46,6 @@ Controller Screen Capture appears on Android drone controllers that can run Alph
 
 Pilot mode is not enabled by controller detection alone. On an eligible DJI SDK-controller setup, confirm the aircraft in the in-app supported list and keep the aircraft and controller connected until AlphaRelay reports **Supported aircraft confirmed. Pilot mode is ready.** If that verification does not complete, use Controller Screen Capture.
 
-The Avata 2 workflow uses a separate Android device to display the Goggles 3 live view in DJI Fly. AlphaRelay records that screen and does not control the aircraft or retrieve the original aircraft camera file.
+The Goggles Mode workflow uses a separate Android device to display the DJI Goggles live view in DJI Fly. AlphaRelay records that screen and does not control the DJI Avata or retrieve the original aircraft camera file.
 
 Run a [training mission](/alpharelay/training-mission) on the same device class before operational use.

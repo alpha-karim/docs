@@ -15,7 +15,7 @@ Generated on 2026-08-01 by `scripts/generate-notebooklm-export.mjs`.
 - **Local Network** — deployment-specific LAN relay path retained in the product but not presented as a mission-start button in the current public Pilot app.
 - **Controller Screen Capture** — recommended capture path on Android drone controllers where the controller's native flight app keeps flight control and AlphaRelay captures the controller screen
 - **Pilot mode** — direct AlphaRelay aircraft-control path offered on detected DJI SDK-controller setups only after the operator confirms a listed DJI MSDK 5.17 aircraft and AlphaRelay verifies its live connection
-- **Goggles Mode** — Avata 2 / Goggles 3 workflow on a separate Android phone or tablet; AlphaRelay captures DJI Fly, automatically starts an Internet mission with no scenario, and opens DJI Fly after screen-capture approval
+- **Goggles Mode** — DJI Avata and compatible DJI Goggles workflow on a separate Android phone or tablet; AlphaRelay captures DJI Fly, automatically starts an Internet mission with no scenario, and opens DJI Fly after screen-capture approval
 - **Pilot console** — in-app settings panel (Mission, Flight, Events, System)
 - **Mission Dashboard** — command home (`dashboard.html`)
 - **Mission Overwatch** / **Mission Console** — per-mission browser workspace (`mission-overwatch.html`; dashboard link says **Open Mission Console**)
@@ -38,7 +38,7 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
 ## Five-step workflow
 
 1. **Set up devices** — Install the pilot app, activate the device license, and sign in to the web app.
-2. **Start a mission** — Tap **Choose Mission Mode**, choose a scenario template, and tap **Start Mission**. Remote live starts automatically when the pilot device has validated internet. Android drone controllers use **Controller Screen Capture** by default; detected DJI SDK-controller setups can unlock **Pilot mode** after a supported-aircraft and live-connection check. With Avata 2 and Goggles 3 connected to an Android device, Goggles Mode starts the mission automatically.
+2. **Start a mission** — Tap **Choose Mission Mode**, choose a scenario template, and tap **Start Mission**. Remote live starts automatically when the pilot device has validated internet. Android drone controllers use **Controller Screen Capture** by default; detected DJI SDK-controller setups can unlock **Pilot mode** after a supported-aircraft and live-connection check. With a DJI Avata and compatible DJI Goggles connected to an Android device, Goggles Mode starts the mission automatically.
 3. **Watch and log events** — Use Mission Overwatch for remote live, AI live watch when configured, and command-side event logging by quick button, keyboard, or browser dictation.
 4. **Review the mission** — Upload or sync footage, then review with **Play with Events** and **AI Review** when configured. Analyze the media findings, then use **Ask AI** for questions grounded in the mission imagery.
 5. **Finalize the record** — Generate the report, seal evidence, get supervisor approval, and export when ready.
@@ -48,7 +48,7 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
 - **New users:** AlphaRelay in plain English.
 - **Pilots:** Start a mission from the pilot app.
 - **Enterprise controllers:** Use AlphaRelay beside the controller flight app.
-- **Avata 2 and Goggles 3:** Relay the goggles live view through DJI Fly.
+- **DJI Avata and DJI Goggles:** Relay the goggles live view through DJI Fly.
 - **Overwatch users:** Watch and log in Mission Overwatch.
 - **Reviewers:** Import or review footage and generate a report.
 - **Admins:** Accounts and organizations.
@@ -90,7 +90,7 @@ The current Pilot app does not present a **Local Network** mission button. A LAN
 
 On Android drone controllers, the pilot app uses **Controller Screen Capture** by default. The controller's native flight app keeps flight control while AlphaRelay captures the controller screen, streams it into the mission, and records mission footage. On detected DJI SDK-controller setups, a listed and connected DJI aircraft can instead unlock **Pilot mode** for AlphaRelay flight controls.
 
-With Avata 2 and Goggles 3, AlphaRelay uses **Goggles Mode** on a separate Android device. DJI Fly displays the goggles live view, AlphaRelay starts a mission with no scenario, and Goggles 3 with RC Motion 3 remain responsible for the aircraft.
+With a DJI Avata and compatible DJI Goggles, AlphaRelay uses **Goggles Mode** on a separate Android device. DJI Fly displays the goggles live view, AlphaRelay starts a mission with no scenario, and the goggles with their compatible controller remain responsible for the aircraft.
 
 Live missions start from the pilot app — not from the browser. For work that already happened outside AlphaRelay, **Import mission** in **Mission History** creates a closed post-flight record for review and reporting.
 
@@ -108,9 +108,9 @@ Install the pilot app, activate the device license, sign in to the web app, and 
 
 ## 2. Start a mission
 
-Open the pilot app, tap **Choose Mission Mode**, name the mission, pick a scenario template (or **No scenario template**), then tap **Start Mission**. The current Pilot app creates an Internet mission and starts remote live automatically when the device has validated internet. If it is offline, the mission still starts and sync waits for connectivity. On Android drone controllers, AlphaRelay uses **Controller Screen Capture** by default so the controller's native flight app remains responsible for flight control. Detected DJI SDK-controller setups can instead unlock **Pilot mode** after a supported-aircraft and live-connection check. For Avata 2 with Goggles 3, connect the goggles live view to DJI Fly first; Goggles Mode then starts the mission with no scenario automatically.
+Open the pilot app, tap **Choose Mission Mode**, name the mission, pick a scenario template (or **No scenario template**), then tap **Start Mission**. The current Pilot app creates an Internet mission and starts remote live automatically when the device has validated internet. If it is offline, the mission still starts and sync waits for connectivity. On Android drone controllers, AlphaRelay uses **Controller Screen Capture** by default so the controller's native flight app remains responsible for flight control. Detected DJI SDK-controller setups can instead unlock **Pilot mode** after a supported-aircraft and live-connection check. For a DJI Avata with compatible DJI Goggles, connect the goggles live view to DJI Fly first; Goggles Mode then starts the mission with no scenario automatically.
 
-→ Start a mission · Mission connectivity · Controller Screen Capture · Avata 2 with Goggles 3
+→ Start a mission · Mission connectivity · Controller Screen Capture · DJI Avata with DJI Goggles
 
 ## 3. Watch and log events
 
@@ -159,7 +159,7 @@ On Android drone controllers, the pilot device can run **Controller Screen Captu
 
 On a detected DJI SDK-controller setup, AlphaRelay also presents **Pilot mode**. It remains locked until the operator confirms a listed DJI MSDK 5.17 aircraft and AlphaRelay verifies a live flight-controller connection. Pilot mode lets AlphaRelay own the DJI SDK connection and present direct flight and camera controls; availability still depends on the aircraft, controller, payload, firmware, and field validation.
 
-For Avata 2 with Goggles 3, the pilot operates through Goggles 3 and RC Motion 3. A separate Android phone or tablet runs DJI Fly and AlphaRelay **Goggles Mode** to relay and record the goggles live view.
+For a DJI Avata with compatible DJI Goggles, the pilot operates through the goggles and their compatible controller. A separate Android phone or tablet runs DJI Fly and AlphaRelay **Goggles Mode** to relay and record the goggles live view.
 
 ## Key rules
 
@@ -170,7 +170,7 @@ For Avata 2 with Goggles 3, the pilot operates through Goggles 3 and RC Motion 3
 - **Local Network** is a deployment-specific LAN relay path and is not presented by the current public Pilot app.
 - **Controller Screen Capture** is automatic on integrated Android drone controllers and the recommended default on detected DJI SDK-controller setups; it is not a separate mission button.
 - **Pilot mode** is an explicit alternative on eligible DJI SDK-controller setups and requires supported-aircraft confirmation plus a successful live connection check.
-- **Goggles Mode** starts a mission automatically when a prepared Android device detects Goggles 3 over USB.
+- **Goggles Mode** starts a mission automatically when a prepared Android device detects compatible DJI Goggles over USB.
 
 ---
 
@@ -220,11 +220,11 @@ In this mode, the controller's native flight app controls the aircraft while Alp
 
 → Controller Screen Capture
 
-## Avata 2 with Goggles 3
+## DJI Avata with DJI Goggles
 
-Goggles Mode requires internet for remote live and sync. On a prepared Android device, a wired Goggles 3 connection turns on the mode automatically, bypasses mission and scenario selection, and starts remote live from the DJI Fly goggles view.
+Goggles Mode requires internet for remote live and sync. On a prepared Android device, a wired connection to compatible DJI Goggles turns on the mode automatically, bypasses mission and scenario selection, and starts remote live from the DJI Fly goggles view.
 
-→ Avata 2 with Goggles 3
+→ DJI Avata with DJI Goggles
 
 ---
 
@@ -234,13 +234,13 @@ Controller Screen Capture lets AlphaRelay run beside the native flight app on An
 
 This is the recommended capture path. On integrated Android drone controllers it turns on automatically after **Start Mission**. On a detected DJI SDK-controller setup, choose **Controller Screen Capture — Recommended** instead of **Pilot mode** when the native flight app should stay in control.
 
-**Note:** Using Avata 2 with Goggles 3 and a separate Android phone or tablet? Follow the dedicated Avata 2 with Goggles 3 workflow instead.
+**Note:** Using a DJI Avata with compatible DJI Goggles and a separate Android phone or tablet? Follow the dedicated DJI Avata with DJI Goggles workflow instead.
 
 ## Where it is available
 
 Controller Screen Capture is available on Android-based drone controllers that can install **AlphaRelay Pilot** and grant Android screen capture permission. It is not limited to one controller manufacturer.
 
-AlphaRelay detects known drone-controller identity strings, including DJI RC / RC Pro / RC Plus / RM / Matrice controller families, Autel smart controllers, Herelink / CubePilot controllers, and Inspired Flight GS-ONE controllers. Generic Android phones, tablets, and rugged tablets use the normal pilot workflow unless they are connected to Goggles 3 or Goggles Mode is enabled manually.
+AlphaRelay detects known drone-controller identity strings, including DJI RC / RC Pro / RC Plus / RM / Matrice controller families, Autel smart controllers, Herelink / CubePilot controllers, and Inspired Flight GS-ONE controllers. Generic Android phones, tablets, and rugged tablets use the normal pilot workflow unless they are connected to compatible DJI Goggles or Goggles Mode is enabled manually.
 
 When the Android pilot device is connected to a detected DJI SDK remote controller, the mission screen also offers **Pilot mode**. AlphaRelay does not select it automatically: the operator must confirm a listed DJI MSDK 5.17 aircraft, and AlphaRelay must verify a live flight-controller connection before **Start Mission** unlocks. See Start a mission for the current 12-aircraft catalog and verification steps.
 
@@ -322,26 +322,26 @@ Queued recordings are stored durably and resume uploading automatically when val
 
 ---
 
-## Avata 2 with Goggles 3
+## DJI Avata with DJI Goggles
 
-Use **Goggles Mode** to run an AlphaRelay mission with DJI Avata 2, DJI Goggles 3, and DJI RC Motion 3. The goggles and motion controller remain responsible for the aircraft. A separate Android phone or tablet receives the goggles live view in DJI Fly, and AlphaRelay captures that DJI Fly screen for remote live viewing, event screenshots, and mission footage.
+Use **Goggles Mode** to run an AlphaRelay mission with a DJI Avata, compatible DJI Goggles, and a compatible controller. The goggles and controller remain responsible for the aircraft. A separate Android phone or tablet receives the goggles live view in DJI Fly, and AlphaRelay captures that DJI Fly screen for remote live viewing, event screenshots, and mission footage.
 
-**Note:** This workflow differs from Controller Screen Capture on an Android drone controller. Avata 2 uses DJI Fly on a separate Android device instead of a native flight app on an Android drone controller.
+**Note:** This workflow differs from Controller Screen Capture on an Android drone controller. The DJI Avata workflow uses DJI Fly on a separate Android device instead of a native flight app on an Android drone controller.
 
 ## What you need
 
-- DJI Avata 2, DJI Goggles 3, and DJI RC Motion 3 powered on, activated, updated, and linked
+- A DJI Avata, compatible DJI Goggles, and a compatible motion or FPV remote controller, powered on, activated, updated, and linked
 - An Android phone or tablet with both **DJI Fly** and **AlphaRelay Pilot** installed
 - An active AlphaRelay device license
 - Android screen capture permission
 - Internet on the Android device for mission sync, remote live, and footage upload
-- For the automatic wired workflow: the Goggles 3 USB-C OTG cable and a suitable data cable
+- For the automatic wired workflow: a compatible USB data/OTG cable for the goggles and Android device
 
 Run a complete test mission with the same phone, cables, and network before operational use.
 
 ## Install and activate the Android apps
 
-1. Install **DJI Fly** on the Android device from DJI's official [Goggles 3 downloads page](https://www.dji.com/goggles-3/downloads).
+1. Install **DJI Fly** on the Android device from DJI's official [DJI Fly download page](https://www.dji.com/downloads/djiapp/dji-fly).
 2. Download **AlphaRelay Pilot** from [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html).
 3. If Android prompts for unknown-source installation, allow the browser or file manager to **install unknown apps** from that source.
 4. Open AlphaRelay Pilot, grant the requested permissions, and activate it with the device license or short controller pairing code.
@@ -350,27 +350,27 @@ Android Developer mode is not required. See Devices and Licenses for all AlphaRe
 
 ## Show the goggles live view in DJI Fly
 
-Goggles 3 supports wired and Wi-Fi live-view sharing to DJI Fly. See DJI's [Avata 2 / Goggles 3 live-view sharing instructions](https://repair.dji.com/help/content?customId=01700010126&documentType=&lang=en&paperDocType=ARTICLE&re=US&spaceId=17) for the manufacturer workflow.
+Live-view sharing options vary by goggles model. Confirm that DJI supports your exact aircraft, goggles, and controller combination in [DJI's compatibility guide](https://repair.dji.com/help/content?customId=01700010143&lang=en&paperDocType=ARTICLE&re=US&spaceId=17), then follow the manufacturer's instructions to show the goggles live view in DJI Fly on the Android device.
 
 ### Wired — recommended for automatic detection
 
-1. Power on Avata 2, Goggles 3, and RC Motion 3. Confirm the aircraft and controls are linked.
-2. Connect the Goggles 3 USB-C port to the Android device using the USB-C OTG cable and a suitable data cable.
+1. Power on the DJI Avata, DJI Goggles, and paired controller. Confirm the aircraft and controls are linked.
+2. Connect the goggles to the Android device using the compatible USB data/OTG cable for your hardware.
 3. Open **DJI Fly** on the Android device.
 4. Tap **GO FLY** and confirm that the goggles live view appears on the Android screen.
 
-AlphaRelay can identify Goggles 3 over the wired USB connection and turn on Goggles Mode automatically.
+AlphaRelay can identify compatible DJI Goggles over the wired USB connection and turn on Goggles Mode automatically.
 
 ### Wireless
 
-1. In Goggles 3, open the quick settings panel and choose **Share Liveview to Mobile Device via Wi-Fi**.
+1. In the DJI Goggles, start wireless live-view sharing using the option provided by your goggles model.
 2. On the Android device, turn on Wi-Fi, Bluetooth, and Location.
 3. Open DJI Fly, select the goggles from the connection prompt, and tap **Watch Liveview**.
 4. The first time you connect, follow the DJI Fly prompt to confirm the goggles connection.
 
 Wireless sharing uses the Android device's Wi-Fi connection. Keep cellular data available for AlphaRelay remote live, mission sync, and upload.
 
-If Goggles Mode does not turn on automatically during a wireless connection, open **Choose Mission Mode**, enable **Use DJI Fly / goggles video feed**, choose **No scenario template**, and tap **Start Mission**. The setting remains enabled for the next Avata 2 mission; turn it off when returning to the normal phone or tablet workflow.
+If Goggles Mode does not turn on automatically during a wireless connection, open **Choose Mission Mode**, enable **Use DJI Fly / goggles video feed**, choose **No scenario template**, and tap **Start Mission**. The setting remains enabled for the next DJI Avata mission; turn it off when returning to the normal phone or tablet workflow.
 
 ## Start the AlphaRelay mission
 
@@ -382,7 +382,7 @@ With the DJI Fly live view working:
 4. Wait for AlphaRelay to start capture and return you to DJI Fly.
 5. Confirm that the DJI Fly live view is visible again before takeoff.
 
-When Goggles 3 is detected over USB, AlphaRelay skips mission and scenario selection. It automatically:
+When compatible DJI Goggles are detected over USB, AlphaRelay skips mission and scenario selection. It automatically:
 
 - Starts a cloud-backed mission with no scenario template
 - Starts remote **Live stream (WebRTC)**
@@ -393,7 +393,7 @@ Android requires screen capture approval each time a new capture starts. AlphaRe
 
 ## During the mission
 
-- Fly only with Goggles 3 and RC Motion 3. AlphaRelay does not control Avata 2.
+- Fly only with the DJI Goggles and their paired controller. AlphaRelay does not control the DJI Avata.
 - Keep DJI Fly in the foreground so the captured view remains the goggles live feed.
 - Mission Overwatch users can open **Live stream (WebRTC)** to watch over the internet.
 - Say `relay` followed by event details to create a voice relay event when microphone permission is granted. AlphaRelay can attach the current DJI Fly screen to the event.
@@ -412,9 +412,9 @@ After landing:
 5. Let AlphaRelay reopen and complete mission closeout.
 6. Keep the Android device powered on while queued footage remains. Upload resumes automatically when validated internet returns.
 
-The notification uses the shared capture-service name **Controller Screen Capture**, even during an Avata 2 Goggles Mode mission.
+The notification uses the shared capture-service name **Controller Screen Capture**, even during a DJI Avata Goggles Mode mission.
 
-When you stop the mission, AlphaRelay finalizes an MP4 from the live frames it captured from DJI Fly and queues that footage for upload. It does not pull video from the Avata 2 internal storage or microSD card.
+When you stop the mission, AlphaRelay finalizes an MP4 from the live frames it captured from DJI Fly and queues that footage for upload. It does not pull video from the DJI Avata's internal storage or microSD card.
 
 ## Limits
 
@@ -423,7 +423,7 @@ When you stop the mission, AlphaRelay finalizes an MP4 from the live frames it c
 - Remote live, cloud sync, and upload require a usable internet connection on the Android device.
 - Android screen capture permission is required each time capture starts.
 - If DJI Fly is not installed, AlphaRelay cannot open it automatically.
-- If you need the original aircraft recording, copy it from Avata 2 after the flight and use **Mission Footage → Upload MP4** in the closed mission.
+- If you need the original aircraft recording, copy it from the DJI Avata after the flight and use **Mission Footage → Upload MP4** in the closed mission.
 
 → Watch in Mission Overwatch · End a mission · Upload footage
 
@@ -472,7 +472,7 @@ Repeat this exercise when devices, networks, or aircraft change.
 6. Run a test **Start Mission** flow and confirm remote live starts automatically when the pilot device is online.
 7. Confirm the Mission Overwatch browser can use its microphone if the team plans to use **Dictate** for manual events.
 8. For Android drone controllers: install AlphaRelay Pilot, activate the device license, run a test **Controller Screen Capture** mission, and confirm Android screen capture permission works. If the crew will use **Pilot mode**, also confirm the aircraft appears in the supported list and passes AlphaRelay's live connection check.
-9. For Avata 2 with Goggles 3: install DJI Fly and AlphaRelay Pilot on the Android device, test the wired or wireless goggles live-view connection, and confirm remote live and post-mission upload.
+9. For a DJI Avata with compatible DJI Goggles: install DJI Fly and AlphaRelay Pilot on the Android device, test the supported goggles live-view connection, and confirm remote live and post-mission upload.
 10. Check for older queued video on the Pilot-app startup screen and let it finish, or consciously choose **Skip for now and start new mission**.
 11. Plan for internet when you need remote live, sync, upload, reports, or export.
 12. Assign pilot, overwatch user, reviewer, and supervisor roles.
@@ -518,7 +518,7 @@ On a detected DJI SDK-controller setup — for example, an RC-N-series remote co
 - **Controller Screen Capture — Recommended** keeps the flight app in control while AlphaRelay captures the visible controller screen.
 - **Pilot mode** gives AlphaRelay the DJI SDK connection and direct aircraft controls. It stays locked until you confirm a listed aircraft and AlphaRelay verifies that aircraft's live connection.
 
-For Avata 2 with Goggles 3, first show the goggles live view in DJI Fly on the Android device. When Goggles Mode is active, opening AlphaRelay skips these mission-selection steps, starts a mission with no scenario, starts remote live, requests screen capture, and returns to DJI Fly.
+For a DJI Avata with compatible DJI Goggles, first show the goggles live view in DJI Fly on the Android device. When Goggles Mode is active, opening AlphaRelay skips these mission-selection steps, starts a mission with no scenario, starts remote live, requests screen capture, and returns to DJI Fly.
 
 ## Remote live
 
@@ -558,12 +558,12 @@ The Pilot app's DJI MSDK 5.17 catalog includes:
 
 If the aircraft is not listed, the SDK is unavailable, or the live check fails, keep **Controller Screen Capture** selected and fly from the native flight app. A catalog entry is not a substitute for a successful connection check or field validation with the installed controller, aircraft, payload, and firmware.
 
-## Avata 2 with Goggles 3
+## DJI Avata with DJI Goggles
 
 - Runs on a separate Android phone or tablet with DJI Fly
 - Uses the DJI Fly goggles live view as the live and recorded source
 - Starts the mission and remote live automatically with no scenario template
-- Uses Goggles 3 and RC Motion 3 for aircraft operation
+- Uses compatible DJI Goggles and their paired controller for aircraft operation
 - Finalizes and queues captured DJI Fly footage after **Stop Mission**
 
 ## After start
@@ -572,7 +572,7 @@ If the aircraft is not listed, the SDK is unavailable, or the live check fails, 
 - Footage and events may upload during or after the mission depending on connectivity.
 - Tap **Stop Mission** in the pilot app (or **Close Mission** in Mission Overwatch) when field work is done.
 
-→ Watch in Mission Overwatch · Controller Screen Capture · Avata 2 with Goggles 3 · Connectivity
+→ Watch in Mission Overwatch · Controller Screen Capture · DJI Avata with DJI Goggles · Connectivity
 
 ---
 
@@ -589,7 +589,7 @@ When the Pilot app starts a mission with validated internet, it starts remote li
 If the mission began offline or remote-live setup failed, restore internet and use **Pilot console → Mission → Start remote live** to retry.
 
 - In **Controller Screen Capture**, remote live publishes the controller screen.
-- In **Goggles Mode**, remote live publishes the DJI Fly screen carrying the Goggles 3 live view. Keep the Android device online.
+- In **Goggles Mode**, remote live publishes the DJI Fly screen carrying the DJI Goggles live view. Keep the Android device online.
 
 ## Mission tools
 
@@ -684,7 +684,7 @@ Resolve event timing against footage before generating the final report. For any
 - The relay session ends with the mission.
 - SD recording stops after a successful land when supported.
 - In **Controller Screen Capture**, AlphaRelay finalizes controller-screen recording chunks instead of pulling aircraft SD video.
-- In **Goggles Mode**, AlphaRelay finalizes the captured DJI Fly live-view frames as an MP4 and queues it for upload. It does not pull Avata 2 internal-storage or microSD footage.
+- In **Goggles Mode**, AlphaRelay finalizes the captured DJI Fly live-view frames as an MP4 and queues it for upload. It does not pull the DJI Avata's internal-storage or microSD footage.
 - Footage may upload immediately or queue for later sync.
 - Queued Pilot-app video is stored durably and resumes automatically when validated connectivity returns, including after the app process restarts.
 - Review should wait until footage status is clear.
@@ -748,7 +748,7 @@ Watch for upload banners, **Upload now**, or **Loading playback link** status in
 
 In **Controller Screen Capture**, AlphaRelay records the controller screen in chunks and queues those recordings for upload after **Stop Mission**. Keep the controller powered on; do not force-stop or uninstall AlphaRelay while queued controller-screen recordings remain.
 
-In **Goggles Mode**, AlphaRelay finalizes an MP4 from the DJI Fly live-view frames captured during the mission and queues it after **Stop Mission**. The durable queue resumes when connectivity returns. Upload the original Avata 2 camera file manually if the mission needs the raw aircraft recording.
+In **Goggles Mode**, AlphaRelay finalizes an MP4 from the DJI Fly live-view frames captured during the mission and queues it after **Stop Mission**. The durable queue resumes when connectivity returns. Upload the original DJI Avata camera file manually if the mission needs the raw aircraft recording.
 
 When the Pilot app opens with queued mission video, its startup panel shows the queue and upload progress. Let the upload finish when possible. Use **Skip for now and start new mission** only if field work must begin immediately; the queued work remains pending.
 
@@ -1136,7 +1136,7 @@ Do not share exports before sync and review are complete.
 - Conditional Matrice camera tools on supported Matrice aircraft or Matrice controllers
 - Android drone controller capable of installing **AlphaRelay Pilot** and granting screen capture permission for **Controller Screen Capture**
 - For **Pilot mode**: detected DJI SDK remote-controller setup, a listed DJI MSDK 5.17 aircraft, and a live flight-controller connection that AlphaRelay can verify
-- For Avata 2 with Goggles 3: separate Android phone or tablet with **DJI Fly**, **AlphaRelay Pilot**, screen capture permission, and internet
+- For a DJI Avata with compatible DJI Goggles: separate Android phone or tablet with **DJI Fly**, **AlphaRelay Pilot**, screen capture permission, and internet
 
 ## Overwatch / review (desktop browser)
 
@@ -1153,7 +1153,7 @@ Do not share exports before sync and review are complete.
 | Deployment-specific Local Network relay | Pilot device + Overwatch on same reachable Wi-Fi; not exposed by the current public Pilot app |
 | Controller Screen Capture | Android drone controller; AlphaRelay Pilot installed; Android screen capture permission |
 | Pilot mode | Detected DJI SDK-controller setup; aircraft in the Pilot app's DJI MSDK 5.17 list; successful live connection check |
-| Avata 2 with Goggles 3 | Linked Avata 2 / Goggles 3 / RC Motion 3; Android device with DJI Fly and AlphaRelay Pilot; goggles live-view connection; Android screen capture permission; internet |
+| DJI Avata with DJI Goggles | Linked DJI Avata, compatible DJI Goggles, and compatible controller; Android device with DJI Fly and AlphaRelay Pilot; goggles live-view connection; Android screen capture permission; internet |
 | **Live stream (WebRTC)** | Validated pilot-device internet; starts automatically with the mission and can be retried from the Pilot console |
 | AI Review | Closed, synced mission with uploaded photos, event screenshots, or playable footage; internet and AI configuration |
 | Ask AI | Closed, synced mission with uploaded photos, event screenshots, or playable footage; internet and AI configuration |
@@ -1169,7 +1169,7 @@ Controller Screen Capture appears on Android drone controllers that can run Alph
 
 Pilot mode is not enabled by controller detection alone. On an eligible DJI SDK-controller setup, confirm the aircraft in the in-app supported list and keep the aircraft and controller connected until AlphaRelay reports **Supported aircraft confirmed. Pilot mode is ready.** If that verification does not complete, use Controller Screen Capture.
 
-The Avata 2 workflow uses a separate Android device to display the Goggles 3 live view in DJI Fly. AlphaRelay records that screen and does not control the aircraft or retrieve the original aircraft camera file.
+The Goggles Mode workflow uses a separate Android device to display the DJI Goggles live view in DJI Fly. AlphaRelay records that screen and does not control the DJI Avata or retrieve the original aircraft camera file.
 
 Run a training mission on the same device class before operational use.
 
@@ -1222,18 +1222,18 @@ The controller's native flight app remains the flight control app. AlphaRelay ai
 
 If the aircraft is not listed, the DJI SDK is unavailable, or the connection check times out, select **Controller Screen Capture — Recommended** and use the native flight app. Do not rely on Pilot mode until the same aircraft, controller, payload, and firmware combination has been validated in training.
 
-## Avata 2 Goggles Mode did not start
+## DJI Avata Goggles Mode did not start
 
 1. Confirm DJI Fly and AlphaRelay Pilot are installed on the same Android device.
-2. Power on and link Avata 2, Goggles 3, and RC Motion 3.
-3. For automatic detection, connect Goggles 3 to the Android device with the USB-C OTG cable and a data cable.
+2. Power on and link the DJI Avata, compatible DJI Goggles, and their compatible controller.
+3. For automatic detection, connect the DJI Goggles to the Android device with a compatible USB data/OTG cable.
 4. Open DJI Fly and confirm the goggles live view appears before opening AlphaRelay.
 5. If you use wireless live-view sharing, open **Choose Mission Mode**, enable **Use DJI Fly / goggles video feed**, choose **No scenario template**, and tap **Start Mission**.
 6. Approve the Android screen capture prompt.
 
 If DJI Fly does not open automatically after approval, open it manually and confirm its live view is still active.
 
-## Avata 2 remote live or upload is missing
+## DJI Avata remote live or upload is missing
 
 1. Keep the Android device connected to internet. If DJI Fly uses Wi-Fi live-view sharing, keep cellular data available.
 2. Keep DJI Fly in the foreground during the mission.
@@ -1362,7 +1362,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 
 - Footage often uploads after the mission ends.
 - **Controller Screen Capture** records the controller screen, including native flight-app overlays, not a raw camera file.
-- **Goggles Mode** records the DJI Fly screen carrying the Goggles 3 live view, not the original Avata 2 camera file.
+- **Goggles Mode** records the DJI Fly screen carrying the DJI Goggles live view, not the original DJI Avata camera file.
 - Queued Pilot-app footage resumes automatically when validated connectivity returns, but the Android device must remain powered and the app must not be force-stopped or uninstalled.
 - Queued footage must finish before final review.
 - Manual browser MP4 upload requires internet before upload starts (no pre-queue).
@@ -1385,7 +1385,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 - Aircraft camera tools appear only for supported aircraft/controllers and still depend on aircraft firmware, payload, and SDK behavior.
 - **Controller Screen Capture** intentionally leaves flight and camera operation in the controller's native flight app; AlphaRelay aircraft command buttons are blocked.
 - **Pilot mode** is offered only on a detected DJI SDK-controller setup. Selecting a listed DJI MSDK 5.17 aircraft does not unlock it by itself; AlphaRelay must also verify the live flight-controller connection.
-- **Goggles Mode** does not control Avata 2. Goggles 3 and RC Motion 3 remain responsible for aircraft operation.
+- **Goggles Mode** does not control the DJI Avata. The DJI Goggles and their compatible controller remain responsible for aircraft operation.
 - Validate aircraft-specific controls in training before operational use.
 
 ## Workflow locks
@@ -1411,7 +1411,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 | **Ask AI** | AI Review view for asking questions grounded in available imagery from a closed synced mission |
 | **Chain of custody** | Evidence history and hash verification for a mission |
 | **Controller Screen Capture** | Recommended mode on Android drone controllers where the controller's native flight app keeps flight control and AlphaRelay captures the controller screen; formerly called Companion Capture Mode |
-| **Goggles Mode** | Avata 2 / Goggles 3 workflow where AlphaRelay on a separate Android device captures the DJI Fly live view and automatically starts an Internet mission |
+| **Goggles Mode** | DJI Avata and compatible DJI Goggles workflow where AlphaRelay on a separate Android device captures the DJI Fly live view and automatically starts an Internet mission |
 | **Internet** | Cloud-backed mission mode used by the current Pilot app's **Start Mission** workflow |
 | **Import mission** | Mission History flow that creates a closed post-flight record from external footage and photos |
 | **Items Requiring Officer Review** | Report checklist items that need human resolution before submission |
