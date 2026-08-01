@@ -6,7 +6,7 @@ icon: "triangle-alert"
 
 ## Network
 
-- **Local Network** LAN viewing requires same reachable Wi‑Fi — not cellular-only on the pilot device.
+- The current public Pilot app does not present a **Local Network** mission button. Deployment-specific LAN relay builds require the pilot and Overwatch devices on the same reachable Wi-Fi.
 - **Live stream (WebRTC)** requires internet on the pilot device.
 - Cloud sync, upload, and export wait for internet.
 - Losing relay, remote live, or cloud sync does not always end the mission — paths are independent.
@@ -14,9 +14,10 @@ icon: "triangle-alert"
 ## Media
 
 - Footage often uploads after the mission ends.
-- **Companion Capture Mode** records the controller screen, including native flight-app overlays, not a raw camera file.
+- **Controller Screen Capture** records the controller screen, including native flight-app overlays, not a raw camera file.
 - **Goggles Mode** records the DJI Fly screen carrying the Goggles 3 live view, not the original Avata 2 camera file.
-- Queued pilot-handoff footage must finish before final review.
+- Queued Pilot-app footage resumes automatically when validated connectivity returns, but the Android device must remain powered and the app must not be force-stopped or uninstalled.
+- Queued footage must finish before final review.
 - Manual browser MP4 upload requires internet before upload starts (no pre-queue).
 - **Import mission** requires a signed-in, online browser and creates a closed post-flight record only.
 - Offline packages only include media available at export time.
@@ -26,13 +27,17 @@ icon: "triangle-alert"
 - **Local AI** depends on device, model file, and configuration — review auto-tags before relying on them.
 - AI report drafts require officer review; resolve **Items Requiring Officer Review** before finalization.
 - **AI Review** requires a closed synced mission, available media, internet, AI configuration, and installed analysis tables.
+- **Ask AI** runs only for a closed synced mission with available imagery. Its answers reflect sampled footage frames, photos, and event screenshots, so occlusion, image quality, repeated views, or missing moments can limit counts and conclusions.
+- An exact repeat question may load a saved answer for the same mission-media set. Ask again after the media changes.
 - **AI live watch** requires active **Live stream (WebRTC)**, internet, Mission Overwatch online, and AI configuration. It samples the remote live stream and logs officer-review alerts only when the alert threshold is met.
-- AI media findings are suggestions; accepted findings should be verified against source images or footage before report or evidence use.
+- AI media findings are suggestions. Accepting one in AI Review moves it to the timeline; an officer must then use **Accept as is** or **Review & edit** before it is eligible for the AAR.
+- Automatic AI-alert screenshot analysis waits for the event and screenshot to sync and requires internet plus AI configuration.
 
 ## Aircraft controls
 
 - Aircraft camera tools appear only for supported aircraft/controllers and still depend on aircraft firmware, payload, and SDK behavior.
-- **Companion Capture Mode** intentionally leaves flight and camera operation in the controller's native flight app; AlphaRelay aircraft command buttons are blocked.
+- **Controller Screen Capture** intentionally leaves flight and camera operation in the controller's native flight app; AlphaRelay aircraft command buttons are blocked.
+- **Pilot mode** is offered only on a detected DJI SDK-controller setup. Selecting a listed DJI MSDK 5.17 aircraft does not unlock it by itself; AlphaRelay must also verify the live flight-controller connection.
 - **Goggles Mode** does not control Avata 2. Goggles 3 and RC Motion 3 remain responsible for aircraft operation.
 - Validate aircraft-specific controls in training before operational use.
 
@@ -44,4 +49,5 @@ icon: "triangle-alert"
 ## Browser
 
 - Large offline ZIP exports work best in Chrome or Edge.
+- **Dictate** depends on browser speech-recognition support, microphone permission, and any browser speech-service connectivity.
 - Self-signed relay certificates require a one-time browser trust step on HTTPS Mission Overwatch.

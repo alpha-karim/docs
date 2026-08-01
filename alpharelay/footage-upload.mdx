@@ -8,13 +8,15 @@ Footage often uploads **after** the mission when the pilot device or Overwatch b
 
 ## Automatic upload
 
-After **Stop Mission**, the pilot app attempts to upload recorded footage when online. If the pilot hands video to Mission Overwatch over the LAN relay, the **browser** needs internet to upload immediately — otherwise it queues locally.
+After **Stop Mission**, the Pilot app attempts to upload recorded footage when online. Pending Pilot-app videos are stored in a durable Android queue and resume automatically when validated connectivity returns, including after the app process restarts.
 
 Watch for upload banners, **Upload now**, or **Loading playback link** status in Mission Overwatch.
 
-In **Companion Capture Mode**, AlphaRelay records the controller screen in chunks and queues those recordings for upload after **Stop Mission**. Keep the controller powered on and online until the queued controller-screen recordings finish.
+In **Controller Screen Capture**, AlphaRelay records the controller screen in chunks and queues those recordings for upload after **Stop Mission**. Keep the controller powered on; do not force-stop or uninstall AlphaRelay while queued controller-screen recordings remain.
 
-In **Goggles Mode**, AlphaRelay finalizes an MP4 from the DJI Fly live-view frames captured during the mission and queues it after **Stop Mission**. Keep the Android device powered on and online until upload finishes. Upload the original Avata 2 camera file manually if the mission needs the raw aircraft recording.
+In **Goggles Mode**, AlphaRelay finalizes an MP4 from the DJI Fly live-view frames captured during the mission and queues it after **Stop Mission**. The durable queue resumes when connectivity returns. Upload the original Avata 2 camera file manually if the mission needs the raw aircraft recording.
+
+When the Pilot app opens with queued mission video, its startup panel shows the queue and upload progress. Let the upload finish when possible. Use **Skip for now and start new mission** only if field work must begin immediately; the queued work remains pending.
 
 ## Manual MP4 upload
 
@@ -38,7 +40,7 @@ Use the normal **Upload MP4** and **Upload Photos** controls afterward if any me
 Use **Mission photos** / **Upload Photos** to add timeline photos or evidence-only photos with caption, category, and notes.
 
 <Warning>
-  Keep the app or browser open until upload or queue processing finishes.
+  Do not force-stop or uninstall the Pilot app while its queue is pending. Keep a browser tab open for browser-initiated uploads; manual browser uploads do not use the Android background queue.
 </Warning>
 
 → [Import a mission](/alpharelay/import-mission) · [Review footage](/alpharelay/footage-playback) · [Troubleshooting](/alpharelay/troubleshooting)

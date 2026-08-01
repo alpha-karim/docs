@@ -1,23 +1,23 @@
 ---
 title: "Connectivity"
-description: "Local Network viewing vs internet sync and queued uploads."
+description: "Remote live, internet sync, deployment-specific LAN relay, and queued uploads."
 icon: "tower-broadcast"
 ---
 
-AlphaRelay uses **three separate paths**. Losing one does not always stop the mission.
+AlphaRelay uses separate live and sync paths. Losing one does not always stop the mission.
 
 ```text
 Pilot app
-  |-- LAN relay (Local Network) → Mission Overwatch on same Wi‑Fi
-  |-- Live stream (WebRTC) → Remote Overwatch over internet
+  |-- Live stream (WebRTC) → Mission Overwatch over internet
   `-- Cloud sync → Events, footage, reports, evidence
 ```
 
+Some older or deployment-specific builds also expose a LAN relay to Mission Overwatch on the same Wi-Fi. The current public Pilot app does not show that mission-start option.
+
 ## Without internet
 
-- **Internet** or **Local Network** local work (Local Network needs Wi‑Fi, not internet)
-- Event logging and LAN screenshots
-- Queued footage and deferred sync
+- Local mission capture and event logging
+- Queued footage and deferred cloud sync
 - Pilot license within the 10-day offline grace window
 
 ## Needs internet
@@ -29,21 +29,25 @@ Pilot app
 - Report generation and supervisor workflow
 - Offline package and evidence JSON export downloads
 
-## Local Network connection
+## Remote live connection
 
-1. Pilot app running **Local Network** on Wi‑Fi.
-2. Open mission from Mission Dashboard.
-3. **Live Overwatch Screen** → **Connect** (scan or enter pilot device IP).
-4. Trust self-signed certificate on HTTPS if needed.
+1. Tap **Start Mission** in the Pilot app while the device has validated internet.
+2. Open the active mission from Mission Dashboard.
+3. Select **Live stream (WebRTC)** in Mission Overwatch.
+4. If automatic live setup failed or the mission began offline, use **Pilot console → Mission → Start remote live** after connectivity returns.
 
-Mission Overwatch auto-fills the pilot IP from synced mission metadata when available.
+## Deployment-specific Local Network connection
+
+If your build exposes **Local Network**, run it on Wi-Fi, open **Live Overwatch Screen**, and connect by scanning or entering the pilot-device IP. Trust the self-signed relay certificate if prompted. This is not a selectable mission path in the current public Pilot app.
 
 ## Queued states
 
-**Queued for cloud sync**, **Loading playback link**, or upload banners mean local data still needs to reach the cloud. Stay signed in, keep the app open, move to internet, and use **Upload now** when offered.
+**Queued for cloud sync**, **Loading playback link**, or upload banners mean local data still needs to reach the cloud. Queued Pilot-app videos are stored durably and resume automatically when validated connectivity returns, including after the app process restarts. Keep the device powered on, do not force-stop or uninstall the app, and use **Upload now** when offered.
+
+When AlphaRelay opens with queued mission video, the startup panel shows the queue and progress. Use **Skip for now and start new mission** only when field work must begin before the older upload finishes.
 
 <Warning>
-  Internet sync and local relay viewing are different paths. Local Network viewing needs same-network reachability, not cloud access.
+  Remote live and cloud sync require internet. A deployment-specific LAN relay needs same-network reachability, not cloud access.
 </Warning>
 
 ## PWA / offline shell

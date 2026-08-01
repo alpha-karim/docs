@@ -11,22 +11,22 @@ The **pilot app** on an Android tablet, phone, or drone controller runs the miss
 ## Basic flow
 
 1. Start a live mission from the pilot app.
-2. Watch live in Mission Overwatch when using relay viewing or remote live.
+2. Watch live and log command-side events in Mission Overwatch when the pilot device is online.
 3. End the mission when field work is complete.
 4. Upload and review footage.
 5. Generate the after-action report, seal evidence, and export.
 
-## Two mission modes
+## Mission connectivity
 
-| Mode | When to use |
+| Pilot-device state | What happens |
 | --- | --- |
-| **Internet** | One pilot captures the mission; local relay viewing is not required. Works on cellular or Wi‑Fi. |
-| **Local Network** | Mission Overwatch connects to the pilot device over the same Wi‑Fi for live viewing and command-side logging. Requires Wi‑Fi. |
+| Online | **Start Mission** creates the mission, syncs it, and starts remote **Live stream (WebRTC)** automatically. |
+| Offline | The mission still records locally. Events, footage, and closeout work queue until connectivity returns. |
 
-Both modes can start **Live stream (WebRTC)** when the pilot device has internet and remote live is enabled from the pilot app.
+The current Pilot app does not present a **Local Network** mission button. A LAN relay may still appear in older or deployment-specific builds, but it is separate from the normal public workflow.
 
-On Android drone controllers, the pilot app may enter **Companion Capture Mode** automatically. The controller's native flight app keeps flight control while AlphaRelay captures the controller screen, streams it into the mission, and records mission footage.
+On Android drone controllers, the pilot app uses **Controller Screen Capture** by default. The controller's native flight app keeps flight control while AlphaRelay captures the controller screen, streams it into the mission, and records mission footage. On detected DJI SDK-controller setups, a listed and connected DJI aircraft can instead unlock **Pilot mode** for AlphaRelay flight controls.
 
-With Avata 2 and Goggles 3, AlphaRelay uses **Goggles Mode** on a separate Android device. DJI Fly displays the goggles live view, AlphaRelay starts an Internet mission with no scenario, and Goggles 3 with RC Motion 3 remain responsible for the aircraft.
+With Avata 2 and Goggles 3, AlphaRelay uses **Goggles Mode** on a separate Android device. DJI Fly displays the goggles live view, AlphaRelay starts a mission with no scenario, and Goggles 3 with RC Motion 3 remain responsible for the aircraft.
 
 Live missions start from the pilot app — not from the browser. For work that already happened outside AlphaRelay, **Import mission** in **Mission History** creates a closed post-flight record for review and reporting.

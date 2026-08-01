@@ -11,24 +11,25 @@ icon: "clipboard-check"
 3. Confirm the **device license** is active (scan QR or enter `ar-…` key).
 4. Sign in to the web app with the correct operator account.
 5. Open **Mission Overwatch** once while online on each browser that will use it in the field (installs the offline app shell).
-6. Choose **Internet** or **Local Network** before launch.
-7. For **Local Network**: confirm pilot device and Overwatch computer are on the **same Wi‑Fi**.
-8. For Android drone controllers: install AlphaRelay Pilot, activate the device license, run a test **Companion Capture Mode** mission, and confirm Android screen capture permission works.
+6. Run a test **Start Mission** flow and confirm remote live starts automatically when the pilot device is online.
+7. Confirm the Mission Overwatch browser can use its microphone if the team plans to use **Dictate** for manual events.
+8. For Android drone controllers: install AlphaRelay Pilot, activate the device license, run a test **Controller Screen Capture** mission, and confirm Android screen capture permission works. If the crew will use **Pilot mode**, also confirm the aircraft appears in the supported list and passes AlphaRelay's live connection check.
 9. For Avata 2 with Goggles 3: install DJI Fly and AlphaRelay Pilot on the Android device, test the wired or wireless goggles live-view connection, and confirm remote live and post-mission upload.
-10. Plan for internet when you need sync, upload, reports, or export.
-11. Assign pilot, overwatch user, reviewer, and supervisor roles.
+10. Check for older queued video on the Pilot-app startup screen and let it finish, or consciously choose **Skip for now and start new mission**.
+11. Plan for internet when you need remote live, sync, upload, reports, or export.
+12. Assign pilot, overwatch user, reviewer, and supervisor roles.
 
 ## Connection quick reference
 
 | Need | Requirement |
 | --- | --- |
-| Local Network live viewing | Same reachable Wi‑Fi between pilot device and Overwatch |
-| Remote live (**Live stream (WebRTC)**) | Pilot device has internet; pilot starts live from app |
+| Remote live (**Live stream (WebRTC)**) | Pilot device has validated internet; live starts automatically with the mission |
 | Cloud sync / upload / reports | Internet on the active device |
 | Field work with no internet | Supported; data queues until sync |
+| Deployment-specific LAN relay | Same reachable Wi-Fi between pilot device and Overwatch |
 
 <Warning>
-  Internet and local relay connectivity are different. Local Network viewing does not require internet, but it does require local Wi‑Fi reachability.
+  The current public Pilot app does not present a Local Network mission button. If your deployment exposes a LAN relay, it needs local Wi-Fi reachability and remains separate from internet sync.
 </Warning>
 
 Pilots can hide on-screen drone controls and use the physical controller while keeping quick events and relay status visible. See [Minimum requirements](/alpharelay/minimum-requirements) for device specs.

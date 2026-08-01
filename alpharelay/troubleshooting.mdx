@@ -4,38 +4,50 @@ description: "Common fixes for connection, sync, footage, and reports."
 icon: "wrench"
 ---
 
-## Mission Overwatch cannot connect (Local Network)
+## Remote live is missing
 
-1. Confirm **Local Network** is running on the pilot app (not **Internet**).
-2. Both devices on the **same Wi‑Fi** — not guest/isolated networks.
-3. Wait for the mission to appear in Mission Dashboard after sync.
-4. In **Live Overwatch Screen**, click **Connect** with IP blank to scan, or enter the pilot device IPv4.
-5. Trust the relay certificate if prompted (**Trust relay certificate** → browser Advanced/Proceed → retry).
+1. Confirm the pilot device has validated internet and the mission is active.
+2. Open **Pilot console → Mission** and check remote-live status.
+3. Tap **Start remote live** if automatic setup was skipped or failed.
+4. In Mission Overwatch, open the active mission and select **Live stream (WebRTC)**.
+
+The current public Pilot app does not present a **Local Network** mission button. If your deployment exposes **Live Overwatch Screen**, keep both devices on the same reachable Wi-Fi, connect by scan or pilot-device IP, and trust the relay certificate if prompted.
 
 ## Cloud sync delayed
 
 1. Confirm you are signed in.
-2. Move to internet and keep the app or browser open until queued work finishes.
+2. Move to validated internet. Pilot-app video uploads resume through the durable Android queue; browser work still needs its tab open.
 3. Do not refresh during pending sync.
 
 ## Footage queued or not playing
 
-1. Keep pilot app or browser open on internet.
-2. Tap **Upload now** if shown.
-3. Wait for **Loading playback link** to clear in Mission Overwatch.
-4. For manual upload: confirm signed in, online, correct MP4, no other upload running.
+1. Keep the pilot device powered on and restore validated internet.
+2. If the Pilot app opens with a queued-video panel, let it run or use **Skip for now and start new mission** only when field work cannot wait.
+3. Tap **Upload now** if shown.
+4. Wait for **Loading playback link** to clear in Mission Overwatch.
+5. For manual upload: confirm signed in, online, correct MP4, no other upload running.
 
 Manual browser uploads do **not** queue before starting — retry when online.
 
-## Companion Capture Mode did not start
+## Controller Screen Capture did not start
 
 1. Confirm the pilot device is an Android drone controller with **AlphaRelay Pilot** installed.
-2. Start the mission from **Choose Mission Mode**; Companion Capture Mode is automatic, not a separate button.
+2. Start the mission from **Choose Mission Mode → Start Mission**. On an integrated Android drone controller, Controller Screen Capture is automatic; on a detected DJI SDK-controller setup, select **Controller Screen Capture — Recommended**.
 3. Approve the Android screen capture prompt.
 4. If voice relay is needed, grant microphone permission and confirm speech recognition is available.
 5. If the app cannot be installed, allow the browser or file manager to **install unknown apps**. Android Developer mode is not required.
 
-The controller's native flight app remains the flight control app. AlphaRelay aircraft command buttons are intentionally disabled in Companion Capture Mode.
+The controller's native flight app remains the flight control app. AlphaRelay aircraft command buttons are intentionally disabled in Controller Screen Capture.
+
+## Pilot mode stays locked
+
+1. Confirm AlphaRelay detected the DJI SDK remote-controller setup and displays the capture-mode chooser.
+2. Select **Pilot mode**, open the 12-aircraft list, and confirm the exact aircraft family is listed.
+3. Tap **My drone is listed — Use Pilot**.
+4. Power on and connect the aircraft and controller, then wait for AlphaRelay's live flight-controller check.
+5. Start only after AlphaRelay reports **Supported aircraft confirmed. Pilot mode is ready.**
+
+If the aircraft is not listed, the DJI SDK is unavailable, or the connection check times out, select **Controller Screen Capture — Recommended** and use the native flight app. Do not rely on Pilot mode until the same aircraft, controller, payload, and firmware combination has been validated in training.
 
 ## Avata 2 Goggles Mode did not start
 
@@ -43,7 +55,7 @@ The controller's native flight app remains the flight control app. AlphaRelay ai
 2. Power on and link Avata 2, Goggles 3, and RC Motion 3.
 3. For automatic detection, connect Goggles 3 to the Android device with the USB-C OTG cable and a data cable.
 4. Open DJI Fly and confirm the goggles live view appears before opening AlphaRelay.
-5. If you use wireless live-view sharing, open **Choose Mission Mode**, enable **Use DJI Fly / goggles video feed**, choose **No scenario template**, and tap **Internet**.
+5. If you use wireless live-view sharing, open **Choose Mission Mode**, enable **Use DJI Fly / goggles video feed**, choose **No scenario template**, and tap **Start Mission**.
 6. Approve the Android screen capture prompt.
 
 If DJI Fly does not open automatically after approval, open it manually and confirm its live view is still active.
@@ -52,8 +64,17 @@ If DJI Fly does not open automatically after approval, open it manually and conf
 
 1. Keep the Android device connected to internet. If DJI Fly uses Wi-Fi live-view sharing, keep cellular data available.
 2. Keep DJI Fly in the foreground during the mission.
-3. Stop through the **Companion Capture Mode** notification or AlphaRelay **Stop Mission** button; do not force-close the app.
-4. Keep AlphaRelay open and the Android device online while queued footage uploads.
+3. Stop through the **Controller Screen Capture** notification or AlphaRelay **Stop Mission** button; do not force-close the app.
+4. Keep the Android device powered on while queued footage remains. AlphaRelay resumes it automatically when validated internet returns; do not force-stop or uninstall the app.
+
+## Mission Overwatch dictation is unavailable
+
+1. Use a browser with speech-recognition support.
+2. Allow microphone access for the AlphaRelay site.
+3. Check that the operating system can see a working microphone.
+4. If the browser speech service needs network access, confirm the browser is online.
+
+You can always type the event under **Manual Event (fast)**. Dictation only fills the note; review it and click **Log Manual Event** to save the event.
 
 ## Play with Events has no markers
 
@@ -69,6 +90,23 @@ If DJI Fly does not open automatically after approval, open it manually and conf
 4. If the status says the request timed out or failed, leave the page open; Mission Overwatch retries bounded requests automatically.
 
 AI live watch does not run from the LAN-only relay video source and does not run after the mission is closed.
+
+## Timeline says a finding needs review
+
+1. Open the closed mission and select **Timeline**.
+2. Compare the finding with its source screenshot or footage.
+3. Choose **Accept as is** or **Review & edit**.
+
+Accepting a finding in **AI Review** only moves it to the timeline. The timeline review is required before that finding can enter the AAR. Submitted or approved reports lock these controls.
+
+## Ask AI is unavailable or cannot answer
+
+1. Open a closed, synced mission and select **AI Review → Ask AI**.
+2. Confirm footage, photos, or event screenshots are available and playable.
+3. Keep Mission Overwatch online and confirm AI is configured for the deployment.
+4. If AlphaRelay says it is preparing supporting evidence, keep the page open while it samples frames from playable footage.
+
+Ask AI can answer only from available mission imagery. If the relevant moment is missing, obscured, low quality, or outside the sampled frames, it may report that the question cannot be answered.
 
 ## Local AI not tagging
 

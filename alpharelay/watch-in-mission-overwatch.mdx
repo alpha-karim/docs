@@ -6,34 +6,34 @@ icon: "monitor-play"
 
 Mission Overwatch is the per-mission browser workspace. Open it from **Mission Dashboard** by selecting a mission (the dashboard may label this **Open Mission Console**).
 
-Sign in at [alpha-relay.com](https://www.alpha-relay.com). For LAN-only field use, the dashboard can open Mission Overwatch in offline-ready mode when internet is unavailable.
-
-## Local Network — Live Overwatch Screen
-
-Shown only for **Local Network** (hidden for **Internet**).
-
-1. Confirm the pilot app relay is running and both devices share the same Wi‑Fi.
-2. In **Live Overwatch Screen**, leave **Tablet/phone IP (LAN)** blank and click **Connect** to scan, or enter the pilot device IPv4.
-3. Enter **Relay token** if required.
-4. If connection fails on HTTPS, use **Trust relay certificate** and proceed through the browser warning, then retry.
-
-You get LAN MJPEG video, telemetry, and command-side event logging with lowest latency.
-
-In **Companion Capture Mode**, the LAN live video source is the controller screen from the native flight app. AlphaRelay does not send aircraft commands in that mode.
+Sign in at [alpha-relay.com](https://www.alpha-relay.com). The page shell can reopen after an online visit, but active Internet missions, remote live, cloud event logging, and synced review require connectivity.
 
 ## Remote live — Live stream (WebRTC)
 
-When the pilot starts live from the app, Overwatch users on the internet can click **Live stream (WebRTC)**. This is the remote live path over the public internet, separate from the LAN relay.
+When the Pilot app starts a mission with validated internet, it starts remote live automatically. Open the active mission and select **Live stream (WebRTC)** to watch it.
 
-Works with either mission mode when the pilot device has internet.
+If the mission began offline or remote-live setup failed, restore internet and use **Pilot console → Mission → Start remote live** to retry.
 
-In **Companion Capture Mode**, remote live publishes the controller screen.
+- In **Controller Screen Capture**, remote live publishes the controller screen.
+- In **Goggles Mode**, remote live publishes the DJI Fly screen carrying the Goggles 3 live view. Keep the Android device online.
 
-In **Goggles Mode**, remote live starts automatically and publishes the DJI Fly screen carrying the Goggles 3 live view. The pilot device must remain online.
+## Mission tools
+
+**Mission tools** remain available for an active Internet mission even though the LAN relay panel is hidden.
+
+- Use scenario quick-event buttons for common events.
+- Type a note under **Manual Event (fast)** and click **Log Manual Event**.
+- Or tap **Dictate**, allow microphone access, speak the event, review the transcript, and click **Log Manual Event**.
+
+Dictation depends on browser speech-recognition support. If it is unavailable or blocked, manual typing still works.
+
+## Deployment-specific Local Network relay
+
+The current public Pilot app does not present a **Local Network** mission option. If an older or deployment-specific build exposes **Live Overwatch Screen**, connect it to the pilot device on the same reachable Wi-Fi by scan or LAN IP. That LAN path is separate from remote live and cloud sync.
 
 ## AI live watch
 
-When configured and remote live is active, Mission Overwatch can show **AI live watch** next to the live feed controls. Turning it on samples frames from **Live stream (WebRTC)** and logs mission timeline alerts only when AI flags a possible threat indicator for officer review.
+When configured and remote live is active, Mission Overwatch can show **AI live watch** next to the live feed controls. It defaults on unless a saved mission choice turns it off. It samples frames from **Live stream (WebRTC)** and logs mission timeline alerts only when AI flags a possible threat indicator for officer review.
 
 AI live watch alerts can show:
 
@@ -41,11 +41,15 @@ AI live watch alerts can show:
 - A timeline event with the sampled frame attached when available
 - A **LIVE AI ALERT - REVIEW NOW** badge and log entry in the pilot app while the same mission is active
 
+When event screenshot analysis is configured, AlphaRelay automatically analyzes a synced AI-alert screenshot. The analysis remains a pending timeline finding until an officer selects **Accept as is** or **Review & edit**. Unreviewed findings do not enter the AAR.
+
 Treat these alerts as prompts for human review. They do not replace pilot judgment, command staff review, or final report approval.
 
 ## Closed missions
 
-After **Stop Mission**, Mission Overwatch switches to review tabs: footage timeline, **Play with Events**, **AI Review**, after-action report, chain of custody, and export actions.
+After **Stop Mission**, Mission Overwatch switches to review tabs: timeline, media and **Play with Events**, **AI Review**, and report. The lifecycle tracker moves through **Mission Review**, **Draft AAR**, **Evidence Sealed**, **Supervisor Review**, and **Approved & Locked**, and its next-action prompt changes as review work is completed.
+
+AI Review includes post-mission media findings and **Ask AI** questions grounded in uploaded mission imagery. Findings accepted in AI Review move to the timeline for final officer review before report use.
 
 ## Offline app shell
 

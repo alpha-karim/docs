@@ -15,15 +15,20 @@ Events are timestamped notes on the mission timeline. Keep them short and specif
 - Voice relay: say `relay` followed by the event details (e.g. `relay suspect entered north door`)
 - Optional **Local AI** auto-tags (e.g. person detected) — review these before treating them as facts
 
-In **Companion Capture Mode**, voice relay can save a controller-screen screenshot with the event when screen capture is active.
+In **Controller Screen Capture**, voice relay can save a controller-screen screenshot with the event when screen capture is active.
 
 **Mission Overwatch**
 
 - Use **Event Logging** quick buttons (match the scenario template labels)
 - Use **Manual Event (fast)** for free-text notes
-- Quick buttons hide while the relay is live if labels match the pilot device
+- Tap **Dictate**, speak the event, review the transcript, and click **Log Manual Event** when the browser supports speech recognition
+- These Mission tools remain available for active Internet missions; they do not require a Local Network relay
 
-Screenshots from the live feed are captured automatically when the workflow supports them.
+Screenshots from the live feed are captured automatically when the workflow supports them. When configured, synced AI-alert screenshots are also analyzed automatically and appear as timeline findings for officer review.
+
+<Note>
+  Browser dictation uses the browser's speech-recognition capability. Allow microphone access when prompted. If dictation is unavailable, blocked, or cannot reach the browser speech service, type the event instead.
+</Note>
 
 ## After the mission
 
@@ -33,4 +38,4 @@ Screenshots from the live feed are captured automatically when the workflow supp
 
 AlphaRelay adds the event to the mission log, stores a screenshot from that frame, and links it to the timeline.
 
-Resolve event timing against footage before generating the final report.
+Resolve event timing against footage before generating the final report. For any AI-derived image analysis on the timeline, choose **Accept as is** or **Review & edit** before report generation.

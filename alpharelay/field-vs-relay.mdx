@@ -1,56 +1,57 @@
 ---
-title: "Internet vs Local Network"
-description: "Choose the mission mode that matches how your team works."
+title: "Mission Connectivity"
+description: "Understand remote live, offline capture, and deployment-specific LAN relay."
 icon: "split"
 ---
 
-In the pilot app, tap **Choose Mission Mode** and pick one of two buttons:
+The current Pilot app presents one **Start Mission** action. It creates an Internet mission and automatically starts **Live stream (WebRTC)** when the pilot device has validated internet.
 
-## Internet
+## Online mission
 
-Use when one pilot captures the mission and local relay viewing is not needed.
+Use the normal **Start Mission** workflow on cellular, Wi-Fi, Ethernet, or VPN internet.
 
-- Available on **cellular or Wi‑Fi**
-- Mission Overwatch is used mainly **after** the mission for review, reporting, and export
-- Remote live still works when the pilot starts **Live stream (WebRTC)** from the app
+- Mission metadata and events sync to the cloud.
+- Remote live starts automatically.
+- Mission Overwatch can watch live and log quick, typed, or dictated events.
+- Footage may upload during closeout or continue from the durable upload queue.
 
-Best for: solo operations, offline field work, missions reviewed later.
+## Offline mission
 
-## Local Network
+If validated internet is unavailable, **Start Mission** still begins local capture and event logging. Remote live cannot start, and cloud work waits in the sync and footage queues. When connectivity returns, queued Android footage resumes automatically; mission metadata and events also retry through the normal sync path.
 
-Use when Mission Overwatch must connect to the pilot device **during** the mission over the local network.
+## Deployment-specific Local Network relay
 
-- Requires **Wi‑Fi** on the pilot device (not cellular-only)
-- Shows **Live Overwatch Screen** in Mission Overwatch for LAN video, telemetry, and command-side logging
-- Remote live can run at the same time when configured
+The current public Pilot app does not show a **Local Network** mission button. Some older or deployment-specific builds may expose **Local Network** and **Live Overwatch Screen** for same-Wi-Fi relay viewing. In those builds:
 
-Best for: command-side viewing, live event logging from the browser, team monitoring from a local overwatch position.
+- The pilot and Mission Overwatch devices must share a reachable Wi-Fi network.
+- **Live Overwatch Screen** connects to the pilot device by LAN IP.
+- Remote live and cloud sync remain separate internet paths.
 
 ## Quick decision
 
-| Situation | Choose |
+| Situation | Workflow |
 | --- | --- |
-| One pilot, review later | Internet |
-| Command staff watch live on same Wi‑Fi | Local Network |
-| Remote viewers over internet | Either mode + **Live stream (WebRTC)** from pilot app |
-| No Wi‑Fi at all | Internet; sync when internet returns |
+| Pilot device has internet | **Start Mission**; remote live starts automatically |
+| No usable internet | **Start Mission**; capture locally and sync later |
+| Remote viewers need live video | Keep the pilot device online and open **Live stream (WebRTC)** in Mission Overwatch |
+| Your deployment exposes **Local Network** | Use its LAN relay instructions on the same reachable Wi-Fi |
 
 <Note>
-  Both modes can live stream over the internet. The difference is whether Mission Overwatch also needs the **local relay** connection during the mission.
+  Remote live and cloud sync use internet. A deployment-specific LAN relay uses local Wi-Fi and is a separate connection path.
 </Note>
 
 See [Connectivity](/alpharelay/connectivity-guide) for what requires internet vs local Wi‑Fi.
 
-## Companion Capture Mode
+## Controller Screen Capture
 
-On Android drone controllers, AlphaRelay can enter **Companion Capture Mode** after either mission choice. You still choose **Internet** or **Local Network**; Companion Capture Mode changes the live source and aircraft-control behavior.
+On integrated Android drone controllers, AlphaRelay enters **Controller Screen Capture** after **Start Mission**. On detected DJI SDK-controller setups, it is the recommended default beside the optional verified **Pilot mode**. Controller Screen Capture changes the live source and aircraft-control behavior, not the mission-start action.
 
 In this mode, the controller's native flight app controls the aircraft while AlphaRelay captures the controller screen, streams it to the mission, records screen footage, and logs events.
 
-→ [Companion Capture Mode](/alpharelay/companion-capture-mode)
+→ [Controller Screen Capture](/alpharelay/companion-capture-mode)
 
 ## Avata 2 with Goggles 3
 
-Goggles Mode uses **Internet** only. On a prepared Android device, a wired Goggles 3 connection turns on the mode automatically, bypasses mission and scenario selection, and starts remote live from the DJI Fly goggles view.
+Goggles Mode requires internet for remote live and sync. On a prepared Android device, a wired Goggles 3 connection turns on the mode automatically, bypasses mission and scenario selection, and starts remote live from the DJI Fly goggles view.
 
 → [Avata 2 with Goggles 3](/alpharelay/avata-2-goggles-3)

@@ -12,9 +12,11 @@ icon: "users"
 | Supervisor | Browser — Mission Dashboard / Overwatch | Approves or returns after-action reports |
 | Org admin | Browser — Organization page | Members, roles, licenses, time zone, storage |
 
-## Companion controllers
+## Android drone controllers
 
-On Android drone controllers, the pilot device can run **Companion Capture Mode**. The controller's native flight app handles flight control while AlphaRelay captures the controller screen, streams it to the active mission, records controller-screen footage, and logs events.
+On Android drone controllers, the pilot device can run **Controller Screen Capture**. The controller's native flight app handles flight control while AlphaRelay captures the controller screen, streams it to the active mission, records controller-screen footage, and logs events.
+
+On a detected DJI SDK-controller setup, AlphaRelay also presents **Pilot mode**. It remains locked until the operator confirms a listed DJI MSDK 5.17 aircraft and AlphaRelay verifies a live flight-controller connection. Pilot mode lets AlphaRelay own the DJI SDK connection and present direct flight and camera controls; availability still depends on the aircraft, controller, payload, firmware, and field validation.
 
 For Avata 2 with Goggles 3, the pilot operates through Goggles 3 and RC Motion 3. A separate Android phone or tablet runs DJI Fly and AlphaRelay **Goggles Mode** to relay and record the goggles live view.
 
@@ -22,7 +24,9 @@ For Avata 2 with Goggles 3, the pilot operates through Goggles 3 and RC Motion 3
 
 - Missions **always start from the pilot app**, not Mission Overwatch.
 - Open missions from **Mission Dashboard** (link may say **Open Mission Console**).
-- **Local Network** needs the pilot device and Overwatch device on the same reachable Wi‑Fi.
-- **Internet** does not show the LAN relay panel in Mission Overwatch during the live mission.
-- **Companion Capture Mode** is automatic on supported controller hardware; it is not a separate mission button.
-- **Goggles Mode** starts an Internet mission automatically when a prepared Android device detects Goggles 3 over USB.
+- The current Pilot app presents one **Start Mission** action and starts remote live automatically when validated internet is available.
+- Mission Overwatch **Mission tools** remain available for active Internet missions, including quick events, typed manual events, and browser dictation.
+- **Local Network** is a deployment-specific LAN relay path and is not presented by the current public Pilot app.
+- **Controller Screen Capture** is automatic on integrated Android drone controllers and the recommended default on detected DJI SDK-controller setups; it is not a separate mission button.
+- **Pilot mode** is an explicit alternative on eligible DJI SDK-controller setups and requires supported-aircraft confirmation plus a successful live connection check.
+- **Goggles Mode** starts a mission automatically when a prepared Android device detects Goggles 3 over USB.

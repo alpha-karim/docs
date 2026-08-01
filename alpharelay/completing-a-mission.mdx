@@ -10,19 +10,20 @@ icon: "flag-checkered"
 2. Follow normal landing and safety procedures.
 3. Tap **Stop Mission** in the pilot app when field work is complete.
 4. Optionally tap **Close Mission** from the **Mission** card in Mission Overwatch.
-5. Keep the pilot app or browser open while upload or queue messages finish.
+5. Check the upload or queue status before powering off the pilot device.
 
 ## What happens
 
 - The relay session ends with the mission.
 - SD recording stops after a successful land when supported.
-- In **Companion Capture Mode**, AlphaRelay finalizes controller-screen recording chunks instead of pulling aircraft SD video.
+- In **Controller Screen Capture**, AlphaRelay finalizes controller-screen recording chunks instead of pulling aircraft SD video.
 - In **Goggles Mode**, AlphaRelay finalizes the captured DJI Fly live-view frames as an MP4 and queues it for upload. It does not pull Avata 2 internal-storage or microSD footage.
 - Footage may upload immediately or queue for later sync.
+- Queued Pilot-app video is stored durably and resumes automatically when validated connectivity returns, including after the app process restarts.
 - Review should wait until footage status is clear.
 
 <Warning>
-  Do not force-close the pilot app or browser while footage is uploading or queued.
+  Do not force-stop or uninstall the Pilot app while footage is queued. Browser-initiated uploads still require the browser tab to remain open.
 </Warning>
 
 → [Upload footage](/alpharelay/footage-upload)

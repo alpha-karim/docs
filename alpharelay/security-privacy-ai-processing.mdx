@@ -6,7 +6,7 @@ icon: "lock"
 
 ## What runs locally
 
-- **Pilot app**: flight controls, quick events, LAN relay, optional Local AI detection, voice relay
+- **Pilot app**: flight controls, quick events, optional Local AI detection, voice relay, remote-live publishing, and durable sync queues
 - **Mission Overwatch PWA shell**: page cache after first online visit (sign-in and sync still need network)
 
 ## What syncs to the cloud
@@ -15,16 +15,19 @@ When internet is available: mission metadata, events, screenshots, photos, foota
 
 ## AI
 
-Configured AI can draft after-action report content from structured mission data, help review uploaded media, analyze selected event screenshots, and watch sampled remote-live frames when enabled. Always review:
+Configured AI can draft after-action report content from structured mission data, help review uploaded media, answer questions about available mission imagery, analyze selected event screenshots, and watch sampled remote-live frames when enabled. Always review:
 
 - Timeline accuracy
 - Footage and photo references
-- Accepted AI Review findings
+- Accepted AI Review findings and officer-reviewed timeline observations
+- Ask AI answers, limitations, and supporting evidence
 - Event screenshot or media image analysis
 - AI live watch alerts and attached frame evidence
 - **Items Requiring Officer Review**
 
-Treat AI output as draft material. AI Review can sample frames from uploaded footage and analyze uploaded photos or event screenshots. Accepted findings are added to the timeline only after a human accepts them. AI live watch alerts are logged as officer-review prompts, not final determinations.
+Treat AI output as draft material. AI Review can sample frames from uploaded footage and analyze uploaded photos or event screenshots. Accepted findings are added to the timeline, where an officer must **Accept as is** or **Review & edit** before report use. Ask AI uses available mission imagery, reports confidence and limitations, and does not replace review of the original media. AI live watch alerts are logged as officer-review prompts, not final determinations; their screenshots may be analyzed automatically when configured.
+
+Mission Overwatch **Dictate** uses the browser's speech-recognition capability and microphone permission. Availability and speech processing depend on the browser and operating system; type the event when agency policy or browser support does not permit dictation.
 
 ## Pilot agreements
 

@@ -1,22 +1,24 @@
 ---
-title: "Companion Capture Mode"
-description: "Use AlphaRelay beside the native flight app on Android drone controllers."
+title: "Controller Screen Capture"
+description: "Keep the native flight app in control while AlphaRelay captures an Android controller screen."
 icon: "tablet-screen-button"
 ---
 
-Companion Capture Mode lets AlphaRelay run beside the native flight app on Android drone controllers. The controller's native flight app remains responsible for aircraft operation; AlphaRelay captures the controller screen, streams it into the mission, records mission footage, and logs events.
+Controller Screen Capture lets AlphaRelay run beside the native flight app on Android drone controllers. The controller's native flight app remains responsible for aircraft operation; AlphaRelay captures the controller screen, streams it into the mission, records mission footage, and logs events.
 
-This is not a third mission button. Start the mission normally with **Internet** or **Local Network**. When the pilot app detects supported controller hardware, Companion Capture Mode turns on automatically.
+This is the recommended capture path. On integrated Android drone controllers it turns on automatically after **Start Mission**. On a detected DJI SDK-controller setup, choose **Controller Screen Capture — Recommended** instead of **Pilot mode** when the native flight app should stay in control.
 
 <Note>
   Using Avata 2 with Goggles 3 and a separate Android phone or tablet? Follow the dedicated [Avata 2 with Goggles 3](/alpharelay/avata-2-goggles-3) workflow instead.
 </Note>
 
-## When it appears
+## Where it is available
 
-Companion Capture Mode is available on Android-based drone controllers that can install **AlphaRelay Pilot** and grant Android screen capture permission. It is not limited to one controller manufacturer. The pilot app shows a log message such as **Companion Capture Mode enabled** when the controller is detected.
+Controller Screen Capture is available on Android-based drone controllers that can install **AlphaRelay Pilot** and grant Android screen capture permission. It is not limited to one controller manufacturer.
 
 AlphaRelay detects known drone-controller identity strings, including DJI RC / RC Pro / RC Plus / RM / Matrice controller families, Autel smart controllers, Herelink / CubePilot controllers, and Inspired Flight GS-ONE controllers. Generic Android phones, tablets, and rugged tablets use the normal pilot workflow unless they are connected to Goggles 3 or Goggles Mode is enabled manually.
+
+When the Android pilot device is connected to a detected DJI SDK remote controller, the mission screen also offers **Pilot mode**. AlphaRelay does not select it automatically: the operator must confirm a listed DJI MSDK 5.17 aircraft, and AlphaRelay must verify a live flight-controller connection before **Start Mission** unlocks. See [Start a mission](/alpharelay/start-a-mission#choose-controller-screen-capture-or-pilot-mode) for the current 12-aircraft catalog and verification steps.
 
 ## Install on a controller
 
@@ -44,11 +46,13 @@ You do not need to enable Android Developer mode to install AlphaRelay.
 1. Open AlphaRelay on the supported controller.
 2. Tap **Choose Mission Mode**.
 3. Name the mission and choose a scenario template if needed.
-4. Tap **Internet** or **Local Network**.
-5. If prompted, start **Live stream (WebRTC)** or choose **Not now**.
+4. If AlphaRelay shows a capture-mode chooser, keep **Controller Screen Capture — Recommended** selected.
+5. Tap **Start Mission**.
 6. Approve the Android screen capture prompt.
 7. Wait for AlphaRelay to move itself to the background.
 8. Open or return to the controller's native flight app and fly from there.
+
+If the controller has validated internet, AlphaRelay starts **Live stream (WebRTC)** automatically before it requests screen capture. If the controller is offline, capture still starts and remote live is skipped; sync and footage upload wait for connectivity.
 
 AlphaRelay starts a foreground capture service before it leaves the screen. The controller-screen recording begins after AlphaRelay is no longer the foreground app, so return to the native flight app before takeoff or before the operational portion you want to capture.
 
@@ -56,15 +60,14 @@ Use the controller's native flight app for flight operation. Use AlphaRelay for 
 
 ## What to expect on the controller
 
-- Android shows a persistent **Companion Capture Mode** notification while screen capture is running.
-- The notification status may say **Starting companion capture**, **Waiting for AlphaRelay to close**, **Starting controller screen capture**, or the current mission-capture state.
+- Android shows a persistent **Controller Screen Capture** notification while screen capture is running.
+- The notification status may say **Starting controller screen capture**, **Waiting for AlphaRelay to close**, **Recording controller screen**, or the current mission-capture state.
 - AlphaRelay captures whatever is visible on the controller screen. If you open Android settings, the notification shade, or AlphaRelay itself, that screen is part of the recording until you return to the native flight app.
 - If the controller shows a screen-recording or screen-casting indicator, leave it enabled for the mission. Turning it off stops screen capture.
 
 ## During the mission
 
-- In **Local Network**, Mission Overwatch connects to the pilot device the same way it normally does; the LAN live view shows the controller screen.
-- In either mission mode, **Live stream (WebRTC)** can publish the controller screen to remote Overwatch users when the pilot device has internet.
+- **Live stream (WebRTC)** publishes the controller screen to remote Overwatch users when the pilot device has internet.
 - Say `relay` followed by event details to create a voice relay event. AlphaRelay saves a current controller-screen screenshot with the event when available.
 - If you need AlphaRelay controls during the mission, return to AlphaRelay from recent apps or the notification, make the update, then return to the native flight app. The recording follows the visible screen.
 
@@ -74,7 +77,7 @@ After the flight, close the mission from AlphaRelay or from the notification:
 
 1. Land and finish any required work in the native flight app.
 2. Pull down the Android notification shade.
-3. Find the **Companion Capture Mode** notification.
+3. Find the **Controller Screen Capture** notification.
 4. Tap **Stop Mission**.
 5. Let AlphaRelay reopen and finish mission closeout.
 
@@ -82,11 +85,11 @@ The notification action uses the same closeout path as the in-app **Stop Mission
 
 If you are already in AlphaRelay, tap **Stop Mission** there instead. Do not force-close AlphaRelay or stop Android screen capture as the normal closeout method.
 
-Keep the controller powered on and connected to internet until queued uploads finish.
+Queued recordings are stored durably and resume uploading automatically when validated internet returns, including after the app process restarts. Keep the controller powered on, and do not force-stop or uninstall AlphaRelay while uploads are pending.
 
 ## Limits
 
-- AlphaRelay does not fly the aircraft in Companion Capture Mode.
+- AlphaRelay does not fly the aircraft in Controller Screen Capture.
 - The captured footage is the controller screen, including native flight-app overlays, not a raw camera file.
 - Android screen capture permission is required every time capture starts.
 - If microphone permission or speech recognition is unavailable, voice relay is disabled but screen capture can still run.
