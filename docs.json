@@ -37,8 +37,10 @@
             "pages": [
               "alpharelay/before-you-go-to-the-field",
               "alpharelay/start-a-mission",
+              "alpharelay/view-live-mission-android",
               "alpharelay/watch-in-mission-overwatch",
               "alpharelay/event-logging",
+              "alpharelay/local-ai",
               "alpharelay/completing-a-mission"
             ]
           },

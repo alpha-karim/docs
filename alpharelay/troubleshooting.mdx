@@ -13,6 +13,15 @@ icon: "wrench"
 
 The current public Pilot app does not present a **Local Network** mission button. If your deployment exposes **Live Overwatch Screen**, keep both devices on the same reachable Wi-Fi, connect by scan or pilot-device IP, and trust the relay certificate if prompted.
 
+## Android Mission Viewer cannot see the mission
+
+1. Confirm the viewing device has internet.
+2. Confirm AlphaRelay Pilot is activated with a valid license for the same organization as the mission.
+3. Confirm the mission is still active. Closed missions do not appear in the viewer list.
+4. Tap **Refresh** in the mission picker.
+
+If timeline events appear but video does not, the pilot's remote **Live stream (WebRTC)** has not started or is not ready. Restore pilot-device internet and retry remote live from **Pilot console → Mission**.
+
 ## Cloud sync delayed
 
 1. Confirm you are signed in.
@@ -91,6 +100,15 @@ You can always type the event under **Manual Event (fast)**. Dictation only fill
 
 AI live watch does not run from the LAN-only relay video source and does not run after the mission is closed.
 
+## AI alert says approval is required
+
+1. Open the mission **Timeline** in Mission Overwatch.
+2. Compare the Local AI or AI live-watch alert with the source screenshot or footage.
+3. Choose **Approve alert** to allow configured screenshot analysis and report consideration, or **Dismiss alert** to exclude it.
+4. After approved analysis finishes, choose **Accept as is** or **Review & edit** for the resulting finding.
+
+Approving the alert is not the same as accepting the image analysis. Both review steps are required before analyzed content can enter the report narrative.
+
 ## Timeline says a finding needs review
 
 1. Open the closed mission and select **Timeline**.
@@ -110,14 +128,22 @@ Ask AI can answer only from available mission imagery. If the relevant moment is
 
 ## Local AI not tagging
 
-Open **Pilot console → Mission → Local AI**, confirm detection is enabled, and the on-device model is present. Local AI requires the relay to be running. Review auto-tags before treating them as operational facts.
+1. Open **Pilot console → Flight → Local AI** and confirm **Enable on-device detection** is on.
+2. Start the relay or Controller Screen Capture; Local AI does not sample frames while capture is stopped.
+3. Check the Local AI metrics line for offered frames, inference activity, or dropped samples.
+4. Confirm the pilot app is current; the person-and-visible-weapon model is bundled with the current build.
+5. Grant Android notification permission if events are logged but direct alerts do not appear.
+
+Review every auto-tag before treating it as an operational fact. Small, distant, dark, blurred, or partially hidden objects may be missed.
 
 ## Report actions blocked
 
-Check mission state and your role. Submitted or approved reports lock timeline edits. Approved reports cannot be regenerated.
+Check mission state and your role. Submitting for supervisor approval locks report editing, mission renaming, timeline and media changes, and AI Review actions. A supervisor can **Return to draft** to reopen work. Approved missions are permanently read-only and reports cannot be regenerated.
 
 ## Offline package video won't play
 
 Open `index.html` from inside the extracted folder without moving files out. Use Chrome or Edge for large packages.
+
+On Android, opening `index.html` can isolate it from sibling media files. If **Reconnect exported files** appears, tap **Choose package files** and select the extracted footage, photos, and printable HTML files. You can choose files more than once when Android presents different folders separately.
 
 → [Connectivity](/alpharelay/connectivity-guide) · [Known limitations](/alpharelay/known-limitations)

@@ -8,7 +8,7 @@ AlphaRelay uses separate live and sync paths. Losing one does not always stop th
 
 ```text
 Pilot app
-  |-- Live stream (WebRTC) → Mission Overwatch over internet
+  |-- Live stream (WebRTC) → Mission Overwatch / Android Mission Viewer over internet
   `-- Cloud sync → Events, footage, reports, evidence
 ```
 
@@ -17,6 +17,7 @@ Some older or deployment-specific builds also expose a LAN relay to Mission Over
 ## Without internet
 
 - Local mission capture and event logging
+- On-device Local AI inference and Controller Screen Capture notifications
 - Queued footage and deferred cloud sync
 - Pilot license within the 10-day offline grace window
 
@@ -26,6 +27,7 @@ Some older or deployment-specific builds also expose a LAN relay to Mission Over
 - Footage and photo upload
 - Playback links
 - **Live stream (WebRTC)** setup and viewing
+- **View Live Mission** mission list, timeline updates, event logging, and video
 - Report generation and supervisor workflow
 - Offline package and evidence JSON export downloads
 
@@ -35,6 +37,8 @@ Some older or deployment-specific builds also expose a LAN relay to Mission Over
 2. Open the active mission from Mission Dashboard.
 3. Select **Live stream (WebRTC)** in Mission Overwatch.
 4. If automatic live setup failed or the mission began offline, use **Pilot console → Mission → Start remote live** after connectivity returns.
+
+A second licensed Android device can instead tap **View Live Mission**. The Android viewer requires internet for its active-mission list, timeline, event logging, and remote video.
 
 ## Deployment-specific Local Network connection
 

@@ -8,16 +8,17 @@ icon: "clipboard-list"
 
 - Supported Android version for the installed pilot app
 - Usable internet for remote live and immediate cloud sync; offline capture can queue work
-- Enough CPU, memory, battery, and storage for live video, telemetry, event logging, and optional Local AI
+- Enough CPU, memory, battery, and storage for live video, telemetry, event logging, and on-device Local AI when enabled
 - Supported aircraft-control workflow when using aircraft integration
 - Conditional Matrice camera tools on supported Matrice aircraft or Matrice controllers
 - Android drone controller capable of installing **AlphaRelay Pilot** and granting screen capture permission for **Controller Screen Capture**
 - For **Pilot mode**: detected DJI SDK remote-controller setup, a listed DJI MSDK 5.17 aircraft, and a live flight-controller connection that AlphaRelay can verify
 - For a DJI Avata with compatible DJI Goggles: separate Android phone or tablet with **DJI Fly**, **AlphaRelay Pilot**, screen capture permission, and internet
+- For **View Live Mission**: a second AlphaRelay Pilot installation licensed to the mission's organization, plus internet
 
-## Overwatch / review (desktop browser)
+## Overwatch / review (browser)
 
-- Current Chrome, Edge, or Safari for Mission Overwatch, dashboard, and export
+- Current Chrome, Edge, or Safari on desktop or mobile for Mission Overwatch, dashboard, and export; a larger screen is recommended for long review sessions
 - Internet for sync, upload, reports, and export media downloads
 - Internet and AI configuration for report drafting, AI Review, Ask AI, event screenshot analysis, or AI live watch
 - Browser microphone permission and speech-recognition support for **Dictate** in Mission Overwatch
@@ -32,11 +33,13 @@ icon: "clipboard-list"
 | Pilot mode | Detected DJI SDK-controller setup; aircraft in the Pilot app's DJI MSDK 5.17 list; successful live connection check |
 | DJI Avata with DJI Goggles | Linked DJI Avata, compatible DJI Goggles, and compatible controller; Android device with DJI Fly and AlphaRelay Pilot; goggles live-view connection; Android screen capture permission; internet |
 | **Live stream (WebRTC)** | Validated pilot-device internet; starts automatically with the mission and can be retried from the Pilot console |
+| Android Mission Viewer | Second licensed AlphaRelay Pilot installation in the same organization; active mission; internet; remote live required for video |
+| On-device Local AI | Pilot app relay or capture session running; compatible Android compute; notification permission for immediate Controller Screen Capture alerts; internet only for sync and cloud follow-up |
 | AI Review | Closed, synced mission with uploaded photos, event screenshots, or playable footage; internet and AI configuration |
 | Ask AI | Closed, synced mission with uploaded photos, event screenshots, or playable footage; internet and AI configuration |
 | AI live watch | Active remote live stream; Mission Overwatch online; AI configuration enabled |
 | Cloud sync / upload | Internet + signed-in session |
-| Offline package export | Internet at export time to download media |
+| Offline package export | Internet at export time to download media; extracted package can be reviewed later on desktop or mobile |
 
 Permissions: grant camera, microphone (voice relay), storage, and location prompts from the Pilot app as requested. In Mission Overwatch, allow browser microphone access only when using **Dictate**.
 

@@ -13,7 +13,7 @@ Events are timestamped notes on the mission timeline. Keep them short and specif
 - Tap **quick event** buttons or the quick event wheel (phone layouts)
 - Enter manual event notes
 - Voice relay: say `relay` followed by the event details (e.g. `relay suspect entered north door`)
-- Optional **Local AI** auto-tags (e.g. person detected) — review these before treating them as facts
+- **Local AI** person, multiple-person, and possible-weapon auto-tags when on-device detection is enabled — review these before treating them as facts
 
 In **Controller Screen Capture**, voice relay can save a controller-screen screenshot with the event when screen capture is active.
 
@@ -24,7 +24,15 @@ In **Controller Screen Capture**, voice relay can save a controller-screen scree
 - Tap **Dictate**, speak the event, review the transcript, and click **Log Manual Event** when the browser supports speech recognition
 - These Mission tools remain available for active Internet missions; they do not require a Local Network relay
 
-Screenshots from the live feed are captured automatically when the workflow supports them. When configured, synced AI-alert screenshots are also analyzed automatically and appear as timeline findings for officer review.
+**Android Mission Viewer**
+
+- On a second licensed Android device, tap **View Live Mission** and choose the active mission
+- Use scenario quick-event buttons or enter a note under **Add mission event…**
+- Viewer events join the same mission timeline; logging turns off when the mission ends
+
+Screenshots from the live feed are captured automatically when the workflow supports them. Local AI screenshots can include yellow detection boxes.
+
+For a Local AI or AI live-watch alert, choose **Approve alert** in the timeline before configured screenshot analysis or report use can proceed. Choose **Dismiss alert** to exclude the event from the report. If approved analysis returns a finding, use **Accept as is** or **Review & edit** after checking the source image.
 
 <Note>
   Browser dictation uses the browser's speech-recognition capability. Allow microphone access when prompted. If dictation is unavailable, blocked, or cannot reach the browser speech service, type the event instead.
@@ -39,3 +47,5 @@ Screenshots from the live feed are captured automatically when the workflow supp
 AlphaRelay adds the event to the mission log, stores a screenshot from that frame, and links it to the timeline.
 
 Resolve event timing against footage before generating the final report. For any AI-derived image analysis on the timeline, choose **Accept as is** or **Review & edit** before report generation.
+
+→ [On-device Local AI](/alpharelay/local-ai) · [View a live mission on Android](/alpharelay/view-live-mission-android)

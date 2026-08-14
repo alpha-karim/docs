@@ -7,7 +7,7 @@ icon: "shield-check"
 Sealing locks reviewed custody evidence and hashes. It is **separate** from supervisor report approval.
 
 <Warning>
-  Sealing ≠ approving the report. Sealing preserves custody hashes. Approval locks the after-action report and timeline.
+  Sealing ≠ submitting or approving the report. Sealing preserves custody hashes. Submitting the report locks editing during supervisor review; approval makes the record permanently read-only.
 </Warning>
 
 ## When to seal
@@ -23,6 +23,8 @@ After footage, events, photos, and the report draft have been reviewed, timeline
 5. Optionally download **Download mission custody certificate (HTML)**.
 
 Sealing verifies downloaded bytes against stored hashes and locks registered evidence rows in the custody ledger.
+
+Evidence sealing does not by itself lock the mission name, timeline, media review, or report draft. Finish those changes before **Submit for supervisor approval**, which applies the workflow lock.
 
 ## Export evidence package (JSON)
 

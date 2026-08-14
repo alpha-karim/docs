@@ -40,6 +40,7 @@ You do not need to enable Android Developer mode to install AlphaRelay.
 - **Takeoff**, **Land**, camera controls, and other aircraft commands in AlphaRelay are blocked.
 - Controller screen recordings are saved in chunks and queued for upload after the mission.
 - Voice relay can still create timeline events when microphone permission is granted.
+- On-device **Local AI** can sample the captured controller screen and create person, multiple-person, or possible-weapon alerts for review.
 
 ## Start a mission
 
@@ -69,6 +70,7 @@ Use the controller's native flight app for flight operation. Use AlphaRelay for 
 
 - **Live stream (WebRTC)** publishes the controller screen to remote Overwatch users when the pilot device has internet.
 - Say `relay` followed by event details to create a voice relay event. AlphaRelay saves a current controller-screen screenshot with the event when available.
+- When Local AI is enabled, inference and direct Android alerts work on the controller without internet. Timeline sync and cloud screenshot analysis still wait for connectivity.
 - If you need AlphaRelay controls during the mission, return to AlphaRelay from recent apps or the notification, make the update, then return to the native flight app. The recording follows the visible screen.
 
 ## Stop and upload
@@ -93,5 +95,6 @@ Queued recordings are stored durably and resume uploading automatically when val
 - The captured footage is the controller screen, including native flight-app overlays, not a raw camera file.
 - Android screen capture permission is required every time capture starts.
 - If microphone permission or speech recognition is unavailable, voice relay is disabled but screen capture can still run.
+- Controller-screen overlays can affect Local AI. AlphaRelay filters fixed HUD rails and repeated boxes, but every alert still requires human review.
 
-→ [Start a mission](/alpharelay/start-a-mission) · [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Upload footage](/alpharelay/footage-upload)
+→ [Start a mission](/alpharelay/start-a-mission) · [On-device Local AI](/alpharelay/local-ai) · [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Upload footage](/alpharelay/footage-upload)

@@ -8,7 +8,7 @@ Use this page as the full lifecycle map. Each step links to a deeper guide.
 
 ## 1. Set up devices
 
-Install the pilot app, activate the device license, sign in to the web app, and open Mission Overwatch once while online on each browser profile that will use it in the field.
+Install the pilot app, activate each Android device license, sign in to the web app, and open Mission Overwatch once while online on each browser profile that will use it in the field. A device used for **View Live Mission** needs its own licensed installation in the same organization.
 
 → [Devices and licenses](/alpharelay/one-time-setup) · [Before you go to the field](/alpharelay/before-you-go-to-the-field)
 
@@ -20,9 +20,9 @@ Open the pilot app, tap **Choose Mission Mode**, name the mission, pick a scenar
 
 ## 3. Watch and log events
 
-Open the active mission in Mission Overwatch and select **Live stream (WebRTC)**. When AI live watch is configured, Mission Overwatch can sample the remote stream and log alerts for officer review. Log quick events from the pilot app or Mission Overwatch. In Mission Overwatch, you can type a manual event or tap **Dictate**, review the transcript, and log it.
+Open the active mission in Mission Overwatch and select **Live stream (WebRTC)**. When AI live watch is configured, Mission Overwatch can sample the remote stream and log alerts for officer review. A second licensed Android device can tap **View Live Mission** to watch remote live, follow the timeline, and add quick or manual events. The pilot app's Local AI can also create person and possible-weapon alerts while its relay or capture session is running.
 
-→ [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Log events](/alpharelay/event-logging)
+→ [View a live mission on Android](/alpharelay/view-live-mission-android) · [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Log events](/alpharelay/event-logging) · [On-device Local AI](/alpharelay/local-ai)
 
 ## 4. Review the mission
 
@@ -37,13 +37,14 @@ Generate the after-action report with AI drafting when configured, resolve **Ite
 → [Generate a report](/alpharelay/report-generation) · [Seal the mission record](/alpharelay/evidence-sealing) · [Export offline package](/alpharelay/export-offline-package)
 
 <Warning>
-  Sealing evidence and supervisor approval are separate steps. Sealing preserves custody hashes; approval locks the report and timeline.
+  Sealing evidence and supervisor approval are separate steps. Sealing preserves custody hashes. Submitting the report locks timeline, media, mission-name, and AI-review changes while a supervisor decides; approval makes that lock permanent.
 </Warning>
 
 ## AI across the workflow
 
 - During an active remote stream, **AI live watch** samples frames and logs possible threat indicators for officer review.
-- AI-alert screenshots can be analyzed automatically when configured. Review the resulting timeline finding with **Accept as is** or **Review & edit**.
+- On the pilot device, **Local AI** can detect people and possible visible weapons from relay frames and create review alerts without internet.
+- For an AI live-watch or Local AI alert, choose **Approve alert** to allow configured screenshot analysis and report eligibility, or **Dismiss alert** to exclude it. Then review any resulting analysis with **Accept as is** or **Review & edit**.
 - After a synced mission closes, **AI Review** analyzes uploaded footage frames, photos, and event screenshots so you can accept or reject suggested findings. Accepted findings require timeline review before report use.
 - Inside AI Review, **Ask AI** answers mission-specific questions from the available imagery and shows its confidence, supporting observations, limitations, and supporting evidence.
 

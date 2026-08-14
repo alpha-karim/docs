@@ -13,6 +13,17 @@ The offline package is a point-in-time ZIP of the mission record for handoff, co
 3. Save the ZIP and wait for packaging to finish (large missions take longer).
 4. Unzip and open `index.html` from the extracted folder — keep files inside the folder.
 
+The viewer adapts to desktop and phone screens. Its styles and runtime are embedded in `index.html`, so the main viewer can open without separate CSS or JavaScript files.
+
+## Open on Android
+
+1. Extract the ZIP with the device's Files app or another archive tool.
+2. Open `index.html` in a current browser.
+3. If **Reconnect exported files** appears, tap **Choose package files**.
+4. Select the extracted footage, photos, custody certificate, and after-action report files. Choose again if Android separates them across folders.
+
+Android may open a local HTML file in an isolated `content:` view that cannot see neighboring files automatically. Reconnecting creates temporary browser links to the selected files; it does not upload them.
+
 ## Contents
 
 When available at export time:
@@ -27,6 +38,7 @@ When available at export time:
 
 - Export needs internet to download mission data and media at export time.
 - Chrome or Edge is recommended for very large packages.
+- Keep the extracted folder intact. Moving only `index.html` drops the package media and printable documents.
 - The ZIP reflects mission state at export time — it is not a live sync replacement.
 
 For JSON evidence export, use **Export evidence package (JSON)** in chain of custody instead.

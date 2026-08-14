@@ -1,0 +1,52 @@
+---
+title: "Use On-Device Local AI"
+description: "Run assistive person and possible-weapon detection on the pilot device."
+icon: "tablet-screen-button"
+---
+
+**Local AI** samples the pilot app's relay frames and creates review-oriented mission alerts on the Android device. The current pilot app includes a person-and-visible-weapon model and enables on-device detection by default.
+
+Local inference can work without internet. During Controller Screen Capture, the immediate Android notification also works without internet. The relay or capture session must be running, and cloud sync still needs connectivity.
+
+## Current alert types
+
+- **Person detected**
+- **Multiple persons detected**
+- **Possible weapon detected**
+
+These are assistive detections, not operational conclusions. A possible-weapon alert does not establish that an object is a weapon, who possesses it, intent, legality, or threat level.
+
+## Configure Local AI
+
+1. Open **Pilot console → Flight → Local AI**.
+2. Turn **Enable on-device detection** on or off.
+3. Adjust the sample rate, minimum detection score, confirmation window, or cooldown only after testing the change.
+4. Tap **Save local AI settings**.
+5. Start the mission relay or Controller Screen Capture and watch the Local AI metrics line for inference and event activity.
+
+During Controller Screen Capture, grant Android notification permission if the pilot should receive immediate on-controller alerts. A possible-weapon detection uses the urgent alert style.
+
+## What happens after a detection
+
+AlphaRelay can create a timeline event with an annotated screenshot. Yellow boxes mark the detected person or object when a usable box is available. Person, group, and possible-weapon alerts track screen regions so one continuously visible subject is not logged over and over; a new subject elsewhere can still create a new alert.
+
+In Controller Screen Capture, AlphaRelay filters small person boxes inside fixed flight-app HUD rails and collapses overlapping boxes around the same person. These filters reduce repeated and HUD-driven alerts, but they do not eliminate false positives or missed detections.
+
+## Review an alert in Mission Overwatch
+
+1. Open the mission **Timeline**.
+2. Compare the alert and screenshot with the live view or source footage.
+3. Choose **Approve alert** to allow configured screenshot analysis and report eligibility, or **Dismiss alert** to exclude it from the report.
+4. If approved screenshot analysis returns a finding, choose **Accept as is** or **Review & edit** before it can enter the after-action report narrative.
+
+This is a two-stage review: approving the alert allows analysis and report consideration; reviewing the resulting image analysis makes the finding officer-owned.
+
+## Limits
+
+- Local AI runs only while the relay or capture session supplies frames.
+- Internet is not required for inference, but synced timeline screenshots, cloud analysis, and reporting require connectivity.
+- Small, blurred, distant, dark, partially hidden, or unusual objects may be missed. Tools, toys, sporting equipment, and silhouettes may be false positives.
+- The bundled model has not been validated on real DJI Controller Screen Capture footage or broad field conditions. Do not treat held-out model tests as field performance.
+- Local AI does not determine identity, intent, policy compliance, criminal activity, injury, or whether an area is clear.
+
+→ [Log events](/alpharelay/event-logging) · [Review footage](/alpharelay/footage-playback) · [Known limitations](/alpharelay/known-limitations)

@@ -6,7 +6,7 @@ icon: "lock"
 
 ## What runs locally
 
-- **Pilot app**: flight controls, quick events, optional Local AI detection, voice relay, remote-live publishing, and durable sync queues
+- **Pilot app**: flight controls, quick events, Local AI detection when enabled, Android Mission Viewer, voice relay, remote-live publishing, and durable sync queues
 - **Mission Overwatch PWA shell**: page cache after first online visit (sign-in and sync still need network)
 
 ## What syncs to the cloud
@@ -25,7 +25,9 @@ Configured AI can draft after-action report content from structured mission data
 - AI live watch alerts and attached frame evidence
 - **Items Requiring Officer Review**
 
-Treat AI output as draft material. AI Review can sample frames from uploaded footage and analyze uploaded photos or event screenshots. Accepted findings are added to the timeline, where an officer must **Accept as is** or **Review & edit** before report use. Ask AI uses available mission imagery, reports confidence and limitations, and does not replace review of the original media. AI live watch alerts are logged as officer-review prompts, not final determinations; their screenshots may be analyzed automatically when configured.
+Treat AI output as draft material. AI Review can sample frames from uploaded footage and analyze uploaded photos or event screenshots. Accepted findings are added to the timeline, where an officer must **Accept as is** or **Review & edit** before report use. Ask AI uses available mission imagery, reports confidence and limitations, and does not replace review of the original media.
+
+Local AI and AI live-watch alerts are logged as review prompts, not final determinations. An officer must choose **Approve alert** before a synced alert screenshot can be analyzed or considered for the report, or **Dismiss alert** to exclude it. Any resulting image analysis still requires **Accept as is** or **Review & edit**.
 
 Mission Overwatch **Dictate** uses the browser's speech-recognition capability and microphone permission. Availability and speech processing depend on the browser and operating system; type the event when agency policy or browser support does not permit dictation.
 
@@ -38,7 +40,8 @@ Pilot agreement PDFs and signed copies are stored in private storage. Signing li
 | Action | Effect |
 | --- | --- |
 | **Seal entire mission** | Locks custody evidence hashes |
-| **Supervisor approval** | Locks the report, timeline events, and photos |
+| **Submit for supervisor approval** | Temporarily locks the report, mission name, timeline, media, and AI Review actions until a supervisor returns it to draft or approves it |
+| **Supervisor approval** | Makes the submitted record permanently read-only |
 | **Export offline package…** / **Export evidence package (JSON)** | Point-in-time copies for retention or handoff |
 
 Do not share exports before sync and review are complete.

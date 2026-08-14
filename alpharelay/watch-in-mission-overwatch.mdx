@@ -8,6 +8,8 @@ Mission Overwatch is the per-mission browser workspace. Open it from **Mission D
 
 Sign in at [alpha-relay.com](https://www.alpha-relay.com). The page shell can reopen after an online visit, but active Internet missions, remote live, cloud event logging, and synced review require connectivity.
 
+Mission Overwatch adapts to phone and tablet browsers, including lifecycle status, closed-mission actions, metadata, and report controls. A desktop-sized screen is still easier for long footage and report reviews.
+
 ## Remote live — Live stream (WebRTC)
 
 When the Pilot app starts a mission with validated internet, it starts remote live automatically. Open the active mission and select **Live stream (WebRTC)** to watch it.
@@ -35,13 +37,15 @@ The current public Pilot app does not present a **Local Network** mission option
 
 When configured and remote live is active, Mission Overwatch can show **AI live watch** next to the live feed controls. It defaults on unless a saved mission choice turns it off. It samples frames from **Live stream (WebRTC)** and logs mission timeline alerts only when AI flags a possible threat indicator for officer review.
 
+The current default cadence can start a new sample as often as every two seconds. Network and analysis time can make the effective interval longer, and AlphaRelay does not overlap analysis requests.
+
 AI live watch alerts can show:
 
 - An **AI live alert** or **Urgent AI live alert** banner in Mission Overwatch
 - A timeline event with the sampled frame attached when available
 - A **LIVE AI ALERT - REVIEW NOW** badge and log entry in the pilot app while the same mission is active
 
-When event screenshot analysis is configured, AlphaRelay automatically analyzes a synced AI-alert screenshot. The analysis remains a pending timeline finding until an officer selects **Accept as is** or **Review & edit**. Unreviewed findings do not enter the AAR.
+Before a Local AI or AI live-watch alert can trigger configured screenshot analysis or enter a report, an officer must choose **Approve alert**. Choose **Dismiss alert** when the alert should be excluded. If an approved screenshot returns an analysis finding, it remains pending until an officer selects **Accept as is** or **Review & edit**. Unapproved, dismissed, and unreviewed findings do not enter the AAR narrative.
 
 Treat these alerts as prompts for human review. They do not replace pilot judgment, command staff review, or final report approval.
 
@@ -50,6 +54,16 @@ Treat these alerts as prompts for human review. They do not replace pilot judgme
 After **Stop Mission**, Mission Overwatch switches to review tabs: timeline, media and **Play with Events**, **AI Review**, and report. The lifecycle tracker moves through **Mission Review**, **Draft AAR**, **Evidence Sealed**, **Supervisor Review**, and **Approved & Locked**, and its next-action prompt changes as review work is completed.
 
 AI Review includes post-mission media findings and **Ask AI** questions grounded in uploaded mission imagery. Findings accepted in AI Review move to the timeline for final officer review before report use.
+
+Closed-mission timelines render chronologically, with the oldest event at the top and the latest at the bottom. Closed missions show historical content only; Mission Overwatch stops remote-live playback and background live-stream retries after the mission closes.
+
+Mission creators and org admins can use **Rename** in Mission Overwatch to correct the mission name before the report is submitted. Submitted and approved missions are read-only and cannot be renamed.
+
+## View from a licensed Android device
+
+For a compact active-mission view, open AlphaRelay Pilot on a second licensed Android device and tap **View Live Mission**. It can watch remote live, follow timeline updates, and log quick or manual events. Closed-mission review stays in Mission Overwatch.
+
+→ [View a live mission on Android](/alpharelay/view-live-mission-android)
 
 ## Offline app shell
 

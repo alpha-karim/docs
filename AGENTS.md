@@ -24,14 +24,18 @@
 - **Pilot console** — in-app settings panel (Mission, Flight, Events, System)
 - **Mission Dashboard** — command home (`dashboard.html`)
 - **Mission Overwatch** / **Mission Console** — per-mission browser workspace (`mission-overwatch.html`; dashboard link says **Open Mission Console**)
+- **Mission Viewer** / **View Live Mission** — active-mission viewer in the licensed Android Pilot app for remote live, timeline updates, and quick or manual event logging from a secondary device
 - **Live Overwatch Screen** — relay connection panel in Mission Overwatch
 - **Live stream (WebRTC)** — remote live viewing over the internet
 - **AI live watch** — Mission Overwatch control that analyzes sampled remote-live frames and logs officer-review alerts when configured; it defaults on unless a saved mission choice disables it
+- **Local AI** — on-device person, multiple-person, and possible-weapon detection that runs from relay frames; Controller Screen Capture can notify the pilot without internet
+- **Automatic AI-alert review** — an officer must **Approve alert** or **Dismiss alert** before a Local AI or AI live-watch screenshot can be analyzed or used in a report
 - **Mission tools** — quick events, typed manual events, and browser **Dictate** for active Internet missions
 - **Timeline finding review** — accepted AI Review findings and analyzed AI-alert screenshots require **Accept as is** or **Review & edit** in the timeline before AAR use
 - **Quick events**, **scenario template**, **Items Requiring Officer Review**
 - **Import mission** — Mission History action for creating a closed post-flight record from external footage and photos
 - **Export offline package…**, **Export evidence package (JSON)**
+- **Rename** — available from Mission History and Mission Overwatch until the report is submitted for approval
 - **AI** — configured report drafting, media review, screenshot analysis, and live-watch assistance
 
 ## Style

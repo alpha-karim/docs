@@ -12,19 +12,24 @@ Run a short test mission to learn the workflow end to end.
 2. Name the mission `Training mission` and pick a scenario template or **No scenario template**.
 3. Tap **Start Mission** and confirm remote live starts automatically when the pilot device is online.
 4. Open the mission from Mission Dashboard and select **Live stream (WebRTC)**.
-5. Add one event from the pilot app (quick event button or voice: `relay <details>`).
-6. Add one event from Mission Overwatch. Try **Dictate**, review the transcript, then click **Log Manual Event**.
-7. Run a short, safe exercise.
-8. Tap **Stop Mission** on the pilot device.
-9. Confirm footage uploaded or is queued (see upload banner / status).
-10. Open **Play with Events** and confirm markers appear.
-11. If AI Review is configured, accept one safe test finding, then open **Timeline** and use **Accept as is** or **Review & edit**.
-12. Generate the after-action report and walk through seal / approval / export if your workflow uses them.
+5. If the team will use an Android Mission Viewer, open AlphaRelay Pilot on the second licensed device, tap **View Live Mission**, and confirm video and timeline updates.
+6. Add one event from the pilot app (quick event button or voice: `relay <details>`).
+7. Add one event from Mission Overwatch. Try **Dictate**, review the transcript, then click **Log Manual Event**.
+8. If Local AI will be used, confirm it is enabled under **Pilot console → Flight → Local AI** and perform a safe person-detection check. Do not simulate a weapon alert with a real weapon.
+9. Run a short, safe exercise.
+10. Tap **Stop Mission** on the pilot device.
+11. Confirm footage uploaded or is queued (see upload banner / status).
+12. Open **Play with Events** and confirm markers appear.
+13. For any test Local AI or AI live-watch alert, practice **Approve alert** or **Dismiss alert**. Review any approved image analysis with **Accept as is** or **Review & edit**.
+14. If AI Review is configured, accept one safe test finding, then complete its timeline review.
+15. Generate the after-action report and walk through seal / approval / export if your workflow uses them.
 
 ## Debrief
 
 - Did the mission and remote live start as expected for the available connectivity?
 - Did events appear on the timeline?
+- Did the Android Mission Viewer show the active mission and stop event logging after close?
+- Did Local AI avoid repeated alerts for one continuously visible test subject?
 - Was footage available or queued as expected?
 - Were any AI-derived timeline findings reviewed before report generation?
 - Was the report understandable before submission?

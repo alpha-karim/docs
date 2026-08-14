@@ -10,6 +10,7 @@ icon: "triangle-alert"
 - **Live stream (WebRTC)** requires internet on the pilot device.
 - Cloud sync, upload, and export wait for internet.
 - Losing relay, remote live, or cloud sync does not always end the mission — paths are independent.
+- **View Live Mission** on Android requires internet and a valid licensed installation in the same organization. Timeline events can update even when remote video is not ready.
 
 ## Media
 
@@ -20,18 +21,20 @@ icon: "triangle-alert"
 - Queued footage must finish before final review.
 - Manual browser MP4 upload requires internet before upload starts (no pre-queue).
 - **Import mission** requires a signed-in, online browser and creates a closed post-flight record only.
-- Offline packages only include media available at export time.
+- Offline packages only include media available at export time. Some Android file viewers isolate `index.html`; use the package's **Reconnect exported files** prompt when it appears.
 
 ## AI
 
-- **Local AI** depends on device, model file, and configuration — review auto-tags before relying on them.
+- **Local AI** uses the bundled person-and-visible-weapon model by default, but performance still depends on the Android device, settings, image quality, and scene. It has not been field-validated on broad DJI Controller Screen Capture footage.
+- Local AI can miss small, distant, blurred, dark, or partially hidden objects and can mistake tools, toys, equipment, or silhouettes for a possible weapon. It does not determine identity, possession, intent, legality, policy compliance, injury, or whether an area is clear.
+- Spatial tracking and HUD filtering reduce repeated person/weapon alerts and controller-overlay false positives; they do not guarantee one alert per real subject or eliminate false alerts.
 - AI report drafts require officer review; resolve **Items Requiring Officer Review** before finalization.
 - **AI Review** requires a closed synced mission, available media, internet, AI configuration, and installed analysis tables.
 - **Ask AI** runs only for a closed synced mission with available imagery. Its answers reflect sampled footage frames, photos, and event screenshots, so occlusion, image quality, repeated views, or missing moments can limit counts and conclusions.
 - An exact repeat question may load a saved answer for the same mission-media set. Ask again after the media changes.
-- **AI live watch** requires active **Live stream (WebRTC)**, internet, Mission Overwatch online, and AI configuration. It samples the remote live stream and logs officer-review alerts only when the alert threshold is met.
+- **AI live watch** requires active **Live stream (WebRTC)**, internet, Mission Overwatch online, and AI configuration. The default cadence can start a sample as often as every two seconds, but network and analysis latency may make it slower.
 - AI media findings are suggestions. Accepting one in AI Review moves it to the timeline; an officer must then use **Accept as is** or **Review & edit** before it is eligible for the AAR.
-- Automatic AI-alert screenshot analysis waits for the event and screenshot to sync and requires internet plus AI configuration.
+- Local AI and AI live-watch alerts require **Approve alert** before configured screenshot analysis or report eligibility. **Dismiss alert** excludes the alert. Approved analysis still waits for the event, review decision, and screenshot to sync and requires internet plus AI configuration.
 
 ## Aircraft controls
 
@@ -43,11 +46,11 @@ icon: "triangle-alert"
 
 ## Workflow locks
 
-- Supervisor approval makes the report permanent and locks timeline events and photos.
+- Submitting a report for supervisor approval locks the report, mission name, timeline, footage, photos, and AI Review actions. Returning it to draft reopens work; approval makes the lock permanent.
 - Evidence sealing preserves custody hashes — it is not report approval.
 
 ## Browser
 
-- Large offline ZIP exports work best in Chrome or Edge.
+- Large offline ZIP exports work best in Chrome or Edge. The viewer adapts to phones, but mobile file-provider rules may require reconnecting extracted package files.
 - **Dictate** depends on browser speech-recognition support, microphone permission, and any browser speech-service connectivity.
 - Self-signed relay certificates require a one-time browser trust step on HTTPS Mission Overwatch.
