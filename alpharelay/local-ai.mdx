@@ -26,11 +26,17 @@ These are assistive detections, not operational conclusions. A possible-weapon a
 
 During Controller Screen Capture, grant Android notification permission if the pilot should receive immediate on-controller alerts. A possible-weapon detection uses the urgent alert style.
 
+Local AI and browser AI live watch coordinate alert ownership for the same online mission. After browser live watch completes a healthy analysis, the Pilot app pauses its local detector and shows **Local AI: paused while browser Live AI is active** in the metrics line. If browser analysis stops, the browser closes, or connectivity is lost, the short handoff expires and on-device Local AI resumes automatically.
+
 ## What happens after a detection
 
 AlphaRelay can create a timeline event with an annotated screenshot. Yellow boxes mark the detected person or object when a usable box is available. Person, group, and possible-weapon alerts track screen regions so one continuously visible subject is not logged over and over; a new subject elsewhere can still create a new alert.
 
 In Controller Screen Capture, AlphaRelay filters small person boxes inside fixed flight-app HUD rails and collapses overlapping boxes around the same person. These filters reduce repeated and HUD-driven alerts, but they do not eliminate false positives or missed detections.
+
+When the full-frame pass does not already find a qualifying possible weapon, AlphaRelay can spend one additional high-detail pass around a weak weapon candidate or detected person before falling back to a frame region. This improves review coverage for smaller objects without making the detector conclusive.
+
+AlphaRelay captures the evidence screenshot before posting the audible Android alert. The heads-up alert dismisses automatically after about three seconds, while the mission Timeline event remains available for review. On-device notifications also retain a 45-second cooldown for the same alert title.
 
 ## Review an alert in Mission Overwatch
 
@@ -44,6 +50,7 @@ This is a two-stage review: approving the alert allows analysis and report consi
 ## Limits
 
 - Local AI runs only while the relay or capture session supplies frames.
+- Healthy browser AI live watch temporarily owns automatic detection for the same mission; the on-device detector remains the fallback and resumes automatically.
 - Internet is not required for inference, but synced timeline screenshots, cloud analysis, and reporting require connectivity.
 - Small, blurred, distant, dark, partially hidden, or unusual objects may be missed. Tools, toys, sporting equipment, and silhouettes may be false positives.
 - The bundled model has not been validated on real DJI Controller Screen Capture footage or broad field conditions. Do not treat held-out model tests as field performance.

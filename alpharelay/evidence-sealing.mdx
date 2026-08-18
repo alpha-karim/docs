@@ -12,17 +12,24 @@ Sealing locks reviewed custody evidence and hashes. It is **separate** from supe
 
 ## When to seal
 
-After footage, events, photos, and the report draft have been reviewed, timeline findings are officer-reviewed, and report-readiness **Items Requiring Officer Review** are resolved.
+After footage, events, photos, and the report draft have been reviewed, the Timeline, Media, and AI Review steps are complete, timeline findings are officer-reviewed, and report-readiness **Items Requiring Officer Review** are resolved.
 
 ## Steps
 
 1. Open the closed mission.
 2. Confirm footage plays and **Play with Events** markers look correct.
-3. Open **Mission chain of custody**.
-4. Click **Seal entire mission (verify downloads)** when ready.
-5. Optionally download **Download mission custody certificate (HTML)**.
+3. Confirm official event counts contain the expected human-created events, approved automatic alerts, and officer-reviewed AI findings.
+4. Open **Mission chain of custody**.
+5. Click **Seal entire mission (verify downloads)** when ready.
+6. Optionally download **Download mission custody certificate (HTML)**.
 
 Sealing verifies downloaded bytes against stored hashes and locks registered evidence rows in the custody ledger.
+
+When the mission seals, AlphaRelay removes automatic alerts that were never approved and accepted AI Review findings that never received Timeline officer review. Dismissed alerts are included in that cleanup. Human-created events remain unless a user explicitly deleted them. The same official-event rule is used for event totals, playback markers, reports, offline exports, and evidence-chain views.
+
+<Warning>
+  Cleanup of unapproved AI candidates is permanent. Resolve every alert and finding before sealing; sealing does not approve pending items.
+</Warning>
 
 Evidence sealing does not by itself lock the mission name, timeline, media review, or report draft. Finish those changes before **Submit for supervisor approval**, which applies the workflow lock.
 

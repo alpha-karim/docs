@@ -22,11 +22,13 @@ Open the pilot app, tap **Choose Mission Mode**, name the mission, pick a scenar
 
 Open the active mission in Mission Overwatch and select **Live stream (WebRTC)**. When AI live watch is configured, Mission Overwatch can sample the remote stream and log alerts for officer review. A second licensed Android device can tap **View Live Mission** to watch remote live, follow the timeline, and add quick or manual events. The pilot app's Local AI can also create person and possible-weapon alerts while its relay or capture session is running.
 
+The Command Center brings active mission state, remote-live or sync problems, automatic alerts awaiting review, and report follow-ups into one attention queue. Mission Overwatch refreshes the focused timeline as device and viewer events arrive.
+
 → [View a live mission on Android](/alpharelay/view-live-mission-android) · [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Log events](/alpharelay/event-logging) · [On-device Local AI](/alpharelay/local-ai)
 
 ## 4. Review the mission
 
-End the mission, let footage upload or queue, then open **Play with Events** to check markers against video. When AI is configured, use **AI Review** to analyze uploaded media and accept or reject suggested findings. An accepted finding moves to the timeline; use **Accept as is** or **Review & edit** there to make it officer-reviewed before it can enter the AAR. Open **Ask AI** inside AI Review to ask questions grounded in the mission imagery. For work captured outside AlphaRelay, use **Import mission** from **Mission History** to create a closed post-flight record first.
+End the mission, let footage upload or queue, then follow **Timeline** → **Media** → **AI Review** when available and use **Done — continue** after each completed step. Open **Play with Events** to check markers against video; adjacent Controller Screen Capture chunks play as one recording. When AI is configured, accept or reject suggested findings. An accepted finding moves to the timeline; use **Accept as is** or **Review & edit** there to make it officer-reviewed before it can enter the AAR. Open **Ask AI** inside AI Review to ask questions grounded in the mission imagery. For work captured outside AlphaRelay, use **Import mission** from **Mission History** to create a closed post-flight record first.
 
 → [End a mission](/alpharelay/completing-a-mission) · [Import a mission](/alpharelay/import-mission) · [Upload footage](/alpharelay/footage-upload) · [Review footage](/alpharelay/footage-playback)
 
@@ -45,7 +47,10 @@ Generate the after-action report with AI drafting when configured, resolve **Ite
 - During an active remote stream, **AI live watch** samples frames and logs possible threat indicators for officer review.
 - On the pilot device, **Local AI** can detect people and possible visible weapons from relay frames and create review alerts without internet.
 - For an AI live-watch or Local AI alert, choose **Approve alert** to allow configured screenshot analysis and report eligibility, or **Dismiss alert** to exclude it. Then review any resulting analysis with **Accept as is** or **Review & edit**.
+- Browser AI live watch and on-device Local AI coordinate ownership for the same mission. Local AI pauses while healthy browser analysis is active and resumes automatically when that handoff ends.
 - After a synced mission closes, **AI Review** analyzes uploaded footage frames, photos, and event screenshots so you can accept or reject suggested findings. Accepted findings require timeline review before report use.
 - Inside AI Review, **Ask AI** answers mission-specific questions from the available imagery and shows its confidence, supporting observations, limitations, and supporting evidence.
 
 AI output is draft material. Verify every alert, finding, and answer against the live view or source media before using it in an operational decision, report, or evidence workflow.
+
+Official event counts and evidence surfaces include every undeleted human-created event, approved automatic alerts, and officer-reviewed AI findings. Pending or dismissed automatic alerts and accepted AI Review findings without Timeline officer review remain review material only.

@@ -38,6 +38,8 @@ If timeline events appear but video does not, the pilot's remote **Live stream (
 
 Manual browser uploads do **not** queue before starting — retry when online.
 
+If one Controller Screen Capture recording is split into multiple adjacent chunks, ordinary Mission Footage playback should continue automatically and show clip progress. A separately started recording does not join the earlier one. If an adjacent chunk still does not continue, reload the current app version, confirm the next chunk has finished uploading, and reopen the first chunk.
+
 ## Controller Screen Capture did not start
 
 1. Confirm the pilot device is an Android drone controller with **AlphaRelay Pilot** installed.
@@ -109,6 +111,10 @@ AI live watch does not run from the LAN-only relay video source and does not run
 
 Approving the alert is not the same as accepting the image analysis. Both review steps are required before analyzed content can enter the report narrative.
 
+## Event total is lower than the visible Timeline
+
+The Timeline can show pending or dismissed automatic alerts so reviewers can resolve and audit them. Official totals, playback markers, reports, exports, and evidence views count only undeleted human-created events, approved automatic alerts, and officer-reviewed AI findings. Use **Approve alert**, **Dismiss alert**, **Accept as is**, or **Review & edit** to finish the decisions.
+
 ## Timeline says a finding needs review
 
 1. Open the closed mission and select **Timeline**.
@@ -116,6 +122,15 @@ Approving the alert is not the same as accepting the image analysis. Both review
 3. Choose **Accept as is** or **Review & edit**.
 
 Accepting a finding in **AI Review** only moves it to the timeline. The timeline review is required before that finding can enter the AAR. Submitted or approved reports lock these controls.
+
+## Done — continue does not advance
+
+1. Read the status beside the button for unresolved Timeline or AI Review items.
+2. Finish the decisions you want to keep.
+3. Click **Done — continue** and review the confirmation count. Timeline completion deletes remaining unaccepted AI candidates; AI Review completion rejects remaining undecided findings.
+4. Stay online for a synced mission. If the action is unavailable, sign in again and reload the page.
+
+A newly synced pending alert or finding reopens the affected review step even if it was completed earlier.
 
 ## Ask AI is unavailable or cannot answer
 
@@ -133,6 +148,8 @@ Ask AI can answer only from available mission imagery. If the relevant moment is
 3. Check the Local AI metrics line for offered frames, inference activity, or dropped samples.
 4. Confirm the pilot app is current; the person-and-visible-weapon model is bundled with the current build.
 5. Grant Android notification permission if events are logged but direct alerts do not appear.
+
+If the metrics line says **Local AI: paused while browser Live AI is active**, this is expected coordination for the same mission. Local AI resumes automatically after browser analysis stops or the short handoff expires.
 
 Review every auto-tag before treating it as an operational fact. Small, distant, dark, blurred, or partially hidden objects may be missed.
 

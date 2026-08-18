@@ -6,6 +6,10 @@ icon: "play"
 
 Open a closed mission from **Mission Dashboard**, then go to **Mission Footage**.
 
+## Controller-screen recordings
+
+Controller Screen Capture stores long recordings as adjacent chunks. Starting playback from a chunk in Mission Overwatch or a dashboard report continues through the neighboring chunks from the same recording and shows full-recording and clip progress. A separately started recording remains separate.
+
 ## Play with Events
 
 1. Confirm the primary clip is loaded (wait for **Loading playback link** to finish).
@@ -13,6 +17,8 @@ Open a closed mission from **Mission Dashboard**, then go to **Mission Footage**
 3. Scrub through footage and compare event markers, screenshots, and timeline photos.
 4. Use angle tabs or **All angles** for multi-camera review.
 5. For secondary clips, use **Adjust sync to primary** if timing is off.
+
+**Play with Events** and ordinary Mission Footage playback both follow adjacent controller-screen chunks. Timeline updates that arrive while you review do not restart the current video.
 
 ## Tag from footage
 
@@ -48,6 +54,16 @@ AI live watch and on-device Local AI alerts use an additional approval gate. Fir
 AI Review now collapses repeated video-frame findings from the same footage clip so reviewers are not asked to resolve the same routine person, object, or high-priority finding over and over. High-priority findings in different rough regions remain separately reviewable.
 
 AI Review findings and alert screenshot analyses are suggestions. Verify the source media before accepting or editing them for report or evidence use.
+
+## Complete the review steps
+
+The closed-mission **Timeline** and **Media** tabs, plus **AI Review** when available, have **Done — continue**:
+
+- **Timeline**: approves no items automatically. If unaccepted AI candidates remain, AlphaRelay shows the count and asks before permanently deleting them. Human-created and approved AI events remain.
+- **Media**: records that footage and photos were reviewed.
+- **AI Review**: keeps accepted or edited findings and asks before rejecting any undecided findings.
+
+After completion, AlphaRelay opens the next unfinished step or **Report**. New pending AI material reopens the relevant step so it can be reviewed.
 
 ## Ask AI about the mission
 

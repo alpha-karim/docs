@@ -45,6 +45,8 @@ AI live watch alerts can show:
 - A timeline event with the sampled frame attached when available
 - A **LIVE AI ALERT - REVIEW NOW** badge and log entry in the pilot app while the same mission is active
 
+When browser AI live watch is successfully analyzing the same mission, the Pilot app pauses on-device Local AI to avoid duplicate automatic alerts. The Local AI metrics line reports this handoff and the on-device detector resumes automatically if browser analysis stops or the handoff expires.
+
 Before a Local AI or AI live-watch alert can trigger configured screenshot analysis or enter a report, an officer must choose **Approve alert**. Choose **Dismiss alert** when the alert should be excluded. If an approved screenshot returns an analysis finding, it remains pending until an officer selects **Accept as is** or **Review & edit**. Unapproved, dismissed, and unreviewed findings do not enter the AAR narrative.
 
 Treat these alerts as prompts for human review. They do not replace pilot judgment, command staff review, or final report approval.
@@ -53,9 +55,20 @@ Treat these alerts as prompts for human review. They do not replace pilot judgme
 
 After **Stop Mission**, Mission Overwatch switches to review tabs: timeline, media and **Play with Events**, **AI Review**, and report. The lifecycle tracker moves through **Mission Review**, **Draft AAR**, **Evidence Sealed**, **Supervisor Review**, and **Approved & Locked**, and its next-action prompt changes as review work is completed.
 
+Follow the guided review sequence:
+
+1. Resolve Timeline alerts and findings, then click **Done — continue**.
+2. Review footage and photos under **Media**, then click **Done — continue**.
+3. Analyze and decide AI findings when AI Review is available, then click **Done — continue**.
+4. Continue to **Report**.
+
+Completing Timeline review keeps human-created and approved AI events but permanently removes remaining unaccepted AI candidates after confirmation. Completing AI Review keeps accepted or edited findings and rejects remaining undecided findings after confirmation. A newly synced pending item reopens the affected review step.
+
 AI Review includes post-mission media findings and **Ask AI** questions grounded in uploaded mission imagery. Findings accepted in AI Review move to the timeline for final officer review before report use.
 
 Closed-mission timelines render chronologically, with the oldest event at the top and the latest at the bottom. Closed missions show historical content only; Mission Overwatch stops remote-live playback and background live-stream retries after the mission closes.
+
+While Mission Overwatch remains open, the focused mission timeline refreshes with device alerts, Android Mission Viewer events, screenshot status, and mission-close state. New alert rows can appear before their screenshots finish syncing, and these focused refreshes do not restart footage that is already playing.
 
 Mission creators and org admins can use **Rename** in Mission Overwatch to correct the mission name before the report is submitted. Submitted and approved missions are read-only and cannot be renamed.
 

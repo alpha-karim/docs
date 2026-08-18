@@ -23,6 +23,7 @@
 - **Goggles Mode** — DJI Avata and compatible DJI Goggles workflow on a separate Android phone or tablet; AlphaRelay captures DJI Fly, automatically starts an Internet mission with no scenario, and opens DJI Fly after screen-capture approval
 - **Pilot console** — in-app settings panel (Mission, Flight, Events, System)
 - **Mission Dashboard** — command home (`dashboard.html`)
+- **Command Center** — default Mission Dashboard view with connection/refresh status, active missions, operational KPIs, attention queue, and latest automatic alerts
 - **Mission Overwatch** / **Mission Console** — per-mission browser workspace (`mission-overwatch.html`; dashboard link says **Open Mission Console**)
 - **Mission Viewer** / **View Live Mission** — active-mission viewer in the licensed Android Pilot app for remote live, timeline updates, and quick or manual event logging from a secondary device
 - **Live Overwatch Screen** — relay connection panel in Mission Overwatch
@@ -32,6 +33,8 @@
 - **Automatic AI-alert review** — an officer must **Approve alert** or **Dismiss alert** before a Local AI or AI live-watch screenshot can be analyzed or used in a report
 - **Mission tools** — quick events, typed manual events, and browser **Dictate** for active Internet missions
 - **Timeline finding review** — accepted AI Review findings and analyzed AI-alert screenshots require **Accept as is** or **Review & edit** in the timeline before AAR use
+- **Done — continue** — closed-mission action on Timeline, Media, and AI Review that records completion and advances to the next unfinished review step; Timeline removes remaining unaccepted AI candidates and AI Review rejects remaining undecided findings after confirmation
+- **Official mission event** — a human-created event that has not been deleted, an approved automatic AI alert, or an accepted AI Review finding whose timeline analysis is officer-reviewed; use this set for counts, playback markers, reports, exports, and evidence-chain views
 - **Quick events**, **scenario template**, **Items Requiring Officer Review**
 - **Import mission** — Mission History action for creating a closed post-flight record from external footage and photos
 - **Export offline package…**, **Export evidence package (JSON)**

@@ -22,6 +22,7 @@ icon: "triangle-alert"
 - Manual browser MP4 upload requires internet before upload starts (no pre-queue).
 - **Import mission** requires a signed-in, online browser and creates a closed post-flight record only.
 - Offline packages only include media available at export time. Some Android file viewers isolate `index.html`; use the package's **Reconnect exported files** prompt when it appears.
+- Adjacent Controller Screen Capture chunks play continuously when AlphaRelay can identify them as one recording. Separately started recordings remain separate.
 
 ## AI
 
@@ -35,6 +36,7 @@ icon: "triangle-alert"
 - **AI live watch** requires active **Live stream (WebRTC)**, internet, Mission Overwatch online, and AI configuration. The default cadence can start a sample as often as every two seconds, but network and analysis latency may make it slower.
 - AI media findings are suggestions. Accepting one in AI Review moves it to the timeline; an officer must then use **Accept as is** or **Review & edit** before it is eligible for the AAR.
 - Local AI and AI live-watch alerts require **Approve alert** before configured screenshot analysis or report eligibility. **Dismiss alert** excludes the alert. Approved analysis still waits for the event, review decision, and screenshot to sync and requires internet plus AI configuration.
+- When healthy browser AI live watch owns detection for a mission, the Pilot app pauses Local AI to reduce duplicate alerts. The handoff is temporary and local detection resumes automatically, but there can be a brief transition after browser analysis or connectivity stops.
 
 ## Aircraft controls
 
@@ -46,6 +48,7 @@ icon: "triangle-alert"
 
 ## Workflow locks
 
+- **Done — continue** is a recorded review decision, not only navigation. Timeline completion permanently removes remaining unaccepted AI candidates; AI Review completion rejects remaining undecided findings. Review the confirmation count before continuing.
 - Submitting a report for supervisor approval locks the report, mission name, timeline, footage, photos, and AI Review actions. Returning it to draft reopens work; approval makes the lock permanent.
 - Evidence sealing preserves custody hashes — it is not report approval.
 

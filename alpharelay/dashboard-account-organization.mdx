@@ -8,7 +8,10 @@ icon: "gauge-high"
 
 Command home at [alpha-relay.com/dashboard.html](https://www.alpha-relay.com/dashboard.html):
 
-- Active mission roster and KPIs
+- **Command Center** connection and refresh status, active remote-live count, and mission KPIs
+- Active mission rows with live state, operator and scenario context, event activity, elapsed time, and alerts awaiting review
+- **Attention queue** for remote-live failures, unsynced mission data, automatic alerts awaiting review, and report follow-ups
+- **Latest alerts** with review status, source mission, screenshot when available, and a link into Mission Overwatch
 - Mission history with search and filters
 - **Rename** from a Mission History row when you are the mission creator or an org admin and the mission has not been submitted or approved
 - **Import mission** for creating a closed post-flight record from external footage and photos
@@ -17,6 +20,8 @@ Command home at [alpha-relay.com/dashboard.html](https://www.alpha-relay.com/das
 - Analytics
 
 Select a mission to open **Mission Overwatch** (dashboard link: **Open Mission Console**).
+
+**Events logged** and event-based KPIs use the official mission-event set: human-created events that have not been deleted, approved automatic AI alerts, and officer-reviewed AI findings. Pending or dismissed automatic alerts can still appear under **Latest alerts** for operational awareness, but they are not included in official event totals.
 
 → [Import a mission](/alpharelay/import-mission)
 
@@ -32,6 +37,10 @@ Owners and admins manage:
 - Organization time zone
 - Storage visibility
 - Pilot device license keys, QR codes, activation files, and controller pairing codes for the pilot app
+
+If your account belongs to more than one organization, use the organization switcher in the app sidebar. Switching from Mission Overwatch returns you to the selected organization's **Command Center** so mission data from the previous organization is not left in focus.
+
+After a successful cloud refresh, the selected organization's server roster is authoritative: missions deleted from that roster disappear from the dashboard, while local missions or event changes still waiting to sync are retained until AlphaRelay can upload them.
 
 New controller pairing codes do not expire. A code still activates only one installation and remains subject to license seat, suspension, and revocation rules.
 
