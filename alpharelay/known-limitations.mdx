@@ -19,8 +19,10 @@ icon: "triangle-alert"
 - **Goggles Mode** records the DJI Fly screen carrying the DJI Goggles live view, not the original DJI Avata camera file.
 - Queued Pilot-app footage resumes automatically when validated connectivity returns, but the Android device must remain powered and the app must not be force-stopped or uninstalled.
 - Queued footage must finish before final review.
-- Manual browser MP4 upload requires internet before upload starts (no pre-queue).
+- Browser upload of an optional MP4 or MOV recording requires internet before upload starts (no pre-queue).
+- In Controller Screen Capture and Goggles Mode, optional aircraft or goggles recordings do not replace AlphaRelay's capture clock. Verify their visual alignment before relying on shared event timing.
 - **Import mission** requires a signed-in, online browser and creates a closed post-flight record only.
+- **Import mission data…** is an inventory and custody-planning preview. It does not upload file contents or create production custody records.
 - Offline packages only include media available at export time. Some Android file viewers isolate `index.html`; use the package's **Reconnect exported files** prompt when it appears.
 - Adjacent Controller Screen Capture chunks play continuously when AlphaRelay can identify them as one recording. Separately started recordings remain separate.
 
@@ -34,7 +36,10 @@ icon: "triangle-alert"
 - **Ask AI** runs only for a closed synced mission with available imagery. Its answers reflect sampled footage frames, photos, and event screenshots, so occlusion, image quality, repeated views, or missing moments can limit counts and conclusions.
 - An exact repeat question may load a saved answer for the same mission-media set. Ask again after the media changes.
 - **AI live watch** requires active **Live stream (WebRTC)**, internet, Mission Overwatch online, and AI configuration. The default cadence can start a sample as often as every two seconds, but network and analysis latency may make it slower.
+- Scenario-specific and mission-specific AI targets are bounded visual search cues, not guaranteed detections. Use concrete visible details and verify every match against the live view or source media.
+- Person detections use informational/yellow treatment and do not perform identity or face recognition. Possible weapons and other urgent threat indicators use red treatment but remain unconfirmed until human review.
 - AI media findings are suggestions. Accepting one in AI Review moves it to the timeline; an officer must then use **Accept as is** or **Review & edit** before it is eligible for the AAR.
+- A yellow bounding box in AI Review is a non-destructive display overlay from model-provided region metadata. It can be absent or inaccurate and does not alter the source image.
 - Local AI and AI live-watch alerts require **Approve alert** before configured screenshot analysis or report eligibility. **Dismiss alert** excludes the alert. Approved analysis still waits for the event, review decision, and screenshot to sync and requires internet plus AI configuration.
 - When healthy browser AI live watch owns detection for a mission, the Pilot app pauses Local AI to reduce duplicate alerts. The handoff is temporary and local detection resumes automatically, but there can be a brief transition after browser analysis or connectivity stops.
 

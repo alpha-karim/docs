@@ -9,13 +9,20 @@ Missions always start from the **Pilot app**. Mission Overwatch cannot start mis
 ## Steps
 
 1. Open the pilot app on the Android tablet, phone, or drone controller.
-2. Tap **Choose Mission Mode**.
-3. Enter a mission name if useful.
+2. Tap **Choose Scenario**.
+3. Select the operating person when the agency roster is available.
 4. Select a scenario category and template, or **No scenario template**.
-5. Tap **Start Mission**.
-6. Complete the license check if prompted.
-7. If Android asks to share or record the screen, approve the prompt.
-8. Fly from the Pilot app or the controller's native flight app, depending on the device. Use quick events and **Stop Mission** when finished.
+5. If AlphaRelay shows capture-mode choices, keep **Controller Screen Capture — Recommended** or complete the checks for **Pilot mode**.
+6. Tap **Start Mission**.
+7. Complete the license check if prompted.
+8. If Android asks to share or record the screen, approve the prompt.
+9. Fly from the Pilot app or the controller's native flight app, depending on the device. Use quick events and **Stop Mission** when finished.
+
+The Pilot app does not ask for a mission name during start. A mission creator or organization admin can use **Rename** from Mission History or Mission Overwatch before the report is submitted.
+
+When an online license refresh provides an agency operator roster, AlphaRelay requires a named owner, admin, or operator to be selected before start and records that person with the mission and field-created events. If the roster is unavailable, the app warns the crew and can continue without identified-operator attribution; reconnect and refresh before operational use when attribution is required.
+
+Built-in and agency-created scenarios can provide scenario-specific AI targets. AlphaRelay copies those visible watch items into the mission for AI live watch and post-mission AI Review. Organization admins manage agency scenarios under **Organization Settings → Settings → Mission scenarios**.
 
 The current Pilot app starts an Internet mission. When Android reports validated internet, AlphaRelay starts **Live stream (WebRTC)** automatically. If the device is offline, the mission still starts and stores work for later sync; start remote live from **Pilot console → Mission** if internet becomes available during the mission.
 

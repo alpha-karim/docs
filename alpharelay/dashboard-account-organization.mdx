@@ -27,16 +27,35 @@ Select a mission to open **Mission Overwatch** (dashboard link: **Open Mission C
 
 ## Account
 
-Set full name, rank/title, password, and email change requests. Names appear on mission attribution.
+Set full name, rank/title, password, and email change requests. Names and ranks appear in the Pilot app's operator picker and on mission attribution when the person's active organization role is owner, admin, or operator.
 
 ## Organization
 
 Owners and admins manage:
 
 - Team members, roles, and status
+- Agency-specific mission scenarios with a name, category, summary, and up to eight visible AI watch targets
 - Organization time zone
 - Storage visibility
 - Pilot device license keys, QR codes, activation files, and controller pairing codes for the pilot app
+
+Agency scenarios appear in the web and Pilot-app mission pickers after refresh. Their AI watch items are copied into each mission so AI live watch and post-mission AI Review keep the mission-specific focus even if the scenario changes later.
+
+### Create or edit an agency scenario
+
+1. Open **Organization Settings → Settings → Mission scenarios**.
+2. Enter the scenario name, category, and a short summary.
+3. Under **What should AI look for?**, enter one concrete visible item per line, up to eight.
+4. Click **Create scenario**. Use **Edit** on an existing agency scenario to update it.
+5. Refresh **Choose Scenario** on an online Pilot device before the mission starts.
+
+Use observable descriptions rather than conclusions about identity, intent, legality, injury, or whether an area is clear.
+
+## Activity Log
+
+Open **Organization Settings → Activity Log** for a read-only record of material organization, mission, media, AI-review, report, and account actions. The server records the acting person's identity, role, and time. Filter by person, mission, action, or date, and use **Load older activity** to page backward. Mission-related rows link back to Mission Overwatch when a mission is available.
+
+The Activity Log is an accountability view, not a control for editing or deleting the recorded actions.
 
 If your account belongs to more than one organization, use the organization switcher in the app sidebar. Switching from Mission Overwatch returns you to the selected organization's **Command Center** so mission data from the previous organization is not left in focus.
 

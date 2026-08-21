@@ -32,9 +32,11 @@ In **Controller Screen Capture**, voice relay can save a controller-screen scree
 
 Screenshots from the live feed are captured automatically when the workflow supports them. Local AI screenshots can include yellow detection boxes.
 
+When configured AI and cloud sync are available, AlphaRelay automatically queues screenshot analysis for typed manual events and voice-relay events that have a synced screenshot. Quick-event buttons do not use this automatic path. The human-created event remains an official event, but any generated image analysis must still be checked with **Accept as is** or **Review & edit** before the analysis can enter the report narrative.
+
 Mission Overwatch refreshes the focused shared timeline while the page is open. Events logged by the Pilot app or Android Mission Viewer and automatic device alerts can appear without a page reload; an alert can appear before its screenshot finishes syncing.
 
-For a Local AI or AI live-watch alert, choose **Approve alert** in the timeline before configured screenshot analysis or report use can proceed. Choose **Dismiss alert** to exclude the event from the report. If approved analysis returns a finding, use **Accept as is** or **Review & edit** after checking the source image.
+For a Local AI or AI live-watch alert, choose **Approve alert** in the timeline before configured screenshot analysis or report use can proceed. Choose **Dismiss alert** to exclude the event from the report. If approved analysis returns a finding, use **Accept as is** or **Review & edit** after checking the source image. This approval gate applies to automatic alerts; human-created manual and voice events do not need **Approve alert**.
 
 ## Official event eligibility
 

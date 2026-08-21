@@ -1,6 +1,6 @@
 ---
 title: "Upload Footage"
-description: "Automatic upload, queued handoff, and manual MP4 upload."
+description: "Automatic upload, queued handoff, and optional MP4/MOV recordings."
 icon: "cloud-arrow-up"
 ---
 
@@ -14,18 +14,22 @@ Watch for upload banners, **Upload now**, or **Loading playback link** status in
 
 In **Controller Screen Capture**, AlphaRelay records the controller screen in chunks and queues those recordings for upload after **Stop Mission**. Keep the controller powered on; do not force-stop or uninstall AlphaRelay while queued controller-screen recordings remain.
 
-In **Goggles Mode**, AlphaRelay finalizes an MP4 from the DJI Fly live-view frames captured during the mission and queues it after **Stop Mission**. The durable queue resumes when connectivity returns. Upload the original DJI Avata camera file manually if the mission needs the raw aircraft recording.
+In **Goggles Mode**, AlphaRelay finalizes an MP4 from the DJI Fly live-view frames captured during the mission and queues it after **Stop Mission**. The durable queue resumes when connectivity returns. Add the original DJI Avata camera file as an optional recording if the mission needs the raw aircraft view.
 
 When the Pilot app opens with queued mission video, its startup panel shows the queue and upload progress. Let the upload finish when possible. Use **Skip for now and start new mission** only if field work must begin immediately; the queued work remains pending.
 
-## Manual MP4 upload
+## Add an optional recording
 
-When auto upload is impractical:
+Mission Overwatch accepts MP4 and MOV recordings from an aircraft, goggles screen, or another external source:
 
-1. Copy the mission MP4 from the aircraft SD card or computer.
+1. Copy the recording from the aircraft, goggles device, or computer.
 2. Open the closed mission in Mission Overwatch.
-3. Go to **Mission Footage** → **Upload MP4**.
-4. Select the correct file.
+3. Go to **Media → Mission footage**.
+4. Under **Optional source**, choose **Aircraft original**, **Goggles screen recording**, or **Other external recording**.
+5. Click **Add optional recording** and select the MP4 or MOV file.
+6. After upload, use **Align with AlphaRelay capture…** or **Align with primary video…** to match a shared moment. **Suggest from recording times** can provide a starting offset when both files contain usable recording timestamps.
+
+In Controller Screen Capture and Goggles Mode, AlphaRelay's captured screen remains the primary mission timeline even if an optional file uploads first. An aircraft or goggles recording can begin before or after the AlphaRelay mission; align the shared content rather than assuming both files started together.
 
 Tap **Skip** during auto upload if you plan to upload manually later.
 
@@ -33,7 +37,7 @@ Tap **Skip** during auto upload if you plan to upload manually later.
 
 If the mission did not start in AlphaRelay, use **Mission Dashboard** → **Mission History** → **Import mission**. The import flow creates a closed mission record, uploads selected MP4 footage and photos, then opens Mission Overwatch on the **Media** tab.
 
-Use the normal **Upload MP4** and **Upload Photos** controls afterward if any media needs to be added or retried.
+Use **Add optional recording** and **Upload Photos** afterward if any media needs to be added or retried. The initial **Import mission** form currently accepts MP4 footage; add a MOV after the mission opens in Mission Overwatch.
 
 ## Mission photos
 

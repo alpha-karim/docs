@@ -10,11 +10,11 @@ Local inference can work without internet. During Controller Screen Capture, the
 
 ## Current alert types
 
-- **Person detected**
-- **Multiple persons detected**
-- **Possible weapon detected**
+- **Person detected** — informational/yellow treatment
+- **Multiple persons detected** — informational/yellow treatment
+- **Possible weapon detected** — urgent/red treatment
 
-These are assistive detections, not operational conclusions. A possible-weapon alert does not establish that an object is a weapon, who possesses it, intent, legality, or threat level.
+These are assistive detections, not operational conclusions. Person detection is not face recognition or identity matching. A possible-weapon alert does not establish that an object is a weapon, who possesses it, intent, legality, or threat level.
 
 ## Configure Local AI
 
@@ -24,7 +24,7 @@ These are assistive detections, not operational conclusions. A possible-weapon a
 4. Tap **Save local AI settings**.
 5. Start the mission relay or Controller Screen Capture and watch the Local AI metrics line for inference and event activity.
 
-During Controller Screen Capture, grant Android notification permission if the pilot should receive immediate on-controller alerts. A possible-weapon detection uses the urgent alert style.
+During Controller Screen Capture, grant Android notification permission if the pilot should receive immediate on-controller alerts. Person notifications use the yellow informational style; possible-weapon detections use the red urgent style.
 
 Local AI and browser AI live watch coordinate alert ownership for the same online mission. After browser live watch completes a healthy analysis, the Pilot app pauses its local detector and shows **Local AI: paused while browser Live AI is active** in the metrics line. If browser analysis stops, the browser closes, or connectivity is lost, the short handoff expires and on-device Local AI resumes automatically.
 

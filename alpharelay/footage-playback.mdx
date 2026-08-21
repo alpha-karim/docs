@@ -20,6 +20,12 @@ Controller Screen Capture stores long recordings as adjacent chunks. Starting pl
 
 **Play with Events** and ordinary Mission Footage playback both follow adjacent controller-screen chunks. Timeline updates that arrive while you review do not restart the current video.
 
+## Optional aircraft and goggles recordings
+
+An aircraft original, goggles-screen recording, or other external MP4/MOV can start before or after the AlphaRelay capture. In Controller Screen Capture and Goggles Mode, AlphaRelay capture remains the primary mission timeline.
+
+For a secondary recording, choose **Align with AlphaRelay capture…**, scrub the primary view to a recognizable shared moment, then slide or nudge the optional recording until the frames match. Use **Suggest from recording times** as a starting point only when both recordings contain usable timestamps, then verify the visual match before saving.
+
 ## Tag from footage
 
 After the mission is closed:
@@ -40,6 +46,7 @@ For a closed synced mission, open **AI Review** and click **Analyze media** afte
 - **Reject** keeps the finding out of the mission timeline.
 - **Redo analysis** deletes the current AI Review runs and findings, then runs analysis again. Accepted timeline entries stay in the mission timeline.
 - Accepted findings may also run detailed screenshot analysis when a source image is available.
+- When valid region metadata is available, a yellow box marks the cited area in the finding thumbnail and full-screen viewer. This is a display overlay; it does not modify the source image.
 
 ## Review timeline findings
 

@@ -16,7 +16,7 @@
 
 - **AlphaRelay** — product name
 - **Pilot app** — Android app on the pilot tablet, phone, or Android drone controller (`download.html`)
-- **Choose Mission Mode** / **Start Mission** — current pilot-app mission start. It creates an Internet mission and automatically starts remote live when validated internet is available.
+- **Choose Scenario** / **Start Mission** — current pilot-app mission start. The scenario screen includes operator selection and capture-mode choices when applicable; starting creates an Internet mission and automatically starts remote live when validated internet is available.
 - **Local Network** — deployment-specific LAN relay path retained in the product but not presented as a mission-start button in the current public Pilot app.
 - **Controller Screen Capture** — recommended capture path on Android drone controllers where the controller's native flight app keeps flight control and AlphaRelay captures the controller screen
 - **Pilot mode** — direct AlphaRelay aircraft-control path offered on detected DJI SDK-controller setups only after the operator confirms a listed DJI MSDK 5.17 aircraft and AlphaRelay verifies its live connection
@@ -29,14 +29,21 @@
 - **Live Overwatch Screen** — relay connection panel in Mission Overwatch
 - **Live stream (WebRTC)** — remote live viewing over the internet
 - **AI live watch** — Mission Overwatch control that analyzes sampled remote-live frames and logs officer-review alerts when configured; it defaults on unless a saved mission choice disables it
+- **Scenario-specific AI targets** / **Mission-specific AI targets** — bounded visible details added to LiveAI's standard detections for an active mission
 - **Local AI** — on-device person, multiple-person, and possible-weapon detection that runs from relay frames; Controller Screen Capture can notify the pilot without internet
+- **Person detection** — informational/yellow alert treatment; this is not identity or face recognition
+- **Possible weapon / urgent threat** — red alert treatment that still requires human review
 - **Automatic AI-alert review** — an officer must **Approve alert** or **Dismiss alert** before a Local AI or AI live-watch screenshot can be analyzed or used in a report
 - **Mission tools** — quick events, typed manual events, and browser **Dictate** for active Internet missions
 - **Timeline finding review** — accepted AI Review findings and analyzed AI-alert screenshots require **Accept as is** or **Review & edit** in the timeline before AAR use
 - **Done — continue** — closed-mission action on Timeline, Media, and AI Review that records completion and advances to the next unfinished review step; Timeline removes remaining unaccepted AI candidates and AI Review rejects remaining undecided findings after confirmation
 - **Official mission event** — a human-created event that has not been deleted, an approved automatic AI alert, or an accepted AI Review finding whose timeline analysis is officer-reviewed; use this set for counts, playback markers, reports, exports, and evidence-chain views
 - **Quick events**, **scenario template**, **Items Requiring Officer Review**
+- **Mission scenarios** — Organization Settings editor for agency-specific scenarios and up to eight visible AI watch targets
+- **Activity Log** — read-only Organization Settings tab for server-attributed material actions
 - **Import mission** — Mission History action for creating a closed post-flight record from external footage and photos
+- **Import mission data…** — client-side workflow preview for inventorying large evidence and mapping packages; it does not upload or change files
+- **Add optional recording** — Media action for MP4/MOV aircraft, goggles-screen, or other external recordings; AlphaRelay capture remains the mission timeline in Controller Screen Capture and Goggles Mode
 - **Export offline package…**, **Export evidence package (JSON)**
 - **Rename** — available from Mission History and Mission Overwatch until the report is submitted for approval
 - **AI** — configured report drafting, media review, screenshot analysis, and live-watch assistance

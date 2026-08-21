@@ -6,12 +6,12 @@ icon: "users"
 
 | Role | Device | Responsibility |
 | --- | --- | --- |
-| Pilot | Pilot app (Android tablet, phone, or drone controller) | Starts missions, flies, logs field events, ends mission, uploads footage |
+| Pilot | Pilot app (Android tablet, phone, or drone controller) | Selects the current operator, starts missions, flies, logs field events, ends mission, uploads footage |
 | Android mission viewer | Pilot app on a second licensed Android device | Watches active remote live, follows timeline events, and logs quick or manual events |
 | Overwatch user | Browser — Mission Overwatch | Relay viewing, remote live, command-side events, review, report, seal, export |
 | Reviewer / officer | Browser — Mission Overwatch | Checks timeline, footage, report draft, and custody |
 | Supervisor | Browser — Mission Dashboard / Overwatch | Approves or returns after-action reports |
-| Org admin | Browser — Organization page | Members, roles, licenses, time zone, storage |
+| Org admin | Browser — Organization Settings | Members, roles, agency scenarios, licenses, time zone, storage, and read-only Activity Log |
 
 ## Android drone controllers
 
@@ -28,6 +28,7 @@ On a licensed Android phone, tablet, or controller, tap **View Live Mission** to
 ## Key rules
 
 - Missions **always start from the pilot app's Start Mission workflow**, not Mission Overwatch or Mission Viewer.
+- The startup action is **Choose Scenario**. Select the current operator when the agency roster is available; AlphaRelay attributes the mission and field-created events to that person.
 - Open missions from **Mission Dashboard** (link may say **Open Mission Console**).
 - The current Pilot app presents one **Start Mission** action and starts remote live automatically when validated internet is available.
 - Mission Overwatch **Mission tools** remain available for active Internet missions, including quick events, typed manual events, and browser dictation.

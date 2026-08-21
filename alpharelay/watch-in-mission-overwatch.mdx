@@ -39,11 +39,21 @@ When configured and remote live is active, Mission Overwatch can show **AI live 
 
 The current default cadence can start a new sample as often as every two seconds. Network and analysis time can make the effective interval longer, and AlphaRelay does not overlap analysis requests.
 
+When AI live watch is enabled, select **Show details** or leave the expanded card open to review its focus:
+
+- **Standard detections** apply to every analyzed frame.
+- **Scenario-specific AI targets** come from the mission's built-in or agency scenario.
+- **Mission-specific AI targets** let you add up to eight visible details for this mission, one per line. Click **Save targets** after editing.
+
+Use concrete visible descriptions such as `Red pickup truck` or `Person wearing an orange jacket`. Saved targets supplement standard detections; they do not turn AI output into a confirmed fact.
+
 AI live watch alerts can show:
 
 - An **AI live alert** or **Urgent AI live alert** banner in Mission Overwatch
 - A timeline event with the sampled frame attached when available
 - A **LIVE AI ALERT - REVIEW NOW** badge and log entry in the pilot app while the same mission is active
+
+Person detections use informational/yellow treatment. Possible weapons and other threat indicators use red review treatment, with **Urgent** reserved for the urgent-review level. The Mission Overwatch banner dismisses automatically after about three seconds, but the timeline event remains available for review.
 
 When browser AI live watch is successfully analyzing the same mission, the Pilot app pauses on-device Local AI to avoid duplicate automatic alerts. The Local AI metrics line reports this handoff and the on-device detector resumes automatically if browser analysis stops or the handoff expires.
 
@@ -64,7 +74,7 @@ Follow the guided review sequence:
 
 Completing Timeline review keeps human-created and approved AI events but permanently removes remaining unaccepted AI candidates after confirmation. Completing AI Review keeps accepted or edited findings and rejects remaining undecided findings after confirmation. A newly synced pending item reopens the affected review step.
 
-AI Review includes post-mission media findings and **Ask AI** questions grounded in uploaded mission imagery. Findings accepted in AI Review move to the timeline for final officer review before report use.
+AI Review includes post-mission media findings and **Ask AI** questions grounded in uploaded mission imagery. When a finding includes a valid detected region, AlphaRelay draws a non-destructive yellow box on its thumbnail and full-screen evidence view. Findings accepted in AI Review move to the timeline for final officer review before report use.
 
 Closed-mission timelines render chronologically, with the oldest event at the top and the latest at the bottom. Closed missions show historical content only; Mission Overwatch stops remote-live playback and background live-stream retries after the mission closes.
 

@@ -34,16 +34,18 @@ If timeline events appear but video does not, the pilot's remote **Live stream (
 2. If the Pilot app opens with a queued-video panel, let it run or use **Skip for now and start new mission** only when field work cannot wait.
 3. Tap **Upload now** if shown.
 4. Wait for **Loading playback link** to clear in Mission Overwatch.
-5. For manual upload: confirm signed in, online, correct MP4, no other upload running.
+5. For an optional recording: confirm you are signed in and online, the file is MP4 or MOV, the correct source is selected, and no other upload is running.
 
 Manual browser uploads do **not** queue before starting — retry when online.
 
 If one Controller Screen Capture recording is split into multiple adjacent chunks, ordinary Mission Footage playback should continue automatically and show clip progress. A separately started recording does not join the earlier one. If an adjacent chunk still does not continue, reload the current app version, confirm the next chunk has finished uploading, and reopen the first chunk.
 
+If an optional aircraft or goggles recording is out of sync, choose **Align with AlphaRelay capture…**, match a recognizable moment in both videos, and save the offset. **Suggest from recording times** is only a starting point; transferred files can have misleading modification dates.
+
 ## Controller Screen Capture did not start
 
 1. Confirm the pilot device is an Android drone controller with **AlphaRelay Pilot** installed.
-2. Start the mission from **Choose Mission Mode → Start Mission**. On an integrated Android drone controller, Controller Screen Capture is automatic; on a detected DJI SDK-controller setup, select **Controller Screen Capture — Recommended**.
+2. Start the mission from **Choose Scenario → Start Mission**. On an integrated Android drone controller, Controller Screen Capture is automatic; on a detected DJI SDK-controller setup, select **Controller Screen Capture — Recommended**.
 3. Approve the Android screen capture prompt.
 4. If voice relay is needed, grant microphone permission and confirm speech recognition is available.
 5. If the app cannot be installed, allow the browser or file manager to **install unknown apps**. Android Developer mode is not required.
@@ -66,7 +68,7 @@ If the aircraft is not listed, the DJI SDK is unavailable, or the connection che
 2. Power on and link the DJI Avata, compatible DJI Goggles, and their compatible controller.
 3. For automatic detection, connect the DJI Goggles to the Android device with a compatible USB data/OTG cable.
 4. Open DJI Fly and confirm the goggles live view appears before opening AlphaRelay.
-5. If you use wireless live-view sharing, open **Choose Mission Mode**, enable **Use DJI Fly / goggles video feed**, choose **No scenario template**, and tap **Start Mission**.
+5. If you use wireless live-view sharing, tap **Choose Scenario**, enable **Use DJI Fly / goggles video feed**, choose **No scenario template**, and tap **Start Mission**.
 6. Approve the Android screen capture prompt.
 
 If DJI Fly does not open automatically after approval, open it manually and confirm its live view is still active.
@@ -101,6 +103,10 @@ You can always type the event under **Manual Event (fast)**. Dictation only fill
 4. If the status says the request timed out or failed, leave the page open; Mission Overwatch retries bounded requests automatically.
 
 AI live watch does not run from the LAN-only relay video source and does not run after the mission is closed.
+
+If scenario or mission targets are missing, turn AI live watch on and expand **Show details**. Scenario targets come from the scenario saved with the mission. Enter mission-only targets one visible item per line and click **Save targets**; these supplement rather than replace standard detections.
+
+AI live alert banners dismiss after about three seconds. Open the Timeline if the banner disappeared before you finished reading it; the event remains there for review.
 
 ## AI alert says approval is required
 
@@ -156,6 +162,18 @@ Review every auto-tag before treating it as an operational fact. Small, distant,
 ## Report actions blocked
 
 Check mission state and your role. Submitting for supervisor approval locks report editing, mission renaming, timeline and media changes, and AI Review actions. A supervisor can **Return to draft** to reopen work. Approved missions are permanently read-only and reports cannot be regenerated.
+
+## Operator is missing from the Pilot app
+
+1. Connect the Pilot device to internet and refresh its license or reopen **Choose Scenario** so the agency roster can update.
+2. In **Organization Settings**, confirm the person has a full name and an active owner, admin, or operator role. Viewer and analyst roles do not appear in the operator picker.
+3. Tap **Operator — Select before starting** and choose the person.
+
+If no roster is available, AlphaRelay warns and can start without identified-operator attribution. Resolve the roster before operational use when your policy requires named attribution.
+
+## Import mission data did not upload files
+
+**Import mission data…** is intentionally a workflow preview. It inventories filenames, paths, types, and sizes locally and ends with an ingestion plan; it does not upload file contents or change custody. Use **Import mission**, **Add optional recording**, or **Upload Photos** for the currently connected production workflows.
 
 ## Offline package video won't play
 
