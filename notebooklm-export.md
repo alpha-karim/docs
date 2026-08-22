@@ -1,6 +1,6 @@
 # AlphaRelay Operator Documentation — NotebookLM Export
 
-Generated on 2026-08-21 by `scripts/generate-notebooklm-export.mjs`.
+Generated on 2026-08-22 by `scripts/generate-notebooklm-export.mjs`.
 
 **Web app:** https://www.alpha-relay.com
 **Pilot app (APK):** https://www.alpha-relay.com/download.html
@@ -140,9 +140,9 @@ The Command Center brings active mission state, remote-live or sync problems, au
 
 ## 4. Review the mission
 
-End the mission, let footage upload or queue, then follow **Timeline** → **Media** → **AI Review** when available and use **Done — continue** after each completed step. Open **Play with Events** to check markers against video; adjacent Controller Screen Capture chunks play as one recording. When AI is configured, accept or reject suggested findings. An accepted finding moves to the timeline; use **Accept as is** or **Review & edit** there to make it officer-reviewed before it can enter the AAR. Open **Ask AI** inside AI Review to ask questions grounded in the mission imagery. For work captured outside AlphaRelay, use **Import mission** from **Mission History** to create a closed post-flight record first.
+End the mission, let footage upload or queue, then follow **Timeline** → **Media** → **AI Review** when available and use **Done — continue** after each completed step. Open **Play with Events** to check markers against video; adjacent Controller Screen Capture chunks play as one recording. When AI is configured, accept or reject suggested findings. An accepted finding moves to the timeline; use **Accept as is** or **Review & edit** there to make it officer-reviewed before it can enter the AAR. Open **Ask AI** inside AI Review to ask questions grounded in the mission imagery. For work captured outside AlphaRelay, use **Import mission** from **Mission History** to create a closed post-flight record first. If you move a closed mission to **Trash**, you can restore it from Mission History for 30 days before AlphaRelay permanently removes it.
 
-→ End a mission · Import a mission · Upload footage · Review footage
+→ End a mission · Import a mission · Upload footage · Review footage · Delete or restore a mission
 
 ## 5. Finalize the record
 
@@ -1228,6 +1228,7 @@ Command home at [alpha-relay.com/dashboard.html](https://www.alpha-relay.com/das
 - **Latest alerts** with review status, source mission, screenshot when available, and a link into Mission Overwatch
 - Mission history with search and filters
 - **Rename** from a Mission History row when you are the mission creator or an org admin and the mission has not been submitted or approved
+- **Trash** for restoring deleted missions during their 30-day recovery window
 - **Import mission** for creating a closed post-flight record from external footage and photos
 - Intelligence search across missions, events, and footage
 - Supervisor inbox (pending approval) and operator returned-to-draft inbox
@@ -1238,6 +1239,19 @@ Select a mission to open **Mission Overwatch** (dashboard link: **Open Mission C
 **Events logged** and event-based KPIs use the official mission-event set: human-created events that have not been deleted, approved automatic AI alerts, and officer-reviewed AI findings. Pending or dismissed automatic alerts can still appear under **Latest alerts** for operational awareness, but they are not included in official event totals.
 
 → Import a mission
+
+### Delete or restore a mission
+
+Mission creators and organization admins can move a closed mission to **Trash** from the **After-Action Report** tab in Mission Overwatch. The mission disappears from Mission History, but AlphaRelay keeps its events, evidence, reports, and linked media recoverable for 30 days.
+
+To recover it:
+
+1. Open **Mission Dashboard → Mission History** while connected.
+2. Click **Trash**.
+3. Find the mission and check the time remaining.
+4. Click **Restore** and confirm. The mission returns to Mission History with its linked record intact.
+
+**Warning:** AlphaRelay permanently removes a mission after it has been in Trash for 30 days. Restore it before the displayed recovery period expires.
 
 ## Account
 
@@ -1833,6 +1847,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 | **Quick events** | One-tap event buttons from scenario templates |
 | **Local Network** | Deployment-specific LAN WebSocket relay mode; not presented by the current public Pilot app |
 | **Scenario template** | Built-in or agency-created mission setup that can provide quick events, report focus, and visible AI watch targets |
+| **Trash** | Mission History recovery area that keeps a deleted mission and its linked record recoverable for 30 days before permanent removal |
 | **Choose Scenario** | Pilot-app startup action for selecting the operator, scenario, and capture mode when applicable before **Start Mission** |
 | **Voice relay** | Voice logging with keyword `relay` before event details |
 
