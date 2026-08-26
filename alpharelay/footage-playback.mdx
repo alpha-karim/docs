@@ -8,7 +8,7 @@ Open a closed mission from **Mission Dashboard**, then go to **Mission Footage**
 
 ## Controller-screen recordings
 
-Controller Screen Capture stores long recordings as adjacent chunks. Starting playback from a chunk in Mission Overwatch or a dashboard report continues through the neighboring chunks from the same recording and shows full-recording and clip progress. A separately started recording remains separate.
+Current Controller Screen Capture missions store one continuous controller-screen recording for the capture session. Older missions can still contain adjacent chunks; playback continues through recognized legacy chunks from the same recording. A separately restarted capture remains a separate recording.
 
 ## Play with Events
 
@@ -18,7 +18,7 @@ Controller Screen Capture stores long recordings as adjacent chunks. Starting pl
 4. Use angle tabs or **All angles** for multi-camera review.
 5. For secondary clips, use **Adjust sync to primary** if timing is off.
 
-**Play with Events** and ordinary Mission Footage playback both follow adjacent controller-screen chunks. Timeline updates that arrive while you review do not restart the current video.
+**Play with Events** and ordinary Mission Footage playback use the same primary timeline. Timeline updates that arrive while you review do not restart the current video.
 
 ## Optional aircraft and goggles recordings
 
@@ -46,7 +46,7 @@ For a closed synced mission, open **AI Review** and click **Analyze media** afte
 - **Reject** keeps the finding out of the mission timeline.
 - **Redo analysis** deletes the current AI Review runs and findings, then runs analysis again. Accepted timeline entries stay in the mission timeline.
 - Accepted findings may also run detailed screenshot analysis when a source image is available.
-- When valid region metadata is available, a yellow box marks the cited area in the finding thumbnail and full-screen viewer. This is a display overlay; it does not modify the source image.
+- AI Review preserves source imagery without drawing model bounding boxes over thumbnails or the full-screen viewer.
 
 ## Review timeline findings
 
@@ -56,7 +56,7 @@ After accepting a finding in AI Review, open **Timeline** and review its image a
 - Choose **Review & edit** to correct the observations before saving them as officer-reviewed.
 - Use **Edit finding** to revise an already reviewed finding before the timeline locks.
 
-AI live watch and on-device Local AI alerts use an additional approval gate. First choose **Approve alert** to allow configured screenshot analysis and report eligibility, or **Dismiss alert** to exclude the alert. Then use the same **Accept as is** or **Review & edit** controls for any resulting analysis. Only officer-reviewed findings are eligible for the after-action report, and the report presents them as neutral timeline observations without internal AI-review bookkeeping.
+AI live watch and Device Live AI alerts use an additional approval gate. First choose **Approve alert** to allow configured screenshot analysis and report eligibility, or **Dismiss alert** to exclude the alert. Then use the same **Accept as is** or **Review & edit** controls for any resulting analysis. Only officer-reviewed findings are eligible for the after-action report, and the report presents them as neutral timeline observations without internal AI-review bookkeeping.
 
 AI Review now collapses repeated video-frame findings from the same footage clip so reviewers are not asked to resolve the same routine person, object, or high-priority finding over and over. High-priority findings in different rough regions remain separately reviewable.
 

@@ -1,38 +1,38 @@
 ---
-title: "View a Live Mission on Android"
-description: "Watch and support an active mission from a second licensed Android device."
+title: "View a Live Mission on Android or iOS"
+description: "Watch remote live, follow timeline updates, and log events from a second licensed Copilot device."
 icon: "tablet-screen-button"
 ---
 
-Use **View Live Mission** on a second Android phone, tablet, or controller when a team member needs a compact live view without opening the browser workspace. The viewer can watch remote video, follow the live timeline, and log events. It does not start the mission or control the aircraft.
+Use **View Live Mission** on Android or **Watch Live Mission** on iPhone and iPad when a team member needs a compact active-mission view without opening the browser workspace. Mission Viewer can watch remote video, follow the live timeline and AI alerts, and log events. It does not start the mission or control the aircraft.
 
-## What you need
+## Requirements
 
-- **AlphaRelay Pilot** installed and activated on the viewing device
-- A device license for the same organization as the mission
+- **AlphaRelay Copilot** installed and activated on the viewing device
+- A separate valid device license for the same organization as the mission
 - Internet on the viewing device
-- An active mission; remote **Live stream (WebRTC)** must be ready for video
+- An active synced mission; remote live must be running for video
 
-## Steps
+## Open Mission Viewer
 
-1. Open AlphaRelay Pilot on the viewing device.
-2. Tap **View Live Mission** on the startup screen.
-3. Choose an active mission. If only one is available, AlphaRelay opens it automatically.
-4. Watch the live video and timeline. If remote video has not started yet, mission events continue updating.
-5. Use a scenario quick-event button or enter an event under **Add mission event…**, then tap **Log event**.
-6. Tap **Switch mission** to choose another active mission.
+1. Open AlphaRelay Copilot on the viewing device.
+2. On Android, tap **View Live Mission**. On iOS, tap **Watch Live Mission**.
+3. Choose an active mission. Use **Refresh** if the mission started after the list opened.
+4. Watch the live video and timeline. Timeline events can continue updating while video connects or retries.
+5. Use a scenario quick-event button or enter a manual event, then tap **Log event**.
+6. Use **Switch mission** to choose another active mission.
 
-New AI live-watch alerts can appear as a highlighted alert in the viewer. Person detections use informational/yellow treatment; possible weapons and other threat indicators use red review treatment. Treat every alert as a review prompt, not a confirmed finding.
+New AI alerts appear as highlighted banners and remain in the timeline. Person detections use informational/yellow treatment; possible weapons and other threat indicators use red review treatment. Treat every alert as a prompt for human review, not a confirmed finding.
 
 ## When the mission ends
 
-The viewer stops live playback, disables event logging, and leaves the timeline read-only. Use browser-based Mission Overwatch for footage review, AI Review, reporting, custody, and export.
+Mission Viewer marks the timeline read-only and disables event entry after the mission closes. Use Mission Overwatch for closed-mission media review, AI Review, reporting, sealing, and export.
 
 ## Limits
 
-- The Android viewer is an internet workflow; it does not connect to the deployment-specific Local Network relay.
-- Only active missions from the licensed organization appear.
-- Timeline events can update before remote video is ready.
-- The viewing device needs its own valid AlphaRelay Pilot installation and license seat.
+- Mission Viewer requires internet; it has no offline active-mission list.
+- Only active missions in the licensed organization appear.
+- A mission can provide timeline updates even when remote video is unavailable.
+- Mission Viewer does not expose aircraft controls or closed-mission review tools.
 
-→ [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Log events](/alpharelay/event-logging) · [Devices and licenses](/alpharelay/one-time-setup)
+→ [Use AlphaRelay Copilot on iPhone or iPad](/alpharelay/ios-copilot) · [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Log events](/alpharelay/event-logging)

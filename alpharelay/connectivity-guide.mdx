@@ -7,17 +7,17 @@ icon: "tower-broadcast"
 AlphaRelay uses separate live and sync paths. Losing one does not always stop the mission.
 
 ```text
-Pilot app
-  |-- Live stream (WebRTC) → Mission Overwatch / Android Mission Viewer over internet
+AlphaRelay Copilot
+  |-- Live stream (WebRTC) → Mission Overwatch / Android or iOS Mission Viewer over internet
   `-- Cloud sync → Events, footage, reports, evidence
 ```
 
-Some older or deployment-specific builds also expose a LAN relay to Mission Overwatch on the same Wi-Fi. The current public Pilot app does not show that mission-start option.
+Some older or deployment-specific Android builds also expose a LAN relay to Mission Overwatch on the same Wi-Fi. The current public Copilot workflow does not show that mission-start option.
 
 ## Without internet
 
 - Local mission capture and event logging
-- On-device Local AI inference and Controller Screen Capture notifications
+- On-device Live AI fallback and Controller Screen Capture notifications
 - Queued footage and deferred cloud sync
 - Pilot license within the 10-day offline grace window
 
@@ -27,26 +27,26 @@ Some older or deployment-specific builds also expose a LAN relay to Mission Over
 - Footage and photo upload
 - Playback links
 - **Live stream (WebRTC)** setup and viewing
-- **View Live Mission** mission list, timeline updates, event logging, and video
+- Mission Viewer mission list, timeline updates, event logging, alerts, and video
 - Report generation and supervisor workflow
 - Offline package and evidence JSON export downloads
 
 ## Remote live connection
 
-1. Tap **Start Mission** in the Pilot app while the device has validated internet.
+1. Tap **Start Mission** in AlphaRelay Copilot while the device has validated internet.
 2. Open the active mission from Mission Dashboard.
 3. Select **Live stream (WebRTC)** in Mission Overwatch.
 4. If automatic live setup failed or the mission began offline, use **Pilot console → Mission → Start remote live** after connectivity returns.
 
-A second licensed Android device can instead tap **View Live Mission**. The Android viewer requires internet for its active-mission list, timeline, event logging, and remote video.
+A second licensed Android or iOS device can open Mission Viewer. It requires internet for its active-mission list, timeline, event logging, alerts, and remote video.
 
 ## Deployment-specific Local Network connection
 
-If your build exposes **Local Network**, run it on Wi-Fi, open **Live Overwatch Screen**, and connect by scanning or entering the pilot-device IP. Trust the self-signed relay certificate if prompted. This is not a selectable mission path in the current public Pilot app.
+If your Android build exposes **Local Network**, run it on Wi-Fi, open **Live Overwatch Screen**, and connect by scanning or entering the device IP. Trust the self-signed relay certificate if prompted. This is not a selectable mission path in the current public Copilot workflow.
 
 ## Queued states
 
-**Queued for cloud sync**, **Loading playback link**, or upload banners mean local data still needs to reach the cloud. Queued Pilot-app videos are stored durably and resume automatically when validated connectivity returns, including after the app process restarts. Keep the device powered on, do not force-stop or uninstall the app, and use **Upload now** when offered.
+**Queued for cloud sync**, **Loading playback link**, or upload banners mean local data still needs to reach the cloud. Queued Copilot videos are stored durably and retry when validated connectivity returns, including after the app restarts. Keep the device powered on, do not force-stop or uninstall the app, and use **Upload now**, **Sync now**, or **Sync pending items** when offered.
 
 When AlphaRelay opens with queued mission video, the startup panel shows the queue and progress. Use **Skip for now and start new mission** only when field work must begin before the older upload finishes.
 

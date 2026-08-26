@@ -8,7 +8,7 @@ icon: "flag-checkered"
 
 1. Tap **Land** on the pilot device when appropriate.
 2. Follow normal landing and safety procedures.
-3. Tap **Stop Mission** in the pilot app when field work is complete.
+3. Tap **Stop and complete mission** or **Stop Mission** in AlphaRelay Copilot when field work is complete.
 4. Optionally tap **Close Mission** from the **Mission** card in Mission Overwatch.
 5. Check the upload or queue status before powering off the pilot device.
 
@@ -16,16 +16,16 @@ icon: "flag-checkered"
 
 - The relay session ends with the mission.
 - SD recording stops after a successful land when supported.
-- In **Controller Screen Capture**, AlphaRelay finalizes controller-screen recording chunks instead of pulling aircraft SD video.
+- In **Controller Screen Capture**, AlphaRelay finalizes the mission-long controller-screen recording instead of pulling aircraft SD video.
 - In **Goggles Mode**, AlphaRelay finalizes the captured DJI Fly live-view frames as an MP4 and queues it for upload. It does not pull the DJI Avata's internal-storage or microSD footage.
 - Footage may upload immediately or queue for later sync.
-- Queued Pilot-app video is stored durably and resumes automatically when validated connectivity returns, including after the app process restarts.
-- Android Mission Viewer event logging stops and its selected timeline becomes read-only.
+- Queued Copilot video is stored durably and retries when validated connectivity returns, including after the app restarts.
+- Android and iOS Mission Viewer event logging stops and the selected timeline becomes read-only.
 - Mission Overwatch stops remote-live playback and switches to historical review instead of retrying the closed live stream.
 - Review should wait until footage status is clear.
 
 <Warning>
-  Do not force-stop or uninstall the Pilot app while footage is queued. Browser-initiated uploads still require the browser tab to remain open.
+  Do not force-stop or uninstall Copilot while footage is queued. On iOS, keep Copilot open while ReplayKit finalization and handoff complete. Browser-initiated uploads still require the browser tab to remain open.
 </Warning>
 
 → [Upload footage](/alpharelay/footage-upload)

@@ -4,17 +4,18 @@ description: "Device, browser, network, and storage expectations."
 icon: "clipboard-list"
 ---
 
-## Pilot device (Android tablet, phone, or controller)
+## AlphaRelay Copilot device
 
-- Supported Android version for the installed pilot app
+- Supported Android version for the installed APK, or iPhone/iPad running iOS 26 for the iOS app
 - Usable internet for remote live and immediate cloud sync; offline capture can queue work
-- Enough CPU, memory, battery, and storage for live video, telemetry, event logging, and on-device Local AI when enabled
+- Enough CPU, memory, battery, and storage for live video, event logging, recording, and Device Live AI
 - Supported aircraft-control workflow when using aircraft integration
 - Conditional Matrice camera tools on supported Matrice aircraft or Matrice controllers
-- Android drone controller capable of installing **AlphaRelay Pilot** and granting screen capture permission for **Controller Screen Capture**
+- Android drone controller capable of installing **AlphaRelay Copilot** and granting screen capture permission for **Controller Screen Capture**
 - For **Pilot mode**: detected DJI SDK remote-controller setup, a listed DJI MSDK 5.17 aircraft, and a live flight-controller connection that AlphaRelay can verify
-- For a DJI Avata with compatible DJI Goggles: separate Android phone or tablet with **DJI Fly**, **AlphaRelay Pilot**, screen capture permission, and internet
-- For **View Live Mission**: a second AlphaRelay Pilot installation licensed to the mission's organization, plus internet
+- For a DJI Avata with compatible DJI Goggles: separate Android phone or tablet with **DJI Fly**, **AlphaRelay Copilot**, screen capture permission, and internet
+- For iOS capture: iOS 26, the organization-provided Copilot app, ReplayKit Screen Recording permission, and optional microphone/speech permissions
+- For Mission Viewer: a second Copilot installation licensed to the mission's organization, plus internet
 
 ## Overwatch / review (browser)
 
@@ -27,14 +28,15 @@ icon: "clipboard-list"
 
 | Workflow | Requirement |
 | --- | --- |
-| Start Mission | Android Pilot app; validated internet for automatic remote live, or offline capture with queued sync |
-| Deployment-specific Local Network relay | Pilot device + Overwatch on same reachable Wi-Fi; not exposed by the current public Pilot app |
-| Controller Screen Capture | Android drone controller; AlphaRelay Pilot installed; Android screen capture permission |
+| Start Mission | Android or iOS Copilot app; validated internet for automatic remote live, or offline capture with queued sync |
+| Deployment-specific Local Network relay | Android device + Overwatch on same reachable Wi-Fi; not exposed by the current public Copilot workflow |
+| Controller Screen Capture | Android drone controller; AlphaRelay Copilot installed; Android screen capture permission |
 | Pilot mode | Detected DJI SDK-controller setup; aircraft in the Pilot app's DJI MSDK 5.17 list; successful live connection check |
-| DJI Avata with DJI Goggles | Linked DJI Avata, compatible DJI Goggles, and compatible controller; Android device with DJI Fly and AlphaRelay Pilot; goggles live-view connection; Android screen capture permission; internet |
+| iPhone/iPad Copilot capture | iOS 26; organization-provided app; **AlphaRelay Capture** selected in ReplayKit; device license; internet for live/sync |
+| DJI Avata with DJI Goggles | Linked DJI Avata, compatible DJI Goggles, and compatible controller; Android device with DJI Fly and AlphaRelay Copilot; goggles live-view connection; Android screen capture permission; internet |
 | **Live stream (WebRTC)** | Validated pilot-device internet; starts automatically with the mission and can be retried from the Pilot console |
-| Android Mission Viewer | Second licensed AlphaRelay Pilot installation in the same organization; active mission; internet; remote live required for video |
-| On-device Local AI | Pilot app relay or capture session running; compatible Android compute; notification permission for immediate Controller Screen Capture alerts; internet only for sync and cloud follow-up |
+| Mission Viewer | Second licensed Copilot installation in the same organization; active mission; internet; remote live required for video |
+| Device Live AI | Copilot capture running; internet for cloud analysis; compatible device compute for automatic offline fallback; notification permission for immediate alert banners |
 | AI Review | Closed, synced mission with uploaded photos, event screenshots, or playable footage; internet and AI configuration |
 | Ask AI | Closed, synced mission with uploaded photos, event screenshots, or playable footage; internet and AI configuration |
 | AI live watch | Active remote live stream; Mission Overwatch online; AI configuration enabled |
@@ -42,14 +44,16 @@ icon: "clipboard-list"
 | Optional aircraft/goggles recording | Signed-in online browser; MP4 or MOV; visual alignment to the AlphaRelay or primary timeline |
 | Offline package export | Internet at export time to download media; extracted package can be reviewed later on desktop or mobile |
 
-Permissions: grant camera, microphone (voice relay), storage, and location prompts from the Pilot app as requested. In Mission Overwatch, allow browser microphone access only when using **Dictate**.
+Permissions: grant camera, microphone, speech recognition, screen capture/Screen Recording, storage, notifications, and location only as requested for the selected workflow. In Mission Overwatch, allow browser microphone access only when using **Dictate**.
 
 Aircraft camera controls appear only when the pilot app detects supported aircraft or controller capability. Availability still depends on aircraft firmware, payload, SDK support, and field validation.
 
-Controller Screen Capture appears on Android drone controllers that can run AlphaRelay Pilot and grant screen capture permission. The controller's native flight app remains responsible for aircraft operation in that mode.
+Controller Screen Capture appears on Android drone controllers that can run AlphaRelay Copilot and grant screen capture permission. The controller's native flight app remains responsible for aircraft operation in that mode.
 
 Pilot mode is not enabled by controller detection alone. On an eligible DJI SDK-controller setup, confirm the aircraft in the in-app supported list and keep the aircraft and controller connected until AlphaRelay reports **Supported aircraft confirmed. Pilot mode is ready.** If that verification does not complete, use Controller Screen Capture.
 
 The Goggles Mode workflow uses a separate Android device to display the DJI Goggles live view in DJI Fly. AlphaRelay records that screen and does not control the DJI Avata or retrieve the original aircraft camera file.
+
+The iOS workflow captures the selected display or app through ReplayKit. It does not expose Android's DJI Goggles USB auto-detection, Android local-network relay, or full Android local detector.
 
 Run a [training mission](/alpharelay/training-mission) on the same device class before operational use.

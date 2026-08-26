@@ -1,12 +1,12 @@
 ---
-title: "Use On-Device Local AI"
-description: "Run assistive person and possible-weapon detection on the pilot device."
+title: "Use Device Live AI"
+description: "Use cloud-first live analysis with automatic on-device fallback on Android and iOS."
 icon: "tablet-screen-button"
 ---
 
-**Local AI** samples the pilot app's relay frames and creates review-oriented mission alerts on the Android device. The current pilot app includes a person-and-visible-weapon model and enables on-device detection by default.
+**Device Live AI** analyzes the controller-screen video supplied by AlphaRelay Copilot and creates review-oriented mission alerts. With working internet, the Copilot device sends sampled images to AlphaRelay's licensed server-side analysis. The app does not contain an OpenAI credential. When cloud analysis or connectivity is unavailable, Copilot automatically fails open to on-device people and possible-weapon detection.
 
-Local inference can work without internet. During Controller Screen Capture, the immediate Android notification also works without internet. The relay or capture session must be running, and cloud sync still needs connectivity.
+The capture session must be running. On-device fallback and immediate alert notifications can work without internet, while timeline sync, cloud follow-up, and reporting wait for connectivity.
 
 ## Current alert types
 
@@ -16,27 +16,33 @@ Local inference can work without internet. During Controller Screen Capture, the
 
 These are assistive detections, not operational conclusions. Person detection is not face recognition or identity matching. A possible-weapon alert does not establish that an object is a weapon, who possesses it, intent, legality, or threat level.
 
-## Configure Local AI
+## Android controls
 
 1. Open **Pilot console → Flight → Local AI**.
-2. Turn **Enable on-device detection** on or off.
+2. Turn **Enable automatic OpenAI + local detection** on or off.
 3. Adjust the sample rate, minimum detection score, confirmation window, or cooldown only after testing the change.
 4. Tap **Save local AI settings**.
-5. Start the mission relay or Controller Screen Capture and watch the Local AI metrics line for inference and event activity.
+5. Start Controller Screen Capture and watch the **Device Live AI** status on the active-mission dashboard or the Live AI metrics line.
 
 During Controller Screen Capture, grant Android notification permission if the pilot should receive immediate on-controller alerts. Person notifications use the yellow informational style; possible-weapon detections use the red urgent style.
 
-Local AI and browser AI live watch coordinate alert ownership for the same online mission. After browser live watch completes a healthy analysis, the Pilot app pauses its local detector and shows **Local AI: paused while browser Live AI is active** in the metrics line. If browser analysis stops, the browser closes, or connectivity is lost, the short handoff expires and on-device Local AI resumes automatically.
+Mission Overwatch AI live watch, device cloud analysis, and the on-device fallback coordinate ownership for the same mission. Healthy Mission Overwatch analysis pauses device-originated cloud requests. Healthy device cloud analysis places the local fallback on standby. When the active cloud handoff stops or expires, the on-device detector resumes automatically.
+
+## iPhone and iPad
+
+iOS ReplayKit runs the same cloud-first path while **AlphaRelay Capture** is active. Its offline fallback uses iOS Vision people detection plus the same weapon-presence verifier validated for the Android fallback. iOS does not run Android's full multi-object detector. Allow time-sensitive notifications if alerts should appear over the flight app.
+
+Mission-specific AI targets selected before start or updated during the mission apply to device cloud analysis. Use one concrete visible item per line, up to eight. Offline edits remain queued until mission metadata sync succeeds.
 
 ## What happens after a detection
 
-AlphaRelay can create a timeline event with an annotated screenshot. Yellow boxes mark the detected person or object when a usable box is available. Person, group, and possible-weapon alerts track screen regions so one continuously visible subject is not logged over and over; a new subject elsewhere can still create a new alert.
+AlphaRelay can create a timeline event with a screenshot. On-device fallback screenshots can include detection annotations. Person, group, and possible-weapon alerts use stable categories and cooldowns so one continuously visible subject is not logged over and over; a new subject elsewhere can still create a new alert.
 
 In Controller Screen Capture, AlphaRelay filters small person boxes inside fixed flight-app HUD rails and collapses overlapping boxes around the same person. These filters reduce repeated and HUD-driven alerts, but they do not eliminate false positives or missed detections.
 
 When the full-frame pass does not already find a qualifying possible weapon, AlphaRelay can spend one additional high-detail pass around a weak weapon candidate or detected person before falling back to a frame region. This improves review coverage for smaller objects without making the detector conclusive.
 
-AlphaRelay captures the evidence screenshot before posting the audible Android alert. The heads-up alert dismisses automatically after about three seconds, while the mission Timeline event remains available for review. On-device notifications also retain a 45-second cooldown for the same alert title.
+AlphaRelay captures evidence before posting the device alert. A banner can dismiss while the mission Timeline event remains available for review. Analysis sampling and user-visible alert frequency are separate: slow analysis, confidence thresholds, stable-target deduplication, and cooldowns can reduce visible alerts.
 
 ## Review an alert in Mission Overwatch
 
@@ -49,11 +55,11 @@ This is a two-stage review: approving the alert allows analysis and report consi
 
 ## Limits
 
-- Local AI runs only while the relay or capture session supplies frames.
-- Healthy browser AI live watch temporarily owns automatic detection for the same mission; the on-device detector remains the fallback and resumes automatically.
-- Internet is not required for inference, but synced timeline screenshots, cloud analysis, and reporting require connectivity.
+- Device Live AI runs only while capture supplies images.
+- Healthy Mission Overwatch or device cloud analysis temporarily owns detection for the same mission; the on-device detector remains the fallback and resumes automatically.
+- Internet is required for cloud analysis, sync, and reporting, but not for on-device fallback inference.
 - Small, blurred, distant, dark, partially hidden, or unusual objects may be missed. Tools, toys, sporting equipment, and silhouettes may be false positives.
-- The bundled model has not been validated on real DJI Controller Screen Capture footage or broad field conditions. Do not treat held-out model tests as field performance.
-- Local AI does not determine identity, intent, policy compliance, criminal activity, injury, or whether an area is clear.
+- The bundled fallback has not been validated across broad real-world controller-screen and field conditions. Do not treat held-out model tests as field performance.
+- Device Live AI does not determine identity, intent, policy compliance, criminal activity, injury, or whether an area is clear.
 
 → [Log events](/alpharelay/event-logging) · [Review footage](/alpharelay/footage-playback) · [Known limitations](/alpharelay/known-limitations)

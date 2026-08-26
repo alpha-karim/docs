@@ -6,8 +6,8 @@ icon: "users"
 
 | Role | Device | Responsibility |
 | --- | --- | --- |
-| Pilot | Pilot app (Android tablet, phone, or drone controller) | Selects the current operator, starts missions, flies, logs field events, ends mission, uploads footage |
-| Android mission viewer | Pilot app on a second licensed Android device | Watches active remote live, follows timeline events, and logs quick or manual events |
+| Pilot | AlphaRelay Copilot (Android, iPhone, or iPad) plus the flight app or supported Pilot-mode controls | Selects the current operator, starts missions, flies through the applicable flight interface, logs field events, ends mission, uploads footage |
+| Mission viewer | Copilot on a second licensed Android or iOS device | Watches active remote live, follows timeline events and alerts, and logs quick or manual events |
 | Overwatch user | Browser — Mission Overwatch | Relay viewing, remote live, command-side events, review, report, seal, export |
 | Reviewer / officer | Browser — Mission Overwatch | Checks timeline, footage, report draft, and custody |
 | Supervisor | Browser — Mission Dashboard / Overwatch | Approves or returns after-action reports |
@@ -21,19 +21,23 @@ On a detected DJI SDK-controller setup, AlphaRelay also presents **Pilot mode**.
 
 For a DJI Avata with compatible DJI Goggles, the pilot operates through the goggles and their compatible controller. A separate Android phone or tablet runs DJI Fly and AlphaRelay **Goggles Mode** to relay and record the goggles live view.
 
-## Secondary Android mission viewer
+## iPhone and iPad
 
-On a licensed Android phone, tablet, or controller, tap **View Live Mission** to choose an active mission from the same organization. The viewer shows remote video when available, refreshes the live timeline, and can log scenario quick events or manual events. It cannot start missions, control aircraft, or perform closed-mission review.
+On iOS 26, AlphaRelay Copilot uses ReplayKit to capture the selected display or flight app. The flight app remains responsible for aircraft control. Copilot publishes remote live, records footage, logs screenshot-backed quick, manual, and `Relay` voice events, and uses durable queues when connectivity is interrupted.
+
+## Secondary mission viewer
+
+On a licensed Android device, tap **View Live Mission**. On iPhone or iPad, tap **Watch Live Mission**. The viewer shows remote video when available, refreshes the live timeline and alerts, and can log scenario quick events or manual events. It cannot start missions, control aircraft, or perform closed-mission review.
 
 ## Key rules
 
-- Missions **always start from the pilot app's Start Mission workflow**, not Mission Overwatch or Mission Viewer.
+- Missions **always start from Copilot's Start Mission workflow**, not Mission Overwatch or Mission Viewer.
 - The startup action is **Choose Scenario**. Select the current operator when the agency roster is available; AlphaRelay attributes the mission and field-created events to that person.
 - Open missions from **Mission Dashboard** (link may say **Open Mission Console**).
-- The current Pilot app presents one **Start Mission** action and starts remote live automatically when validated internet is available.
+- Copilot presents one **Start Mission** action and starts remote live automatically when validated internet is available.
 - Mission Overwatch **Mission tools** remain available for active Internet missions, including quick events, typed manual events, and browser dictation.
-- **Local Network** is a deployment-specific LAN relay path and is not presented by the current public Pilot app.
+- **Local Network** is a deployment-specific Android LAN relay path and is not presented by the current public Copilot workflow.
 - **Controller Screen Capture** is automatic on integrated Android drone controllers and the recommended default on detected DJI SDK-controller setups; it is not a separate mission button.
 - **Pilot mode** is an explicit alternative on eligible DJI SDK-controller setups and requires supported-aircraft confirmation plus a successful live connection check.
 - **Goggles Mode** starts a mission automatically when a prepared Android device detects compatible DJI Goggles over USB.
-- **View Live Mission** requires internet and a separate valid Pilot-app license; only active missions in that license's organization appear.
+- Mission Viewer requires internet and a separate valid Copilot license; only active missions in that license's organization appear.

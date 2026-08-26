@@ -15,9 +15,9 @@
 ## Terminology (match the product UI)
 
 - **AlphaRelay** — product name
-- **Pilot app** — Android app on the pilot tablet, phone, or Android drone controller (`download.html`)
-- **Choose Scenario** / **Start Mission** — current pilot-app mission start. The scenario screen includes operator selection and capture-mode choices when applicable; starting creates an Internet mission and automatically starts remote live when validated internet is available.
-- **Local Network** — deployment-specific LAN relay path retained in the product but not presented as a mission-start button in the current public Pilot app.
+- **AlphaRelay Copilot** / **Copilot app** — licensed Android or iOS app used to start controller-screen missions, publish live video, log field events, and support active missions; the Android APK is available from `download.html`
+- **Choose Scenario** / **Start Mission** — current Android Copilot mission start. The setup screen includes operator, mission name, scenario, mission-specific AI targets, and capture-mode choices when applicable; starting creates an Internet mission and automatically starts remote live when validated internet is available. iOS presents the same fields directly on mission setup.
+- **Local Network** — deployment-specific Android LAN relay path retained in the product but not presented as a mission-start button in the current public Copilot workflow.
 - **Controller Screen Capture** — recommended capture path on Android drone controllers where the controller's native flight app keeps flight control and AlphaRelay captures the controller screen
 - **Pilot mode** — direct AlphaRelay aircraft-control path offered on detected DJI SDK-controller setups only after the operator confirms a listed DJI MSDK 5.17 aircraft and AlphaRelay verifies its live connection
 - **Goggles Mode** — DJI Avata and compatible DJI Goggles workflow on a separate Android phone or tablet; AlphaRelay captures DJI Fly, automatically starts an Internet mission with no scenario, and opens DJI Fly after screen-capture approval
@@ -25,15 +25,15 @@
 - **Mission Dashboard** — command home (`dashboard.html`)
 - **Command Center** — default Mission Dashboard view with connection/refresh status, active missions, operational KPIs, attention queue, and latest automatic alerts
 - **Mission Overwatch** / **Mission Console** — per-mission browser workspace (`mission-overwatch.html`; dashboard link says **Open Mission Console**)
-- **Mission Viewer** / **View Live Mission** — active-mission viewer in the licensed Android Pilot app for remote live, timeline updates, and quick or manual event logging from a secondary device
+- **Mission Viewer** / **View Live Mission** / **Watch Live Mission** — active-mission viewer in licensed Android and iOS Copilot apps for remote live, timeline updates, and quick or manual event logging from a secondary device
 - **Live Overwatch Screen** — relay connection panel in Mission Overwatch
 - **Live stream (WebRTC)** — remote live viewing over the internet
 - **AI live watch** — Mission Overwatch control that analyzes sampled remote-live frames and logs officer-review alerts when configured; it defaults on unless a saved mission choice disables it
 - **Scenario-specific AI targets** / **Mission-specific AI targets** — bounded visible details added to LiveAI's standard detections for an active mission
-- **Local AI** — on-device person, multiple-person, and possible-weapon detection that runs from relay frames; Controller Screen Capture can notify the pilot without internet
+- **Device Live AI** — cloud-first live analysis from the Copilot device when internet is healthy, with automatic on-device person and possible-weapon fallback when cloud analysis is unavailable; Android also exposes the fallback controls in **Pilot console → Flight → Local AI**
 - **Person detection** — informational/yellow alert treatment; this is not identity or face recognition
 - **Possible weapon / urgent threat** — red alert treatment that still requires human review
-- **Automatic AI-alert review** — an officer must **Approve alert** or **Dismiss alert** before a Local AI or AI live-watch screenshot can be analyzed or used in a report
+- **Automatic AI-alert review** — an officer must **Approve alert** or **Dismiss alert** before a Device Live AI or AI live-watch screenshot can be analyzed or used in a report
 - **Mission tools** — quick events, typed manual events, and browser **Dictate** for active Internet missions
 - **Timeline finding review** — accepted AI Review findings and analyzed AI-alert screenshots require **Accept as is** or **Review & edit** in the timeline before AAR use
 - **Done — continue** — closed-mission action on Timeline, Media, and AI Review that records completion and advances to the next unfinished review step; Timeline removes remaining unaccepted AI candidates and AI Review rejects remaining undecided findings after confirmation

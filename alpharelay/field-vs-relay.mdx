@@ -4,7 +4,7 @@ description: "Understand remote live, offline capture, and deployment-specific L
 icon: "split"
 ---
 
-The current Pilot app presents one **Start Mission** action. It creates an Internet mission and automatically starts **Live stream (WebRTC)** when the pilot device has validated internet.
+AlphaRelay Copilot presents one **Start Mission** action. It creates an Internet mission and automatically starts **Live stream (WebRTC)** when the device has validated internet.
 
 ## Online mission
 
@@ -21,7 +21,7 @@ If validated internet is unavailable, **Start Mission** still begins local captu
 
 ## Deployment-specific Local Network relay
 
-The current public Pilot app does not show a **Local Network** mission button. Some older or deployment-specific builds may expose **Local Network** and **Live Overwatch Screen** for same-Wi-Fi relay viewing. In those builds:
+The current public Copilot workflow does not show a **Local Network** mission button. Some older or deployment-specific Android builds may expose **Local Network** and **Live Overwatch Screen** for same-Wi-Fi relay viewing. In those builds:
 
 - The pilot and Mission Overwatch devices must share a reachable Wi-Fi network.
 - **Live Overwatch Screen** connects to the pilot device by LAN IP.
@@ -34,7 +34,7 @@ The current public Pilot app does not show a **Local Network** mission button. S
 | Pilot device has internet | **Start Mission**; remote live starts automatically |
 | No usable internet | **Start Mission**; capture locally and sync later |
 | Remote viewers need live video | Keep the pilot device online and open **Live stream (WebRTC)** in Mission Overwatch |
-| A second licensed Android device needs a compact live view | Tap **View Live Mission**; internet is required for the mission list, timeline, events, and video |
+| A second licensed Android or iOS device needs a compact live view | Open Mission Viewer; internet is required for the mission list, timeline, alerts, events, and video |
 | Your deployment exposes **Local Network** | Use its LAN relay instructions on the same reachable Wi-Fi |
 
 <Note>

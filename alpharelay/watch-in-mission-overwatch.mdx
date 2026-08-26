@@ -12,7 +12,7 @@ Mission Overwatch adapts to phone and tablet browsers, including lifecycle statu
 
 ## Remote live — Live stream (WebRTC)
 
-When the Pilot app starts a mission with validated internet, it starts remote live automatically. Open the active mission and select **Live stream (WebRTC)** to watch it.
+When AlphaRelay Copilot starts a mission with validated internet, it starts remote live automatically. Open the active mission and select **Live stream (WebRTC)** to watch it.
 
 If the mission began offline or remote-live setup failed, restore internet and use **Pilot console → Mission → Start remote live** to retry.
 
@@ -31,7 +31,7 @@ Dictation depends on browser speech-recognition support. If it is unavailable or
 
 ## Deployment-specific Local Network relay
 
-The current public Pilot app does not present a **Local Network** mission option. If an older or deployment-specific build exposes **Live Overwatch Screen**, connect it to the pilot device on the same reachable Wi-Fi by scan or LAN IP. That LAN path is separate from remote live and cloud sync.
+The current public Copilot workflow does not present a **Local Network** mission option. If an older or deployment-specific Android build exposes **Live Overwatch Screen**, connect it to the field device on the same reachable Wi-Fi by scan or LAN IP. That LAN path is separate from remote live and cloud sync.
 
 ## AI live watch
 
@@ -51,13 +51,13 @@ AI live watch alerts can show:
 
 - An **AI live alert** or **Urgent AI live alert** banner in Mission Overwatch
 - A timeline event with the sampled frame attached when available
-- A **LIVE AI ALERT - REVIEW NOW** badge and log entry in the pilot app while the same mission is active
+- A Live AI alert badge, notification, and log entry in Copilot while the same mission is active
 
 Person detections use informational/yellow treatment. Possible weapons and other threat indicators use red review treatment, with **Urgent** reserved for the urgent-review level. The Mission Overwatch banner dismisses automatically after about three seconds, but the timeline event remains available for review.
 
-When browser AI live watch is successfully analyzing the same mission, the Pilot app pauses on-device Local AI to avoid duplicate automatic alerts. The Local AI metrics line reports this handoff and the on-device detector resumes automatically if browser analysis stops or the handoff expires.
+When browser AI live watch is successfully analyzing the same mission, Copilot pauses device-originated cloud requests and the on-device fallback to avoid duplicate automatic alerts. If browser analysis stops or the handoff expires, device analysis resumes automatically; cloud failure then falls back to on-device detection.
 
-Before a Local AI or AI live-watch alert can trigger configured screenshot analysis or enter a report, an officer must choose **Approve alert**. Choose **Dismiss alert** when the alert should be excluded. If an approved screenshot returns an analysis finding, it remains pending until an officer selects **Accept as is** or **Review & edit**. Unapproved, dismissed, and unreviewed findings do not enter the AAR narrative.
+Before a Device Live AI or AI live-watch alert can trigger configured screenshot analysis or enter a report, an officer must choose **Approve alert**. Choose **Dismiss alert** when the alert should be excluded. If an approved screenshot returns an analysis finding, it remains pending until an officer selects **Accept as is** or **Review & edit**. Unapproved, dismissed, and unreviewed findings do not enter the AAR narrative.
 
 Treat these alerts as prompts for human review. They do not replace pilot judgment, command staff review, or final report approval.
 
@@ -74,19 +74,19 @@ Follow the guided review sequence:
 
 Completing Timeline review keeps human-created and approved AI events but permanently removes remaining unaccepted AI candidates after confirmation. Completing AI Review keeps accepted or edited findings and rejects remaining undecided findings after confirmation. A newly synced pending item reopens the affected review step.
 
-AI Review includes post-mission media findings and **Ask AI** questions grounded in uploaded mission imagery. When a finding includes a valid detected region, AlphaRelay draws a non-destructive yellow box on its thumbnail and full-screen evidence view. Findings accepted in AI Review move to the timeline for final officer review before report use.
+AI Review includes post-mission media findings and **Ask AI** questions grounded in uploaded mission imagery. It preserves source images without drawing model bounding boxes over finding thumbnails or the full-screen viewer. Findings accepted in AI Review move to the timeline for final officer review before report use.
 
 Closed-mission timelines render chronologically, with the oldest event at the top and the latest at the bottom. Closed missions show historical content only; Mission Overwatch stops remote-live playback and background live-stream retries after the mission closes.
 
-While Mission Overwatch remains open, the focused mission timeline refreshes with device alerts, Android Mission Viewer events, screenshot status, and mission-close state. New alert rows can appear before their screenshots finish syncing, and these focused refreshes do not restart footage that is already playing.
+While Mission Overwatch remains open, the focused mission timeline refreshes with device alerts, Android and iOS Mission Viewer events, screenshot status, and mission-close state. New alert rows can appear before their screenshots finish syncing, and these focused refreshes do not restart footage that is already playing.
 
 Mission creators and org admins can use **Rename** in Mission Overwatch to correct the mission name before the report is submitted. Submitted and approved missions are read-only and cannot be renamed.
 
 ## View from a licensed Android device
 
-For a compact active-mission view, open AlphaRelay Pilot on a second licensed Android device and tap **View Live Mission**. It can watch remote live, follow timeline updates, and log quick or manual events. Closed-mission review stays in Mission Overwatch.
+For a compact active-mission view, open AlphaRelay Copilot on a second licensed device. Tap **View Live Mission** on Android or **Watch Live Mission** on iOS. It can watch remote live, follow timeline updates and alerts, and log quick or manual events. Closed-mission review stays in Mission Overwatch.
 
-→ [View a live mission on Android](/alpharelay/view-live-mission-android)
+→ [View a live mission on Android or iOS](/alpharelay/view-live-mission-android)
 
 ## Offline app shell
 

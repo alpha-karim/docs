@@ -6,11 +6,11 @@ icon: "circle-info"
 
 AlphaRelay helps teams run drone or field missions and produce a defensible record afterward.
 
-The **pilot app** on an Android tablet, phone, or drone controller runs the mission, captures footage, and logs events. A second licensed Android device can use **View Live Mission** to watch an active mission and add events without controlling the aircraft. **Mission Overwatch** in a browser is where command staff watch live feeds, add events, review footage, build after-action reports, seal evidence, and export packages. The **Mission Dashboard** is the command home for finding missions and supervisor review queues.
+**AlphaRelay Copilot** on Android, iPhone, or iPad runs controller-screen missions, captures footage, and logs events while the flight app keeps aircraft control. A second licensed Copilot device can use Mission Viewer to watch an active mission and add events without controlling the aircraft. **Mission Overwatch** in a browser is where command staff watch live video, add events, review footage, build after-action reports, seal evidence, and export packages. The **Mission Dashboard** is the command home for finding missions and supervisor review queues.
 
 ## Basic flow
 
-1. Start a live mission from the pilot app.
+1. Start a live mission from AlphaRelay Copilot.
 2. Watch live and log command-side events in Mission Overwatch when the pilot device is online.
 3. End the mission when field work is complete.
 4. Upload and review footage.
@@ -23,12 +23,14 @@ The **pilot app** on an Android tablet, phone, or drone controller runs the miss
 | Online | **Start Mission** creates the mission, syncs it, and starts remote **Live stream (WebRTC)** automatically. |
 | Offline | The mission still records locally. Events, footage, and closeout work queue until connectivity returns. |
 
-The current Pilot app does not present a **Local Network** mission button. A LAN relay may still appear in older or deployment-specific builds, but it is separate from the normal public workflow.
+The current public Copilot workflow does not present a **Local Network** mission button. A LAN relay may still appear in older or deployment-specific Android builds, but it is separate from the normal public workflow.
 
-On Android drone controllers, the pilot app uses **Controller Screen Capture** by default. The controller's native flight app keeps flight control while AlphaRelay captures the controller screen, streams it into the mission, and records mission footage. On detected DJI SDK-controller setups, a listed and connected DJI aircraft can instead unlock **Pilot mode** for AlphaRelay flight controls.
+On Android drone controllers, Copilot uses **Controller Screen Capture** by default. The controller's native flight app keeps flight control while AlphaRelay captures the controller screen, streams it into the mission, and records one continuous mission video. On detected DJI SDK-controller setups, a listed and connected DJI aircraft can instead unlock **Pilot mode** for AlphaRelay flight controls.
+
+On iPhone and iPad, Copilot uses iOS ReplayKit. Choose **AlphaRelay Capture** from the broadcast picker, then open the flight app. Copilot can record, publish remote live, log screenshot-backed quick, manual, and `Relay` voice events, and retry queued evidence when connectivity returns.
 
 With a DJI Avata and compatible DJI Goggles, AlphaRelay uses **Goggles Mode** on a separate Android device. DJI Fly displays the goggles live view, AlphaRelay starts a mission with no scenario, and the goggles with their compatible controller remain responsible for the aircraft.
 
-Live missions start from the pilot app — not from the browser. For work that already happened outside AlphaRelay, **Import mission** in **Mission History** creates a closed post-flight record for review and reporting.
+Live missions start from Copilot — not from the browser. For work that already happened outside AlphaRelay, **Import mission** in **Mission History** creates a closed post-flight record for review and reporting.
 
-The pilot app also includes optional **Local AI** assistance for person, multiple-person, and possible-weapon alerts. Local inference can work without internet, but every alert still requires human review.
+Copilot also includes **Device Live AI**. It uses licensed cloud analysis when internet is healthy and automatically falls back to on-device people and possible-weapon detection when cloud analysis is unavailable. Every alert still requires human review.

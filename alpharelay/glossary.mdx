@@ -8,16 +8,18 @@ icon: "book"
 | --- | --- |
 | **AI** | Configured assistance for report drafting, media review, mission-media questions, screenshot analysis, and live-watch alerts |
 | **AI live watch** | Mission Overwatch control that samples remote-live frames and logs officer-review alerts when configured; it defaults on unless a saved mission choice disables it |
-| **Approve alert** | Timeline decision that allows a Local AI or AI live-watch alert to proceed to configured screenshot analysis and report consideration; it does not complete officer review of the analysis |
+| **AlphaRelay Copilot** | Licensed Android or iOS app for controller-screen mission capture, remote live, field events, Device Live AI, and Mission Viewer |
+| **Approve alert** | Timeline decision that allows a Device Live AI or AI live-watch alert to proceed to configured screenshot analysis and report consideration; it does not complete officer review of the analysis |
 | **AI Review** | Closed-mission tab for analyzing uploaded media and accepting or rejecting mission-relevant AI findings |
 | **Ask AI** | AI Review view for asking questions grounded in available imagery from a closed synced mission |
 | **Activity Log** | Read-only Organization Settings tab showing server-attributed material actions with person, mission, action, and date filters |
 | **Add optional recording** | Media action for attaching an MP4/MOV aircraft, goggles-screen, or other external recording and aligning it to the mission timeline |
 | **Chain of custody** | Evidence history and hash verification for a mission |
 | **Command Center** | Default Mission Dashboard view for operational status, active missions, attention items, automatic alerts, and report follow-ups |
-| **Controller Screen Capture** | Recommended mode on Android drone controllers where the controller's native flight app keeps flight control and AlphaRelay captures the controller screen; formerly called Companion Capture Mode |
+| **Controller Screen Capture** | Workflow where the native flight app keeps flight control while Copilot captures the visible screen; Android uses system screen capture and iOS uses ReplayKit |
 | **Goggles Mode** | DJI Avata and compatible DJI Goggles workflow where AlphaRelay on a separate Android device captures the DJI Fly live view and automatically starts an Internet mission |
-| **Internet** | Cloud-backed mission mode used by the current Pilot app's **Start Mission** workflow |
+| **Device Live AI** | Cloud-first live analysis from a Copilot device with automatic on-device people and possible-weapon fallback when cloud analysis is unavailable |
+| **Internet** | Cloud-backed mission mode used by the current Copilot **Start Mission** workflow |
 | **Done — continue** | Closed-mission action that records completion of Timeline, Media, or AI Review and opens the next unfinished step; confirmation can remove or reject unresolved AI candidates |
 | **Import mission** | Mission History flow that creates a closed post-flight record from external footage and photos |
 | **Import mission data…** | Client-side workflow preview that inventories a large evidence or mapping package without uploading file contents or creating custody records |
@@ -29,19 +31,19 @@ icon: "book"
 | **Mission Console** | Dashboard link name for opening Mission Overwatch |
 | **Mission Dashboard** | Command home — KPIs, history, search, AAR inboxes |
 | **Mission Overwatch** | Per-mission browser workspace for live view, review, report, seal, export |
-| **Mission Viewer** | **View Live Mission** workflow in a licensed Android Pilot app for active remote live, timeline updates, and event logging from a secondary device |
+| **Mission Viewer** | **View Live Mission** on Android or **Watch Live Mission** on iOS for active remote live, timeline updates and alerts, and event logging from a secondary licensed device |
 | **Mission-specific AI targets** | Up to eight visible details saved for AI live watch on one mission in addition to standard and scenario targets |
 | **Offline package** | ZIP archive with viewer for point-in-time mission export |
 | **Official mission event** | Undeleted human-created event, approved automatic AI alert, or accepted AI Review finding that received Timeline officer review; this set drives counts, reports, exports, playback markers, and evidence views |
 | **Pilot agreement** | Prepared agreement PDF signed through AlphaRelay before or during agency onboarding |
-| **Pilot app** | AlphaRelay Pilot Android app on tablet, phone, or Android drone controller |
+| **Pilot app** | Older documentation term for the Android app now named AlphaRelay Copilot |
 | **Pilot mode** | Direct AlphaRelay aircraft-control mode available on detected DJI SDK-controller setups after supported-aircraft confirmation and a successful live connection check |
-| **Local AI** | On-device person, multiple-person, and possible-weapon detection that samples pilot-app relay frames and creates review alerts |
+| **Local AI** | Android settings label and fallback component within Device Live AI; it runs on-device when healthy cloud analysis does not own the mission |
 | **Pilot console** | In-app settings (Mission, Flight, Events, System) |
 | **Play with Events** | Footage player with synchronized event markers |
 | **Quick events** | One-tap event buttons from scenario templates |
-| **Local Network** | Deployment-specific LAN WebSocket relay mode; not presented by the current public Pilot app |
+| **Local Network** | Deployment-specific Android LAN WebSocket relay mode; not presented by the current public Copilot workflow |
 | **Scenario template** | Built-in or agency-created mission setup that can provide quick events, report focus, and visible AI watch targets |
-| **Trash** | Mission History recovery area that keeps a deleted mission and its linked record recoverable for 30 days before permanent removal |
-| **Choose Scenario** | Pilot-app startup action for selecting the operator, scenario, and capture mode when applicable before **Start Mission** |
+| **Trash** | Mission History recovery area that keeps a deleted mission and its linked record recoverable for up to 30 days; authorized admins can permanently **Delete now** sooner |
+| **Choose Scenario** | Android Copilot startup action for selecting the operator, mission name, scenario, AI targets, and capture mode when applicable before **Start Mission** |
 | **Voice relay** | Voice logging with keyword `relay` before event details |
