@@ -25,7 +25,7 @@ The license is stored on the device. Copilot does not use the web-app email and 
 ## Start capture
 
 1. Open **AlphaRelay Copilot** and choose a built-in or agency scenario, or **No scenario**.
-2. Confirm the operator, enter the mission name, and optionally add up to eight **Mission-specific AI targets**, one visible item per line.
+2. Confirm the operator, enter the mission name, optionally add up to eight **Mission-specific AI targets**, and choose whether **Alert on people** should include routine person and hand-to-hand-contact alerts. Weapons, explosives, hazards, other enabled behavior, and mission-specific targets remain active when it is off.
 3. Tap **Start Mission**.
 4. In the iOS broadcast picker, choose **AlphaRelay Capture**. Enable the microphone when the recording needs microphone audio, then start the broadcast.
 5. Open the flight app. Keep the iOS screen-recording indicator active while AlphaRelay captures in the background.
@@ -37,7 +37,9 @@ Copilot publishes the captured display through **Live stream (WebRTC)** when int
 - Use scenario quick events or **Log event with current frame**. Copilot attaches a fresh controller-screen image when capture can provide one.
 - Leave **Voice events** enabled to say `Relay` followed by the note. Copilot saves the note with the latest captured frame.
 - Use **Update AI targets** to change mission-only visible targets without restarting the mission. Offline edits remain queued for cloud sync.
-- Live AI alert notifications can appear over the flight app. They are review prompts, not confirmed findings.
+- When Live Activities are enabled, Live AI alerts use a concise one-line Lock Screen or Dynamic Island presentation designed for the landscape flight-app view, then collapse back to monitoring after about one second. Urgent weapon-like alerts use red treatment; informational people alerts use yellow treatment.
+- If a mission Live Activity is unavailable, Copilot uses the **Screen Sharing** notification fallback. Allow time-sensitive notifications so alerts can appear over the flight app.
+- Alert presentations are review prompts, not confirmed findings. The mission timeline remains the durable review surface after the brief on-screen alert clears.
 
 With working internet, Device Live AI uses licensed server-side analysis without storing an OpenAI key in the app. If cloud analysis is unavailable, Copilot automatically falls back to on-device people detection and possible-weapon verification. Every alert still requires human review.
 
@@ -59,6 +61,7 @@ From mission setup, tap **Watch Live Mission**. Choose an active mission in the 
 - Copilot captures the selected iOS display or app; it does not control the aircraft.
 - iOS does not use Android's DJI Goggles USB/LogicLink auto-detection or the deployment-specific Android local-network relay.
 - iOS uses its own on-device fallback rather than Android's full multi-object detector.
+- Dynamic Island, Live Activity, notification-fallback timing, and landscape placement vary by iPhone model and iOS settings; verify them on the physical flight device before operational use.
 - ReplayKit capture must be verified on a physical device; Simulator behavior does not prove field capture.
 
 → [Controller Screen Capture on Android](/alpharelay/companion-capture-mode) · [View a live mission](/alpharelay/view-live-mission-android) · [Device Live AI](/alpharelay/local-ai) · [Upload footage](/alpharelay/footage-upload)

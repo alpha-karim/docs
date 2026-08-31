@@ -153,14 +153,24 @@ Accepting a finding in **AI Review** only moves it to the timeline. The timeline
 
 A newly synced pending alert or finding reopens the affected review step even if it was completed earlier.
 
+## AI Review will not start or appears stuck
+
+1. Open a closed, synced mission and select **AI Review**.
+2. Move at least one tag from **Available tags** into **What should AI look for?**.
+3. For **Event-focused**, confirm the mission has an accepted human event or approved alert. If not, choose **Full mission — detailed**.
+4. Confirm the primary recording is playable. Full-mission coverage can also include uploaded mission photos.
+5. Keep the deployment online and confirm AI is configured. Click **Refresh** to reload the background job state.
+
+The status can show starting, preparing media with progress, or analyzing. You can leave the page while it runs; AlphaRelay sends a completion email when configured delivery succeeds. Internal queue states are not shown.
+
 ## Ask AI is unavailable or cannot answer
 
 1. Open a closed, synced mission and select **AI Review → Ask AI**.
-2. Confirm footage, photos, or event screenshots are available and playable.
+2. Confirm the primary uploaded footage is available and playable. Ask AI does not use mission photos or event screenshots.
 3. Keep Mission Overwatch online and confirm AI is configured for the deployment.
 4. If AlphaRelay says it is preparing supporting evidence, keep the page open while it samples frames from playable footage.
 
-Ask AI can answer only from available mission imagery. If the relevant moment is missing, obscured, low quality, or outside the sampled frames, it may report that the question cannot be answered.
+Ask AI can answer only from the selected primary uploaded recording. If the relevant moment is missing, obscured, low quality, or outside the sampled frames, it may report that the question cannot be answered.
 
 ## Device Live AI is not tagging
 

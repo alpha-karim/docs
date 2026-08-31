@@ -33,12 +33,16 @@ icon: "triangle-alert"
 - Device Live AI can miss small, distant, blurred, dark, or partially hidden objects and can mistake tools, toys, equipment, overlays, or silhouettes for a possible weapon. It does not determine identity, possession, intent, legality, policy compliance, injury, or whether an area is clear.
 - Spatial tracking and HUD filtering reduce repeated person/weapon alerts and controller-overlay false positives; they do not guarantee one alert per real subject or eliminate false alerts.
 - AI report drafts require officer review; resolve **Items Requiring Officer Review** before finalization.
-- **AI Review** requires a closed synced mission, available media, internet, AI configuration, and installed analysis tables.
-- **Ask AI** runs only for a closed synced mission with available imagery. Its answers reflect sampled footage frames, photos, and event screenshots, so occlusion, image quality, repeated views, or missing moments can limit counts and conclusions.
-- An exact repeat question may load a saved answer for the same mission-media set. Ask again after the media changes.
+- **AI Review** requires a closed synced mission, available media, internet, AI configuration, installed analysis tables, and at least one selected tag under **What should AI look for?**.
+- **Event-focused** AI Review requires accepted human events or approved alerts to anchor its search. It looks around those moments and does not reprocess their screenshots. Use **Full mission — detailed** when no accepted anchors exist or broader recording coverage is required; it takes longer and still samples rather than proving complete observation.
+- Background AI Review can continue after you leave the page, but the completion email and refreshed progress depend on the configured worker, mail delivery, and connectivity.
+- **Ask AI** runs only for a closed synced mission with playable uploaded footage. It uses the primary uploaded recording and excludes mission photos and event screenshots. Occlusion, image quality, repeated views, sampling, or missing moments can limit counts and conclusions.
+- An exact repeat question may load a saved answer for the same primary-footage selection. Ask again after that recording changes.
 - **AI live watch** requires active **Live stream (WebRTC)**, internet, Mission Overwatch online, and AI configuration. The default cadence can start a sample as often as every two seconds, but network and analysis latency may make it slower.
 - Scenario-specific and mission-specific AI targets are bounded visual search cues, not guaranteed detections. Use concrete visible details and verify every match against the live view or source media.
 - Person detections use informational/yellow treatment and do not perform identity or face recognition. Possible weapons and other urgent threat indicators use red treatment but remain unconfirmed until human review.
+- **Alert on people** can suppress routine person and hand-to-hand-contact alerts, but weapon and explosive detection cannot be disabled and remains highest priority. Turning people alerts off does not mean no people are present.
+- Thermal and infrared people analysis accepts incomplete signatures only when multiple human-consistent cues are visible and checks common warm-object, furniture, vegetation, reflection, shadow, and image-artifact alternatives. It can still miss people or produce false positives.
 - AI media findings are suggestions. Accepting one in AI Review moves it to the timeline; an officer must then use **Accept as is** or **Review & edit** before it is eligible for the AAR.
 - AI Review does not draw model bounding boxes over finding thumbnails or the full-screen source image.
 - Device Live AI and AI live-watch alerts require **Approve alert** before configured screenshot analysis or report eligibility. **Dismiss alert** excludes the alert. Approved analysis still waits for the event, review decision, and screenshot to sync and requires internet plus AI configuration.
@@ -58,6 +62,7 @@ icon: "triangle-alert"
 - **Done — continue** is a recorded review decision, not only navigation. Timeline completion permanently removes remaining unaccepted AI candidates; AI Review completion rejects remaining undecided findings. Review the confirmation count before continuing.
 - Submitting a report for supervisor approval locks the report, mission name, timeline, footage, photos, and AI Review actions. Returning it to draft reopens work; approval makes the lock permanent.
 - Evidence sealing preserves custody hashes — it is not report approval.
+- **Seal entire mission** seals only evidence included in the AAR Chain of Custody. Excluded alert screenshots can remain retained and registered but unsealed.
 
 ## Browser
 

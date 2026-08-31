@@ -1,6 +1,6 @@
 # AlphaRelay Operator Documentation — NotebookLM Export
 
-Generated on 2026-08-26 by `scripts/generate-notebooklm-export.mjs`.
+Generated on 2026-08-31 by `scripts/generate-notebooklm-export.mjs`.
 
 **Web app:** https://www.alpha-relay.com
 **Pilot app (APK):** https://www.alpha-relay.com/download.html
@@ -19,26 +19,31 @@ Generated on 2026-08-26 by `scripts/generate-notebooklm-export.mjs`.
 - **Pilot console** — in-app settings panel (Mission, Flight, Events, System)
 - **Mission Dashboard** — command home (`dashboard.html`)
 - **Command Center** — default Mission Dashboard view with connection/refresh status, active missions, operational KPIs, attention queue, and latest automatic alerts
-- **Mission Overwatch** / **Mission Console** — per-mission browser workspace (`mission-overwatch.html`; dashboard link says **Open Mission Console**)
+- **Mission Overwatch** / **Mission Console** — per-mission browser workspace (`mission-overwatch.html`; dashboard link says **Open Mission Console**); active missions use a full-screen command view with the live feed and an **Operations** drawer for tools and timeline activity
 - **Mission Viewer** / **View Live Mission** / **Watch Live Mission** — active-mission viewer in licensed Android and iOS Copilot apps for remote live, timeline updates, and quick or manual event logging from a secondary device
 - **Live Overwatch Screen** — relay connection panel in Mission Overwatch
 - **Live stream (WebRTC)** — remote live viewing over the internet
 - **AI live watch** — Mission Overwatch control that analyzes sampled remote-live frames and logs officer-review alerts when configured; it defaults on unless a saved mission choice disables it
+- **Alert on people** — mission setting for optional informational person and hand-to-hand-contact alerts; weapons and explosives remain non-optional and highest priority
 - **Scenario-specific AI targets** / **Mission-specific AI targets** — bounded visible details added to LiveAI's standard detections for an active mission
 - **Device Live AI** — cloud-first live analysis from the Copilot device when internet is healthy, with automatic on-device person and possible-weapon fallback when cloud analysis is unavailable; Android also exposes the fallback controls in **Pilot console → Flight → Local AI**
 - **Person detection** — informational/yellow alert treatment; this is not identity or face recognition
 - **Possible weapon / urgent threat** — red alert treatment that still requires human review
 - **Automatic AI-alert review** — an officer must **Approve alert** or **Dismiss alert** before a Device Live AI or AI live-watch screenshot can be analyzed or used in a report
-- **Mission tools** — quick events, typed manual events, and browser **Dictate** for active Internet missions
+- **Mission tools** — Quick Events, typed manual events, and browser **Dictate** under Mission Overwatch's **Operations → Tools** for active Internet missions
 - **Timeline finding review** — accepted AI Review findings and analyzed AI-alert screenshots require **Accept as is** or **Review & edit** in the timeline before AAR use
 - **Done — continue** — closed-mission action on Timeline, Media, and AI Review that records completion and advances to the next unfinished review step; Timeline removes remaining unaccepted AI candidates and AI Review rejects remaining undecided findings after confirmation
 - **Official mission event** — a human-created event that has not been deleted, an approved automatic AI alert, or an accepted AI Review finding whose timeline analysis is officer-reviewed; use this set for counts, playback markers, reports, exports, and evidence-chain views
-- **Quick events**, **scenario template**, **Items Requiring Officer Review**
-- **Mission scenarios** — Organization Settings editor for agency-specific scenarios and up to eight visible AI watch targets
+- **Quick events** — one-tap event buttons; agency scenarios can define up to seven, with the standard buttons used when the list is empty
+- **AI Review analysis coverage** — **Event-focused** searches around accepted events by default; **Full mission — detailed** reviews the best-quality recording more broadly and takes longer
+- **What should AI look for?** — operator-selected post-mission analysis tags; at least one is required before **Analyze media**
+- **Mission scenarios** — Organization Settings editor for agency-specific scenarios, up to eight visible AI watch targets, and up to seven Quick Events
 - **Activity Log** — read-only Organization Settings tab for server-attributed material actions
 - **Import mission** — Mission History action for creating a closed post-flight record from external footage and photos
 - **Import mission data…** — client-side workflow preview for inventorying large evidence and mapping packages; it does not upload or change files
 - **Add optional recording** — Media action for MP4/MOV aircraft, goggles-screen, or other external recordings; AlphaRelay capture remains the mission timeline in Controller Screen Capture and Goggles Mode
+- **Ask AI source** — the selected primary uploaded footage only; Ask AI excludes mission photos and event screenshots and prefers an aircraft original when available
+- **AAR Chain of Custody** — the explicit report evidence set sealed by **Seal entire mission**; included manual photos and videos are sealable, while excluded alert screenshots remain retained but unsealed
 - **Export offline package…**, **Export evidence package (JSON)**
 - **Rename** — available from Mission History and Mission Overwatch until the report is submitted for approval
 - **AI** — configured report drafting, media review, screenshot analysis, and live-watch assistance
@@ -52,10 +57,10 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
 ## Five-step workflow
 
 1. **Set up devices** — Install AlphaRelay Copilot on the field devices, activate each device license, and sign in to the web app.
-2. **Start a mission** — Tap **Choose Scenario**, select the operator when an agency roster is available, choose a scenario template, and tap **Start Mission**. Remote live starts automatically when the pilot device has validated internet. Android drone controllers use **Controller Screen Capture** by default; detected DJI SDK-controller setups can unlock **Pilot mode** after a supported-aircraft and live-connection check. With a DJI Avata and compatible DJI Goggles connected to an Android device, Goggles Mode starts the mission automatically.
-3. **Watch and log events** — Use Mission Overwatch for remote live, focused AI live watch when configured, and command-side event logging. A second licensed Android or iOS device can use Mission Viewer for a compact live view and event logging. Device Live AI uses cloud analysis when available and automatically falls back to on-device detection when it is not.
-4. **Review the mission** — Upload or sync footage, then follow Mission Overwatch through **Timeline**, **Media**, and **AI Review** when available. Use **Done — continue** after each review step; analyze media findings and use **Ask AI** when configured.
-5. **Finalize the record** — Generate the report, seal evidence, submit for supervisor review, and export when ready. Submission locks review work; approval makes the record permanently read-only.
+2. **Start a mission** — Tap **Choose Scenario**, select the operator when an agency roster is available, choose a scenario template, set whether routine people alerts are needed, and tap **Start Mission**. Weapon and explosive alerts always remain on. Remote live starts automatically when the pilot device has validated internet. Android drone controllers use **Controller Screen Capture** by default; detected DJI SDK-controller setups can unlock **Pilot mode** after a supported-aircraft and live-connection check. With a DJI Avata and compatible DJI Goggles connected to an Android device, Goggles Mode starts the mission automatically.
+3. **Watch and log events** — Use Mission Overwatch's full-screen command view for remote live, focused AI live watch when configured, and the **Operations** drawer for Quick Events, manual events, and the live timeline. A second licensed Android or iOS device can use Mission Viewer for a compact live view and event logging. Device Live AI uses cloud analysis when available and automatically falls back to on-device detection when it is not.
+4. **Review the mission** — Upload or sync footage, then follow Mission Overwatch through **Timeline**, **Media**, and **AI Review** when available. Choose what AI should look for and use **Event-focused** or **Full mission — detailed** coverage before analysis. You can leave while analysis runs and return after the completion email. **Ask AI** uses the selected primary uploaded footage.
+5. **Finalize the record** — Generate the report, seal the evidence listed in the AAR Chain of Custody, submit for supervisor review, and export when ready. Submission locks review work; approval makes the record permanently read-only.
 
 ## Start here
 
@@ -129,13 +134,13 @@ Install AlphaRelay Copilot, activate each Android or iOS device license, sign in
 
 ## 2. Start a mission
 
-Open AlphaRelay Copilot, select the operator, mission name, scenario, and up to eight mission-specific AI targets, then tap **Start Mission**. Copilot creates an Internet mission and starts remote live automatically when the device has validated internet. If it is offline, the mission still starts and sync waits for connectivity. Android drone controllers use **Controller Screen Capture** by default so the native flight app remains responsible for flight control. iPhone and iPad use the **AlphaRelay Capture** ReplayKit broadcast. Detected DJI SDK-controller setups can instead unlock **Pilot mode** after a supported-aircraft and live-connection check. For a DJI Avata with compatible DJI Goggles, connect the goggles live view to DJI Fly first; Goggles Mode then starts the mission with no scenario automatically.
+Open AlphaRelay Copilot, select the operator, mission name, scenario, up to eight mission-specific AI targets, and whether routine people alerts are needed, then tap **Start Mission**. Weapons and explosives remain enabled and highest priority even when **Alert on people** is off. Copilot creates an Internet mission and starts remote live automatically when the device has validated internet. If it is offline, the mission still starts and sync waits for connectivity. Android drone controllers use **Controller Screen Capture** by default so the native flight app remains responsible for flight control. iPhone and iPad use the **AlphaRelay Capture** ReplayKit broadcast. Detected DJI SDK-controller setups can instead unlock **Pilot mode** after a supported-aircraft and live-connection check. For a DJI Avata with compatible DJI Goggles, connect the goggles live view to DJI Fly first; Goggles Mode then starts the mission with no scenario automatically.
 
 → Start a mission · Mission connectivity · Android Controller Screen Capture · iPhone and iPad · DJI Avata with DJI Goggles
 
 ## 3. Watch and log events
 
-Open the active mission in Mission Overwatch and select **Live stream (WebRTC)**. When AI live watch is configured, Mission Overwatch can combine standard detections with scenario-specific and mission-specific visible targets, sample the remote stream, and log alerts for officer review. A second licensed Android or iOS Copilot device can open Mission Viewer to watch remote live, follow the timeline, and add quick or manual events. Device Live AI can also create informational person alerts and possible-weapon alerts while capture is running; cloud analysis hands off automatically to the on-device fallback when needed.
+Open the active mission in Mission Overwatch. Its full-screen command view keeps the live feed in focus and provides an **Operations** drawer for mission tools and the live timeline. When AI live watch is configured, Mission Overwatch can combine standard detections with scenario-specific and mission-specific visible targets, sample the remote stream, and log alerts for officer review. A second licensed Android or iOS Copilot device can open Mission Viewer to watch remote live, follow the timeline, and add quick or manual events. Device Live AI can also create informational person alerts and possible-weapon alerts while capture is running; cloud analysis hands off automatically to the on-device fallback when needed.
 
 The Command Center brings active mission state, remote-live or sync problems, automatic alerts awaiting review, and report follow-ups into one attention queue. Mission Overwatch refreshes the focused timeline as device and viewer events arrive.
 
@@ -143,13 +148,13 @@ The Command Center brings active mission state, remote-live or sync problems, au
 
 ## 4. Review the mission
 
-End the mission, let the single controller-screen recording upload or queue, then follow **Timeline** → **Media** → **AI Review** when available and use **Done — continue** after each completed step. Open **Play with Events** to check markers against video. When AI is configured, accept or reject suggested findings. An accepted finding moves to the timeline; use **Accept as is** or **Review & edit** there to make it officer-reviewed before it can enter the AAR. Open **Ask AI** inside AI Review to ask questions grounded in the mission imagery. For work captured outside AlphaRelay, use **Import mission** from **Mission History** to create a closed post-flight record first. If you move a closed mission to **Trash**, restore it within 30 days or, when authorized, permanently delete it sooner with **Delete now**.
+End the mission, let the single controller-screen recording upload or queue, then follow **Timeline** → **Media** → **AI Review** when available and use **Done — continue** after each completed step. Open **Play with Events** to check markers against video. In AI Review, move at least one tag into **What should AI look for?**, then choose the default **Event-focused** coverage or **Full mission — detailed**. Analysis continues in the background and sends a completion email. Accept or reject suggested findings; an accepted finding moves to the timeline, where **Accept as is** or **Review & edit** makes it officer-reviewed before it can enter the AAR. **Ask AI** answers from the selected primary uploaded footage rather than mixing in event screenshots or mission photos. For work captured outside AlphaRelay, use **Import mission** from **Mission History** to create a closed post-flight record first. If you move a closed mission to **Trash**, restore it within 30 days or, when authorized, permanently delete it sooner with **Delete now**.
 
 → End a mission · Import a mission · Upload footage · Review footage · Delete or restore a mission
 
 ## 5. Finalize the record
 
-Generate the after-action report with AI drafting when configured, resolve **Items Requiring Officer Review**, and use **Mark complete** after every listed item has been addressed. Seal custody evidence, submit for supervisor approval, and export when the record is complete.
+Generate the after-action report with AI drafting when configured, resolve **Items Requiring Officer Review**, and use **Mark complete** after every listed item has been addressed. **Seal entire mission** verifies and seals only evidence included in the AAR Chain of Custody. Excluded screenshots remain retained but unsealed. Submit for supervisor approval and export when the record is complete.
 
 → Generate a report · Seal the mission record · Export offline package
 
@@ -161,8 +166,8 @@ Generate the after-action report with AI drafting when configured, resolve **Ite
 - On a Copilot device, **Device Live AI** uses cloud analysis while it is healthy and automatically falls back to on-device people and possible-weapon detection when cloud analysis or internet is unavailable.
 - For an AI live-watch or Device Live AI alert, choose **Approve alert** to allow configured screenshot analysis and report eligibility, or **Dismiss alert** to exclude it. Then review any resulting analysis with **Accept as is** or **Review & edit**.
 - Mission Overwatch, device cloud analysis, and the on-device fallback coordinate ownership to reduce duplicate alerts. The fallback resumes automatically when a healthy cloud handoff ends.
-- After a synced mission closes, **AI Review** analyzes uploaded footage frames, photos, and event screenshots so you can accept or reject suggested findings. Accepted findings require timeline review before report use.
-- Inside AI Review, **Ask AI** answers mission-specific questions from the available imagery and shows its confidence, supporting observations, limitations, and supporting evidence.
+- After a synced mission closes, **AI Review** analyzes operator-selected targets using **Event-focused** or **Full mission — detailed** coverage. Event-focused analysis searches around accepted events without reprocessing their screenshots; Full mission uses the best-quality recording more broadly and can also include mission photos.
+- Inside AI Review, **Ask AI** answers mission-specific questions from the selected primary uploaded footage and shows its confidence, supporting observations, limitations, and supporting evidence.
 
 AI output is draft material. Verify every alert, finding, and answer against the live view or source media before using it in an operational decision, report, or evidence workflow.
 
@@ -203,7 +208,7 @@ On a licensed Android device, tap **View Live Mission**. On iPhone or iPad, tap 
 - The startup action is **Choose Scenario**. Select the current operator when the agency roster is available; AlphaRelay attributes the mission and field-created events to that person.
 - Open missions from **Mission Dashboard** (link may say **Open Mission Console**).
 - Copilot presents one **Start Mission** action and starts remote live automatically when validated internet is available.
-- Mission Overwatch **Mission tools** remain available for active Internet missions, including quick events, typed manual events, and browser dictation.
+- Mission Overwatch **Mission tools** remain available under **Operations → Tools** for active Internet missions, including Quick Events, typed manual events, and browser dictation. **Operations → Timeline** shows live mission activity.
 - **Local Network** is a deployment-specific Android LAN relay path and is not presented by the current public Copilot workflow.
 - **Controller Screen Capture** is automatic on integrated Android drone controllers and the recommended default on detected DJI SDK-controller setups; it is not a separate mission button.
 - **Pilot mode** is an explicit alternative on eligible DJI SDK-controller setups and requires supported-aircraft confirmation plus a successful live connection check.
@@ -389,7 +394,7 @@ The license is stored on the device. Copilot does not use the web-app email and 
 ## Start capture
 
 1. Open **AlphaRelay Copilot** and choose a built-in or agency scenario, or **No scenario**.
-2. Confirm the operator, enter the mission name, and optionally add up to eight **Mission-specific AI targets**, one visible item per line.
+2. Confirm the operator, enter the mission name, optionally add up to eight **Mission-specific AI targets**, and choose whether **Alert on people** should include routine person and hand-to-hand-contact alerts. Weapons, explosives, hazards, other enabled behavior, and mission-specific targets remain active when it is off.
 3. Tap **Start Mission**.
 4. In the iOS broadcast picker, choose **AlphaRelay Capture**. Enable the microphone when the recording needs microphone audio, then start the broadcast.
 5. Open the flight app. Keep the iOS screen-recording indicator active while AlphaRelay captures in the background.
@@ -401,7 +406,9 @@ Copilot publishes the captured display through **Live stream (WebRTC)** when int
 - Use scenario quick events or **Log event with current frame**. Copilot attaches a fresh controller-screen image when capture can provide one.
 - Leave **Voice events** enabled to say `Relay` followed by the note. Copilot saves the note with the latest captured frame.
 - Use **Update AI targets** to change mission-only visible targets without restarting the mission. Offline edits remain queued for cloud sync.
-- Live AI alert notifications can appear over the flight app. They are review prompts, not confirmed findings.
+- When Live Activities are enabled, Live AI alerts use a concise one-line Lock Screen or Dynamic Island presentation designed for the landscape flight-app view, then collapse back to monitoring after about one second. Urgent weapon-like alerts use red treatment; informational people alerts use yellow treatment.
+- If a mission Live Activity is unavailable, Copilot uses the **Screen Sharing** notification fallback. Allow time-sensitive notifications so alerts can appear over the flight app.
+- Alert presentations are review prompts, not confirmed findings. The mission timeline remains the durable review surface after the brief on-screen alert clears.
 
 With working internet, Device Live AI uses licensed server-side analysis without storing an OpenAI key in the app. If cloud analysis is unavailable, Copilot automatically falls back to on-device people detection and possible-weapon verification. Every alert still requires human review.
 
@@ -423,6 +430,7 @@ From mission setup, tap **Watch Live Mission**. Choose an active mission in the 
 - Copilot captures the selected iOS display or app; it does not control the aircraft.
 - iOS does not use Android's DJI Goggles USB/LogicLink auto-detection or the deployment-specific Android local-network relay.
 - iOS uses its own on-device fallback rather than Android's full multi-object detector.
+- Dynamic Island, Live Activity, notification-fallback timing, and landscape placement vary by iPhone model and iOS settings; verify them on the physical flight device before operational use.
 - ReplayKit capture must be verified on a physical device; Simulator behavior does not prove field capture.
 
 → Controller Screen Capture on Android · View a live mission · Device Live AI · Upload footage
@@ -588,13 +596,13 @@ Repeat this exercise when devices, networks, or aircraft change.
 6. Run a test **Start Mission** flow and confirm remote live starts automatically when the pilot device is online.
 7. Confirm the Mission Overwatch browser can use its microphone if the team plans to use **Dictate** for manual events.
 8. If a second Android or iOS device will use Mission Viewer, activate its own license and test that it can see an active mission, remote video, timeline events, and alerts.
-9. If Device Live AI will be used, grant notification permission, confirm the intended Android settings under **Pilot console → Flight → Local AI**, and run a safe cloud-to-fallback detection test.
+9. If Device Live AI will be used, grant notification permission, confirm the intended Android settings under **Pilot console → Flight → Local AI**, decide whether routine **Alert on people** detections are needed, and run a safe cloud-to-fallback detection test. Weapon and explosive alerts remain enabled.
 10. For Android drone controllers: install AlphaRelay Copilot, activate the device license, run a test **Controller Screen Capture** mission, and confirm Android screen capture permission works. If the crew will use **Pilot mode**, also confirm the aircraft appears in the supported list and passes AlphaRelay's live connection check.
-11. For iPhone or iPad: confirm iOS 26, select **AlphaRelay Capture** in ReplayKit, test microphone/speech permissions if needed, and verify recording finalization on the physical device.
+11. For iPhone or iPad: confirm iOS 26, select **AlphaRelay Capture** in ReplayKit, test microphone/speech permissions if needed, allow Live Activities or the **Screen Sharing** notification fallback, and verify landscape alert presentation and recording finalization on the physical device.
 12. For a DJI Avata with compatible DJI Goggles: install DJI Fly and AlphaRelay Copilot on the Android device, test the supported goggles live-view connection, and confirm remote live and post-mission upload.
 13. Check for older queued video on the Copilot startup screen and let it finish, or consciously choose **Skip for now and start new mission**.
 14. Plan for internet when you need remote live, Mission Viewer, cloud Live AI, sync, upload, reports, or export.
-15. If the mission uses an agency scenario, confirm it appears in mission setup and that its visible AI watch targets are current.
+15. If the mission uses an agency scenario, confirm it appears in mission setup and that its visible AI watch targets and Quick Events are current.
 16. Assign pilot, overwatch user, reviewer, and supervisor roles.
 
 ## Connection quick reference
@@ -623,16 +631,19 @@ Missions always start from **AlphaRelay Copilot**. Mission Overwatch cannot star
 3. Select the operating person when the agency roster is available.
 4. Select a scenario category and template, or **No scenario template**.
 5. Enter the mission name your team will recognize and optionally add up to eight **Mission-specific AI targets**, one visible item per line.
-6. On eligible Android DJI SDK-controller setups, keep **Controller Screen Capture — Recommended** or complete the checks for **Pilot mode**.
-7. Tap **Start Mission** and complete the license check if prompted.
-8. Approve Android screen capture, or choose **AlphaRelay Capture** from the iOS broadcast picker.
-9. Open the native flight app when using screen capture. Use quick, manual, or `Relay` voice events and stop the mission when finished.
+6. Leave **Alert on people** on for informational person and hand-to-hand-contact alerts, or turn it off to suppress those routine categories. Weapons, explosives, hazards, other enabled behavior, and mission-specific targets still alert.
+7. On eligible Android DJI SDK-controller setups, keep **Controller Screen Capture — Recommended** or complete the checks for **Pilot mode**.
+8. Tap **Start Mission** and complete the license check if prompted.
+9. Approve Android screen capture, or choose **AlphaRelay Capture** from the iOS broadcast picker.
+10. Open the native flight app when using screen capture. Use quick, manual, or `Relay` voice events and stop the mission when finished.
 
 Copilot prevents a new start while another mission or unfinished capture is active. Use the startup recovery action to close the existing mission through the normal finalization flow; do not discard it to force a new start.
 
 When an online license refresh provides an agency operator roster, AlphaRelay requires a named owner, admin, or operator to be selected before start and records that person with the mission and field-created events. If the roster is unavailable, the app warns the crew and can continue without identified-operator attribution; reconnect and refresh before operational use when attribution is required.
 
 Built-in and agency-created scenarios can provide scenario-specific AI targets. AlphaRelay copies those visible watch items into the mission for AI live watch and post-mission AI Review. The mission-only targets entered at setup supplement them and can be updated during the active mission without restarting. Offline target edits remain queued until cloud sync succeeds. Organization admins manage agency scenarios under **Organization Settings → Settings → Mission scenarios**.
+
+Agency scenarios can also provide up to seven Quick Events. If an agency scenario has no custom Quick Events, Copilot and Mission Overwatch use the standard event buttons.
 
 Copilot starts an Internet mission and automatically starts **Live stream (WebRTC)** when the device has validated internet. If the device is offline, the mission still starts and stores work for later sync. On Android, remote live can be retried from **Pilot console → Mission** if internet becomes available during the mission.
 
@@ -699,7 +710,8 @@ If the aircraft is not listed, the SDK is unavailable, or the live check fails, 
 
 - The mission appears in **Mission Dashboard** after cloud sync.
 - Footage and events may upload during or after the mission depending on connectivity.
-- Tap **Stop and complete mission** or **Stop Mission** in Copilot (or **Close Mission** in Mission Overwatch) when field work is done.
+- Use the active-mission **Alert on people** control to change routine person alerts without restarting. Weapon and explosive alerts cannot be disabled and take priority over every other alert.
+- Tap **Stop and complete mission** or **Stop Mission** in Copilot (or **End Mission** in Mission Overwatch) when field work is done.
 
 → Watch in Mission Overwatch · Android Controller Screen Capture · iPhone and iPad · DJI Avata with DJI Goggles · Connectivity
 
@@ -748,7 +760,7 @@ Mission Overwatch is the per-mission browser workspace. Open it from **Mission D
 
 Sign in at [alpha-relay.com](https://www.alpha-relay.com). The page shell can reopen after an online visit, but active Internet missions, remote live, cloud event logging, and synced review require connectivity.
 
-Mission Overwatch adapts to phone and tablet browsers, including lifecycle status, closed-mission actions, metadata, and report controls. A desktop-sized screen is still easier for long footage and report reviews.
+Active missions open in a full-screen command view. The header shows elapsed time, feed state, the mission-assigned operator, AI detection status, and an **Operations** count. The live feed stays in the main workspace while the **Operations** drawer provides tools and timeline activity. Mission Overwatch adapts to phone and tablet browsers; a desktop-sized screen is still easier for long footage and report reviews.
 
 ## Remote live — Live stream (WebRTC)
 
@@ -759,13 +771,15 @@ If the mission began offline or remote-live setup failed, restore internet and u
 - In **Controller Screen Capture**, remote live publishes the controller screen.
 - In **Goggles Mode**, remote live publishes the DJI Fly screen carrying the DJI Goggles live view. Keep the Android device online.
 
-## Mission tools
+## Operations drawer and mission tools
 
-**Mission tools** remain available for an active Internet mission even though the LAN relay panel is hidden.
+Open **Operations** and select **Tools** for event logging or **Timeline** for the live event list. The panel is docked on wide screens and collapses on narrower layouts. **Mission tools** remain available for an active Internet mission even though the LAN relay panel is hidden.
 
-- Use scenario quick-event buttons for common events.
+- Use scenario Quick Events for common events. Agency-created scenarios can provide up to seven custom buttons; the standard buttons appear when none are configured.
 - Type a note under **Manual Event (fast)** and click **Log Manual Event**.
 - Or tap **Dictate**, allow microphone access, speak the event, review the transcript, and click **Log Manual Event**.
+
+After a quick or manual event is appended, Mission Overwatch shows a confirmation in the operations panel. **End Mission** is the live command view's closeout action.
 
 Dictation depends on browser speech-recognition support. If it is unavailable or blocked, manual typing still works.
 
@@ -781,9 +795,12 @@ The current default cadence can start a new sample as often as every two seconds
 
 When AI live watch is enabled, select **Show details** or leave the expanded card open to review its focus:
 
-- **Standard detections** apply to every analyzed frame.
+- **Other standard detections** controls optional categories such as suspected narcotics, visible hand-to-hand contact, reaching into clothing or bags, and serious safety hazards.
+- **Alert on people** controls routine informational person detections and hand-to-hand contact. It can be changed during the mission.
 - **Scenario-specific AI targets** come from the mission's built-in or agency scenario.
 - **Mission-specific AI targets** let you add up to eight visible details for this mission, one per line. Click **Save targets** after editing.
+
+Possible weapons and explosives always remain enabled and take priority over every other alert, even when people or other standard detections are turned off.
 
 Use concrete visible descriptions such as `Red pickup truck` or `Person wearing an orange jacket`. Saved targets supplement standard detections; they do not turn AI output into a confirmed fact.
 
@@ -814,7 +831,9 @@ Follow the guided review sequence:
 
 Completing Timeline review keeps human-created and approved AI events but permanently removes remaining unaccepted AI candidates after confirmation. Completing AI Review keeps accepted or edited findings and rejects remaining undecided findings after confirmation. A newly synced pending item reopens the affected review step.
 
-AI Review includes post-mission media findings and **Ask AI** questions grounded in uploaded mission imagery. It preserves source images without drawing model bounding boxes over finding thumbnails or the full-screen viewer. Findings accepted in AI Review move to the timeline for final officer review before report use.
+AI Review requires at least one selected tag under **What should AI look for?**. **Event-focused** analysis searches around accepted events by default; **Full mission — detailed** reviews the best-quality recording more broadly and takes longer. Analysis runs in the background, shows preparation and analysis progress after refresh, and emails the requesting signed-in user when complete. Findings accepted in AI Review move to the timeline for final officer review before report use.
+
+**Ask AI** is grounded only in the selected primary uploaded footage. It does not mix mission photos or event screenshots into the question. Source images remain unaltered without model bounding boxes over finding thumbnails or the full-screen viewer.
 
 Closed-mission timelines render chronologically, with the oldest event at the top and the latest at the bottom. Closed missions show historical content only; Mission Overwatch stops remote-live playback and background live-stream retries after the mission closes.
 
@@ -822,7 +841,7 @@ While Mission Overwatch remains open, the focused mission timeline refreshes wit
 
 Mission creators and org admins can use **Rename** in Mission Overwatch to correct the mission name before the report is submitted. Submitted and approved missions are read-only and cannot be renamed.
 
-## View from a licensed Android device
+## View from a licensed device
 
 For a compact active-mission view, open AlphaRelay Copilot on a second licensed device. Tap **View Live Mission** on Android or **Watch Live Mission** on iOS. It can watch remote live, follow timeline updates and alerts, and log quick or manual events. Closed-mission review stays in Mission Overwatch.
 
@@ -842,7 +861,7 @@ Events are timestamped notes on the mission timeline. Keep them short and specif
 
 **AlphaRelay Copilot**
 
-- Tap **quick event** buttons or the quick event wheel (phone layouts)
+- Tap **quick event** buttons or the quick event wheel (phone layouts). Agency scenarios can provide up to seven custom buttons; the standard set appears when none is configured.
 - Enter manual event notes
 - Voice relay: say `relay` followed by the event details (e.g. `relay suspect entered north door`)
 - **Device Live AI** person and possible-weapon alerts from cloud analysis or automatic on-device fallback — review these before treating them as facts
@@ -851,10 +870,12 @@ In **Controller Screen Capture**, voice relay can save a controller-screen scree
 
 **Mission Overwatch**
 
-- Use **Event Logging** quick buttons (match the scenario template labels)
+- Open **Operations → Tools** in the full-screen live command view
+- Use **Event Logging** Quick Events (match the scenario template labels)
 - Use **Manual Event (fast)** for free-text notes
 - Tap **Dictate**, speak the event, review the transcript, and click **Log Manual Event** when the browser supports speech recognition
 - These Mission tools remain available for active Internet missions; they do not require a Local Network relay
+- A success message appears after the event is appended; verify it before repeating the action
 
 **Android or iOS Mission Viewer**
 
@@ -901,11 +922,13 @@ Resolve event timing against footage before generating the final report. For any
 
 The capture session must be running. On-device fallback and immediate alert notifications can work without internet, while timeline sync, cloud follow-up, and reporting wait for connectivity.
 
-## Current alert types
+## Current alert controls and priority
 
 - **Person detected** — informational/yellow treatment
 - **Multiple persons detected** — informational/yellow treatment
 - **Possible weapon detected** — urgent/red treatment
+
+Use **Alert on people** at mission setup or during an active mission to suppress routine person and hand-to-hand-contact alerts. This setting applies to cloud analysis and the on-device fallback. It does not disable weapons, explosives, hazards, other enabled behavior, or mission-specific targets. Weapon and explosive detections are permanently enabled and take priority over every other alert.
 
 These are assistive detections, not operational conclusions. Person detection is not face recognition or identity matching. A possible-weapon alert does not establish that an object is a weapon, who possesses it, intent, legality, or threat level.
 
@@ -925,6 +948,8 @@ Mission Overwatch AI live watch, device cloud analysis, and the on-device fallba
 
 iOS ReplayKit runs the same cloud-first path while **AlphaRelay Capture** is active. Its offline fallback uses iOS Vision people detection plus the same weapon-presence verifier validated for the Android fallback. iOS does not run Android's full multi-object detector. Allow time-sensitive notifications if alerts should appear over the flight app.
 
+When Live Activities are available, iPhone presents a compact alert in the Dynamic Island or Lock Screen and then returns it to monitoring. If Live Activities are unavailable, **Screen Sharing** notifications provide the fallback alert path.
+
 Mission-specific AI targets selected before start or updated during the mission apply to device cloud analysis. Use one concrete visible item per line, up to eight. Offline edits remain queued until mission metadata sync succeeds.
 
 ## What happens after a detection
@@ -932,6 +957,8 @@ Mission-specific AI targets selected before start or updated during the mission 
 AlphaRelay can create a timeline event with a screenshot. On-device fallback screenshots can include detection annotations. Person, group, and possible-weapon alerts use stable categories and cooldowns so one continuously visible subject is not logged over and over; a new subject elsewhere can still create a new alert.
 
 In Controller Screen Capture, AlphaRelay filters small person boxes inside fixed flight-app HUD rails and collapses overlapping boxes around the same person. These filters reduce repeated and HUD-driven alerts, but they do not eliminate false positives or missed detections.
+
+For cloud analysis of thermal or infrared video, AlphaRelay checks the full underlying camera scene rather than only the center, reticle, bright regions, or prior boxes. A partial human thermal signature can be reported when multiple human-consistent shape cues are visible, but the analysis also checks common hot-object and scene false targets such as warmed roofs or pavement, vents, furniture, vegetation, reflections, shadows, and image artifacts.
 
 When the full-frame pass does not already find a qualifying possible weapon, AlphaRelay can spend one additional high-detail pass around a weak weapon candidate or detected person before falling back to a frame region. This improves review coverage for smaller objects without making the detector conclusive.
 
@@ -966,7 +993,7 @@ This is a two-stage review: approving the alert allows analysis and report consi
 1. Tap **Land** on the pilot device when appropriate.
 2. Follow normal landing and safety procedures.
 3. Tap **Stop and complete mission** or **Stop Mission** in AlphaRelay Copilot when field work is complete.
-4. Optionally tap **Close Mission** from the **Mission** card in Mission Overwatch.
+4. Optionally open **Operations** and tap **End Mission** in Mission Overwatch.
 5. Check the upload or queue status before powering off the pilot device.
 
 ## What happens
@@ -1119,11 +1146,19 @@ Once a report is submitted for approval, timeline events, footage, photos, missi
 
 ## AI Review
 
-For a closed synced mission, open **AI Review** and click **Analyze media** after footage, photos, or event screenshots are available. AlphaRelay may sample still frames from playable footage, analyze mission-relevant images, and show findings for human review.
+For a closed synced mission, open **AI Review** after footage or photos are available.
+
+1. Under **Available tags**, select at least one tag to move it into **What should AI look for?**. Add a concrete custom target when needed. Only selected tags are included in the run.
+2. Choose **Event-focused** or **Full mission — detailed** under **Analysis coverage**.
+3. Click **Analyze media**.
+
+**Event-focused** is the default. It searches around accepted human events and approved alerts for observations live AI may have missed, without re-analyzing event screenshots themselves. If the mission has no accepted event anchors, choose **Full mission — detailed**. Full-mission coverage reviews the best-quality playable recording more broadly and can include mission photos; it takes longer.
+
+Analysis runs in the background. The status moves through starting, preparing media with progress, and analyzing. You can leave the page and AlphaRelay emails when the run completes. Return to AI Review or click **Refresh** to see current progress and findings.
 
 - **Accept** adds a timeline event for the finding when timeline edits are still allowed. It does not complete officer review by itself.
 - **Reject** keeps the finding out of the mission timeline.
-- **Redo analysis** deletes the current AI Review runs and findings, then runs analysis again. Accepted timeline entries stay in the mission timeline.
+- **Redo analysis** deletes the current AI Review runs and findings, then runs analysis again with the current target and coverage choices. Accepted timeline entries stay in the mission timeline.
 - Accepted findings may also run detailed screenshot analysis when a source image is available.
 - AI Review preserves source imagery without drawing model bounding boxes over thumbnails or the full-screen viewer.
 
@@ -1153,16 +1188,18 @@ After completion, AlphaRelay opens the next unfinished step or **Report**. New p
 
 ## Ask AI about the mission
 
-Open **AI Review → Ask AI** for a closed, synced mission with uploaded photos, event screenshots, or playable footage.
+Open **AI Review → Ask AI** for a closed, synced mission with playable uploaded footage.
 
 1. Enter a question about visible mission details, such as **How many vehicles are visible?** or **Is a weapon visible?**
 2. Click **Ask AI**.
 3. Review the answer, confidence, supporting observations, limitations, and supporting evidence.
 4. Open an item under **Previous answers** to revisit it, or click **Clear** to remove the saved question history for that mission.
 
-If playable footage is available but supporting still frames have not been prepared, AlphaRelay prepares them before answering. Ask AI uses only the available mission imagery. It does not identify unknown people or infer intent, criminality, injuries, or that an area is clear.
+If supporting still frames have not been prepared, AlphaRelay prepares them before answering. Ask AI uses only the primary uploaded footage selected for the mission question. It does not mix event screenshots or mission photos into the answer. When an aircraft-original recording is available, AlphaRelay prefers it over a duplicate controller-screen view; otherwise it uses the best available playable recording.
 
-An exact repeat question can load a saved answer when the mission's media set has not changed. If footage, photos, or screenshots change, ask again so the answer can use the current media.
+Ask AI does not identify unknown people or infer intent, criminality, injuries, or that an area is clear.
+
+An exact repeat question can load a saved answer when the primary-footage selection has not changed. If that footage changes, ask again so the answer can use the current recording.
 
 Ask AI answers are suggestions. Check the listed evidence and original media before using an answer in a report, operational decision, or evidence workflow.
 
@@ -1180,13 +1217,14 @@ Configured AI can draft the after-action report from mission events, footage ref
 
 1. Open the closed mission's **Timeline**. For each Device Live AI or AI live-watch alert, choose **Approve alert** or **Dismiss alert**. For each available image-analysis finding, choose **Accept as is** or **Review & edit** after checking the source image or footage. Click **Done — continue** when the Timeline is complete.
 2. Review footage and photos under **Media**, then click **Done — continue**.
-3. Use **AI Review** when available to analyze uploaded footage, photos, or event screenshots. Use **Ask AI** for mission-media questions, then verify each answer against its supporting evidence and the original media.
-4. Accept only verified AI findings that should become timeline events and reject the rest, then click **Done — continue**. Confirming completion rejects any remaining undecided AI Review findings.
-5. Return to **Timeline** for findings that were added by AI Review. Choose **Accept as is** or **Review & edit**, then complete the reopened Timeline step.
-6. Open **Report** and click **Generate Report**.
-7. Resolve report-readiness **Items Requiring Officer Review**, then click **Mark complete** and confirm only after every listed item has been addressed. This removes the section from the draft; it does not verify the underlying evidence for you.
-8. Edit the narrative or use **Edit executive summary** for the dashboard header summary.
-9. Click **Submit for supervisor approval** when ready.
+3. In **AI Review**, choose at least one tag under **What should AI look for?**, select **Event-focused** or **Full mission — detailed**, and click **Analyze media**. You can leave while background analysis runs and return after the completion email.
+4. Use **Ask AI** for questions about the primary uploaded footage, then verify each answer against its supporting evidence and the original recording. Ask AI excludes mission photos and event screenshots.
+5. Accept only verified AI findings that should become timeline events and reject the rest, then click **Done — continue**. Confirming completion rejects any remaining undecided AI Review findings.
+6. Return to **Timeline** for findings that were added by AI Review. Choose **Accept as is** or **Review & edit**, then complete the reopened Timeline step.
+7. Open **Report** and click **Generate Report**.
+8. Resolve report-readiness **Items Requiring Officer Review**, then click **Mark complete** and confirm only after every listed item has been addressed. This removes the section from the draft; it does not verify the underlying evidence for you.
+9. Edit the narrative or use **Edit executive summary** for the dashboard header summary.
+10. Confirm the AAR Chain of Custody contains the intended footage, photos, and official-event screenshots, then click **Submit for supervisor approval** when ready.
 
 All undeleted human-created events are eligible for AAR content. Automatic alerts require approval, and accepted AI Review findings require Timeline officer review. AlphaRelay presents reviewed findings in neutral, officer-owned language and omits AI confidence, automation labels, and internal review status from the report prose. The report event list can show the source screenshot, observations, report relevance, uncertainty, and officer-review state. AI Review does not draw model bounding boxes over the source image. Pending image analysis can still appear with a review warning, but unreviewed analysis is excluded from generated narrative. If a timeline finding changes after a draft is generated, regenerate or update the report before submission.
 
@@ -1206,7 +1244,7 @@ Supervisor and operator inboxes live on **Mission Dashboard** under Reports & Re
 
 ## Email notifications
 
-When configured, AlphaRelay sends email on report workflow events (submit, approve, return).
+When configured, AlphaRelay sends email when background AI Review analysis completes and on report workflow events (submit, approve, return).
 
 → Review footage · Seal the mission record
 
@@ -1227,15 +1265,15 @@ After footage, events, photos, and the report draft have been reviewed, the Time
 1. Open the closed mission.
 2. Confirm footage plays and **Play with Events** markers look correct.
 3. Confirm official event counts contain the expected human-created events, approved automatic alerts, and officer-reviewed AI findings.
-4. Open **Mission chain of custody**.
+4. Open **Mission chain of custody** and review the evidence listed in the AAR Chain of Custody, including any manual photos or videos.
 5. Click **Seal entire mission (verify downloads)** when ready.
 6. Optionally download **Download mission custody certificate (HTML)**.
 
-Sealing verifies downloaded bytes against stored hashes and locks registered evidence rows in the custody ledger.
+Sealing verifies downloaded bytes against stored hashes and locks the evidence rows explicitly included in the AAR Chain of Custody. It does not bulk-seal every retained mission asset. Manual photos and videos included in that chain are hashed and sealed through the same workflow.
 
 The mission-wide HTML certificate and exported/printed after-action report include a QR code and public certificate link. A recipient can open the current chain-of-custody certificate without signing in. The link is unguessable but works for anyone who has it, so share it only with intended recipients. The public page exposes certificate fields and current authoritative chain validation, not the signed-in mission workspace.
 
-When the mission seals, AlphaRelay removes automatic alerts that were never approved and accepted AI Review findings that never received Timeline officer review. Dismissed alerts are included in that cleanup. Human-created events remain unless a user explicitly deleted them. The same official-event rule is used for event totals, playback markers, reports, offline exports, and evidence-chain views.
+When the mission seals, AlphaRelay removes automatic alert events that were never approved and accepted AI Review findings that never received Timeline officer review. Dismissed alerts are included in that event cleanup. Their uploaded screenshots can remain registered for audit history, but they stay outside the AAR chain and remain unsealed. Human-created events remain unless a user explicitly deleted them. The same official-event rule is used for event totals, playback markers, reports, offline exports, and evidence-chain views.
 
 **Warning:** Cleanup of unapproved AI candidates is permanent. Resolve every alert and finding before sealing; sealing does not approve pending items.
 
@@ -1347,20 +1385,23 @@ Set full name, rank/title, password, and email change requests. Names and ranks 
 Owners and admins manage:
 
 - Team members, roles, and status
-- Agency-specific mission scenarios with a name, category, summary, and up to eight visible AI watch targets
+- Agency-specific mission scenarios with a name, category, summary, up to eight visible AI watch targets, and up to seven Quick Events
 - Organization time zone
 - Storage visibility
 - Copilot device license keys, QR codes, activation files, and controller pairing codes
 
-Agency scenarios appear in the web and Copilot mission pickers after refresh. Their AI watch items are copied into each mission so AI live watch and post-mission AI Review keep the mission-specific focus even if the scenario changes later.
+Agency scenarios appear in the web and Copilot mission pickers after refresh. Their AI watch items and Quick Events are copied into each mission so live detection, field logging, and post-mission review keep the mission-specific setup even if the scenario changes later.
 
 ### Create or edit an agency scenario
 
 1. Open **Organization Settings → Settings → Mission scenarios**.
 2. Enter the scenario name, category, and a short summary.
 3. Under **What should AI look for?**, enter one concrete visible item per line, up to eight.
-4. Click **Create scenario**. Use **Edit** on an existing agency scenario to update it.
-5. Refresh **Choose Scenario** on an online Pilot device before the mission starts.
+4. Under **Quick Events**, enter one pilot event button per line, up to seven. Leave it empty to use the standard Quick Events.
+5. Click **Create scenario**. Use **Edit** on an existing agency scenario to update it.
+6. Refresh **Choose Scenario** on an online Copilot device before the mission starts.
+
+On desktop, the AI-target and Quick Event fields appear side by side, and agency scenario cards use two columns. Narrow screens stack them.
 
 Use observable descriptions rather than conclusions about identity, intent, legality, injury, or whether an area is clear.
 
@@ -1508,7 +1549,7 @@ Read the public [AlphaRelay Privacy Policy](https://www.alpha-relay.com/privacy.
 
 ## AI
 
-Configured AI can draft after-action report content from structured mission data, help review uploaded media, answer questions about available mission imagery, analyze selected or automatically queued manual/voice event screenshots, and watch sampled remote-live frames when enabled. AI live watch can combine standard detections with bounded scenario-specific and mission-specific visible targets. Always review:
+Configured AI can draft after-action report content from structured mission data, help review uploaded media, answer questions about primary uploaded footage, analyze selected or automatically queued manual/voice event screenshots, and watch sampled remote-live frames when enabled. AI live watch can combine standard detections with bounded scenario-specific and mission-specific visible targets. Always review:
 
 - Timeline accuracy
 - Footage and photo references
@@ -1518,7 +1559,7 @@ Configured AI can draft after-action report content from structured mission data
 - AI live watch alerts and attached frame evidence
 - **Items Requiring Officer Review**
 
-Treat AI output as draft material. AI Review can sample frames from uploaded footage and analyze uploaded photos or event screenshots. Accepted findings are added to the timeline, where an officer must **Accept as is** or **Review & edit** before report use. Ask AI uses available mission imagery, reports confidence and limitations, and does not replace review of the original media.
+Treat AI output as draft material. AI Review analyzes only the tags placed under **What should AI look for?**. **Event-focused** searches around accepted events without re-analyzing their screenshots; **Full mission — detailed** reviews the best-quality recording more broadly and can include mission photos. Accepted findings are added to the timeline, where an officer must **Accept as is** or **Review & edit** before report use. Ask AI uses only the selected primary uploaded footage, excluding mission photos and event screenshots, and does not replace review of the original recording.
 
 AI Review can retain region metadata for matching and deduplication, but it does not draw model bounding boxes over thumbnails or the full-screen source viewer.
 
@@ -1526,7 +1567,7 @@ Device Live AI and AI live-watch alerts are logged as review prompts, not final 
 
 Device Live AI uses licensed server-side analysis when connectivity is healthy and automatically falls back to on-device people and possible-weapon detection when it is not. Provider credentials remain server-side. Mission Overwatch, device cloud analysis, and local fallback coordinate temporary ownership to reduce duplicate alerts.
 
-Person detections use informational/yellow treatment and do not identify people. Possible weapons and other urgent threat indicators use red treatment and still require human review.
+Person detections use informational/yellow treatment and do not identify people. Operators can disable routine person and hand-to-hand-contact alerts for a mission. Possible weapons and explosives remain non-optional, highest priority, and subject to human review.
 
 AlphaRelay uses one official-event rule across counts, playback markers, reports, offline exports, and custody views: undeleted human-created events are included; automatic AI alerts require approval; accepted AI Review findings require Timeline officer review. Pending or dismissed automatic alerts and accepted AI Review findings without Timeline officer review remain outside the official evidence set and are permanently removed when Timeline review completes or the mission seals.
 
@@ -1540,7 +1581,7 @@ Pilot agreement PDFs and signed copies are stored in private storage. Signing li
 
 | Action | Effect |
 | --- | --- |
-| **Seal entire mission** | Locks custody evidence hashes |
+| **Seal entire mission** | Verifies and locks hashes for evidence explicitly included in the AAR Chain of Custody; retained excluded screenshots remain unsealed |
 | **Submit for supervisor approval** | Temporarily locks the report, mission name, timeline, media, and AI Review actions until a supervisor returns it to draft or approves it |
 | **Supervisor approval** | Makes the submitted record permanently read-only |
 | **Export offline package…** / **Export evidence package (JSON)** | Point-in-time copies for retention or handoff |
@@ -1584,8 +1625,8 @@ Do not share exports before sync and review are complete.
 | **Live stream (WebRTC)** | Validated pilot-device internet; starts automatically with the mission and can be retried from the Pilot console |
 | Mission Viewer | Second licensed Copilot installation in the same organization; active mission; internet; remote live required for video |
 | Device Live AI | Copilot capture running; internet for cloud analysis; compatible device compute for automatic offline fallback; notification permission for immediate alert banners |
-| AI Review | Closed, synced mission with uploaded photos, event screenshots, or playable footage; internet and AI configuration |
-| Ask AI | Closed, synced mission with uploaded photos, event screenshots, or playable footage; internet and AI configuration |
+| AI Review | Closed, synced mission with playable footage or mission photos, at least one selected analysis tag, internet, AI configuration, and accepted event anchors for **Event-focused** coverage |
+| Ask AI | Closed, synced mission with playable primary uploaded footage; internet and AI configuration |
 | AI live watch | Active remote live stream; Mission Overwatch online; AI configuration enabled |
 | Cloud sync / upload | Internet + signed-in session |
 | Optional aircraft/goggles recording | Signed-in online browser; MP4 or MOV; visual alignment to the AlphaRelay or primary timeline |
@@ -1758,14 +1799,24 @@ Accepting a finding in **AI Review** only moves it to the timeline. The timeline
 
 A newly synced pending alert or finding reopens the affected review step even if it was completed earlier.
 
+## AI Review will not start or appears stuck
+
+1. Open a closed, synced mission and select **AI Review**.
+2. Move at least one tag from **Available tags** into **What should AI look for?**.
+3. For **Event-focused**, confirm the mission has an accepted human event or approved alert. If not, choose **Full mission — detailed**.
+4. Confirm the primary recording is playable. Full-mission coverage can also include uploaded mission photos.
+5. Keep the deployment online and confirm AI is configured. Click **Refresh** to reload the background job state.
+
+The status can show starting, preparing media with progress, or analyzing. You can leave the page while it runs; AlphaRelay sends a completion email when configured delivery succeeds. Internal queue states are not shown.
+
 ## Ask AI is unavailable or cannot answer
 
 1. Open a closed, synced mission and select **AI Review → Ask AI**.
-2. Confirm footage, photos, or event screenshots are available and playable.
+2. Confirm the primary uploaded footage is available and playable. Ask AI does not use mission photos or event screenshots.
 3. Keep Mission Overwatch online and confirm AI is configured for the deployment.
 4. If AlphaRelay says it is preparing supporting evidence, keep the page open while it samples frames from playable footage.
 
-Ask AI can answer only from available mission imagery. If the relevant moment is missing, obscured, low quality, or outside the sampled frames, it may report that the question cannot be answered.
+Ask AI can answer only from the selected primary uploaded recording. If the relevant moment is missing, obscured, low quality, or outside the sampled frames, it may report that the question cannot be answered.
 
 ## Device Live AI is not tagging
 
@@ -1892,12 +1943,16 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 - Device Live AI can miss small, distant, blurred, dark, or partially hidden objects and can mistake tools, toys, equipment, overlays, or silhouettes for a possible weapon. It does not determine identity, possession, intent, legality, policy compliance, injury, or whether an area is clear.
 - Spatial tracking and HUD filtering reduce repeated person/weapon alerts and controller-overlay false positives; they do not guarantee one alert per real subject or eliminate false alerts.
 - AI report drafts require officer review; resolve **Items Requiring Officer Review** before finalization.
-- **AI Review** requires a closed synced mission, available media, internet, AI configuration, and installed analysis tables.
-- **Ask AI** runs only for a closed synced mission with available imagery. Its answers reflect sampled footage frames, photos, and event screenshots, so occlusion, image quality, repeated views, or missing moments can limit counts and conclusions.
-- An exact repeat question may load a saved answer for the same mission-media set. Ask again after the media changes.
+- **AI Review** requires a closed synced mission, available media, internet, AI configuration, installed analysis tables, and at least one selected tag under **What should AI look for?**.
+- **Event-focused** AI Review requires accepted human events or approved alerts to anchor its search. It looks around those moments and does not reprocess their screenshots. Use **Full mission — detailed** when no accepted anchors exist or broader recording coverage is required; it takes longer and still samples rather than proving complete observation.
+- Background AI Review can continue after you leave the page, but the completion email and refreshed progress depend on the configured worker, mail delivery, and connectivity.
+- **Ask AI** runs only for a closed synced mission with playable uploaded footage. It uses the primary uploaded recording and excludes mission photos and event screenshots. Occlusion, image quality, repeated views, sampling, or missing moments can limit counts and conclusions.
+- An exact repeat question may load a saved answer for the same primary-footage selection. Ask again after that recording changes.
 - **AI live watch** requires active **Live stream (WebRTC)**, internet, Mission Overwatch online, and AI configuration. The default cadence can start a sample as often as every two seconds, but network and analysis latency may make it slower.
 - Scenario-specific and mission-specific AI targets are bounded visual search cues, not guaranteed detections. Use concrete visible details and verify every match against the live view or source media.
 - Person detections use informational/yellow treatment and do not perform identity or face recognition. Possible weapons and other urgent threat indicators use red treatment but remain unconfirmed until human review.
+- **Alert on people** can suppress routine person and hand-to-hand-contact alerts, but weapon and explosive detection cannot be disabled and remains highest priority. Turning people alerts off does not mean no people are present.
+- Thermal and infrared people analysis accepts incomplete signatures only when multiple human-consistent cues are visible and checks common warm-object, furniture, vegetation, reflection, shadow, and image-artifact alternatives. It can still miss people or produce false positives.
 - AI media findings are suggestions. Accepting one in AI Review moves it to the timeline; an officer must then use **Accept as is** or **Review & edit** before it is eligible for the AAR.
 - AI Review does not draw model bounding boxes over finding thumbnails or the full-screen source image.
 - Device Live AI and AI live-watch alerts require **Approve alert** before configured screenshot analysis or report eligibility. **Dismiss alert** excludes the alert. Approved analysis still waits for the event, review decision, and screenshot to sync and requires internet plus AI configuration.
@@ -1917,6 +1972,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 - **Done — continue** is a recorded review decision, not only navigation. Timeline completion permanently removes remaining unaccepted AI candidates; AI Review completion rejects remaining undecided findings. Review the confirmation count before continuing.
 - Submitting a report for supervisor approval locks the report, mission name, timeline, footage, photos, and AI Review actions. Returning it to draft reopens work; approval makes the lock permanent.
 - Evidence sealing preserves custody hashes — it is not report approval.
+- **Seal entire mission** seals only evidence included in the AAR Chain of Custody. Excluded alert screenshots can remain retained and registered but unsealed.
 
 ## Browser
 
@@ -1934,10 +1990,12 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 | **AI live watch** | Mission Overwatch control that samples remote-live frames and logs officer-review alerts when configured; it defaults on unless a saved mission choice disables it |
 | **AlphaRelay Copilot** | Licensed Android or iOS app for controller-screen mission capture, remote live, field events, Device Live AI, and Mission Viewer |
 | **Approve alert** | Timeline decision that allows a Device Live AI or AI live-watch alert to proceed to configured screenshot analysis and report consideration; it does not complete officer review of the analysis |
-| **AI Review** | Closed-mission tab for analyzing uploaded media and accepting or rejecting mission-relevant AI findings |
-| **Ask AI** | AI Review view for asking questions grounded in available imagery from a closed synced mission |
+| **AI Review** | Closed-mission tab for selecting analysis targets and using **Event-focused** or **Full mission — detailed** coverage before accepting or rejecting mission-relevant findings |
+| **Ask AI** | AI Review view for asking questions grounded only in the primary uploaded footage from a closed synced mission |
+| **Alert on people** | Mission setting that controls routine person and hand-to-hand-contact alerts; weapons and explosives remain enabled and highest priority |
 | **Activity Log** | Read-only Organization Settings tab showing server-attributed material actions with person, mission, action, and date filters |
 | **Add optional recording** | Media action for attaching an MP4/MOV aircraft, goggles-screen, or other external recording and aligning it to the mission timeline |
+| **AAR Chain of Custody** | Explicit report evidence set verified by **Seal entire mission**; included manual media is sealable while retained excluded screenshots remain unsealed |
 | **Chain of custody** | Evidence history and hash verification for a mission |
 | **Command Center** | Default Mission Dashboard view for operational status, active missions, attention items, automatic alerts, and report follow-ups |
 | **Controller Screen Capture** | Workflow where the native flight app keeps flight control while Copilot captures the visible screen; Android uses system screen capture and iOS uses ReplayKit |
@@ -1950,11 +2008,11 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 | **Items Requiring Officer Review** | Report checklist items that need human resolution before submission |
 | **Live Overwatch Screen** | Mission Overwatch panel for LAN relay connection |
 | **Live stream (WebRTC)** | Remote live video over the internet |
-| **Mission tools** | Active-mission quick events, manual event entry, and browser dictation in Mission Overwatch |
+| **Mission tools** | Active-mission Quick Events, manual event entry, and browser dictation in Mission Overwatch's **Operations** drawer |
 | **Organization Documents** | Signed pilot agreement PDFs linked to an organization |
 | **Mission Console** | Dashboard link name for opening Mission Overwatch |
 | **Mission Dashboard** | Command home — KPIs, history, search, AAR inboxes |
-| **Mission Overwatch** | Per-mission browser workspace for live view, review, report, seal, export |
+| **Mission Overwatch** | Per-mission browser workspace; active missions use a full-screen live command view with an **Operations** drawer, while closed missions use the review workflow |
 | **Mission Viewer** | **View Live Mission** on Android or **Watch Live Mission** on iOS for active remote live, timeline updates and alerts, and event logging from a secondary licensed device |
 | **Mission-specific AI targets** | Up to eight visible details saved for AI live watch on one mission in addition to standard and scenario targets |
 | **Offline package** | ZIP archive with viewer for point-in-time mission export |
@@ -1965,11 +2023,12 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 | **Local AI** | Android settings label and fallback component within Device Live AI; it runs on-device when healthy cloud analysis does not own the mission |
 | **Pilot console** | In-app settings (Mission, Flight, Events, System) |
 | **Play with Events** | Footage player with synchronized event markers |
-| **Quick events** | One-tap event buttons from scenario templates |
+| **Quick events** | One-tap event buttons; agency scenarios can define up to seven, with the standard set used when none is configured |
 | **Local Network** | Deployment-specific Android LAN WebSocket relay mode; not presented by the current public Copilot workflow |
 | **Scenario template** | Built-in or agency-created mission setup that can provide quick events, report focus, and visible AI watch targets |
 | **Trash** | Mission History recovery area that keeps a deleted mission and its linked record recoverable for up to 30 days; authorized admins can permanently **Delete now** sooner |
 | **Choose Scenario** | Android Copilot startup action for selecting the operator, mission name, scenario, AI targets, and capture mode when applicable before **Start Mission** |
 | **Voice relay** | Voice logging with keyword `relay` before event details |
+| **What should AI look for?** | Operator-selected tags that define a post-mission AI Review run; at least one is required before **Analyze media** |
 
 ---

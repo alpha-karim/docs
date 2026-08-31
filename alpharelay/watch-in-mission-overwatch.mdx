@@ -8,7 +8,7 @@ Mission Overwatch is the per-mission browser workspace. Open it from **Mission D
 
 Sign in at [alpha-relay.com](https://www.alpha-relay.com). The page shell can reopen after an online visit, but active Internet missions, remote live, cloud event logging, and synced review require connectivity.
 
-Mission Overwatch adapts to phone and tablet browsers, including lifecycle status, closed-mission actions, metadata, and report controls. A desktop-sized screen is still easier for long footage and report reviews.
+Active missions open in a full-screen command view. The header shows elapsed time, feed state, the mission-assigned operator, AI detection status, and an **Operations** count. The live feed stays in the main workspace while the **Operations** drawer provides tools and timeline activity. Mission Overwatch adapts to phone and tablet browsers; a desktop-sized screen is still easier for long footage and report reviews.
 
 ## Remote live — Live stream (WebRTC)
 
@@ -19,13 +19,15 @@ If the mission began offline or remote-live setup failed, restore internet and u
 - In **Controller Screen Capture**, remote live publishes the controller screen.
 - In **Goggles Mode**, remote live publishes the DJI Fly screen carrying the DJI Goggles live view. Keep the Android device online.
 
-## Mission tools
+## Operations drawer and mission tools
 
-**Mission tools** remain available for an active Internet mission even though the LAN relay panel is hidden.
+Open **Operations** and select **Tools** for event logging or **Timeline** for the live event list. The panel is docked on wide screens and collapses on narrower layouts. **Mission tools** remain available for an active Internet mission even though the LAN relay panel is hidden.
 
-- Use scenario quick-event buttons for common events.
+- Use scenario Quick Events for common events. Agency-created scenarios can provide up to seven custom buttons; the standard buttons appear when none are configured.
 - Type a note under **Manual Event (fast)** and click **Log Manual Event**.
 - Or tap **Dictate**, allow microphone access, speak the event, review the transcript, and click **Log Manual Event**.
+
+After a quick or manual event is appended, Mission Overwatch shows a confirmation in the operations panel. **End Mission** is the live command view's closeout action.
 
 Dictation depends on browser speech-recognition support. If it is unavailable or blocked, manual typing still works.
 
@@ -41,9 +43,12 @@ The current default cadence can start a new sample as often as every two seconds
 
 When AI live watch is enabled, select **Show details** or leave the expanded card open to review its focus:
 
-- **Standard detections** apply to every analyzed frame.
+- **Other standard detections** controls optional categories such as suspected narcotics, visible hand-to-hand contact, reaching into clothing or bags, and serious safety hazards.
+- **Alert on people** controls routine informational person detections and hand-to-hand contact. It can be changed during the mission.
 - **Scenario-specific AI targets** come from the mission's built-in or agency scenario.
 - **Mission-specific AI targets** let you add up to eight visible details for this mission, one per line. Click **Save targets** after editing.
+
+Possible weapons and explosives always remain enabled and take priority over every other alert, even when people or other standard detections are turned off.
 
 Use concrete visible descriptions such as `Red pickup truck` or `Person wearing an orange jacket`. Saved targets supplement standard detections; they do not turn AI output into a confirmed fact.
 
@@ -74,7 +79,9 @@ Follow the guided review sequence:
 
 Completing Timeline review keeps human-created and approved AI events but permanently removes remaining unaccepted AI candidates after confirmation. Completing AI Review keeps accepted or edited findings and rejects remaining undecided findings after confirmation. A newly synced pending item reopens the affected review step.
 
-AI Review includes post-mission media findings and **Ask AI** questions grounded in uploaded mission imagery. It preserves source images without drawing model bounding boxes over finding thumbnails or the full-screen viewer. Findings accepted in AI Review move to the timeline for final officer review before report use.
+AI Review requires at least one selected tag under **What should AI look for?**. **Event-focused** analysis searches around accepted events by default; **Full mission — detailed** reviews the best-quality recording more broadly and takes longer. Analysis runs in the background, shows preparation and analysis progress after refresh, and emails the requesting signed-in user when complete. Findings accepted in AI Review move to the timeline for final officer review before report use.
+
+**Ask AI** is grounded only in the selected primary uploaded footage. It does not mix mission photos or event screenshots into the question. Source images remain unaltered without model bounding boxes over finding thumbnails or the full-screen viewer.
 
 Closed-mission timelines render chronologically, with the oldest event at the top and the latest at the bottom. Closed missions show historical content only; Mission Overwatch stops remote-live playback and background live-stream retries after the mission closes.
 
@@ -82,7 +89,7 @@ While Mission Overwatch remains open, the focused mission timeline refreshes wit
 
 Mission creators and org admins can use **Rename** in Mission Overwatch to correct the mission name before the report is submitted. Submitted and approved missions are read-only and cannot be renamed.
 
-## View from a licensed Android device
+## View from a licensed device
 
 For a compact active-mission view, open AlphaRelay Copilot on a second licensed device. Tap **View Live Mission** on Android or **Watch Live Mission** on iOS. It can watch remote live, follow timeline updates and alerts, and log quick or manual events. Closed-mission review stays in Mission Overwatch.
 

@@ -14,13 +14,13 @@ icon: "clipboard-check"
 6. Run a test **Start Mission** flow and confirm remote live starts automatically when the pilot device is online.
 7. Confirm the Mission Overwatch browser can use its microphone if the team plans to use **Dictate** for manual events.
 8. If a second Android or iOS device will use Mission Viewer, activate its own license and test that it can see an active mission, remote video, timeline events, and alerts.
-9. If Device Live AI will be used, grant notification permission, confirm the intended Android settings under **Pilot console → Flight → Local AI**, and run a safe cloud-to-fallback detection test.
+9. If Device Live AI will be used, grant notification permission, confirm the intended Android settings under **Pilot console → Flight → Local AI**, decide whether routine **Alert on people** detections are needed, and run a safe cloud-to-fallback detection test. Weapon and explosive alerts remain enabled.
 10. For Android drone controllers: install AlphaRelay Copilot, activate the device license, run a test **Controller Screen Capture** mission, and confirm Android screen capture permission works. If the crew will use **Pilot mode**, also confirm the aircraft appears in the supported list and passes AlphaRelay's live connection check.
-11. For iPhone or iPad: confirm iOS 26, select **AlphaRelay Capture** in ReplayKit, test microphone/speech permissions if needed, and verify recording finalization on the physical device.
+11. For iPhone or iPad: confirm iOS 26, select **AlphaRelay Capture** in ReplayKit, test microphone/speech permissions if needed, allow Live Activities or the **Screen Sharing** notification fallback, and verify landscape alert presentation and recording finalization on the physical device.
 12. For a DJI Avata with compatible DJI Goggles: install DJI Fly and AlphaRelay Copilot on the Android device, test the supported goggles live-view connection, and confirm remote live and post-mission upload.
 13. Check for older queued video on the Copilot startup screen and let it finish, or consciously choose **Skip for now and start new mission**.
 14. Plan for internet when you need remote live, Mission Viewer, cloud Live AI, sync, upload, reports, or export.
-15. If the mission uses an agency scenario, confirm it appears in mission setup and that its visible AI watch targets are current.
+15. If the mission uses an agency scenario, confirm it appears in mission setup and that its visible AI watch targets and Quick Events are current.
 16. Assign pilot, overwatch user, reviewer, and supervisor roles.
 
 ## Connection quick reference

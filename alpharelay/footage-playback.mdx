@@ -40,11 +40,19 @@ Once a report is submitted for approval, timeline events, footage, photos, missi
 
 ## AI Review
 
-For a closed synced mission, open **AI Review** and click **Analyze media** after footage, photos, or event screenshots are available. AlphaRelay may sample still frames from playable footage, analyze mission-relevant images, and show findings for human review.
+For a closed synced mission, open **AI Review** after footage or photos are available.
+
+1. Under **Available tags**, select at least one tag to move it into **What should AI look for?**. Add a concrete custom target when needed. Only selected tags are included in the run.
+2. Choose **Event-focused** or **Full mission — detailed** under **Analysis coverage**.
+3. Click **Analyze media**.
+
+**Event-focused** is the default. It searches around accepted human events and approved alerts for observations live AI may have missed, without re-analyzing event screenshots themselves. If the mission has no accepted event anchors, choose **Full mission — detailed**. Full-mission coverage reviews the best-quality playable recording more broadly and can include mission photos; it takes longer.
+
+Analysis runs in the background. The status moves through starting, preparing media with progress, and analyzing. You can leave the page and AlphaRelay emails when the run completes. Return to AI Review or click **Refresh** to see current progress and findings.
 
 - **Accept** adds a timeline event for the finding when timeline edits are still allowed. It does not complete officer review by itself.
 - **Reject** keeps the finding out of the mission timeline.
-- **Redo analysis** deletes the current AI Review runs and findings, then runs analysis again. Accepted timeline entries stay in the mission timeline.
+- **Redo analysis** deletes the current AI Review runs and findings, then runs analysis again with the current target and coverage choices. Accepted timeline entries stay in the mission timeline.
 - Accepted findings may also run detailed screenshot analysis when a source image is available.
 - AI Review preserves source imagery without drawing model bounding boxes over thumbnails or the full-screen viewer.
 
@@ -74,16 +82,18 @@ After completion, AlphaRelay opens the next unfinished step or **Report**. New p
 
 ## Ask AI about the mission
 
-Open **AI Review → Ask AI** for a closed, synced mission with uploaded photos, event screenshots, or playable footage.
+Open **AI Review → Ask AI** for a closed, synced mission with playable uploaded footage.
 
 1. Enter a question about visible mission details, such as **How many vehicles are visible?** or **Is a weapon visible?**
 2. Click **Ask AI**.
 3. Review the answer, confidence, supporting observations, limitations, and supporting evidence.
 4. Open an item under **Previous answers** to revisit it, or click **Clear** to remove the saved question history for that mission.
 
-If playable footage is available but supporting still frames have not been prepared, AlphaRelay prepares them before answering. Ask AI uses only the available mission imagery. It does not identify unknown people or infer intent, criminality, injuries, or that an area is clear.
+If supporting still frames have not been prepared, AlphaRelay prepares them before answering. Ask AI uses only the primary uploaded footage selected for the mission question. It does not mix event screenshots or mission photos into the answer. When an aircraft-original recording is available, AlphaRelay prefers it over a duplicate controller-screen view; otherwise it uses the best available playable recording.
 
-An exact repeat question can load a saved answer when the mission's media set has not changed. If footage, photos, or screenshots change, ask again so the answer can use the current media.
+Ask AI does not identify unknown people or infer intent, criminality, injuries, or that an area is clear.
+
+An exact repeat question can load a saved answer when the primary-footage selection has not changed. If that footage changes, ask again so the answer can use the current recording.
 
 Ask AI answers are suggestions. Check the listed evidence and original media before using an answer in a report, operational decision, or evidence workflow.
 

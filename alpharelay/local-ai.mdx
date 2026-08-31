@@ -8,11 +8,13 @@ icon: "tablet-screen-button"
 
 The capture session must be running. On-device fallback and immediate alert notifications can work without internet, while timeline sync, cloud follow-up, and reporting wait for connectivity.
 
-## Current alert types
+## Current alert controls and priority
 
 - **Person detected** — informational/yellow treatment
 - **Multiple persons detected** — informational/yellow treatment
 - **Possible weapon detected** — urgent/red treatment
+
+Use **Alert on people** at mission setup or during an active mission to suppress routine person and hand-to-hand-contact alerts. This setting applies to cloud analysis and the on-device fallback. It does not disable weapons, explosives, hazards, other enabled behavior, or mission-specific targets. Weapon and explosive detections are permanently enabled and take priority over every other alert.
 
 These are assistive detections, not operational conclusions. Person detection is not face recognition or identity matching. A possible-weapon alert does not establish that an object is a weapon, who possesses it, intent, legality, or threat level.
 
@@ -32,6 +34,8 @@ Mission Overwatch AI live watch, device cloud analysis, and the on-device fallba
 
 iOS ReplayKit runs the same cloud-first path while **AlphaRelay Capture** is active. Its offline fallback uses iOS Vision people detection plus the same weapon-presence verifier validated for the Android fallback. iOS does not run Android's full multi-object detector. Allow time-sensitive notifications if alerts should appear over the flight app.
 
+When Live Activities are available, iPhone presents a compact alert in the Dynamic Island or Lock Screen and then returns it to monitoring. If Live Activities are unavailable, **Screen Sharing** notifications provide the fallback alert path.
+
 Mission-specific AI targets selected before start or updated during the mission apply to device cloud analysis. Use one concrete visible item per line, up to eight. Offline edits remain queued until mission metadata sync succeeds.
 
 ## What happens after a detection
@@ -39,6 +43,8 @@ Mission-specific AI targets selected before start or updated during the mission 
 AlphaRelay can create a timeline event with a screenshot. On-device fallback screenshots can include detection annotations. Person, group, and possible-weapon alerts use stable categories and cooldowns so one continuously visible subject is not logged over and over; a new subject elsewhere can still create a new alert.
 
 In Controller Screen Capture, AlphaRelay filters small person boxes inside fixed flight-app HUD rails and collapses overlapping boxes around the same person. These filters reduce repeated and HUD-driven alerts, but they do not eliminate false positives or missed detections.
+
+For cloud analysis of thermal or infrared video, AlphaRelay checks the full underlying camera scene rather than only the center, reticle, bright regions, or prior boxes. A partial human thermal signature can be reported when multiple human-consistent shape cues are visible, but the analysis also checks common hot-object and scene false targets such as warmed roofs or pavement, vents, furniture, vegetation, reflections, shadows, and image artifacts.
 
 When the full-frame pass does not already find a qualifying possible weapon, AlphaRelay can spend one additional high-detail pass around a weak weapon candidate or detected person before falling back to a frame region. This improves review coverage for smaller objects without making the detector conclusive.
 

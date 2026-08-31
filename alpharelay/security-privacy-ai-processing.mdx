@@ -17,7 +17,7 @@ Read the public [AlphaRelay Privacy Policy](https://www.alpha-relay.com/privacy.
 
 ## AI
 
-Configured AI can draft after-action report content from structured mission data, help review uploaded media, answer questions about available mission imagery, analyze selected or automatically queued manual/voice event screenshots, and watch sampled remote-live frames when enabled. AI live watch can combine standard detections with bounded scenario-specific and mission-specific visible targets. Always review:
+Configured AI can draft after-action report content from structured mission data, help review uploaded media, answer questions about primary uploaded footage, analyze selected or automatically queued manual/voice event screenshots, and watch sampled remote-live frames when enabled. AI live watch can combine standard detections with bounded scenario-specific and mission-specific visible targets. Always review:
 
 - Timeline accuracy
 - Footage and photo references
@@ -27,7 +27,7 @@ Configured AI can draft after-action report content from structured mission data
 - AI live watch alerts and attached frame evidence
 - **Items Requiring Officer Review**
 
-Treat AI output as draft material. AI Review can sample frames from uploaded footage and analyze uploaded photos or event screenshots. Accepted findings are added to the timeline, where an officer must **Accept as is** or **Review & edit** before report use. Ask AI uses available mission imagery, reports confidence and limitations, and does not replace review of the original media.
+Treat AI output as draft material. AI Review analyzes only the tags placed under **What should AI look for?**. **Event-focused** searches around accepted events without re-analyzing their screenshots; **Full mission — detailed** reviews the best-quality recording more broadly and can include mission photos. Accepted findings are added to the timeline, where an officer must **Accept as is** or **Review & edit** before report use. Ask AI uses only the selected primary uploaded footage, excluding mission photos and event screenshots, and does not replace review of the original recording.
 
 AI Review can retain region metadata for matching and deduplication, but it does not draw model bounding boxes over thumbnails or the full-screen source viewer.
 
@@ -35,7 +35,7 @@ Device Live AI and AI live-watch alerts are logged as review prompts, not final 
 
 Device Live AI uses licensed server-side analysis when connectivity is healthy and automatically falls back to on-device people and possible-weapon detection when it is not. Provider credentials remain server-side. Mission Overwatch, device cloud analysis, and local fallback coordinate temporary ownership to reduce duplicate alerts.
 
-Person detections use informational/yellow treatment and do not identify people. Possible weapons and other urgent threat indicators use red treatment and still require human review.
+Person detections use informational/yellow treatment and do not identify people. Operators can disable routine person and hand-to-hand-contact alerts for a mission. Possible weapons and explosives remain non-optional, highest priority, and subject to human review.
 
 AlphaRelay uses one official-event rule across counts, playback markers, reports, offline exports, and custody views: undeleted human-created events are included; automatic AI alerts require approval; accepted AI Review findings require Timeline officer review. Pending or dismissed automatic alerts and accepted AI Review findings without Timeline officer review remain outside the official evidence set and are permanently removed when Timeline review completes or the mission seals.
 
@@ -49,7 +49,7 @@ Pilot agreement PDFs and signed copies are stored in private storage. Signing li
 
 | Action | Effect |
 | --- | --- |
-| **Seal entire mission** | Locks custody evidence hashes |
+| **Seal entire mission** | Verifies and locks hashes for evidence explicitly included in the AAR Chain of Custody; retained excluded screenshots remain unsealed |
 | **Submit for supervisor approval** | Temporarily locks the report, mission name, timeline, media, and AI Review actions until a supervisor returns it to draft or approves it |
 | **Supervisor approval** | Makes the submitted record permanently read-only |
 | **Export offline package…** / **Export evidence package (JSON)** | Point-in-time copies for retention or handoff |
