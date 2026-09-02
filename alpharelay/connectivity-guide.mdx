@@ -9,6 +9,8 @@ AlphaRelay uses separate live and sync paths. Losing one does not always stop th
 ```text
 AlphaRelay Copilot
   |-- Live stream (WebRTC) → Mission Overwatch / Android or iOS Mission Viewer over internet
+  |-- Controller Livestream (RTMP) ← Separate flight controller over internet
+  |-- HDMI Capture Card (UVC) ← Controller HDMI output over USB
   `-- Cloud sync → Events, footage, reports, evidence
 ```
 
@@ -18,6 +20,7 @@ Some older or deployment-specific Android builds also expose a LAN relay to Miss
 
 - Local mission capture and event logging
 - On-device Live AI fallback and Controller Screen Capture notifications
+- HDMI Capture Card recording, preview, Device Live AI, and event screenshots
 - Queued footage and deferred cloud sync
 - Pilot license within the 10-day offline grace window
 
@@ -27,6 +30,7 @@ Some older or deployment-specific Android builds also expose a LAN relay to Miss
 - Footage and photo upload
 - Playback links
 - **Live stream (WebRTC)** setup and viewing
+- Controller Livestream publishing, playback, and finalization
 - Mission Viewer mission list, timeline updates, event logging, alerts, and video
 - Report generation and supervisor workflow
 - Offline package and evidence JSON export downloads
@@ -40,6 +44,12 @@ Some older or deployment-specific Android builds also expose a LAN relay to Miss
 
 A second licensed Android or iOS device can open Mission Viewer. It requires internet for its active-mission list, timeline, event logging, alerts, and remote video.
 
+## Controller video inputs
+
+**Controller Livestream** requires validated internet on both the licensed Android Copilot device and the separate flight controller. Copilot provides an RTMP server plus a short stream key; the controller publishes to that destination, and Mission Viewer or Mission Overwatch receives the feed. Restart the controller publisher with the same fields after a connection loss while the mission is active.
+
+**HDMI Capture Card** receives video locally over USB and can keep recording when internet is unavailable. Remote live, cloud AI, sync, and upload still wait for internet. A capture-card disconnect pauses incoming video without closing the mission; reconnect and verify the preview before continuing.
+
 ## Deployment-specific Local Network connection
 
 If your Android build exposes **Local Network**, run it on Wi-Fi, open **Live Overwatch Screen**, and connect by scanning or entering the device IP. Trust the self-signed relay certificate if prompted. This is not a selectable mission path in the current public Copilot workflow.
@@ -51,7 +61,7 @@ If your Android build exposes **Local Network**, run it on Wi-Fi, open **Live Ov
 When AlphaRelay opens with queued mission video, the startup panel shows the queue and progress. Use **Skip for now and start new mission** only when field work must begin before the older upload finishes.
 
 <Warning>
-  Remote live and cloud sync require internet. A deployment-specific LAN relay needs same-network reachability, not cloud access.
+  Remote live, Controller Livestream, and cloud sync require internet. HDMI capture can record locally without it. A deployment-specific LAN relay needs same-network reachability, not cloud access.
 </Warning>
 
 ## PWA / offline shell

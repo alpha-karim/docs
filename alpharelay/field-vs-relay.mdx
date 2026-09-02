@@ -35,6 +35,8 @@ The current public Copilot workflow does not show a **Local Network** mission bu
 | No usable internet | **Start Mission**; capture locally and sync later |
 | Remote viewers need live video | Keep the pilot device online and open **Live stream (WebRTC)** in Mission Overwatch |
 | A second licensed Android or iOS device needs a compact live view | Open Mission Viewer; internet is required for the mission list, timeline, alerts, events, and video |
+| Flight controller supports custom RTMP but cannot install AlphaRelay | Create **Controller Livestream** from a separate licensed Android device; internet is required on both devices |
+| Flight controller has HDMI output | Connect a UVC capture card to Android and select **HDMI Capture Card**; local recording can continue offline |
 | Your deployment exposes **Local Network** | Use its LAN relay instructions on the same reachable Wi-Fi |
 
 <Note>
@@ -50,6 +52,12 @@ On integrated Android drone controllers, AlphaRelay enters **Controller Screen C
 In this mode, the controller's native flight app controls the aircraft while AlphaRelay captures the controller screen, streams it to the mission, records screen footage, and logs events.
 
 → [Controller Screen Capture](/alpharelay/companion-capture-mode)
+
+## Controller Livestream and HDMI Capture
+
+These Android workflows keep aircraft control on a separate flight controller. Controller Livestream receives a controller-native RTMP publisher over internet. HDMI Capture Card receives controller video locally through UVC USB, so capture can continue offline while remote viewing and sync wait.
+
+→ [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs)
 
 ## DJI Avata with DJI Goggles
 

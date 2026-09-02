@@ -10,14 +10,14 @@ Run a short test mission to learn the workflow end to end.
 
 1. Open AlphaRelay Copilot and choose the mission scenario.
 2. Select the test operator when an agency roster is available, pick a scenario template or **No scenario template**, enter `Training mission` as the mission name, and add one harmless mission-specific AI target if testing Live AI.
-3. Tap **Start Mission** and confirm remote live starts automatically when the device is online.
+3. Start the selected video path and confirm it is healthy: approve screen capture, confirm **Capturing** for HDMI, or create **Controller Livestream**, enter its server/key on the separate controller, and start that publisher. Confirm remote live when the workflow is online.
 4. Open the mission from Mission Dashboard and select **Live stream (WebRTC)**.
 5. If the team will use Mission Viewer, open Copilot on the second licensed Android or iOS device, choose the active mission, and confirm video, timeline, and alert updates.
 6. Add one event from Copilot (quick event, manual event with current frame, or voice: `relay <details>`).
 7. Add one event from Mission Overwatch. Try **Dictate**, review the transcript, then click **Log Manual Event**.
 8. If Device Live AI will be used, confirm it is enabled and perform a safe person-detection check with internet, then verify automatic on-device fallback in a controlled connectivity test. Confirm the informational/yellow treatment. Do not simulate a weapon alert with a real weapon.
 9. Run a short, safe exercise.
-10. Tap **Stop and complete mission** or **Stop Mission** on the Copilot device.
+10. Complete the normal closeout for the selected path. Stop a Controller Livestream publisher first; for HDMI, verify the last needed frame arrived; for a supported DJI SDK 5 aircraft-original handoff, practice the USB reconnect without risking operational footage. Then use **Stop and complete mission**, **Stop Mission**, **Close Active Mission**, or **End Mission** as the workflow presents it.
 11. Confirm footage uploaded or is queued (see upload banner / status).
 12. Review the Timeline. For each test Device Live AI or AI live-watch alert, practice **Approve alert** or **Dismiss alert**. Review any available image analysis with **Accept as is** or **Review & edit**, then click **Done — continue**.
 13. Under **Media**, open **Play with Events**, confirm markers appear, and click **Done — continue** after checking footage and photos.
@@ -29,11 +29,14 @@ Run a short test mission to learn the workflow end to end.
 - Did the mission and remote live start as expected for the available connectivity?
 - Did events appear on the timeline?
 - Did Mission Viewer show the active mission and stop event logging after close?
+- On Android, did a viewer event attach the complete live frame and show its screenshot in the timeline?
 - Did Device Live AI avoid repeated alerts for one continuously visible test subject?
 - Did cloud analysis hand off cleanly to the on-device fallback and later resume without duplicate alerts?
 - Did scenario-specific targets appear, and could you save one harmless mission-specific target?
 - Was footage available or queued as expected?
 - Did Controller Screen Capture produce one continuous playable mission recording?
+- Did Controller Livestream or HDMI Capture, when tested, preserve the full 16:9 frame, recover from a controlled disconnect, and finalize playable footage?
+- On a supported DJI SDK 5 setup, did the optional aircraft-original handoff select only mission-time SD footage and preserve the controller-screen recording if the pull failed?
 - Were any AI-derived timeline findings reviewed before report generation?
 - Was the report understandable before submission?
 

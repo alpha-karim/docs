@@ -11,7 +11,7 @@ icon: "book"
 | **AlphaRelay Copilot** | Licensed Android or iOS app for controller-screen mission capture, remote live, field events, Device Live AI, and Mission Viewer |
 | **Approve alert** | Timeline decision that allows a Device Live AI or AI live-watch alert to proceed to configured screenshot analysis and report consideration; it does not complete officer review of the analysis |
 | **AI Review** | Closed-mission tab for selecting analysis targets and using **Event-focused** or **Full mission — detailed** coverage before accepting or rejecting mission-relevant findings |
-| **Ask AI** | AI Review view for asking questions grounded only in the primary uploaded footage from a closed synced mission |
+| **Ask AI** | AI Review view for asking questions grounded only in the primary uploaded footage from a closed synced mission; it remains read-only and available after approval |
 | **Alert on people** | Mission setting that controls routine person and hand-to-hand-contact alerts; weapons and explosives remain enabled and highest priority |
 | **Activity Log** | Read-only Organization Settings tab showing server-attributed material actions with person, mission, action, and date filters |
 | **Add optional recording** | Media action for attaching an MP4/MOV aircraft, goggles-screen, or other external recording and aligning it to the mission timeline |
@@ -19,6 +19,8 @@ icon: "book"
 | **Chain of custody** | Evidence history and hash verification for a mission |
 | **Command Center** | Default Mission Dashboard view for operational status, active missions, attention items, automatic alerts, and report follow-ups |
 | **Controller Screen Capture** | Workflow where the native flight app keeps flight control while Copilot captures the visible screen; Android uses system screen capture and iOS uses ReplayKit |
+| **Controller Livestream** | Android Copilot workflow that creates an RTMP server and short stream key for a separate controller or flight app to publish directly into a mission; internet is required |
+| **HDMI Capture Card** | Android Copilot workflow that receives controller HDMI video through a UVC USB capture card without screen-sharing permission |
 | **Goggles Mode** | DJI Avata and compatible DJI Goggles workflow where AlphaRelay on a separate Android device captures the DJI Fly live view and automatically starts an Internet mission |
 | **Device Live AI** | Cloud-first live analysis from a Copilot device with automatic on-device people and possible-weapon fallback when cloud analysis is unavailable |
 | **Internet** | Cloud-backed mission mode used by the current Copilot **Start Mission** workflow |

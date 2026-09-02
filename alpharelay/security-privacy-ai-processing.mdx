@@ -13,6 +13,8 @@ icon: "lock"
 
 When internet is available: mission metadata, events, screenshots, photos, footage references, reports, custody records, and org data — protected by sign-in and database access rules.
 
+High-resolution evidence remains distinct from bounded imagery prepared for AI analysis. AlphaRelay records the screenshot's capture time for evidence matching even when event logging or upload finishes later, and manual photo/video uploads are registered with a SHA-256 hash before success is reported.
+
 Read the public [AlphaRelay Privacy Policy](https://www.alpha-relay.com/privacy.html) for the current service-level privacy notice.
 
 ## AI
@@ -27,7 +29,7 @@ Configured AI can draft after-action report content from structured mission data
 - AI live watch alerts and attached frame evidence
 - **Items Requiring Officer Review**
 
-Treat AI output as draft material. AI Review analyzes only the tags placed under **What should AI look for?**. **Event-focused** searches around accepted events without re-analyzing their screenshots; **Full mission — detailed** reviews the best-quality recording more broadly and can include mission photos. Accepted findings are added to the timeline, where an officer must **Accept as is** or **Review & edit** before report use. Ask AI uses only the selected primary uploaded footage, excluding mission photos and event screenshots, and does not replace review of the original recording.
+Treat AI output as draft material. AI Review analyzes only the tags placed under **What should AI look for?**. **Event-focused** searches around accepted events without re-analyzing their screenshots; **Full mission — detailed** reviews the best-quality recording more broadly and can include mission photos. Accepted findings are added to the timeline, where an officer must **Accept as is** or **Review & edit** before report use. Ask AI uses only the selected primary uploaded footage, excluding mission photos and event screenshots, and does not replace review of the original recording. It remains available as a read-only question and saved-answer workflow after approval while record mutations stay locked.
 
 AI Review can retain region metadata for matching and deduplication, but it does not draw model bounding boxes over thumbnails or the full-screen source viewer.
 
@@ -51,7 +53,7 @@ Pilot agreement PDFs and signed copies are stored in private storage. Signing li
 | --- | --- |
 | **Seal entire mission** | Verifies and locks hashes for evidence explicitly included in the AAR Chain of Custody; retained excluded screenshots remain unsealed |
 | **Submit for supervisor approval** | Temporarily locks the report, mission name, timeline, media, and AI Review actions until a supervisor returns it to draft or approves it |
-| **Supervisor approval** | Makes the submitted record permanently read-only |
+| **Supervisor approval** | Makes the submitted record mutations permanently read-only; read-only Ask AI remains available |
 | **Export offline package…** / **Export evidence package (JSON)** | Point-in-time copies for retention or handoff |
 
 Do not share exports before sync and review are complete.

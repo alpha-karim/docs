@@ -13,16 +13,16 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
     Install AlphaRelay Copilot on the field devices, activate each device license, and sign in to the web app.
   </Step>
   <Step title="Start a mission">
-    Tap **Choose Scenario**, select the operator when an agency roster is available, choose a scenario template, set whether routine people alerts are needed, and tap **Start Mission**. Weapon and explosive alerts always remain on. Remote live starts automatically when the pilot device has validated internet. Android drone controllers use **Controller Screen Capture** by default; detected DJI SDK-controller setups can unlock **Pilot mode** after a supported-aircraft and live-connection check. With a DJI Avata and compatible DJI Goggles connected to an Android device, Goggles Mode starts the mission automatically.
+    Tap **Choose Scenario**, select the operator when an agency roster is available, choose a scenario template, set whether routine people alerts are needed, and start the selected capture path. Weapon and explosive alerts always remain on. Remote live starts automatically when the pilot device has validated internet. Android drone controllers use **Controller Screen Capture** by default, can receive a connected **HDMI Capture Card**, or can unlock **Pilot mode** after a supported-aircraft and live-connection check. A separate Android Copilot device can create a **Controller Livestream** destination for an RTMP-capable flight controller. With a DJI Avata and compatible DJI Goggles connected to an Android device, Goggles Mode starts the mission automatically.
   </Step>
   <Step title="Watch and log events">
-    Use Mission Overwatch's full-screen command view for remote live, focused AI live watch when configured, and the **Operations** drawer for Quick Events, manual events, and the live timeline. A second licensed Android or iOS device can use Mission Viewer for a compact live view and event logging. Device Live AI uses cloud analysis when available and automatically falls back to on-device detection when it is not.
+    Use Mission Overwatch's full-screen command view for remote live, focused AI live watch when configured, and the **Operations** drawer for Quick Events, manual events, and the live timeline. A second licensed Android or iOS device can use Mission Viewer for a compact live view and event logging. Android can also receive controller video through Controller Livestream (RTMP) or an HDMI capture card when AlphaRelay cannot be installed on the flight controller. Device Live AI uses cloud analysis when available and automatically falls back to on-device detection when it is not.
   </Step>
   <Step title="Review the mission">
-    Upload or sync footage, then follow Mission Overwatch through **Timeline**, **Media**, and **AI Review** when available. Choose what AI should look for and use **Event-focused** or **Full mission — detailed** coverage before analysis. You can leave while analysis runs and return after the completion email. **Ask AI** uses the selected primary uploaded footage.
+    Upload or sync footage, then follow Mission Overwatch through **Timeline**, **Media**, and **AI Review** when available. Choose what AI should look for and use **Event-focused** or **Full mission — detailed** coverage before analysis. You can leave while analysis runs and return after the completion email. **Ask AI** uses the selected primary uploaded footage and remains available read-only after approval.
   </Step>
   <Step title="Finalize the record">
-    Generate the report, seal the evidence listed in the AAR Chain of Custody, submit for supervisor review, and export when ready. Submission locks review work; approval makes the record permanently read-only.
+    Generate the report, seal the evidence listed in the AAR Chain of Custody, submit for supervisor review, and export when ready. Submission locks review work; approval makes record mutations permanently read-only while Ask AI remains available for read-only questions.
   </Step>
 </Steps>
 
@@ -49,6 +49,9 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
   </Card>
   <Card title="Mission viewers" icon="tablet-screen-button" href="/alpharelay/view-live-mission-android">
     Watch and support an active mission from a second licensed Android or iOS device.
+  </Card>
+  <Card title="Controller video inputs" icon="video" href="/alpharelay/controller-video-inputs">
+    Use Controller Livestream or a USB HDMI capture card while the native controller keeps aircraft control.
   </Card>
   <Card title="Device Live AI" icon="tablet-screen-button" href="/alpharelay/local-ai">
     Understand cloud-first live analysis and automatic on-device fallback.

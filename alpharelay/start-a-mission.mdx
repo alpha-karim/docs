@@ -14,7 +14,7 @@ Missions always start from **AlphaRelay Copilot**. Mission Overwatch cannot star
 4. Select a scenario category and template, or **No scenario template**.
 5. Enter the mission name your team will recognize and optionally add up to eight **Mission-specific AI targets**, one visible item per line.
 6. Leave **Alert on people** on for informational person and hand-to-hand-contact alerts, or turn it off to suppress those routine categories. Weapons, explosives, hazards, other enabled behavior, and mission-specific targets still alert.
-7. On eligible Android DJI SDK-controller setups, keep **Controller Screen Capture — Recommended** or complete the checks for **Pilot mode**.
+7. On Android, keep **Controller Screen Capture — Recommended**, choose a connected **HDMI Capture Card**, or complete the checks for **Pilot mode** when eligible.
 8. Tap **Start Mission** and complete the license check if prompted.
 9. Approve Android screen capture, or choose **AlphaRelay Capture** from the iOS broadcast picker.
 10. Open the native flight app when using screen capture. Use quick, manual, or `Relay` voice events and stop the mission when finished.
@@ -33,6 +33,8 @@ When supported Matrice aircraft or controllers are detected, Android Copilot may
 
 On integrated Android drone controllers, Copilot uses **Controller Screen Capture** automatically. Approve the Android screen capture prompt, then operate the aircraft in the controller's native flight app. AlphaRelay records and streams the controller screen instead of taking over flight controls.
 
+If a connected UVC HDMI capture card is detected, Android Copilot adds **HDMI Capture Card** and can select it automatically. Grant the camera and USB prompts, then confirm the received preview says **Capturing** before flight. This path records the controller's HDMI output without screen-sharing permission.
+
 On iPhone and iPad, choose **AlphaRelay Capture** in the ReplayKit broadcast picker, enable microphone audio if needed, and open the flight app. See the [iOS Copilot guide](/alpharelay/ios-copilot).
 
 On a detected DJI SDK-controller setup — for example, an RC-N-series remote connected to the Android pilot device — the mission screen presents two choices:
@@ -41,6 +43,8 @@ On a detected DJI SDK-controller setup — for example, an RC-N-series remote co
 - **Pilot mode** gives AlphaRelay the DJI SDK connection and direct aircraft controls. It stays locked until you confirm a listed aircraft and AlphaRelay verifies that aircraft's live connection.
 
 For a DJI Avata with compatible DJI Goggles, first show the goggles live view in DJI Fly on the Android device. When Goggles Mode is active, opening AlphaRelay skips these mission-selection steps, starts a mission with no scenario, starts remote live, requests screen capture, and returns to DJI Fly.
+
+For a controller or flight app that can publish to a custom RTMP destination, use **Controller Livestream** on a separate licensed Android Copilot device. It creates the mission and shows the RTMP server and short stream key to enter on the flight controller; it requires validated internet and does not request screen capture. Follow [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs).
 
 ## Remote live
 
@@ -62,6 +66,8 @@ To use **Pilot mode** on an eligible setup:
 3. Tap **My drone is listed — Use Pilot**.
 4. Keep the aircraft and controller powered on and connected while AlphaRelay checks the live DJI flight-controller connection.
 5. Wait for **Supported aircraft confirmed. Pilot mode is ready.** before tapping **Start Mission**.
+
+In Pilot mode, use the persisted **High quality (4K)** switch when the mission needs that aircraft recording profile; otherwise AlphaRelay applies the 1080p profile when supported. AlphaRelay starts or recovers aircraft SD recording after it detects takeoff, stops Live AI after landing, and can automatically close a confirmed airborne mission after touchdown while the longer aircraft-footage transfer continues. Keep the aircraft, controller, and Copilot powered until the transfer is secured. Some aircraft require physical-controller takeoff even in Pilot mode; AlphaRelay detects the airborne state and continues the mission.
 
 Android Copilot's DJI MSDK 5.17 catalog includes:
 
@@ -95,4 +101,4 @@ If the aircraft is not listed, the SDK is unavailable, or the live check fails, 
 - Use the active-mission **Alert on people** control to change routine person alerts without restarting. Weapon and explosive alerts cannot be disabled and take priority over every other alert.
 - Tap **Stop and complete mission** or **Stop Mission** in Copilot (or **End Mission** in Mission Overwatch) when field work is done.
 
-→ [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Android Controller Screen Capture](/alpharelay/companion-capture-mode) · [iPhone and iPad](/alpharelay/ios-copilot) · [DJI Avata with DJI Goggles](/alpharelay/avata-goggles) · [Connectivity](/alpharelay/connectivity-guide)
+→ [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Android Controller Screen Capture](/alpharelay/companion-capture-mode) · [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs) · [iPhone and iPad](/alpharelay/ios-copilot) · [DJI Avata with DJI Goggles](/alpharelay/avata-goggles) · [Connectivity](/alpharelay/connectivity-guide)

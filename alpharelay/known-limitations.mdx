@@ -10,12 +10,16 @@ icon: "triangle-alert"
 - **Live stream (WebRTC)** requires internet on the pilot device.
 - Cloud sync, upload, and export wait for internet.
 - Losing relay, remote live, or cloud sync does not always end the mission — paths are independent.
-- **View Live Mission** on Android requires internet and a valid licensed installation in the same organization. Timeline events can update even when remote video is not ready.
+- **View Live Mission** on Android and **Watch Live Mission** on iOS require internet and a valid licensed installation in the same organization. Timeline events can update even when remote video is not ready.
+- **Controller Livestream** requires internet on the Android setup/viewer device and on the separate publishing controller. It depends on that controller or flight app accepting a custom RTMP server and stream key.
+- **HDMI Capture Card** can record locally without internet, but remote viewing, cloud AI, sync, and upload still require connectivity.
 
 ## Media
 
 - Footage often uploads after the mission ends.
 - **Controller Screen Capture** records the controller screen, including native flight-app overlays, not a raw camera file.
+- **Controller Livestream** records the video published by the controller, not an aircraft-original camera file. Stop the publisher before normal mission closeout so the recording can finalize.
+- **HDMI Capture Card** ingests UVC video only. USB/UAC audio embedded by the card is not currently recorded; voice events use the Android device microphone. Hardware power, OTG support, negotiated resolution, and reconnect behavior vary, so validate the exact stack.
 - **Goggles Mode** records the DJI Fly screen carrying the DJI Goggles live view, not the original DJI Avata camera file.
 - Queued Copilot footage retries when validated connectivity returns, but the device must remain powered and the app must not be force-stopped or uninstalled. iOS closeout also needs Copilot open while ReplayKit handoff completes.
 - Queued footage must finish before final review.
@@ -25,6 +29,8 @@ icon: "triangle-alert"
 - **Import mission data…** is an inventory and custody-planning preview. It does not upload file contents or create production custody records.
 - Offline packages only include media available at export time. Some Android file viewers isolate `index.html`; use the package's **Reconnect exported files** prompt when it appears.
 - Current Controller Screen Capture missions record one mission-long MP4. Older missions can retain adjacent legacy chunks, and a separately restarted capture remains a separate recording.
+- A supported DJI SDK 5 Controller Screen Capture setup may offer a post-capture USB handoff for the mission-time aircraft original. It requires stopping DJI Fly, clearing its USB default, reconnecting the controller, choosing AlphaRelay, and keeping the aircraft/controller powered. Failure leaves the mission open for retry; **Close without aircraft copy** intentionally omits that optional angle.
+- Pilot-mode aircraft-SD capture and its 1080p/4K preset depend on the aircraft, payload, firmware, card, and available space. AlphaRelay rejects a clip that began before the mission rather than attaching the wrong recording.
 - A single mission-long file makes playback and custody handoff simpler, but a hard device or app failure before finalization can place more of the recording at risk than periodic chunks. AlphaRelay attempts interrupted-recording recovery; still verify long missions on the actual device class and complete the normal closeout flow.
 
 ## AI
@@ -36,7 +42,7 @@ icon: "triangle-alert"
 - **AI Review** requires a closed synced mission, available media, internet, AI configuration, installed analysis tables, and at least one selected tag under **What should AI look for?**.
 - **Event-focused** AI Review requires accepted human events or approved alerts to anchor its search. It looks around those moments and does not reprocess their screenshots. Use **Full mission — detailed** when no accepted anchors exist or broader recording coverage is required; it takes longer and still samples rather than proving complete observation.
 - Background AI Review can continue after you leave the page, but the completion email and refreshed progress depend on the configured worker, mail delivery, and connectivity.
-- **Ask AI** runs only for a closed synced mission with playable uploaded footage. It uses the primary uploaded recording and excludes mission photos and event screenshots. Occlusion, image quality, repeated views, sampling, or missing moments can limit counts and conclusions.
+- **Ask AI** runs only for a closed synced mission with playable uploaded footage. It uses the primary uploaded recording and excludes mission photos and event screenshots. It remains available read-only after approval, but cannot alter the approved record. Occlusion, image quality, repeated views, sampling, or missing moments can limit counts and conclusions.
 - An exact repeat question may load a saved answer for the same primary-footage selection. Ask again after that recording changes.
 - **AI live watch** requires active **Live stream (WebRTC)**, internet, Mission Overwatch online, and AI configuration. The default cadence can start a sample as often as every two seconds, but network and analysis latency may make it slower.
 - Scenario-specific and mission-specific AI targets are bounded visual search cues, not guaranteed detections. Use concrete visible details and verify every match against the live view or source media.
@@ -60,7 +66,7 @@ icon: "triangle-alert"
 ## Workflow locks
 
 - **Done — continue** is a recorded review decision, not only navigation. Timeline completion permanently removes remaining unaccepted AI candidates; AI Review completion rejects remaining undecided findings. Review the confirmation count before continuing.
-- Submitting a report for supervisor approval locks the report, mission name, timeline, footage, photos, and AI Review actions. Returning it to draft reopens work; approval makes the lock permanent.
+- Submitting a report for supervisor approval locks the report, mission name, timeline, footage, photos, and AI Review mutations. Returning it to draft reopens work; approval makes the mutation lock permanent. Read-only Ask AI remains available after approval.
 - Evidence sealing preserves custody hashes — it is not report approval.
 - **Seal entire mission** seals only evidence included in the AAR Chain of Custody. Excluded alert screenshots can remain retained and registered but unsealed.
 

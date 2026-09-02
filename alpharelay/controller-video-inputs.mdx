@@ -1,0 +1,77 @@
+---
+title: "Controller Livestream and HDMI Capture"
+description: "Bring controller video into AlphaRelay through RTMP or a USB HDMI capture card."
+icon: "video"
+---
+
+Use these Android workflows when the flight controller should keep aircraft control but cannot run AlphaRelay Copilot, or when you want a direct controller-video input instead of screen capture.
+
+| Workflow | Use it when | Internet during capture | AlphaRelay on the flight controller |
+| --- | --- | --- | --- |
+| **Controller Livestream** | The controller or flight app can publish to a custom RTMP server and stream key | Required | Not required |
+| **HDMI Capture Card** | The controller has HDMI output and a compatible USB Video Class (UVC) capture card | Optional; recording can continue offline | Not required |
+
+In both workflows, fly from the controller's native flight application. AlphaRelay does not take aircraft control.
+
+## Controller Livestream
+
+Controller Livestream creates a mission and a reusable publishing destination from a separate licensed Android Copilot device. AlphaRelay shows an RTMP server and a short numeric stream key for the flight controller's built-in livestream settings.
+
+### Requirements
+
+- A licensed Android phone or tablet running AlphaRelay Copilot
+- Validated internet on the Copilot device and the streaming controller
+- A controller or flight application that accepts a custom RTMP server and stream key
+- A separate flight controller; the Controller Livestream setup device does not open or control its flight app
+
+### Start and watch
+
+1. Open AlphaRelay Copilot on the Android support device and tap **Controller Livestream**.
+2. Select the operator and scenario, name the mission, and review the AI targets and **Alert on people** setting.
+3. Tap **Create Controller Livestream**.
+4. On the separate flight controller, open its livestream settings.
+5. Enter the **RTMP server** exactly as shown, including its final `/`, and enter the eight-digit **Stream key** in the separate key field.
+6. Start streaming from the controller.
+7. On the AlphaRelay device, tap **View Live Mission** and wait for the controller video to appear. Mission Overwatch can open the same active mission.
+
+The controller may retain both fields, and the short key stays with that AlphaRelay installation. If the controller disconnects, restart its publisher with the same fields while the mission remains active. Tap **Show Livestream Setup** when you need to see them again.
+
+<Warning>
+  Treat the RTMP server and stream key as publishing credentials. Enter them only on the intended controller and do not place them in reports, screenshots, or public messages.
+</Warning>
+
+The Android device viewing its own Controller Livestream can run Device Live AI, show priority alerts, and create screenshot-backed quick, manual, or `Relay` voice events from the received full video frame.
+
+When field work is complete, stop the controller's livestream first. Then close the mission with **End Mission** in Mission Overwatch or return from Mission Viewer and use **Close Active Mission** in Copilot. AlphaRelay finalizes the received Controller Livestream recording into the mission record.
+
+## HDMI Capture Card
+
+Use this physical path:
+
+```text
+Controller HDMI out -> capture card HDMI in -> capture card USB -> AlphaRelay Android device
+```
+
+The Android device must support USB host/OTG. A powered USB hub may be necessary when the capture card draws more power than the device can provide.
+
+### Start and verify
+
+1. Connect the powered controller, capture card, and Android device before mission setup.
+2. Open AlphaRelay Copilot and tap **Choose Scenario**.
+3. Select the operator and scenario, name the mission, and review its AI settings.
+4. Keep **HDMI Capture Card** selected. AlphaRelay selects it automatically when it detects a UVC input; choose it manually if capture choices are shown.
+5. Tap **Start Mission**.
+6. Grant the Android camera and USB-device prompts. Android uses camera permission for the external UVC input; AlphaRelay is not using the phone or tablet camera.
+7. Confirm the active-mission preview changes from **Waiting for signal** to **Capturing** before flight.
+
+HDMI video follows the normal Copilot pipeline: local recording, remote live when internet is available, Device Live AI, event screenshots, upload, review, and custody metadata. It does not require Android screen-sharing permission.
+
+If the capture card disconnects, the mission stays open and waits for reconnection. Reconnect the card and confirm the preview returns before relying on the feed. If capture is running but frames are not arriving, check the controller's HDMI output setting, capture-card power, and USB data connection.
+
+The current integration ingests UVC **video**. Optional voice events use the Android device microphone. USB/UAC audio embedded by the capture card is not currently added to the recording.
+
+## Before operational use
+
+Test the exact controller, capture card, adapter or hub, Android device, resolution, orientation, sustained recording, and disconnect/reconnect behavior in training. For HDMI, confirm a stable 16:9 preview and playback. For Controller Livestream, confirm the controller can reconnect with the saved server and key and that mission closeout produces playable footage.
+
+→ [Start a mission](/alpharelay/start-a-mission) · [View a live mission](/alpharelay/view-live-mission-android) · [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Upload footage](/alpharelay/footage-upload) · [Troubleshooting](/alpharelay/troubleshooting)

@@ -12,11 +12,17 @@ icon: "flag-checkered"
 4. Optionally open **Operations** and tap **End Mission** in Mission Overwatch.
 5. Check the upload or queue status before powering off the pilot device.
 
+In a supported Pilot-mode mission, confirmed touchdown can trigger the same stop and closeout automatically. AlphaRelay stops Live AI and closes the mission before a longer aircraft-SD transfer continues. If automatic closeout does not occur, use **Stop Mission** and follow the on-screen retry state.
+
 ## What happens
 
 - The relay session ends with the mission.
 - SD recording stops after a successful land when supported.
+- Pilot mode can start or recover mission-time SD recording after takeoff and closes only around footage that began during the current mission.
 - In **Controller Screen Capture**, AlphaRelay finalizes the mission-long controller-screen recording instead of pulling aircraft SD video.
+- On a confirmed supported DJI SDK 5 Controller Screen Capture setup, AlphaRelay can then guide a USB reconnect to copy the matching mission-time SD clip as an optional aircraft original. The mission remains open on failure so you can retry or choose **Close without aircraft copy**.
+- In **Controller Livestream**, stop the separate controller publisher first; closing the mission finalizes the received stream recording.
+- In **HDMI Capture Card**, AlphaRelay finalizes the received UVC recording. Reconnect a missing card before closeout if the mission needs additional video.
 - In **Goggles Mode**, AlphaRelay finalizes the captured DJI Fly live-view frames as an MP4 and queues it for upload. It does not pull the DJI Avata's internal-storage or microSD footage.
 - Footage may upload immediately or queue for later sync.
 - Queued Copilot video is stored durably and retries when validated connectivity returns, including after the app restarts.

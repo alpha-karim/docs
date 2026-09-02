@@ -9,7 +9,7 @@ Use **View Live Mission** on Android or **Watch Live Mission** on iPhone and iPa
 ## Requirements
 
 - **AlphaRelay Copilot** installed and activated on the viewing device
-- A separate valid device license for the same organization as the mission
+- A valid device license for the same organization as the mission; normally this is a separate device, while the Android device that created a Controller Livestream can view that mission itself
 - Internet on the viewing device
 - An active synced mission; remote live must be running for video
 
@@ -22,6 +22,8 @@ Use **View Live Mission** on Android or **Watch Live Mission** on iPhone and iPa
 5. Use a scenario quick-event button or enter a manual event, then tap **Log event**.
 6. Use **Switch mission** to choose another active mission.
 
+On Android, Mission Viewer waits for a complete received video frame and attaches that uncropped frame to quick, manual, and `Relay` voice events when live video is available. If the frame is not ready, wait for video and try the event again. The screenshot is registered with the mission record, appears as a timeline thumbnail, and can enter the configured screenshot-analysis queue; review any generated analysis before report use.
+
 New AI alerts appear as highlighted banners and remain in the timeline. Person detections use informational/yellow treatment; possible weapons and other threat indicators use red review treatment. Treat every alert as a prompt for human review, not a confirmed finding.
 
 ## When the mission ends
@@ -33,6 +35,7 @@ Mission Viewer marks the timeline read-only and disables event entry after the m
 - Mission Viewer requires internet; it has no offline active-mission list.
 - Only active missions in the licensed organization appear.
 - A mission can provide timeline updates even when remote video is unavailable.
+- Android viewer events cannot attach current-frame evidence until a complete live frame has arrived.
 - Mission Viewer does not expose aircraft controls or closed-mission review tools.
 
 → [Use AlphaRelay Copilot on iPhone or iPad](/alpharelay/ios-copilot) · [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Log events](/alpharelay/event-logging)

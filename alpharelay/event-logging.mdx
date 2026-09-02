@@ -31,10 +31,11 @@ In **Controller Screen Capture**, voice relay can save a controller-screen scree
 - On a second licensed device, tap **View Live Mission** on Android or **Watch Live Mission** on iOS and choose the active mission
 - Use scenario quick-event buttons or enter a note under **Add mission event…**
 - Viewer events join the same mission timeline; logging turns off when the mission ends
+- Android attaches the complete received live frame to quick, manual, and `Relay` voice events when video is available. If no full frame is ready, it asks you to wait rather than saving a partial or stale image.
 
 Screenshots from the live feed are captured automatically when the workflow supports them. Local AI screenshots can include yellow detection boxes.
 
-When configured AI and cloud sync are available, AlphaRelay automatically queues screenshot analysis for typed manual events and voice-relay events that have a synced screenshot. Quick-event buttons do not use this automatic path. The human-created event remains an official event, but any generated image analysis must still be checked with **Accept as is** or **Review & edit** before the analysis can enter the report narrative.
+When configured AI and cloud sync are available, AlphaRelay automatically queues screenshot analysis for typed manual events and voice-relay events that have a synced screenshot. Standard Copilot Quick Events do not use this automatic path; screenshot-backed Android Mission Viewer Quick Events do. The human-created event remains an official event, but any generated image analysis must still be checked with **Accept as is** or **Review & edit** before the analysis can enter the report narrative.
 
 Mission Overwatch refreshes the focused shared timeline while the page is open. Events logged by Copilot or Mission Viewer and automatic device alerts can appear without a page reload; an alert can appear before its screenshot finishes syncing.
 

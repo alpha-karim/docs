@@ -13,6 +13,8 @@ Command home at [alpha-relay.com/dashboard.html](https://www.alpha-relay.com/das
 - **Attention queue** for remote-live failures, unsynced mission data, automatic alerts awaiting review, and report follow-ups
 - **Latest alerts** with review status, source mission, screenshot when available, and a link into Mission Overwatch
 - Mission history with search and filters
+- Organization-shared **Flag** / **Unflag** actions and a newest-first **Flagged missions** quick-access section; flags organize follow-up without changing the mission evidence record
+- Per-row and select-all-visible checkboxes for moving multiple authorized missions to Trash in one confirmation
 - **Rename** from a Mission History row when you are the mission creator or an org admin and the mission has not been submitted or approved
 - **Trash** for restoring deleted missions during their 30-day recovery window
 - **Import mission** for creating a closed post-flight record from external footage and photos
@@ -30,6 +32,8 @@ Select a mission to open **Mission Overwatch** (dashboard link: **Open Mission C
 
 Mission creators and organization admins can move a closed mission to **Trash** from the **After-Action Report** tab in Mission Overwatch. The mission disappears from Mission History, but AlphaRelay keeps its events, evidence, reports, and linked media recoverable for 30 days.
 
+To move several missions at once, select their checkboxes in Mission History and click **Move selected to Trash**. Confirm the mission count once. If one move fails, AlphaRelay leaves that mission selected so you can correct the permission or connection problem and retry; successful moves remain recoverable in Trash.
+
 To recover it:
 
 1. Open **Mission Dashboard → Mission History** while connected.
@@ -38,6 +42,8 @@ To recover it:
 4. Click **Restore** and confirm. The mission returns to Mission History with its linked record intact.
 
 Authorized organization admins can instead choose **Delete now** in Trash. This starts permanent removal of the mission and linked stored evidence before the 30-day deadline and cannot be undone.
+
+When several eligible Trash rows need irreversible deletion, organization owners and admins can select them and use the bulk delete action. This is distinct from recoverable **Move selected to Trash** and requires its own permanent-deletion confirmation.
 
 <Warning>
   AlphaRelay permanently removes a mission after it has been in Trash for 30 days, or sooner when an authorized admin confirms **Delete now**. Restore it before deletion begins.

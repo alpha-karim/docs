@@ -87,6 +87,15 @@ After the flight, close the mission from AlphaRelay or from the notification:
 
 The notification action uses the same closeout path as the in-app **Stop and complete mission** button. AlphaRelay finalizes the mission-long controller-screen recording, queues it for upload, closes the mission record, and removes the foreground capture notification when capture has stopped.
 
+On a supported DJI SDK 5 setup that AlphaRelay confirmed during mission setup, closeout can also offer **Reconnect controller for SD footage**. The controller-screen recording is already safe, and the mission stays open while Android transfers USB ownership from DJI Fly to AlphaRelay:
+
+1. Open DJI Fly app info and tap **Force stop**.
+2. Open **Open by default** and clear DJI Fly's defaults.
+3. Return to AlphaRelay, unplug and reconnect the controller cable, and choose **AlphaRelay → Just once** in Android's USB prompt.
+4. Keep the aircraft and controller powered on while AlphaRelay copies the aircraft video that began during this mission.
+
+The matching clip is queued as an optional **Aircraft original** behind the controller-screen evidence, then AlphaRelay closes the mission. If the USB handoff or SD pull fails, the mission remains open for retry and the controller-screen recording remains safe. Choose **Close without aircraft copy** only when you intend to finish with controller-screen footage alone. AlphaRelay will not attach a pre-mission SD clip as a fallback.
+
 If you are already in AlphaRelay, tap **Stop Mission** there instead. Do not force-close AlphaRelay or stop Android screen capture as the normal closeout method.
 
 Queued recordings are stored durably and resume uploading automatically when validated internet returns, including after the app process restarts. Keep the controller powered on, and do not force-stop or uninstall AlphaRelay while uploads are pending.
@@ -96,6 +105,7 @@ Queued recordings are stored durably and resume uploading automatically when val
 - AlphaRelay does not fly the aircraft in Controller Screen Capture.
 - The captured footage is the controller screen, including native flight-app overlays, not a raw camera file.
 - Android screen capture permission is required every time capture starts.
+- The optional DJI SDK 5 aircraft-original handoff depends on the exact controller, USB routing, aircraft, SD card, DJI Fly defaults, and firmware. Validate it in training; it is not available for every Controller Screen Capture setup.
 - If microphone permission or speech recognition is unavailable, voice relay is disabled but screen capture can still run.
 - Controller-screen overlays can affect Live AI. AlphaRelay instructs cloud analysis to ignore notification text and filters repeated detections, but every alert still requires human review.
 

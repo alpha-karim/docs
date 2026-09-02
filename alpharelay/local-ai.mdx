@@ -4,7 +4,7 @@ description: "Use cloud-first live analysis with automatic on-device fallback on
 icon: "tablet-screen-button"
 ---
 
-**Device Live AI** analyzes the controller-screen video supplied by AlphaRelay Copilot and creates review-oriented mission alerts. With working internet, the Copilot device sends sampled images to AlphaRelay's licensed server-side analysis. The app does not contain an OpenAI credential. When cloud analysis or connectivity is unavailable, Copilot automatically fails open to on-device people and possible-weapon detection.
+**Device Live AI** analyzes mission video supplied by AlphaRelay Copilot—including controller-screen, HDMI, supported Pilot camera, and locally viewed Controller Livestream frames—and creates review-oriented mission alerts. With working internet, the Copilot device sends sampled images to AlphaRelay's licensed server-side analysis. The app does not contain an OpenAI credential. When cloud analysis or connectivity is unavailable, Copilot automatically fails open to on-device people and possible-weapon detection.
 
 The capture session must be running. On-device fallback and immediate alert notifications can work without internet, while timeline sync, cloud follow-up, and reporting wait for connectivity.
 
@@ -24,11 +24,13 @@ These are assistive detections, not operational conclusions. Person detection is
 2. Turn **Enable automatic OpenAI + local detection** on or off.
 3. Adjust the sample rate, minimum detection score, confirmation window, or cooldown only after testing the change.
 4. Tap **Save local AI settings**.
-5. Start Controller Screen Capture and watch the **Device Live AI** status on the active-mission dashboard or the Live AI metrics line.
+5. Start the selected Android capture workflow and watch the **Device Live AI** status on the active-mission dashboard, Mission Viewer, or the Live AI metrics line.
 
 During Controller Screen Capture, grant Android notification permission if the pilot should receive immediate on-controller alerts. Person notifications use the yellow informational style; possible-weapon detections use the red urgent style.
 
 Mission Overwatch AI live watch, device cloud analysis, and the on-device fallback coordinate ownership for the same mission. Healthy Mission Overwatch analysis pauses device-originated cloud requests. Healthy device cloud analysis places the local fallback on standby. When the active cloud handoff stops or expires, the on-device detector resumes automatically.
+
+In Pilot mode, AlphaRelay suppresses Live AI after a land command or confirmed touchdown so the closed or closing mission does not continue producing alerts. It resumes normally on a later mission.
 
 ## iPhone and iPad
 

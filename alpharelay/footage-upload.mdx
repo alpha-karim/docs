@@ -14,7 +14,15 @@ Watch for upload banners, **Upload now**, or **Loading playback link** status in
 
 In **Controller Screen Capture**, AlphaRelay records one continuous controller-screen MP4 for the mission and queues it after closeout. On iOS, ReplayKit likewise finalizes the capture recording before handoff. Keep the device powered on and Copilot available while closeout finishes; do not force-stop or uninstall it while queued footage remains.
 
+On a Controller Screen Capture setup where AlphaRelay confirmed a supported DJI SDK 5 aircraft, closeout can guide a USB handoff from DJI Fly to AlphaRelay and copy only aircraft video that began during the mission. The controller-screen MP4 stays primary; the copied SD clip is queued as an optional **Aircraft original**. Keep the aircraft/controller powered, follow the reconnect prompt, and retry while the mission remains open if the pull fails.
+
+In **Pilot mode**, AlphaRelay can start or recover mission-time SD recording after takeoff and queue the matching aircraft clip at closeout. After confirmed touchdown, the mission can close before the longer transfer finishes; keep the device powered and watch the transfer status.
+
 In **Goggles Mode**, AlphaRelay finalizes an MP4 from the DJI Fly live-view frames captured during the mission and queues it after **Stop Mission**. The durable queue resumes when connectivity returns. Add the original DJI Avata camera file as an optional recording if the mission needs the raw aircraft view.
+
+In **HDMI Capture Card**, AlphaRelay records the received UVC video and keeps it labeled as **HDMI Capture** through upload, playback, Ask AI selection, and custody. A card disconnect does not close the mission; reconnect it to resume capture. Adjacent recovery segments play as one continuous sequence when their timestamps meet.
+
+In **Controller Livestream**, the remote publisher records the received controller stream into the mission. Stop the controller publisher before closing the mission, then let AlphaRelay finalize the **Controller Livestream** recording.
 
 When Android Copilot opens with queued mission video, its startup panel shows the queue and upload progress. Let the upload finish when possible. Use **Skip for now and start new mission** only if field work must begin immediately; the queued work remains pending. On iOS, use **Sync pending items** or **Sync now** and keep Copilot open during final handoff.
 
@@ -43,8 +51,10 @@ Use **Add optional recording** and **Upload Photos** afterward if any media need
 
 Use **Mission photos** / **Upload Photos** to add timeline photos or evidence-only photos with caption, category, and notes.
 
+AlphaRelay calculates and registers a SHA-256 hash for a manually added photo or video before reporting the upload as successful. Confirm the uploaded item appears in Mission Overwatch before closing the browser tab.
+
 <Warning>
   Do not force-stop or uninstall Copilot while its queue is pending. Keep a browser tab open for browser-initiated uploads; manual browser uploads do not use the device background queue.
 </Warning>
 
-→ [Import a mission](/alpharelay/import-mission) · [Review footage](/alpharelay/footage-playback) · [Troubleshooting](/alpharelay/troubleshooting)
+→ [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs) · [Import a mission](/alpharelay/import-mission) · [Review footage](/alpharelay/footage-playback) · [Troubleshooting](/alpharelay/troubleshooting)

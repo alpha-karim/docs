@@ -22,6 +22,28 @@ The current public Copilot workflow does not present a **Local Network** mission
 
 If timeline events appear but video does not, the pilot's remote **Live stream (WebRTC)** has not started or is not ready. Restore pilot-device internet and retry remote live from **Pilot console → Mission**.
 
+For Controller Livestream, an active mission can appear before the separate controller starts publishing. Reopen **Show Livestream Setup**, confirm the RTMP server includes its final `/`, confirm the eight-digit stream key is in the separate key field, and restart the controller publisher.
+
+## Controller Livestream is waiting for video
+
+1. Confirm both the Android Copilot device and the separate flight controller have usable internet.
+2. On the AlphaRelay device, tap **Show Livestream Setup** and compare both fields character for character.
+3. Include the final `/` in the RTMP server field; put only the eight-digit code in the stream-key field.
+4. Start or restart the controller's native livestream, then return to **View Live Mission**.
+5. If the mission is no longer active, create a new Controller Livestream instead of publishing into the closed record.
+
+Stop the controller publisher before closing the mission. Use **End Mission** in Mission Overwatch or **Close Active Mission** in Android Copilot so AlphaRelay can finalize the received recording.
+
+## HDMI Capture Card has no video
+
+1. Confirm the controller's HDMI output is enabled and the card is connected through a USB data/OTG path, not a charge-only adapter.
+2. Grant both Android camera and USB-device access. Camera permission is for the external UVC input.
+3. Check capture-card power; use a powered USB hub if the Android device cannot supply enough power.
+4. In the active mission, wait for the preview to change from **Waiting for signal** to **Capturing**.
+5. If the card disconnected, reconnect it without closing the mission and verify the preview returns.
+
+The current HDMI workflow ingests UVC video, not embedded USB/UAC audio. Use the Android device microphone for optional voice events. If the image is stretched or double-height, update Copilot and reload Mission Overwatch; current capture and playback preserve 16:9, while legacy correction changes presentation without rewriting the evidence file.
+
 ## Cloud sync delayed
 
 1. Confirm you are signed in.
@@ -57,6 +79,22 @@ If an optional aircraft or goggles recording is out of sync, choose **Align with
 5. If the app cannot be installed, allow the browser or file manager to **install unknown apps**. Android Developer mode is not required.
 
 The controller's native flight app remains the flight control app. AlphaRelay aircraft command buttons are intentionally disabled in Controller Screen Capture.
+
+## Reconnect controller for SD footage is waiting
+
+This conditional closeout appears only when AlphaRelay confirmed a supported DJI SDK 5 setup and can add a mission-time aircraft original after Controller Screen Capture.
+
+1. Keep the aircraft and controller powered on. The finalized controller-screen recording remains safe and the mission remains open.
+2. Open DJI Fly app info and tap **Force stop**.
+3. Open **Open by default** and clear its defaults.
+4. Return to AlphaRelay, physically unplug and reconnect the controller cable, and choose **AlphaRelay → Just once**.
+5. If the SD pull fails, verify the aircraft connection and SD card, reconnect, and tap **Retry after reconnect**.
+
+Use **Close without aircraft copy** only when you intentionally want to close with the controller-screen recording alone. AlphaRelay selects aircraft footage by its mission-time recording timestamp and does not substitute an older pre-mission clip.
+
+## Pilot-mode aircraft footage is still transferring
+
+After a confirmed touchdown, AlphaRelay can close the mission before the aircraft-SD transfer finishes. Keep Copilot, the aircraft, and controller powered on and watch the footage banner. A queued clip counts as secured and can continue through the durable upload path. If AlphaRelay says the footage was not secured and keeps the mission open, fix the connection or SD problem and retry closeout.
 
 ## iPhone or iPad capture did not start
 
@@ -170,7 +208,7 @@ The status can show starting, preparing media with progress, or analyzing. You c
 3. Keep Mission Overwatch online and confirm AI is configured for the deployment.
 4. If AlphaRelay says it is preparing supporting evidence, keep the page open while it samples frames from playable footage.
 
-Ask AI can answer only from the selected primary uploaded recording. If the relevant moment is missing, obscured, low quality, or outside the sampled frames, it may report that the question cannot be answered.
+Ask AI can answer only from the selected primary uploaded recording. If the relevant moment is missing, obscured, low quality, or outside the sampled frames, it may report that the question cannot be answered. Ask AI remains available after supervisor approval as a read-only tool; if it is missing on an approved mission, reload the current Mission Overwatch assets. Approval still blocks timeline, evidence, media, AI Review finding, and report mutations.
 
 ## Device Live AI is not tagging
 
@@ -186,7 +224,7 @@ Review every auto-tag before treating it as an operational fact. Small, distant,
 
 ## Report actions blocked
 
-Check mission state and your role. Submitting for supervisor approval locks report editing, mission renaming, timeline and media changes, and AI Review actions. A supervisor can **Return to draft** to reopen work. Approved missions are permanently read-only and reports cannot be regenerated.
+Check mission state and your role. Submitting for supervisor approval locks report editing, mission renaming, timeline and media changes, and AI Review mutations. A supervisor can **Return to draft** to reopen work. Approved records cannot be changed and reports cannot be regenerated; read-only Ask AI remains available.
 
 ## Operator is missing from Copilot
 
