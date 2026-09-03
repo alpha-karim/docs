@@ -1,10 +1,10 @@
 ---
 title: "Use AlphaRelay Copilot on iPhone or iPad"
-description: "Capture a flight app with ReplayKit, relay live video, log events, and support another active mission."
+description: "Capture an iOS screen, controller livestream, or iPad HDMI source and support another active mission."
 icon: "tablet-screen-button"
 ---
 
-**AlphaRelay Copilot** on iPhone and iPad runs the same licensed Internet-mission workflow as Controller Screen Capture on Android. Your flight app keeps aircraft control while iOS ReplayKit captures the selected display or app, publishes remote live when internet is available, and records mission footage.
+**AlphaRelay Copilot** on iPhone and iPad can capture the controller screen with ReplayKit, receive a controller-native RTMP livestream, or—on USB-C iPad—receive HDMI video through a UVC capture card. Your flight app or controller keeps aircraft control.
 
 ## Requirements
 
@@ -22,7 +22,11 @@ icon: "tablet-screen-button"
 
 The license is stored on the device. Copilot does not use the web-app email and password for device activation.
 
-## Start capture
+## Choose the video source
+
+Mission setup offers **Controller Screen**, **Controller Livestream**, and, on supported iPads, **HDMI Capture Card**. The HDMI option is marked **IPAD ONLY** because iPhone does not expose UVC video capture to this workflow.
+
+## Start Controller Screen capture
 
 1. Open **AlphaRelay Copilot** and choose a built-in or agency scenario, or **No scenario**.
 2. Confirm the operator, enter the mission name, optionally add up to eight **Mission-specific AI targets**, and choose whether **Alert on people** should include routine person and hand-to-hand-contact alerts. Weapons, explosives, hazards, other enabled behavior, and mission-specific targets remain active when it is off.
@@ -31,6 +35,23 @@ The license is stored on the device. Copilot does not use the web-app email and 
 5. Open the flight app. Keep the iOS screen-recording indicator active while AlphaRelay captures in the background.
 
 Copilot publishes the captured display through **Live stream (WebRTC)** when internet is available. The active-mission screen shows capture, live-stream, Device Live AI, Overwatch AI, alert, queued-event, queued-footage, and mission-time status. If capture stops, return to Copilot and tap **Choose display and start capture**.
+
+## Start Controller Livestream
+
+1. Choose **Controller Livestream**, complete mission setup, and tap **Set Up Controller Livestream**.
+2. If the controller has one RTMP field, enter **RTMP URL — one-field screens**. If it has two, enter **Server URL — two-field screens** and **Stream key — two-field screens** separately.
+3. Start the controller publisher, then tap **View live mission** and confirm video arrives.
+
+Internet is required on both devices. Stop the publisher before closing the mission so its recording can finalize.
+
+## Start HDMI Capture on iPad
+
+1. Connect the controller HDMI output through a UVC card to the USB-C iPad.
+2. Choose **HDMI Capture Card**, complete setup, and tap **Start HDMI Capture Mission**.
+3. Grant camera permission and verify the full video frame before flight.
+4. After a disconnect, reconnect the card and tap **Connect or retry HDMI input**. Copilot finalizes the prior segment and begins another.
+
+This path is video-only. Voice events use the iPad microphone; capture-card USB/UAC audio is not added to the recording.
 
 ## Log and update the mission
 
@@ -48,9 +69,9 @@ With working internet, Device Live AI uses licensed server-side analysis without
 1. Return to AlphaRelay Copilot.
 2. Tap **Sync now** when pending items remain and connectivity is available.
 3. Tap **Stop and complete mission**.
-4. Keep Copilot open while ReplayKit finalizes the MP4 and saved events and footage are handed off.
+4. Keep Copilot open while the selected capture source finalizes and saved events and footage are handed off.
 
-Copilot records one MP4 for the capture session, hashes it, and uses the normal custody-aware upload flow. If ReplayKit finishes a playable file but its handoff is interrupted, Copilot can recover the recording when it next processes the queue.
+Copilot hashes completed local recordings and uses the normal custody-aware upload flow. If ReplayKit finishes a playable file but its handoff is interrupted, Copilot can recover the recording when it next processes the queue.
 
 ## Watch another active mission
 
@@ -59,6 +80,7 @@ From mission setup, tap **Watch Live Mission**. Choose an active mission in the 
 ## iOS boundaries
 
 - Copilot captures the selected iOS display or app; it does not control the aircraft.
+- USB-C iPad supports UVC HDMI capture; iPhone does not. Use Controller Livestream when an iPhone must support a separate controller.
 - iOS does not use Android's DJI Goggles USB/LogicLink auto-detection or the deployment-specific Android local-network relay.
 - iOS uses its own on-device fallback rather than Android's full multi-object detector.
 - Dynamic Island, Live Activity, notification-fallback timing, and landscape placement vary by iPhone model and iOS settings; verify them on the physical flight device before operational use.

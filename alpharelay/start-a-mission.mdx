@@ -4,7 +4,7 @@ description: "Start a mission, controller-screen capture, and remote live from A
 icon: "tablet-screen-button"
 ---
 
-Missions always start from **AlphaRelay Copilot**. Mission Overwatch cannot start missions.
+Most live missions start from **AlphaRelay Copilot**. The exception is **Laptop HDMI Capture**, which starts from **New laptop HDMI mission** in the Mission Dashboard and continues in Mission Overwatch.
 
 ## Steps
 
@@ -14,9 +14,9 @@ Missions always start from **AlphaRelay Copilot**. Mission Overwatch cannot star
 4. Select a scenario category and template, or **No scenario template**.
 5. Enter the mission name your team will recognize and optionally add up to eight **Mission-specific AI targets**, one visible item per line.
 6. Leave **Alert on people** on for informational person and hand-to-hand-contact alerts, or turn it off to suppress those routine categories. Weapons, explosives, hazards, other enabled behavior, and mission-specific targets still alert.
-7. On Android, keep **Controller Screen Capture — Recommended**, choose a connected **HDMI Capture Card**, or complete the checks for **Pilot mode** when eligible.
-8. Tap **Start Mission** and complete the license check if prompted.
-9. Approve Android screen capture, or choose **AlphaRelay Capture** from the iOS broadcast picker.
+7. Select the video source: Android can use controller-screen capture, Controller Livestream, HDMI, or eligible Pilot mode; iPhone and iPad can use screen capture or Controller Livestream, and USB-C iPad also supports HDMI.
+8. Tap the matching start or setup action and complete the license check if prompted.
+9. Approve Android screen capture, choose **AlphaRelay Capture** from the iOS broadcast picker, or complete the RTMP/HDMI setup for the selected source.
 10. Open the native flight app when using screen capture. Use quick, manual, or `Relay` voice events and stop the mission when finished.
 
 Copilot prevents a new start while another mission or unfinished capture is active. Use the startup recovery action to close the existing mission through the normal finalization flow; do not discard it to force a new start.
@@ -35,7 +35,7 @@ On integrated Android drone controllers, Copilot uses **Controller Screen Captur
 
 If a connected UVC HDMI capture card is detected, Android Copilot adds **HDMI Capture Card** and can select it automatically. Grant the camera and USB prompts, then confirm the received preview says **Capturing** before flight. This path records the controller's HDMI output without screen-sharing permission.
 
-On iPhone and iPad, choose **AlphaRelay Capture** in the ReplayKit broadcast picker, enable microphone audio if needed, and open the flight app. See the [iOS Copilot guide](/alpharelay/ios-copilot).
+On iPhone and iPad, choose **Controller Screen**, **Controller Livestream**, or—on USB-C iPad—**HDMI Capture Card**. Screen capture uses **AlphaRelay Capture** in the ReplayKit broadcast picker. See the [iOS Copilot guide](/alpharelay/ios-copilot).
 
 On a detected DJI SDK-controller setup — for example, an RC-N-series remote connected to the Android pilot device — the mission screen presents two choices:
 
@@ -44,7 +44,9 @@ On a detected DJI SDK-controller setup — for example, an RC-N-series remote co
 
 For a DJI Avata with compatible DJI Goggles, first show the goggles live view in DJI Fly on the Android device. When Goggles Mode is active, opening AlphaRelay skips these mission-selection steps, starts a mission with no scenario, starts remote live, requests screen capture, and returns to DJI Fly.
 
-For a controller or flight app that can publish to a custom RTMP destination, use **Controller Livestream** on a separate licensed Android Copilot device. It creates the mission and shows the RTMP server and short stream key to enter on the flight controller; it requires validated internet and does not request screen capture. Follow [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs).
+For a controller or flight app that can publish to a custom RTMP destination, use **Controller Livestream** on a separate licensed Android, iPhone, or iPad. It provides either one complete RTMP URL or separate server and stream-key values to match the controller's settings.
+
+For laptop HDMI, click **New laptop HDMI mission** in Mission Dashboard, then use **Operations → Events & input → Laptop HDMI Capture** in Mission Overwatch. **Connect & go live** starts remote live and recoverable local evidence recording together. Use **Stop & upload** before **End Mission**. Follow [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs).
 
 ## Remote live
 
@@ -98,7 +100,7 @@ If the aircraft is not listed, the SDK is unavailable, or the live check fails, 
 
 - The mission appears in **Mission Dashboard** after cloud sync.
 - Footage and events may upload during or after the mission depending on connectivity.
-- Use the active-mission **Alert on people** control to change routine person alerts without restarting. Weapon and explosive alerts cannot be disabled and take priority over every other alert.
+- Use the active-mission **Alert on people** control to change routine person alerts without restarting. In Mission Overwatch, keep **Person holding a weapon** and **Visible weapons** enabled; weapon-holder alerts receive the highest presentation priority.
 - Tap **Stop and complete mission** or **Stop Mission** in Copilot (or **End Mission** in Mission Overwatch) when field work is done.
 
 → [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Android Controller Screen Capture](/alpharelay/companion-capture-mode) · [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs) · [iPhone and iPad](/alpharelay/ios-copilot) · [DJI Avata with DJI Goggles](/alpharelay/avata-goggles) · [Connectivity](/alpharelay/connectivity-guide)

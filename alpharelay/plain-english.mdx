@@ -6,7 +6,7 @@ icon: "circle-info"
 
 AlphaRelay helps teams run drone or field missions and produce a defensible record afterward.
 
-**AlphaRelay Copilot** on Android, iPhone, or iPad runs missions, captures footage, and logs events while the flight app keeps aircraft control. Android can capture the controller screen, accept a controller-native RTMP livestream, or receive HDMI video through a UVC capture card. A second licensed Copilot device can use Mission Viewer to watch an active mission and add events without controlling the aircraft. **Mission Overwatch** in a browser is where command staff watch live video, add events, review footage, build after-action reports, seal evidence, and export packages. The **Mission Dashboard** is the command home for finding missions and supervisor review queues.
+**AlphaRelay Copilot** on Android, iPhone, or iPad runs missions, captures footage, and logs events while the flight app keeps aircraft control. Controller video can arrive through screen capture, RTMP Controller Livestream, Android or iPad UVC HDMI, or laptop/browser HDMI. A second licensed Copilot device can use Mission Viewer to watch an active mission and add events without controlling the aircraft. **Mission Overwatch** in a browser is where command staff watch live video, capture laptop HDMI, add events, review footage, build after-action reports, seal evidence, and export packages.
 
 ## Basic flow
 
@@ -27,12 +27,12 @@ The current public Copilot workflow does not present a **Local Network** mission
 
 On Android drone controllers, Copilot uses **Controller Screen Capture** by default. The controller's native flight app keeps flight control while AlphaRelay captures the controller screen, streams it into the mission, and records one continuous mission video. On detected DJI SDK-controller setups, a listed and connected DJI aircraft can instead unlock **Pilot mode** for AlphaRelay flight controls.
 
-When AlphaRelay cannot be installed on the controller, an Android Copilot device can create **Controller Livestream** RTMP settings for a controller-native publisher, or receive the controller's HDMI output through a compatible USB capture card. See [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs).
+When AlphaRelay cannot be installed on the controller, Android or iOS Copilot can create **Controller Livestream** RTMP settings. A UVC card can instead send controller HDMI to Android, USB-C iPad, or a laptop browser. See [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs).
 
-On iPhone and iPad, Copilot uses iOS ReplayKit. Choose **AlphaRelay Capture** from the broadcast picker, then open the flight app. Copilot can record, publish remote live, log screenshot-backed quick, manual, and `Relay` voice events, and retry queued evidence when connectivity returns.
+On iPhone and iPad, Copilot offers **Controller Screen** through ReplayKit and **Controller Livestream** through RTMP. USB-C iPad also supports **HDMI Capture Card**; iPhone does not support UVC capture.
 
 With a DJI Avata and compatible DJI Goggles, AlphaRelay uses **Goggles Mode** on a separate Android device. DJI Fly displays the goggles live view, AlphaRelay starts a mission with no scenario, and the goggles with their compatible controller remain responsible for the aircraft.
 
-Live missions start from Copilot — not from the browser. For work that already happened outside AlphaRelay, **Import mission** in **Mission History** creates a closed post-flight record for review and reporting.
+Most live missions start from Copilot. **Laptop HDMI Capture** is the exception: create it with **New laptop HDMI mission** in the Dashboard and continue in Mission Overwatch. For work that already happened outside AlphaRelay, **Import mission** creates a closed post-flight record.
 
 Copilot also includes **Device Live AI**. It uses licensed cloud analysis when internet is healthy and automatically falls back to on-device people and possible-weapon detection when cloud analysis is unavailable. Every alert still requires human review.

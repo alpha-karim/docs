@@ -20,7 +20,9 @@ In **Pilot mode**, AlphaRelay can start or recover mission-time SD recording aft
 
 In **Goggles Mode**, AlphaRelay finalizes an MP4 from the DJI Fly live-view frames captured during the mission and queues it after **Stop Mission**. The durable queue resumes when connectivity returns. Add the original DJI Avata camera file as an optional recording if the mission needs the raw aircraft view.
 
-In **HDMI Capture Card**, AlphaRelay records the received UVC video and keeps it labeled as **HDMI Capture** through upload, playback, Ask AI selection, and custody. A card disconnect does not close the mission; reconnect it to resume capture. Adjacent recovery segments play as one continuous sequence when their timestamps meet.
+In Copilot **HDMI Capture Card**, AlphaRelay records the UVC video on Android or USB-C iPad and keeps it labeled as **HDMI Capture** through upload, playback, Ask AI selection, and custody. A disconnect does not close the mission; reconnect it to resume a new segment.
+
+In **Laptop HDMI Capture**, click **Stop & upload** before ending the mission. The browser records MP4 when supported and WebM otherwise. If interrupted, reopen the same mission and use **Recover interrupted recording** without clearing browser data.
 
 In **Controller Livestream**, the remote publisher records the received controller stream into the mission. Stop the controller publisher before closing the mission, then let AlphaRelay finalize the **Controller Livestream** recording.
 

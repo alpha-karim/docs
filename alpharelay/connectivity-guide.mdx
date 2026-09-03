@@ -12,6 +12,10 @@ AlphaRelay Copilot
   |-- Controller Livestream (RTMP) ← Separate flight controller over internet
   |-- HDMI Capture Card (UVC) ← Controller HDMI output over USB
   `-- Cloud sync → Events, footage, reports, evidence
+
+Laptop browser
+  |-- HDMI Capture Card (UVC) ← Controller HDMI output over USB
+  `-- Live stream (WebRTC) + recoverable local evidence recording
 ```
 
 Some older or deployment-specific Android builds also expose a LAN relay to Mission Overwatch on the same Wi-Fi. The current public Copilot workflow does not show that mission-start option.
@@ -46,9 +50,9 @@ A second licensed Android or iOS device can open Mission Viewer. It requires int
 
 ## Controller video inputs
 
-**Controller Livestream** requires validated internet on both the licensed Android Copilot device and the separate flight controller. Copilot provides an RTMP server plus a short stream key; the controller publishes to that destination, and Mission Viewer or Mission Overwatch receives the feed. Restart the controller publisher with the same fields after a connection loss while the mission is active.
+**Controller Livestream** requires validated internet on both the licensed Android or iOS Copilot device and the separate flight controller. Copilot provides a complete RTMP URL and separate server/key values; use the format that matches the controller. Restart the publisher with the same destination after a connection loss while the mission is active.
 
-**HDMI Capture Card** receives video locally over USB and can keep recording when internet is unavailable. Remote live, cloud AI, sync, and upload still wait for internet. A capture-card disconnect pauses incoming video without closing the mission; reconnect and verify the preview before continuing.
+**Copilot HDMI Capture** receives video locally on Android or USB-C iPad and can keep recording when internet is unavailable. **Laptop HDMI Capture** starts online from the Dashboard and records recoverable evidence in the browser while publishing remote live. Keep the tab open and use **Stop & upload** before closeout.
 
 ## Deployment-specific Local Network connection
 

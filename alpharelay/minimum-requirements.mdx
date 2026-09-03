@@ -12,8 +12,8 @@ icon: "clipboard-list"
 - Supported aircraft-control workflow when using aircraft integration
 - Conditional Matrice camera tools on supported Matrice aircraft or Matrice controllers
 - Android drone controller capable of installing **AlphaRelay Copilot** and granting screen capture permission for **Controller Screen Capture**
-- For **Controller Livestream**: a licensed Android Copilot device, validated internet, and a separate controller or flight app that accepts a custom RTMP server and stream key
-- For **HDMI Capture Card**: Android device with USB host/OTG, a compatible UVC capture card, controller HDMI output, and Android camera/USB permission; a powered hub may be required
+- For **Controller Livestream**: a licensed Android or iOS Copilot device, validated internet, and a separate controller or flight app that accepts a complete RTMP URL or separate server/key fields
+- For **Copilot HDMI Capture**: Android with USB host/OTG or a USB-C iPad, a compatible UVC capture card, controller HDMI output, and camera/USB permission; a powered hub may be required
 - For **Pilot mode**: detected DJI SDK remote-controller setup, a listed DJI MSDK 5.17 aircraft, and a live flight-controller connection that AlphaRelay can verify
 - For a DJI Avata with compatible DJI Goggles: separate Android phone or tablet with **DJI Fly**, **AlphaRelay Copilot**, screen capture permission, and internet
 - For iOS capture: iOS 26, the organization-provided Copilot app, ReplayKit Screen Recording permission, and optional microphone/speech permissions
@@ -25,6 +25,7 @@ icon: "clipboard-list"
 - Internet for sync, upload, reports, and export media downloads
 - Internet and AI configuration for report drafting, AI Review, Ask AI, event screenshot analysis, or AI live watch
 - Browser microphone permission and speech-recognition support for **Dictate** in Mission Overwatch
+- For **Laptop HDMI Capture**: a physical UVC capture card, browser camera permission, enough local browser storage, and a tab that remains open through **Stop & upload**
 
 ## By workflow
 
@@ -33,11 +34,12 @@ icon: "clipboard-list"
 | Start Mission | Android or iOS Copilot app; validated internet for automatic remote live, or offline capture with queued sync |
 | Deployment-specific Local Network relay | Android device + Overwatch on same reachable Wi-Fi; not exposed by the current public Copilot workflow |
 | Controller Screen Capture | Android drone controller; AlphaRelay Copilot installed; Android screen capture permission |
-| Controller Livestream | Licensed Android Copilot device; validated internet on it and the separate flight controller; controller or flight app with custom RTMP server/key support |
-| HDMI Capture Card | Controller HDMI output; UVC capture card; USB host/OTG Android Copilot device; camera and USB-device permission; internet only for live/sync |
+| Controller Livestream | Licensed Android or iOS Copilot device; validated internet on it and the separate flight controller; controller or flight app with one-field RTMP URL or separate server/key support |
+| Copilot HDMI Capture | Controller HDMI output; UVC card; USB host/OTG Android or USB-C iPad; camera/USB permission; internet only for live/sync |
+| Laptop HDMI Capture | Online web-app session; physical UVC card; browser camera permission and local storage; tab kept open through stop and upload |
 | Pilot mode | Detected DJI SDK-controller setup; aircraft in the Pilot app's DJI MSDK 5.17 list; successful live connection check |
 | Optional DJI SDK 5 aircraft-original handoff after Controller Screen Capture | Aircraft confirmed during setup; Android USB accessory routing; powered aircraft/controller; usable aircraft SD card; ability to force-stop DJI Fly, clear its USB default, reconnect, and choose AlphaRelay |
-| iPhone/iPad Copilot capture | iOS 26; organization-provided app; **AlphaRelay Capture** selected in ReplayKit; device license; internet for live/sync |
+| iPhone/iPad Copilot capture | iOS 26; organization-provided app; device license; ReplayKit, Controller Livestream, or USB-C iPad HDMI source; internet for live/sync |
 | DJI Avata with DJI Goggles | Linked DJI Avata, compatible DJI Goggles, and compatible controller; Android device with DJI Fly and AlphaRelay Copilot; goggles live-view connection; Android screen capture permission; internet |
 | **Live stream (WebRTC)** | Validated pilot-device internet; starts automatically with the mission and can be retried from the Pilot console |
 | Mission Viewer | Second licensed Copilot installation in the same organization; active mission; internet; remote live required for video |

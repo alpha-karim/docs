@@ -11,15 +11,16 @@ icon: "triangle-alert"
 - Cloud sync, upload, and export wait for internet.
 - Losing relay, remote live, or cloud sync does not always end the mission — paths are independent.
 - **View Live Mission** on Android and **Watch Live Mission** on iOS require internet and a valid licensed installation in the same organization. Timeline events can update even when remote video is not ready.
-- **Controller Livestream** requires internet on the Android setup/viewer device and on the separate publishing controller. It depends on that controller or flight app accepting a custom RTMP server and stream key.
-- **HDMI Capture Card** can record locally without internet, but remote viewing, cloud AI, sync, and upload still require connectivity.
+- **Controller Livestream** requires internet on the Android or iOS setup/viewer device and the separate publishing controller. The controller must accept either a complete RTMP URL or separate server/key fields.
+- Copilot **HDMI Capture Card** can record locally without internet on Android or USB-C iPad; iPhone does not expose UVC capture. Remote viewing, cloud AI, sync, and upload still require connectivity.
+- **Laptop HDMI Capture** requires an online mission start, browser camera permission, a physical UVC card, available local browser storage, and an open tab. Use **Stop & upload** before ending the mission; do not clear browser data before recovering an interrupted recording.
 
 ## Media
 
 - Footage often uploads after the mission ends.
 - **Controller Screen Capture** records the controller screen, including native flight-app overlays, not a raw camera file.
 - **Controller Livestream** records the video published by the controller, not an aircraft-original camera file. Stop the publisher before normal mission closeout so the recording can finalize.
-- **HDMI Capture Card** ingests UVC video only. USB/UAC audio embedded by the card is not currently recorded; voice events use the Android device microphone. Hardware power, OTG support, negotiated resolution, and reconnect behavior vary, so validate the exact stack.
+- **HDMI Capture Card** ingests UVC video only. USB/UAC audio embedded by the card is not currently recorded; voice events use the receiving device microphone. Hardware power, USB support, negotiated resolution, browser compatibility, and reconnect behavior vary, so validate the exact stack.
 - **Goggles Mode** records the DJI Fly screen carrying the DJI Goggles live view, not the original DJI Avata camera file.
 - Queued Copilot footage retries when validated connectivity returns, but the device must remain powered and the app must not be force-stopped or uninstalled. iOS closeout also needs Copilot open while ReplayKit handoff completes.
 - Queued footage must finish before final review.
@@ -47,7 +48,7 @@ icon: "triangle-alert"
 - **AI live watch** requires active **Live stream (WebRTC)**, internet, Mission Overwatch online, and AI configuration. The default cadence can start a sample as often as every two seconds, but network and analysis latency may make it slower.
 - Scenario-specific and mission-specific AI targets are bounded visual search cues, not guaranteed detections. Use concrete visible details and verify every match against the live view or source media.
 - Person detections use informational/yellow treatment and do not perform identity or face recognition. Possible weapons and other urgent threat indicators use red treatment but remain unconfirmed until human review.
-- **Alert on people** can suppress routine person and hand-to-hand-contact alerts, but weapon and explosive detection cannot be disabled and remains highest priority. Turning people alerts off does not mean no people are present.
+- Mission Overwatch exposes individual standard-detection controls. Keep **Person holding a weapon** and **Visible weapons** enabled; weapon-related alerts receive priority, but every alert remains an unconfirmed review prompt.
 - Thermal and infrared people analysis accepts incomplete signatures only when multiple human-consistent cues are visible and checks common warm-object, furniture, vegetation, reflection, shadow, and image-artifact alternatives. It can still miss people or produce false positives.
 - AI media findings are suggestions. Accepting one in AI Review moves it to the timeline; an officer must then use **Accept as is** or **Review & edit** before it is eligible for the AAR.
 - AI Review does not draw model bounding boxes over finding thumbnails or the full-screen source image.

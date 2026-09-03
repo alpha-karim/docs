@@ -8,13 +8,13 @@ Use this page as the full lifecycle map. Each step links to a deeper guide.
 
 ## 1. Set up devices
 
-Install AlphaRelay Copilot, activate each Android or iOS device license, sign in to the web app, and open Mission Overwatch once while online on each browser profile that will use it in the field. A device used for Mission Viewer needs its own licensed installation in the same organization. If the flight controller cannot run AlphaRelay, prepare either its custom RTMP publishing settings for **Controller Livestream** or a compatible UVC capture card for **HDMI Capture Card**.
+Install AlphaRelay Copilot, activate each Android or iOS device license, sign in to the web app, and open Mission Overwatch once while online on each browser profile that will use it in the field. A device used for Mission Viewer needs its own licensed installation. If the flight controller cannot run AlphaRelay, prepare RTMP Controller Livestream or a UVC card connected to Android, USB-C iPad, or a laptop.
 
 → [Devices and licenses](/alpharelay/one-time-setup) · [Before you go to the field](/alpharelay/before-you-go-to-the-field)
 
 ## 2. Start a mission
 
-Open AlphaRelay Copilot, select the operator, mission name, scenario, up to eight mission-specific AI targets, and whether routine people alerts are needed, then start the selected workflow. Weapons and explosives remain enabled and highest priority even when **Alert on people** is off. Copilot creates an Internet mission and starts remote live automatically when the device has validated internet. If it is offline, screen or HDMI capture can still start and sync waits for connectivity. Android drone controllers use **Controller Screen Capture** by default so the native flight app remains responsible for flight control; a connected UVC device adds **HDMI Capture Card**. A separate Android Copilot device can create **Controller Livestream** credentials for a flight controller that publishes RTMP. iPhone and iPad use the **AlphaRelay Capture** ReplayKit broadcast. Detected DJI SDK-controller setups can instead unlock **Pilot mode** after a supported-aircraft and live-connection check. For a DJI Avata with compatible DJI Goggles, connect the goggles live view to DJI Fly first; Goggles Mode then starts the mission with no scenario automatically.
+Start most workflows in Copilot after choosing the operator, mission name, scenario, AI targets, and video source. Android supports controller-screen capture, RTMP, UVC HDMI, and eligible Pilot mode. iPhone/iPad support ReplayKit and RTMP; USB-C iPad also supports UVC HDMI. For laptop HDMI, use **New laptop HDMI mission**, then **Connect & go live** in Mission Overwatch. Stop and upload that browser recording before ending the mission.
 
 → [Start a mission](/alpharelay/start-a-mission) · [Mission connectivity](/alpharelay/field-vs-relay) · [Android Controller Screen Capture](/alpharelay/companion-capture-mode) · [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs) · [iPhone and iPad](/alpharelay/ios-copilot) · [DJI Avata with DJI Goggles](/alpharelay/avata-goggles)
 

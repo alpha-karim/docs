@@ -14,7 +14,7 @@ The capture session must be running. On-device fallback and immediate alert noti
 - **Multiple persons detected** — informational/yellow treatment
 - **Possible weapon detected** — urgent/red treatment
 
-Use **Alert on people** at mission setup or during an active mission to suppress routine person and hand-to-hand-contact alerts. This setting applies to cloud analysis and the on-device fallback. It does not disable weapons, explosives, hazards, other enabled behavior, or mission-specific targets. Weapon and explosive detections are permanently enabled and take priority over every other alert.
+Copilot uses **Alert on people** at mission setup or during an active mission to suppress routine person and hand-to-hand-contact alerts. In Mission Overwatch, **Standard detections** provides separate controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, hand-to-hand contact, reaching into clothing or bags, and safety hazards. Keep both weapon-related categories enabled; weapon-holder alerts receive the highest presentation priority.
 
 These are assistive detections, not operational conclusions. Person detection is not face recognition or identity matching. A possible-weapon alert does not establish that an object is a weapon, who possesses it, intent, legality, or threat level.
 
@@ -34,7 +34,7 @@ In Pilot mode, AlphaRelay suppresses Live AI after a land command or confirmed t
 
 ## iPhone and iPad
 
-iOS ReplayKit runs the same cloud-first path while **AlphaRelay Capture** is active. Its offline fallback uses iOS Vision people detection plus the same weapon-presence verifier validated for the Android fallback. iOS does not run Android's full multi-object detector. Allow time-sensitive notifications if alerts should appear over the flight app.
+iOS capture runs the same cloud-first path for ReplayKit, Controller Livestream viewing, and iPad HDMI frames. Its offline fallback uses iOS Vision people detection plus the same weapon-presence verifier validated for the Android fallback. iOS does not run Android's full multi-object detector. Allow time-sensitive notifications if alerts should appear over the flight app.
 
 When Live Activities are available, iPhone presents a compact alert in the Dynamic Island or Lock Screen and then returns it to monitoring. If Live Activities are unavailable, **Screen Sharing** notifications provide the fallback alert path.
 

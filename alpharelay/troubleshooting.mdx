@@ -22,17 +22,17 @@ The current public Copilot workflow does not present a **Local Network** mission
 
 If timeline events appear but video does not, the pilot's remote **Live stream (WebRTC)** has not started or is not ready. Restore pilot-device internet and retry remote live from **Pilot console → Mission**.
 
-For Controller Livestream, an active mission can appear before the separate controller starts publishing. Reopen **Show Livestream Setup**, confirm the RTMP server includes its final `/`, confirm the eight-digit stream key is in the separate key field, and restart the controller publisher.
+For Controller Livestream, an active mission can appear before the separate controller starts publishing. Reopen the setup and match the controller's format: use the complete **RTMP URL — one-field screens**, or use **Server URL — two-field screens** with **Stream key — two-field screens**. Then restart the publisher.
 
 ## Controller Livestream is waiting for video
 
-1. Confirm both the Android Copilot device and the separate flight controller have usable internet.
+1. Confirm both the Android or iOS Copilot device and the separate flight controller have usable internet.
 2. On the AlphaRelay device, tap **Show Livestream Setup** and compare both fields character for character.
 3. Include the final `/` in the RTMP server field; put only the eight-digit code in the stream-key field.
 4. Start or restart the controller's native livestream, then return to **View Live Mission**.
 5. If the mission is no longer active, create a new Controller Livestream instead of publishing into the closed record.
 
-Stop the controller publisher before closing the mission. Use **End Mission** in Mission Overwatch or **Close Active Mission** in Android Copilot so AlphaRelay can finalize the received recording.
+Stop the controller publisher before closing the mission. Use **End Mission** in Mission Overwatch or the matching close action in Copilot so AlphaRelay can finalize the received recording.
 
 ## HDMI Capture Card has no video
 
@@ -42,7 +42,15 @@ Stop the controller publisher before closing the mission. Use **End Mission** in
 4. In the active mission, wait for the preview to change from **Waiting for signal** to **Capturing**.
 5. If the card disconnected, reconnect it without closing the mission and verify the preview returns.
 
-The current HDMI workflow ingests UVC video, not embedded USB/UAC audio. Use the Android device microphone for optional voice events. If the image is stretched or double-height, update Copilot and reload Mission Overwatch; current capture and playback preserve 16:9, while legacy correction changes presentation without rewriting the evidence file.
+The HDMI workflow ingests UVC video, not embedded USB/UAC audio. Use the receiving Android device or iPad microphone for optional voice events. If the image is stretched or double-height, update Copilot and reload Mission Overwatch; current capture and playback preserve 16:9, while legacy correction changes presentation without rewriting the evidence file.
+
+## Laptop HDMI does not connect or upload
+
+1. Confirm the card is a physical UVC input and the controller's HDMI output is enabled; a laptop HDMI port is normally output-only.
+2. Grant browser camera permission and select the card under **Operations → Events & input → Laptop HDMI Capture**.
+3. Click **Connect & go live** and keep the tab open.
+4. Before **End Mission**, click **Stop & upload** and wait for secured status.
+5. After an interruption, reopen the same mission and use **Recover interrupted recording**. Do not clear browser data first.
 
 ## Cloud sync delayed
 

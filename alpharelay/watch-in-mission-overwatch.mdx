@@ -18,6 +18,13 @@ If the mission began offline or remote-live setup failed, restore internet and u
 
 - In **Controller Screen Capture**, remote live publishes the controller screen.
 - In **Goggles Mode**, remote live publishes the DJI Fly screen carrying the DJI Goggles live view. Keep the Android device online.
+- In **Laptop HDMI Capture**, **Connect & go live** starts the browser's recoverable evidence recording and remote stream together.
+
+## Laptop HDMI Capture
+
+Create this mission from **Mission Dashboard → New laptop HDMI mission**, then open **Operations → Events & input → Laptop HDMI Capture**. Select the UVC card and click **Connect & go live**. The browser uses the same full frame for preview, Live AI, and event screenshots.
+
+Keep the tab open. Click **Stop & upload** and wait for the recording to be secured before **End Mission**. If the browser was interrupted, reopen the same mission and use **Recover interrupted recording** without clearing browser data.
 
 ## Operations drawer and mission tools
 
@@ -43,12 +50,14 @@ The current default cadence can start a new sample as often as every two seconds
 
 When AI live watch is enabled, select **Show details** or leave the expanded card open to review its focus:
 
-- **Other standard detections** controls optional categories such as suspected narcotics, visible hand-to-hand contact, reaching into clothing or bags, and serious safety hazards.
-- **Alert on people** controls routine informational person detections and hand-to-hand contact. It can be changed during the mission.
+- **Standard detections** provides individual controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, hand-to-hand contact, reaching into clothing or bags, and safety hazards.
+- **Include scenario targets** adds the scenario's saved visual targets.
 - **Scenario-specific AI targets** come from the mission's built-in or agency scenario.
 - **Mission-specific AI targets** let you add up to eight visible details for this mission, one per line. Click **Save targets** after editing.
 
-Possible weapons and explosives always remain enabled and take priority over every other alert, even when people or other standard detections are turned off.
+<Warning>
+  Keep **Person holding a weapon** and **Visible weapons** enabled. Weapon-related alerts are safety-critical and receive priority over other detections and mission targets.
+</Warning>
 
 Use concrete visible descriptions such as `Red pickup truck` or `Person wearing an orange jacket`. Saved targets supplement standard detections; they do not turn AI output into a confirmed fact.
 
@@ -58,7 +67,7 @@ AI live watch alerts can show:
 - A timeline event with the sampled frame attached when available
 - A Live AI alert badge, notification, and log entry in Copilot while the same mission is active
 
-Person detections use informational/yellow treatment. Possible weapons and other threat indicators use red review treatment, with **Urgent** reserved for the urgent-review level. The Mission Overwatch banner dismisses automatically after about three seconds, but the timeline event remains available for review.
+Person detections use informational/yellow treatment. Possible weapons and other threat indicators use red review treatment, with **Urgent** reserved for the urgent-review level. Person-holding-a-weapon alerts rank ahead of other standard detections. The Mission Overwatch banner dismisses automatically after about three seconds, but the timeline event remains available for review.
 
 When browser AI live watch is successfully analyzing the same mission, Copilot pauses device-originated cloud requests and the on-device fallback to avoid duplicate automatic alerts. If browser analysis stops or the handoff expires, device analysis resumes automatically; cloud failure then falls back to on-device detection.
 
@@ -68,7 +77,7 @@ Treat these alerts as prompts for human review. They do not replace pilot judgme
 
 ## Closed missions
 
-After **Stop Mission**, Mission Overwatch switches to review tabs: timeline, media and **Play with Events**, **AI Review**, and report. The lifecycle tracker moves through **Mission Review**, **Draft AAR**, **Evidence Sealed**, **Supervisor Review**, and **Approved & Locked**, and its next-action prompt changes as review work is completed.
+After **Stop Mission** or **End Mission**, Mission Overwatch selects **Timeline** and switches to the closed-mission review tabs: timeline, media and **Play with Events**, **AI Review**, and report. The lifecycle tracker moves through **Mission Review**, **Draft AAR**, **Evidence Sealed**, **Supervisor Review**, and **Approved & Locked**, and its next-action prompt changes as review work is completed.
 
 Follow the guided review sequence:
 
