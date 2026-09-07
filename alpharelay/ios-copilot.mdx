@@ -4,7 +4,7 @@ description: "Capture an iOS screen, controller livestream, or iPad HDMI source 
 icon: "tablet-screen-button"
 ---
 
-**AlphaRelay Copilot** on iPhone and iPad can capture the controller screen with ReplayKit, receive a controller-native RTMP livestream, or—on USB-C iPad—receive HDMI video through a UVC capture card. Your flight app or controller keeps aircraft control.
+**AlphaRelay Copilot** on iPhone and iPad can capture the controller screen with ReplayKit, set up a DJI RTMP or Skydio RTSP Controller Livestream, or—on USB-C iPad—receive HDMI video through a UVC capture card. Your flight app or controller keeps aircraft control.
 
 ## Requirements
 
@@ -24,12 +24,12 @@ The license is stored on the device. Copilot does not use the web-app email and 
 
 ## Choose the video source
 
-Mission setup offers **Controller Screen**, **Controller Livestream**, and, on supported iPads, **HDMI Capture Card**. The HDMI option is marked **IPAD ONLY** because iPhone does not expose UVC video capture to this workflow.
+From **What do you want to do?**, tap **Start a Mission**, then choose **Controller Screen**, **Controller Livestream**, or, on supported iPads, **HDMI Capture Card**. The HDMI option is marked **IPAD ONLY** because iPhone does not expose UVC video capture to this workflow. Use **Watch Live Mission** from the landing screen to join a mission that is already active.
 
 ## Start Controller Screen capture
 
 1. Open **AlphaRelay Copilot** and choose a built-in or agency scenario, or **No scenario**.
-2. Confirm the operator, enter the mission name, optionally add up to eight **Mission-specific AI targets**, and choose whether **Alert on people** should include routine person and hand-to-hand-contact alerts. Weapons, explosives, hazards, other enabled behavior, and mission-specific targets remain active when it is off.
+2. Confirm the operator, enter the mission name, optionally add up to eight **Mission-specific AI targets**, and choose whether **Alert on people** should include routine person and hand-to-hand-contact alerts. Other enabled detections and mission-specific targets remain active when it is off.
 3. Tap **Start Mission**.
 4. In the iOS broadcast picker, choose **AlphaRelay Capture**. Enable the microphone when the recording needs microphone audio, then start the broadcast.
 5. Open the flight app. Keep the iOS screen-recording indicator active while AlphaRelay captures in the background.
@@ -39,7 +39,7 @@ Copilot publishes the captured display through **Live stream (WebRTC)** when int
 ## Start Controller Livestream
 
 1. Choose **Controller Livestream**, complete mission setup, and tap **Set Up Controller Livestream**.
-2. If the controller has one RTMP field, enter **RTMP URL — one-field screens**. If it has two, enter **Server URL — two-field screens** and **Stream key — two-field screens** separately.
+2. For DJI, enter **RTMP URL — one-field screens**, or enter **Server URL — two-field screens** and **Stream key — two-field screens** separately. For Skydio, use RTSP External Server and enter **Server address**, **Port**, and **Stream name**.
 3. Start the controller publisher, then tap **View live mission** and confirm video arrives.
 
 Internet is required on both devices. Stop the publisher before closing the mission so its recording can finalize.
@@ -80,7 +80,7 @@ From mission setup, tap **Watch Live Mission**. Choose an active mission in the 
 ## iOS boundaries
 
 - Copilot captures the selected iOS display or app; it does not control the aircraft.
-- USB-C iPad supports UVC HDMI capture; iPhone does not. Use Controller Livestream when an iPhone must support a separate controller.
+- USB-C iPad supports UVC HDMI capture; iPhone does not. Use RTMP or RTSP Controller Livestream when an iPhone must support a separate controller.
 - iOS does not use Android's DJI Goggles USB/LogicLink auto-detection or the deployment-specific Android local-network relay.
 - iOS uses its own on-device fallback rather than Android's full multi-object detector.
 - Dynamic Island, Live Activity, notification-fallback timing, and landscape placement vary by iPhone model and iOS settings; verify them on the physical flight device before operational use.

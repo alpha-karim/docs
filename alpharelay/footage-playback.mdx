@@ -46,13 +46,13 @@ For a closed synced mission, open **AI Review** after footage or photos are avai
 2. Choose **Event-focused** or **Full mission — detailed** under **Analysis coverage**.
 3. Click **Analyze media**.
 
-**Event-focused** is the default. It searches around accepted human events and approved alerts for observations live AI may have missed, without re-analyzing event screenshots themselves. If the mission has no accepted event anchors, choose **Full mission — detailed**. Full-mission coverage reviews the best-quality playable recording more broadly and can include mission photos; it takes longer.
+**Event-focused** reviews original-video intervals around accepted human events and approved alerts for observations live AI may have missed. Existing event screenshots serve as coverage boundaries rather than the video-analysis input. If the mission has no accepted event anchors, choose **Full mission — detailed**. Full-mission coverage reviews the union of selected recording timelines, preferring higher-quality or aircraft-original footage where recordings overlap; controller-only time gaps are still included. It can also include mission photos and takes longer.
 
-Analysis runs in the background. The status moves through starting, preparing media with progress, and analyzing. You can leave the page and AlphaRelay emails when the run completes. Return to AI Review or click **Refresh** to see current progress and findings.
+Analysis runs in the background. The status can show the original recording upload, video sections reviewed, evidence screenshots verified, and completion. AlphaRelay first analyzes the actual video, then prepares and checks evidence screenshots for candidate findings before presenting them for human review. Video coverage and screenshot-check counts are reported separately in the completion email. You can leave the page and AlphaRelay emails when the run completes. Return to AI Review or click **Refresh** to see current progress and findings.
 
 - **Accept** adds a timeline event for the finding when timeline edits are still allowed. It does not complete officer review by itself.
 - **Reject** keeps the finding out of the mission timeline.
-- **Redo analysis** deletes the current AI Review runs and findings, then runs analysis again with the current target and coverage choices. Accepted timeline entries stay in the mission timeline.
+- **Redo analysis** deletes the current AI Review runs and findings, reopens the AI Review step, then runs analysis again with the current target and coverage choices. Accepted timeline entries stay in the mission timeline.
 - Accepted findings may also run detailed screenshot analysis when a source image is available.
 - AI Review preserves source imagery without drawing model bounding boxes over thumbnails or the full-screen viewer.
 
@@ -67,6 +67,8 @@ After accepting a finding in AI Review, open **Timeline** and review its image a
 AI live watch and Device Live AI alerts use an additional approval gate. First choose **Approve alert** to allow configured screenshot analysis and report eligibility, or **Dismiss alert** to exclude the alert. Then use the same **Accept as is** or **Review & edit** controls for any resulting analysis. Only officer-reviewed findings are eligible for the after-action report, and the report presents them as neutral timeline observations without internal AI-review bookkeeping.
 
 AI Review now collapses repeated video-frame findings from the same footage clip so reviewers are not asked to resolve the same routine person, object, or high-priority finding over and over. High-priority findings in different rough regions remain separately reviewable.
+
+Related sightings can appear as one expandable group. Expand it to compare the source images and decide each sighting. The newest run remains visible; older completed runs appear under **Previous analyses**.
 
 AI Review findings and alert screenshot analyses are suggestions. Verify the source media before accepting or editing them for report or evidence use.
 

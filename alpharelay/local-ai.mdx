@@ -4,7 +4,7 @@ description: "Use cloud-first live analysis with automatic on-device fallback on
 icon: "tablet-screen-button"
 ---
 
-**Device Live AI** analyzes mission video supplied by AlphaRelay Copilot—including controller-screen, HDMI, supported Pilot camera, and locally viewed Controller Livestream frames—and creates review-oriented mission alerts. With working internet, the Copilot device sends sampled images to AlphaRelay's licensed server-side analysis. The app does not contain an OpenAI credential. When cloud analysis or connectivity is unavailable, Copilot automatically fails open to on-device people and possible-weapon detection.
+**Device Live AI** analyzes mission video supplied by AlphaRelay Copilot—including controller-screen, HDMI, supported Pilot camera, and locally viewed Controller Livestream frames—and creates review-oriented mission alerts. With working internet, the Copilot device sends sampled images to AlphaRelay's licensed server-side analysis. The app does not contain an AI-provider credential. When cloud analysis or connectivity is unavailable, Copilot automatically fails open to on-device people and possible-weapon detection.
 
 The capture session must be running. On-device fallback and immediate alert notifications can work without internet, while timeline sync, cloud follow-up, and reporting wait for connectivity.
 
@@ -35,6 +35,8 @@ In Pilot mode, AlphaRelay suppresses Live AI after a land command or confirmed t
 ## iPhone and iPad
 
 iOS capture runs the same cloud-first path for ReplayKit, Controller Livestream viewing, and iPad HDMI frames. Its offline fallback uses iOS Vision people detection plus the same weapon-presence verifier validated for the Android fallback. iOS does not run Android's full multi-object detector. Allow time-sensitive notifications if alerts should appear over the flight app.
+
+For Controller Livestream, the gateway also runs the licensed server-side Live AI service directly against the normalized RTMP or RTSP feed. This keeps analysis active independently of the setup phone and coordinates an expiring handoff with browser and device analysis to reduce duplicate alerts. If gateway analysis stops, device-local analysis can resume when a viewing device is supplying frames.
 
 When Live Activities are available, iPhone presents a compact alert in the Dynamic Island or Lock Screen and then returns it to monitoring. If Live Activities are unavailable, **Screen Sharing** notifications provide the fallback alert path.
 

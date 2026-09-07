@@ -22,13 +22,13 @@ The current public Copilot workflow does not present a **Local Network** mission
 
 If timeline events appear but video does not, the pilot's remote **Live stream (WebRTC)** has not started or is not ready. Restore pilot-device internet and retry remote live from **Pilot console → Mission**.
 
-For Controller Livestream, an active mission can appear before the separate controller starts publishing. Reopen the setup and match the controller's format: use the complete **RTMP URL — one-field screens**, or use **Server URL — two-field screens** with **Stream key — two-field screens**. Then restart the publisher.
+For Controller Livestream, an active mission can appear before the separate controller starts publishing. Reopen the setup and match the controller's protocol: use the complete **RTMP URL — one-field screens** or separate **Server URL** and **Stream key** for DJI; use **Server address**, **Port**, and **Stream name** under RTSP External Server for Skydio. Then restart the publisher.
 
 ## Controller Livestream is waiting for video
 
 1. Confirm both the Android or iOS Copilot device and the separate flight controller have usable internet.
-2. On the AlphaRelay device, tap **Show Livestream Setup** and compare both fields character for character.
-3. Include the final `/` in the RTMP server field; put only the eight-digit code in the stream-key field.
+2. On the AlphaRelay device, tap **Show Livestream Setup** and compare the displayed values character for character.
+3. For DJI two-field RTMP, include the final `/` in the server field and put only the six-digit code in the stream-key field. For Skydio, choose RTSP External Server and enter the displayed server address, port, and separate six-digit stream name.
 4. Start or restart the controller's native livestream, then return to **View Live Mission**.
 5. If the mission is no longer active, create a new Controller Livestream instead of publishing into the closed record.
 
@@ -47,7 +47,7 @@ The HDMI workflow ingests UVC video, not embedded USB/UAC audio. Use the receivi
 ## Laptop HDMI does not connect or upload
 
 1. Confirm the card is a physical UVC input and the controller's HDMI output is enabled; a laptop HDMI port is normally output-only.
-2. Grant browser camera permission and select the card under **Operations → Events & input → Laptop HDMI Capture**.
+2. Grant browser camera permission and select the card under **Laptop HDMI Capture** in the **Events & input** row beneath the feed.
 3. Click **Connect & go live** and keep the tab open.
 4. Before **End Mission**, click **Stop & upload** and wait for secured status.
 5. After an interruption, reopen the same mission and use **Recover interrupted recording**. Do not clear browser data first.
@@ -81,7 +81,7 @@ If an optional aircraft or goggles recording is out of sync, choose **Align with
 ## Controller Screen Capture did not start
 
 1. Confirm the pilot device is an Android drone controller with **AlphaRelay Copilot** installed.
-2. Start the mission from **Choose Scenario → Start Mission**. On an integrated Android drone controller, Controller Screen Capture is automatic; on a detected DJI SDK-controller setup, select **Controller Screen Capture — Recommended**.
+2. Tap **Start Mission**, choose **Controller Screen**, and complete mission setup. On a detected DJI SDK-controller setup, select **Controller Screen Capture — Recommended**.
 3. Approve the Android screen capture prompt.
 4. If voice relay is needed, grant microphone permission and confirm speech recognition is available.
 5. If the app cannot be installed, allow the browser or file manager to **install unknown apps**. Android Developer mode is not required.
@@ -129,7 +129,7 @@ If the aircraft is not listed, the DJI SDK is unavailable, or the connection che
 2. Power on and link the DJI Avata, compatible DJI Goggles, and their compatible controller.
 3. For automatic detection, connect the DJI Goggles to the Android device with a compatible USB data/OTG cable.
 4. Open DJI Fly and confirm the goggles live view appears before opening AlphaRelay.
-5. If you use wireless live-view sharing, tap **Choose Scenario**, enable **Use DJI Fly / goggles video feed**, choose **No scenario template**, and tap **Start Mission**.
+5. If you use wireless live-view sharing, enable **Use DJI Fly / goggles video feed**, return to the landing screen, and tap **Start Mission**.
 6. Approve the Android screen capture prompt.
 
 If DJI Fly does not open automatically after approval, open it manually and confirm its live view is still active.
@@ -204,10 +204,10 @@ A newly synced pending alert or finding reopens the affected review step even if
 1. Open a closed, synced mission and select **AI Review**.
 2. Move at least one tag from **Available tags** into **What should AI look for?**.
 3. For **Event-focused**, confirm the mission has an accepted human event or approved alert. If not, choose **Full mission — detailed**.
-4. Confirm the primary recording is playable. Full-mission coverage can also include uploaded mission photos.
+4. Confirm the selected recordings are playable. Full-mission coverage can use multiple aligned recordings and can also include uploaded mission photos.
 5. Keep the deployment online and confirm AI is configured. Click **Refresh** to reload the background job state.
 
-The status can show starting, preparing media with progress, or analyzing. You can leave the page while it runs; AlphaRelay sends a completion email when configured delivery succeeds. Internal queue states are not shown.
+The status can show the original recording upload, video sections reviewed, evidence screenshots verified, or completion. A queued or uploading job has not completed actual-video analysis. You can leave the page while it runs; AlphaRelay sends a completion email when configured delivery succeeds. The email reports video reviewed separately from evidence screenshots checked.
 
 ## Ask AI is unavailable or cannot answer
 
@@ -237,7 +237,7 @@ Check mission state and your role. Submitting for supervisor approval locks repo
 ## Operator is missing from Copilot
 
 1. Connect the Copilot device to internet and refresh its license or reopen mission setup so the agency roster can update.
-2. In **Organization Settings**, confirm the person has a full name and an active owner, admin, or operator role. Viewer and analyst roles do not appear in the operator picker.
+2. In **Organization Settings**, confirm the person has a full name, an active membership, and **Mission operator** enabled. Role and operator designation are separate.
 3. Tap **Operator — Select before starting** and choose the person.
 
 If no roster is available, AlphaRelay warns and can start without identified-operator attribution. Resolve the roster before operational use when your policy requires named attribution.

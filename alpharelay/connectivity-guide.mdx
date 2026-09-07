@@ -9,7 +9,7 @@ AlphaRelay uses separate live and sync paths. Losing one does not always stop th
 ```text
 AlphaRelay Copilot
   |-- Live stream (WebRTC) → Mission Overwatch / Android or iOS Mission Viewer over internet
-  |-- Controller Livestream (RTMP) ← Separate flight controller over internet
+  |-- Controller Livestream (DJI RTMP or Skydio RTSP) ← Separate flight controller over internet
   |-- HDMI Capture Card (UVC) ← Controller HDMI output over USB
   `-- Cloud sync → Events, footage, reports, evidence
 
@@ -50,7 +50,7 @@ A second licensed Android or iOS device can open Mission Viewer. It requires int
 
 ## Controller video inputs
 
-**Controller Livestream** requires validated internet on both the licensed Android or iOS Copilot device and the separate flight controller. Copilot provides a complete RTMP URL and separate server/key values; use the format that matches the controller. Restart the publisher with the same destination after a connection loss while the mission is active.
+**Controller Livestream** requires validated internet on both the licensed Android or iOS Copilot device and the separate flight controller. For DJI, Copilot provides a complete RTMP URL and separate server/key values. For Skydio RTSP External Server, it provides a server address, port, and stream name. Restart the publisher with the same mission destination after a connection loss while the mission is active.
 
 **Copilot HDMI Capture** receives video locally on Android or USB-C iPad and can keep recording when internet is unavailable. **Laptop HDMI Capture** starts online from the Dashboard and records recoverable evidence in the browser while publishing remote live. Keep the tab open and use **Stop & upload** before closeout.
 

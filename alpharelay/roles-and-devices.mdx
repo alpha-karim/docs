@@ -14,6 +14,8 @@ icon: "users"
 | Supervisor | Browser — Mission Dashboard / Overwatch | Approves or returns after-action reports |
 | Org admin | Browser — Organization Settings | Members, roles, agency scenarios, licenses, time zone, storage, and read-only Activity Log |
 
+Organization access uses four roles. **Admin/Owner** manages the organization and every mission. **Supervisor** oversees every mission and approves or returns reports. **Officer** works on missions they created, were assigned to, or received through mission sharing. **Mission operator** is a separate designation that can be applied to any member role; it controls whether the person appears in Copilot's field roster and can start missions.
+
 ## Android drone controllers
 
 On Android drone controllers, the pilot device can run **Controller Screen Capture**. The controller's native flight app handles flight control while AlphaRelay captures the controller screen, streams it to the active mission, records controller-screen footage, and logs events.
@@ -24,7 +26,7 @@ For a DJI Avata with compatible DJI Goggles, the pilot operates through the gogg
 
 ## Controller video from a separate flight controller
 
-Use **Controller Livestream** when the flight controller or its native app can publish to RTMP. A licensed Android, iPhone, or iPad creates the mission and shows either a complete one-field RTMP URL or separate server and stream-key values. Internet is required.
+Use **Controller Livestream** when a DJI controller can publish to RTMP or a Skydio controller supports RTSP External Server. A licensed Android, iPhone, or iPad creates the mission and shows the matching RTMP or RTSP values. Internet is required.
 
 Use **HDMI Capture Card** when the controller exposes HDMI output. Connect it through a UVC card to Android Copilot, a USB-C iPad, or a laptop browser. The laptop path starts from **New laptop HDMI mission** and requires no phone or tablet app. None of these workflows transfers aircraft control away from the flight controller.
 
@@ -39,14 +41,18 @@ On a licensed Android device, tap **View Live Mission**. On iPhone or iPad, tap 
 ## Key rules
 
 - Most missions start from Copilot. **Laptop HDMI Capture** starts from **New laptop HDMI mission** in Mission Dashboard and continues in Mission Overwatch.
-- The startup action is **Choose Scenario**. Select the current operator when the agency roster is available; AlphaRelay attributes the mission and field-created events to that person.
+- The landing screen separates **Start a Mission** from **View a Live Mission**. Starting first opens **Choose video source**, then the operator, scenario, mission name, AI targets, and alert settings for that source.
 - Open missions from **Mission Dashboard** (link may say **Open Mission Console**).
 - Copilot presents one **Start Mission** action and starts remote live automatically when validated internet is available.
-- Mission Overwatch **Mission tools** remain available under **Operations → Tools** for active Internet missions, including Quick Events, typed manual events, and browser dictation. **Operations → Timeline** shows live mission activity.
+- Mission Overwatch keeps the live **Event timeline** in the right rail. Quick Events, typed manual events, browser dictation, and applicable laptop HDMI controls stay in the compact **Events & input** row beneath the feed.
 - **Local Network** is a deployment-specific Android LAN relay path and is not presented by the current public Copilot workflow.
 - **Controller Screen Capture** is automatic on integrated Android drone controllers and the recommended default on detected DJI SDK-controller setups; it is not a separate mission button.
 - **HDMI Capture Card** works through Android USB host/OTG, USB-C iPad, or a laptop browser; iPhone is not a UVC input device.
-- **Controller Livestream** works from Android or iOS Copilot and supports one complete RTMP URL or separate server/key fields.
+- **Controller Livestream** works from Android or iOS Copilot and supports DJI RTMP plus Skydio RTSP External Server.
 - **Pilot mode** is an explicit alternative on eligible DJI SDK-controller setups and requires supported-aircraft confirmation plus a successful live connection check.
-- **Goggles Mode** starts a mission automatically when a prepared Android device detects compatible DJI Goggles over USB.
+- Compatible DJI Goggles can enable **Goggles Mode** automatically over USB, but the operator still taps **Start Mission** before capture begins.
 - Mission Viewer requires internet and a valid Copilot license; only active missions in that license's organization appear. It normally runs on a second device, but the Android device that creates a Controller Livestream also opens that mission in Mission Viewer.
+
+## Share one mission
+
+Authorized members of a mission team can click **Share** in Mission Overwatch. The dialog lists eligible users by name and email; click **Share** beside a person, then confirm they appear under **People with access**. Shared collaborators can review and work on that mission, including custody and official exports, without receiving organization-wide mission access or permission to start new missions. Use **Remove** to revoke the mission share.

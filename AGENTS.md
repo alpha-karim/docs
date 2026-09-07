@@ -16,33 +16,35 @@
 
 - **AlphaRelay** — product name
 - **AlphaRelay Copilot** / **Copilot app** — licensed Android or iOS app used to start controller-screen missions, publish live video, log field events, and support active missions; the Android APK is available from `download.html`
-- **Choose Scenario** / **Start Mission** — current Android Copilot mission start. The setup screen includes operator, mission name, scenario, mission-specific AI targets, and capture-mode choices when applicable; starting creates an Internet mission and automatically starts remote live when validated internet is available. iOS presents the same fields directly on mission setup.
+- **Start Mission** — current Android and iOS Copilot entry point. It first asks how the mission will receive video, then opens operator, mission name, scenario, mission-specific AI targets, and alert settings for the selected source; starting creates an Internet mission and automatically starts remote live when validated internet is available.
 - **Local Network** — deployment-specific Android LAN relay path retained in the product but not presented as a mission-start button in the current public Copilot workflow.
 - **Controller Screen Capture** — recommended capture path on Android drone controllers where the controller's native flight app keeps flight control and AlphaRelay captures the controller screen
-- **Controller Livestream** — Android/iOS Copilot workflow that provides a complete RTMP URL or separate server/key values for a controller or flight app to publish directly; it requires internet and does not control the flight controller
+- **Controller Livestream** — Android/iOS Copilot workflow that provides DJI RTMP values or Skydio RTSP External Server values for a controller or flight app to publish directly; it requires internet and does not control the flight controller
 - **HDMI Capture Card** — UVC workflow available through Android Copilot, USB-C iPad, or a laptop browser; recording stays associated with the mission while flight remains on the controller
 - **Pilot mode** — direct AlphaRelay aircraft-control path offered on detected DJI SDK-controller setups only after the operator confirms a listed DJI MSDK 5.17 aircraft and AlphaRelay verifies its live connection
-- **Goggles Mode** — DJI Avata and compatible DJI Goggles workflow on a separate Android phone or tablet; AlphaRelay captures DJI Fly, automatically starts an Internet mission with no scenario, and opens DJI Fly after screen-capture approval
+- **Goggles Mode** — DJI Avata and compatible DJI Goggles workflow on a separate Android phone or tablet; compatible USB hardware can enable the mode automatically, but the operator still taps **Start Mission** before AlphaRelay starts an Internet mission with no scenario and opens DJI Fly after screen-capture approval
 - **Pilot console** — in-app settings panel (Mission, Flight, Events, System)
 - **Mission Dashboard** — command home (`dashboard.html`)
 - **Command Center** — default Mission Dashboard view with connection/refresh status, active missions, operational KPIs, attention queue, and latest automatic alerts
-- **Mission Overwatch** / **Mission Console** — per-mission browser workspace (`mission-overwatch.html`; dashboard link says **Open Mission Console**); active missions use a full-screen command view with the live feed and an **Operations** drawer for tools and timeline activity
+- **Mission Overwatch** / **Mission Console** — per-mission browser workspace (`mission-overwatch.html`; dashboard link says **Open Mission Console**); active missions use a full-screen command view with the live feed, event timeline in the right rail, and a compact **Events & input** row beneath the feed
 - **Mission Viewer** / **View Live Mission** / **Watch Live Mission** — active-mission viewer in licensed Android and iOS Copilot apps for remote live, timeline updates, and quick or manual event logging from a secondary device; Android viewer events use a received full-frame screenshot when video is available
 - **Live Overwatch Screen** — relay connection panel in Mission Overwatch
 - **Live stream (WebRTC)** — remote live viewing over the internet
 - **AI live watch** — Mission Overwatch control that analyzes sampled remote-live frames and logs officer-review alerts when configured; it defaults on unless a saved mission choice disables it
-- **Alert on people** — mission setting for optional informational person and hand-to-hand-contact alerts; weapons and explosives remain non-optional and highest priority
+- **Alert on people** — Copilot mission setting for optional informational person and hand-to-hand-contact alerts; Mission Overwatch can configure each standard detection separately, and enabled weapon-related alerts receive highest priority
 - **Scenario-specific AI targets** / **Mission-specific AI targets** — bounded visible details added to LiveAI's standard detections for an active mission
 - **Device Live AI** — cloud-first live analysis from the Copilot device when internet is healthy, with automatic on-device person and possible-weapon fallback when cloud analysis is unavailable; Android also exposes the fallback controls in **Pilot console → Flight → Local AI**
 - **Person detection** — informational/yellow alert treatment; this is not identity or face recognition
 - **Possible weapon / urgent threat** — red alert treatment that still requires human review
 - **Automatic AI-alert review** — an officer must **Approve alert** or **Dismiss alert** before a Device Live AI or AI live-watch screenshot can be analyzed or used in a report
-- **Mission tools** — Quick Events, typed manual events, and browser **Dictate** under Mission Overwatch's **Operations → Tools** for active Internet missions
+- **Mission tools** — Quick Events, typed manual events, browser **Dictate**, and laptop HDMI controls in the compact **Events & input** row beneath the Mission Overwatch feed for active Internet missions
 - **Timeline finding review** — accepted AI Review findings and analyzed AI-alert screenshots require **Accept as is** or **Review & edit** in the timeline before AAR use
 - **Done — continue** — closed-mission action on Timeline, Media, and AI Review that records completion and advances to the next unfinished review step; Timeline removes remaining unaccepted AI candidates and AI Review rejects remaining undecided findings after confirmation
 - **Official mission event** — a human-created event that has not been deleted, an approved automatic AI alert, or an accepted AI Review finding whose timeline analysis is officer-reviewed; use this set for counts, playback markers, reports, exports, and evidence-chain views
 - **Quick events** — one-tap event buttons; agency scenarios can define up to seven, with the standard buttons used when the list is empty
-- **AI Review analysis coverage** — **Event-focused** searches around accepted events by default; **Full mission — detailed** reviews the best-quality recording more broadly and takes longer
+- **AI Review analysis coverage** — **Event-focused** reviews original-video intervals around accepted events by default; **Full mission — detailed** reviews the union of selected recording timelines, preferring higher-quality/original footage for overlapping time, then verifies candidate findings against evidence screenshots
+- **Mission sharing** — mission-scoped collaborator access managed from **Share** in Mission Overwatch; eligible users are shown by name and email, and shared users can work on that mission without receiving organization-wide access or mission-start authority
+- **Organization access** — **Admin/Owner** manages the organization, **Supervisor** oversees all missions and report approvals, and **Officer** works on assigned or self-created missions; **Mission operator** is a separate designation that controls field-app roster visibility and mission start
 - **What should AI look for?** — operator-selected post-mission analysis tags; at least one is required before **Analyze media**
 - **Mission scenarios** — Organization Settings editor for agency-specific scenarios, up to eight visible AI watch targets, and up to seven Quick Events
 - **Activity Log** — read-only Organization Settings tab for server-attributed material actions

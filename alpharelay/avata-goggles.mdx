@@ -41,7 +41,7 @@ Live-view sharing options vary by goggles model. Confirm that DJI supports your 
 3. Open **DJI Fly** on the Android device.
 4. Tap **GO FLY** and confirm that the goggles live view appears on the Android screen.
 
-AlphaRelay can identify compatible DJI Goggles over the wired USB connection and turn on Goggles Mode automatically.
+AlphaRelay can identify compatible DJI Goggles over the wired USB connection and turn on Goggles Mode automatically. It still waits for you to start the mission from the Copilot landing screen.
 
 ### Wireless
 
@@ -52,7 +52,7 @@ AlphaRelay can identify compatible DJI Goggles over the wired USB connection and
 
 Wireless sharing uses the Android device's Wi-Fi connection. Keep cellular data available for AlphaRelay remote live, mission sync, and upload.
 
-If Goggles Mode does not turn on automatically during a wireless connection, tap **Choose Scenario**, enable **Use DJI Fly / goggles video feed**, choose **No scenario template**, and tap **Start Mission**. The setting remains enabled for the next DJI Avata mission; turn it off when returning to the normal phone or tablet workflow.
+If Goggles Mode does not turn on automatically during a wireless connection, enable **Use DJI Fly / goggles video feed** in Copilot before starting. The setting remains enabled for the next DJI Avata mission; turn it off when returning to the normal phone or tablet workflow.
 
 ## Start the AlphaRelay mission
 
@@ -60,11 +60,12 @@ With the DJI Fly live view working:
 
 1. Open **AlphaRelay Copilot** on the same Android device.
 2. Complete any first-time permission or license prompts.
-3. If Android asks to share or record the screen, approve the screen capture request.
-4. Wait for AlphaRelay to start capture and return you to DJI Fly.
-5. Confirm that the DJI Fly live view is visible again before takeoff.
+3. Tap **Start Mission**. AlphaRelay keeps the compatible Goggles Mode selection and skips ordinary scenario selection.
+4. If Android asks to share or record the screen, approve the screen capture request.
+5. Wait for AlphaRelay to start capture and return you to DJI Fly.
+6. Confirm that the DJI Fly live view is visible again before takeoff.
 
-When compatible DJI Goggles are detected over USB, AlphaRelay skips mission and scenario selection. It automatically:
+After you tap **Start Mission** with compatible DJI Goggles detected, AlphaRelay skips ordinary mission and scenario setup. It then:
 
 - Starts a cloud-backed mission with no scenario template
 - Starts remote **Live stream (WebRTC)**

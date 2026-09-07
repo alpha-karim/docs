@@ -16,7 +16,8 @@ Command home at [alpha-relay.com/dashboard.html](https://www.alpha-relay.com/das
 - Mission history with search and filters
 - Organization-shared **Flag** / **Unflag** actions and a newest-first **Flagged missions** quick-access section; flags organize follow-up without changing the mission evidence record
 - Per-row and select-all-visible checkboxes for moving multiple authorized missions to Trash in one confirmation
-- **Rename** from a Mission History row when you are the mission creator or an org admin and the mission has not been submitted or approved
+- **Rename** from a Mission History row when you are authorized for the mission and it has not been submitted or approved
+- **Share** in Mission Overwatch for giving an eligible user working access to one mission without changing their organization role
 - **Trash** for restoring deleted missions during their 30-day recovery window
 - **Import mission** for creating a closed post-flight record from external footage and photos
 - Intelligence search across missions, events, and footage
@@ -52,19 +53,32 @@ When several eligible Trash rows need irreversible deletion, organization owners
 
 ## Account
 
-Set full name, rank/title, password, and email change requests. Names and ranks appear in Copilot's operator picker and on mission attribution when the person's active organization role is owner, admin, or operator.
+Set full name, rank/title, password, and email change requests. Names and ranks appear in Copilot's operator picker and on mission attribution when an admin has enabled the separate **Mission operator** designation for that membership.
 
 ## Organization
 
 Owners and admins manage:
 
-- Team members, roles, and status
+- Team members, role, **Mission operator** designation, and status
 - Agency-specific mission scenarios with a name, category, summary, up to eight visible AI watch targets, and up to seven Quick Events
 - Organization time zone
 - Storage visibility
 - Copilot device license keys, QR codes, activation files, and controller pairing codes
 
 Agency scenarios appear in the web and Copilot mission pickers after refresh. Their AI watch items and Quick Events are copied into each mission so live detection, field logging, and post-mission review keep the mission-specific setup even if the scenario changes later.
+
+### Roles and mission operators
+
+- **Admin/Owner** manages organization settings, members, and all missions.
+- **Supervisor** can oversee every mission and approve or return reports.
+- **Officer** can work on missions they created, were assigned to, or received through mission sharing.
+- **Mission operator** is a separate checkbox, not a role. Enable it for any member who should appear in Copilot and start field or laptop HDMI missions.
+
+### Share a mission
+
+Open the mission in Mission Overwatch and click **Share**. Under **Available users**, AlphaRelay shows eligible organization users by name and email. Click **Share** beside the intended person; they receive mission-scoped collaborator access and an email link when mail delivery is configured. To revoke access, find the person under **People with access**, click **Remove**, and confirm.
+
+Mission sharing does not promote the person to Supervisor or Admin/Owner, expose every organization mission, or designate them as a mission operator. The mission creator, assigned mission team, supervisors, and admins/owners can manage sharing; a shared collaborator cannot re-share the mission.
 
 ### Create or edit an agency scenario
 
@@ -73,7 +87,7 @@ Agency scenarios appear in the web and Copilot mission pickers after refresh. Th
 3. Under **What should AI look for?**, enter one concrete visible item per line, up to eight.
 4. Under **Quick Events**, enter one pilot event button per line, up to seven. Leave it empty to use the standard Quick Events.
 5. Click **Create scenario**. Use **Edit** on an existing agency scenario to update it.
-6. Refresh **Choose Scenario** on an online Copilot device before the mission starts.
+6. Reopen **Start Mission** on an online Copilot device before the mission starts so it refreshes the scenario list.
 
 On desktop, the AI-target and Quick Event fields appear side by side, and agency scenario cards use two columns. Narrow screens stack them.
 
