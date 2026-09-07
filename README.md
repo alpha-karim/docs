@@ -6,7 +6,7 @@ Operator documentation for [AlphaRelay](https://www.alpha-relay.com), built with
 
 - **Home** — `index.mdx`
 - **Start Here** — plain English intro, workflow overview, roles, mission types, Controller Screen Capture and Pilot mode, DJI Avata with DJI Goggles, training exercise
-- **Run a Mission** — field prep, Android/iOS Copilot capture, Mission Viewer, Mission Overwatch, events, Device Live AI, closeout
+- **Run a Mission** — field prep, Android/iOS Operator capture, Mission Viewer, Mission Overwatch, events, Device Live AI, closeout
 - **Review and Report** — import, upload, playback, report, sealing, offline export
 - **Admin Setup** — dashboard, accounts, pilot agreements, org licenses, security, requirements
 - **Help** — troubleshooting, connectivity, limitations, glossary

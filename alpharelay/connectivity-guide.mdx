@@ -7,7 +7,7 @@ icon: "tower-broadcast"
 AlphaRelay uses separate live and sync paths. Losing one does not always stop the mission.
 
 ```text
-AlphaRelay Copilot
+AlphaRelay Operator
   |-- Live stream (WebRTC) → Mission Overwatch / Android or iOS Mission Viewer over internet
   |-- Controller Livestream (DJI RTMP or Skydio RTSP) ← Separate flight controller over internet
   |-- HDMI Capture Card (UVC) ← Controller HDMI output over USB
@@ -18,7 +18,7 @@ Laptop browser
   `-- Live stream (WebRTC) + recoverable local evidence recording
 ```
 
-Some older or deployment-specific Android builds also expose a LAN relay to Mission Overwatch on the same Wi-Fi. The current public Copilot workflow does not show that mission-start option.
+Some older or deployment-specific Android builds also expose a LAN relay to Mission Overwatch on the same Wi-Fi. The current public Operator workflow does not show that mission-start option.
 
 ## Without internet
 
@@ -41,7 +41,7 @@ Some older or deployment-specific Android builds also expose a LAN relay to Miss
 
 ## Remote live connection
 
-1. Tap **Start Mission** in AlphaRelay Copilot while the device has validated internet.
+1. Tap **Start Mission** in AlphaRelay Operator while the device has validated internet.
 2. Open the active mission from Mission Dashboard.
 3. Select **Live stream (WebRTC)** in Mission Overwatch.
 4. If automatic live setup failed or the mission began offline, use **Pilot console → Mission → Start remote live** after connectivity returns.
@@ -50,17 +50,17 @@ A second licensed Android or iOS device can open Mission Viewer. It requires int
 
 ## Controller video inputs
 
-**Controller Livestream** requires validated internet on both the licensed Android or iOS Copilot device and the separate flight controller. For DJI, Copilot provides a complete RTMP URL and separate server/key values. For Skydio RTSP External Server, it provides a server address, port, and stream name. Restart the publisher with the same mission destination after a connection loss while the mission is active.
+**Controller Livestream** requires validated internet on both the licensed Android or iOS Operator device and the separate flight controller. For DJI, Operator provides a complete RTMP URL and separate server/key values. For Skydio RTSP External Server, it provides a server address, port, and stream name. Restart the publisher with the same mission destination after a connection loss while the mission is active.
 
-**Copilot HDMI Capture** receives video locally on Android or USB-C iPad and can keep recording when internet is unavailable. **Laptop HDMI Capture** starts online from the Dashboard and records recoverable evidence in the browser while publishing remote live. Keep the tab open and use **Stop & upload** before closeout.
+**Operator HDMI Capture** receives video locally on Android or USB-C iPad and can keep recording when internet is unavailable. **Laptop HDMI Capture** starts online from the Dashboard and records recoverable evidence in the browser while publishing remote live. Keep the tab open and use **Stop & upload** before closeout.
 
 ## Deployment-specific Local Network connection
 
-If your Android build exposes **Local Network**, run it on Wi-Fi, open **Live Overwatch Screen**, and connect by scanning or entering the device IP. Trust the self-signed relay certificate if prompted. This is not a selectable mission path in the current public Copilot workflow.
+If your Android build exposes **Local Network**, run it on Wi-Fi, open **Live Overwatch Screen**, and connect by scanning or entering the device IP. Trust the self-signed relay certificate if prompted. This is not a selectable mission path in the current public Operator workflow.
 
 ## Queued states
 
-**Queued for cloud sync**, **Loading playback link**, or upload banners mean local data still needs to reach the cloud. Queued Copilot videos are stored durably and retry when validated connectivity returns, including after the app restarts. Keep the device powered on, do not force-stop or uninstall the app, and use **Upload now**, **Sync now**, or **Sync pending items** when offered.
+**Queued for cloud sync**, **Loading playback link**, or upload banners mean local data still needs to reach the cloud. Queued Operator videos are stored durably and retry when validated connectivity returns, including after the app restarts. Keep the device powered on, do not force-stop or uninstall the app, and use **Upload now**, **Sync now**, or **Sync pending items** when offered.
 
 When AlphaRelay opens with queued mission video, the startup panel shows the queue and progress. Use **Skip for now and start new mission** only when field work must begin before the older upload finishes.
 

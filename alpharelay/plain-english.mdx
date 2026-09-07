@@ -6,11 +6,11 @@ icon: "circle-info"
 
 AlphaRelay helps teams run drone or field missions and produce a defensible record afterward.
 
-**AlphaRelay Copilot** on Android, iPhone, or iPad runs missions, captures footage, and logs events while the flight app keeps aircraft control. Controller video can arrive through screen capture, DJI RTMP or Skydio RTSP Controller Livestream, Android or iPad UVC HDMI, or laptop/browser HDMI. A second licensed Copilot device can use Mission Viewer to watch an active mission and add events without controlling the aircraft. **Mission Overwatch** in a browser is where command staff watch live video, capture laptop HDMI, add events, share a mission with another user, review footage, build after-action reports, seal evidence, and export packages.
+**AlphaRelay Operator** on Android, iPhone, or iPad runs missions, captures footage, and logs events while the flight app keeps aircraft control. Controller video can arrive through screen capture, DJI RTMP or Skydio RTSP Controller Livestream, Android or iPad UVC HDMI, or laptop/browser HDMI. A second licensed Operator device can use Mission Viewer to watch an active mission and add events without controlling the aircraft. **Mission Overwatch** in a browser is where command staff watch live video, capture laptop HDMI, add events, share a mission with another user, review footage, build after-action reports, seal evidence, and export packages.
 
 ## Basic flow
 
-1. Start a live mission from AlphaRelay Copilot.
+1. Start a live mission from AlphaRelay Operator.
 2. Watch live and log command-side events in Mission Overwatch when the pilot device is online.
 3. End the mission when field work is complete.
 4. Upload and review footage.
@@ -23,16 +23,16 @@ AlphaRelay helps teams run drone or field missions and produce a defensible reco
 | Online | **Start Mission** creates the mission, syncs it, and starts remote **Live stream (WebRTC)** automatically. |
 | Offline | The mission still records locally. Events, footage, and closeout work queue until connectivity returns. |
 
-The current public Copilot workflow does not present a **Local Network** mission button. A LAN relay may still appear in older or deployment-specific Android builds, but it is separate from the normal public workflow.
+The current public Operator workflow does not present a **Local Network** mission button. A LAN relay may still appear in older or deployment-specific Android builds, but it is separate from the normal public workflow.
 
-On Android drone controllers, Copilot uses **Controller Screen Capture** by default. The controller's native flight app keeps flight control while AlphaRelay captures the controller screen, streams it into the mission, and records one continuous mission video. On detected DJI SDK-controller setups, a listed and connected DJI aircraft can instead unlock **Pilot mode** for AlphaRelay flight controls.
+On Android drone controllers, Operator uses **Controller Screen Capture** by default. The controller's native flight app keeps flight control while AlphaRelay captures the controller screen, streams it into the mission, and records one continuous mission video. On detected DJI SDK-controller setups, a listed and connected DJI aircraft can instead unlock **Pilot mode** for AlphaRelay flight controls.
 
-When AlphaRelay cannot be installed on the controller, Android or iOS Copilot can create **Controller Livestream** settings: RTMP for DJI or RTSP External Server for Skydio. A UVC card can instead send controller HDMI to Android, USB-C iPad, or a laptop browser. See [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs).
+When AlphaRelay cannot be installed on the controller, Android or iOS Operator can create **Controller Livestream** settings: RTMP for DJI or RTSP External Server for Skydio. A UVC card can instead send controller HDMI to Android, USB-C iPad, or a laptop browser. See [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs).
 
-On iPhone and iPad, Copilot offers **Controller Screen** through ReplayKit and **Controller Livestream** through RTMP or RTSP. USB-C iPad also supports **HDMI Capture Card**; iPhone does not support UVC capture.
+On iPhone and iPad, Operator offers **Controller Screen** through ReplayKit and **Controller Livestream** through RTMP or RTSP. USB-C iPad also supports **HDMI Capture Card**; iPhone does not support UVC capture.
 
 With a DJI Avata and compatible DJI Goggles, AlphaRelay uses **Goggles Mode** on a separate Android device. DJI Fly displays the goggles live view, AlphaRelay starts a mission with no scenario, and the goggles with their compatible controller remain responsible for the aircraft.
 
-Most live missions start from Copilot. **Laptop HDMI Capture** is the exception: create it with **New laptop HDMI mission** in the Dashboard and continue in Mission Overwatch. For work that already happened outside AlphaRelay, **Import mission** creates a closed post-flight record.
+Most live missions start from Operator. **Laptop HDMI Capture** is the exception: create it with **New laptop HDMI mission** in the Dashboard and continue in Mission Overwatch. For work that already happened outside AlphaRelay, **Import mission** creates a closed post-flight record.
 
-Copilot also includes **Device Live AI**. It uses licensed cloud analysis when internet is healthy and automatically falls back to on-device people and possible-weapon detection when cloud analysis is unavailable. Every alert still requires human review.
+Operator also includes **Device Live AI**. It uses licensed cloud analysis when internet is healthy and automatically falls back to on-device people and possible-weapon detection when cloud analysis is unavailable. Every alert still requires human review.

@@ -1,26 +1,26 @@
 ---
-title: "Use AlphaRelay Copilot on iPhone or iPad"
+title: "Use AlphaRelay Operator on iPhone or iPad"
 description: "Capture an iOS screen, controller livestream, or iPad HDMI source and support another active mission."
 icon: "tablet-screen-button"
 ---
 
-**AlphaRelay Copilot** on iPhone and iPad can capture the controller screen with ReplayKit, set up a DJI RTMP or Skydio RTSP Controller Livestream, or—on USB-C iPad—receive HDMI video through a UVC capture card. Your flight app or controller keeps aircraft control.
+**AlphaRelay Operator** on iPhone and iPad can capture the controller screen with ReplayKit, set up a DJI RTMP or Skydio RTSP Controller Livestream, or—on USB-C iPad—receive HDMI video through a UVC capture card. Your flight app or controller keeps aircraft control.
 
 ## Requirements
 
 - iPhone or iPad running iOS 26
-- The organization-provided AlphaRelay Copilot app installed
-- A Copilot device license or one-installation pairing code
+- The organization-provided AlphaRelay Operator app installed
+- An Operator device license or one-installation pairing code
 - Screen Recording permission; microphone and speech-recognition permission when voice events are needed
 - Internet for remote live, immediate sync, cloud Live AI, Mission Viewer, and upload; saved events and footage can retry later
 
 ## Activate the device
 
-1. Open **AlphaRelay Copilot**.
+1. Open **AlphaRelay Operator**.
 2. Scan the organization license QR code, enter the 8-character pairing code, or enter the full `ar-…` license key.
 3. Select the operator when the organization roster contains more than one operator.
 
-The license is stored on the device. Copilot does not use the web-app email and password for device activation.
+The license is stored on the device. Operator does not use the web-app email and password for device activation.
 
 ## Choose the video source
 
@@ -28,13 +28,13 @@ From **What do you want to do?**, tap **Start a Mission**, then choose **Control
 
 ## Start Controller Screen capture
 
-1. Open **AlphaRelay Copilot** and choose a built-in or agency scenario, or **No scenario**.
+1. Open **AlphaRelay Operator** and choose a built-in or agency scenario, or **No scenario**.
 2. Confirm the operator, enter the mission name, optionally add up to eight **Mission-specific AI targets**, and choose whether **Alert on people** should include routine person and hand-to-hand-contact alerts. Other enabled detections and mission-specific targets remain active when it is off.
 3. Tap **Start Mission**.
 4. In the iOS broadcast picker, choose **AlphaRelay Capture**. Enable the microphone when the recording needs microphone audio, then start the broadcast.
 5. Open the flight app. Keep the iOS screen-recording indicator active while AlphaRelay captures in the background.
 
-Copilot publishes the captured display through **Live stream (WebRTC)** when internet is available. The active-mission screen shows capture, live-stream, Device Live AI, Overwatch AI, alert, queued-event, queued-footage, and mission-time status. If capture stops, return to Copilot and tap **Choose display and start capture**.
+Operator publishes the captured display through **Live stream (WebRTC)** when internet is available. The active-mission screen shows capture, live-stream, Device Live AI, Overwatch AI, alert, queued-event, queued-footage, and mission-time status. If capture stops, return to Operator and tap **Choose display and start capture**.
 
 ## Start Controller Livestream
 
@@ -49,29 +49,29 @@ Internet is required on both devices. Stop the publisher before closing the miss
 1. Connect the controller HDMI output through a UVC card to the USB-C iPad.
 2. Choose **HDMI Capture Card**, complete setup, and tap **Start HDMI Capture Mission**.
 3. Grant camera permission and verify the full video frame before flight.
-4. After a disconnect, reconnect the card and tap **Connect or retry HDMI input**. Copilot finalizes the prior segment and begins another.
+4. After a disconnect, reconnect the card and tap **Connect or retry HDMI input**. Operator finalizes the prior segment and begins another.
 
 This path is video-only. Voice events use the iPad microphone; capture-card USB/UAC audio is not added to the recording.
 
 ## Log and update the mission
 
-- Use scenario quick events or **Log event with current frame**. Copilot attaches a fresh controller-screen image when capture can provide one.
-- Leave **Voice events** enabled to say `Relay` followed by the note. Copilot saves the note with the latest captured frame.
+- Use scenario quick events or **Log event with current frame**. Operator attaches a fresh controller-screen image when capture can provide one.
+- Leave **Voice events** enabled to say `Relay` followed by the note. Operator saves the note with the latest captured frame.
 - Use **Update AI targets** to change mission-only visible targets without restarting the mission. Offline edits remain queued for cloud sync.
 - When Live Activities are enabled, Live AI alerts use a concise one-line Lock Screen or Dynamic Island presentation designed for the landscape flight-app view, then collapse back to monitoring after about one second. Urgent weapon-like alerts use red treatment; informational people alerts use yellow treatment.
-- If a mission Live Activity is unavailable, Copilot uses the **Screen Sharing** notification fallback. Allow time-sensitive notifications so alerts can appear over the flight app.
+- If a mission Live Activity is unavailable, Operator uses the **Screen Sharing** notification fallback. Allow time-sensitive notifications so alerts can appear over the flight app.
 - Alert presentations are review prompts, not confirmed findings. The mission timeline remains the durable review surface after the brief on-screen alert clears.
 
-With working internet, Device Live AI uses licensed server-side analysis without storing an OpenAI key in the app. If cloud analysis is unavailable, Copilot automatically falls back to on-device people detection and possible-weapon verification. Every alert still requires human review.
+With working internet, Device Live AI uses licensed server-side analysis without storing an OpenAI key in the app. If cloud analysis is unavailable, Operator automatically falls back to on-device people detection and possible-weapon verification. Every alert still requires human review.
 
 ## Complete the mission
 
-1. Return to AlphaRelay Copilot.
+1. Return to AlphaRelay Operator.
 2. Tap **Sync now** when pending items remain and connectivity is available.
 3. Tap **Stop and complete mission**.
-4. Keep Copilot open while the selected capture source finalizes and saved events and footage are handed off.
+4. Keep Operator open while the selected capture source finalizes and saved events and footage are handed off.
 
-Copilot hashes completed local recordings and uses the normal custody-aware upload flow. If ReplayKit finishes a playable file but its handoff is interrupted, Copilot can recover the recording when it next processes the queue.
+Operator hashes completed local recordings and uses the normal custody-aware upload flow. If ReplayKit finishes a playable file but its handoff is interrupted, Operator can recover the recording when it next processes the queue.
 
 ## Watch another active mission
 
@@ -79,7 +79,7 @@ From mission setup, tap **Watch Live Mission**. Choose an active mission in the 
 
 ## iOS boundaries
 
-- Copilot captures the selected iOS display or app; it does not control the aircraft.
+- Operator captures the selected iOS display or app; it does not control the aircraft.
 - USB-C iPad supports UVC HDMI capture; iPhone does not. Use RTMP or RTSP Controller Livestream when an iPhone must support a separate controller.
 - iOS does not use Android's DJI Goggles USB/LogicLink auto-detection or the deployment-specific Android local-network relay.
 - iOS uses its own on-device fallback rather than Android's full multi-object detector.

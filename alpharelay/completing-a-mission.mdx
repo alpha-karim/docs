@@ -8,7 +8,7 @@ icon: "flag-checkered"
 
 1. Tap **Land** on the pilot device when appropriate.
 2. Follow normal landing and safety procedures.
-3. Tap **Stop and complete mission** or **Stop Mission** in AlphaRelay Copilot when field work is complete.
+3. Tap **Stop and complete mission** or **Stop Mission** in AlphaRelay Operator when field work is complete.
 4. For Laptop HDMI Capture, click **Stop & upload** and wait for the browser recording to be secured.
 5. Optionally open **Operations** and tap **End Mission** in Mission Overwatch.
 6. Check the upload or queue status before powering off the pilot device or closing its browser tab.
@@ -27,14 +27,14 @@ In a supported Pilot-mode mission, confirmed touchdown can trigger the same stop
 - In **Laptop HDMI Capture**, **Stop & upload** finalizes the recoverable browser recording before mission closeout. If interrupted, reopen the mission and use **Recover interrupted recording** without clearing browser data.
 - In **Goggles Mode**, AlphaRelay finalizes the captured DJI Fly live-view frames as an MP4 and queues it for upload. It does not pull the DJI Avata's internal-storage or microSD footage.
 - Footage may upload immediately or queue for later sync.
-- Queued Copilot video is stored durably and retries when validated connectivity returns, including after the app restarts.
+- Queued Operator video is stored durably and retries when validated connectivity returns, including after the app restarts.
 - Android and iOS Mission Viewer event logging stops and the selected timeline becomes read-only.
 - Mission Overwatch stops remote-live playback and switches to historical review instead of retrying the closed live stream.
 - Mission Overwatch selects **Timeline** after web closeout so review starts with unresolved events and alerts.
 - Review should wait until footage status is clear.
 
 <Warning>
-  Do not force-stop or uninstall Copilot while footage is queued. On iOS, keep Copilot open while ReplayKit finalization and handoff complete. Browser-initiated uploads still require the browser tab to remain open.
+  Do not force-stop or uninstall Operator while footage is queued. On iOS, keep Operator open while ReplayKit finalization and handoff complete. Browser-initiated uploads still require the browser tab to remain open.
 </Warning>
 
 → [Upload footage](/alpharelay/footage-upload)

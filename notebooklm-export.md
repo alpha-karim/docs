@@ -10,25 +10,25 @@ Generated on 2026-09-07 by `scripts/generate-notebooklm-export.mjs`.
 ## Terminology (match the product UI)
 
 - **AlphaRelay** — product name
-- **AlphaRelay Copilot** / **Copilot app** — licensed Android or iOS app used to start controller-screen missions, publish live video, log field events, and support active missions; the Android APK is available from `download.html`
-- **Start Mission** — current Android and iOS Copilot entry point. It first asks how the mission will receive video, then opens operator, mission name, scenario, mission-specific AI targets, and alert settings for the selected source; starting creates an Internet mission and automatically starts remote live when validated internet is available.
-- **Local Network** — deployment-specific Android LAN relay path retained in the product but not presented as a mission-start button in the current public Copilot workflow.
+- **AlphaRelay Operator** / **Operator app** — licensed Android or iOS app used to start controller-screen missions, publish live video, log field events, and support active missions; the Android APK is available from `download.html`
+- **Start Mission** — current Android and iOS Operator entry point. It first asks how the mission will receive video, then opens operator, mission name, scenario, mission-specific AI targets, and alert settings for the selected source; starting creates an Internet mission and automatically starts remote live when validated internet is available.
+- **Local Network** — deployment-specific Android LAN relay path retained in the product but not presented as a mission-start button in the current public Operator workflow.
 - **Controller Screen Capture** — recommended capture path on Android drone controllers where the controller's native flight app keeps flight control and AlphaRelay captures the controller screen
-- **Controller Livestream** — Android/iOS Copilot workflow that provides DJI RTMP values or Skydio RTSP External Server values for a controller or flight app to publish directly; it requires internet and does not control the flight controller
-- **HDMI Capture Card** — UVC workflow available through Android Copilot, USB-C iPad, or a laptop browser; recording stays associated with the mission while flight remains on the controller
+- **Controller Livestream** — Android/iOS Operator workflow that provides DJI RTMP values or Skydio RTSP External Server values for a controller or flight app to publish directly; it requires internet and does not control the flight controller
+- **HDMI Capture Card** — UVC workflow available through Android Operator, USB-C iPad, or a laptop browser; recording stays associated with the mission while flight remains on the controller
 - **Pilot mode** — direct AlphaRelay aircraft-control path offered on detected DJI SDK-controller setups only after the operator confirms a listed DJI MSDK 5.17 aircraft and AlphaRelay verifies its live connection
 - **Goggles Mode** — DJI Avata and compatible DJI Goggles workflow on a separate Android phone or tablet; compatible USB hardware can enable the mode automatically, but the operator still taps **Start Mission** before AlphaRelay starts an Internet mission with no scenario and opens DJI Fly after screen-capture approval
 - **Pilot console** — in-app settings panel (Mission, Flight, Events, System)
 - **Mission Dashboard** — command home (`dashboard.html`)
 - **Command Center** — default Mission Dashboard view with connection/refresh status, active missions, operational KPIs, attention queue, and latest automatic alerts
 - **Mission Overwatch** / **Mission Console** — per-mission browser workspace (`mission-overwatch.html`; dashboard link says **Open Mission Console**); active missions use a full-screen command view with the live feed, event timeline in the right rail, and a compact **Events & input** row beneath the feed
-- **Mission Viewer** / **View Live Mission** / **Watch Live Mission** — active-mission viewer in licensed Android and iOS Copilot apps for remote live, timeline updates, and quick or manual event logging from a secondary device; Android viewer events use a received full-frame screenshot when video is available
+- **Mission Viewer** / **View Live Mission** / **Watch Live Mission** — active-mission viewer in licensed Android and iOS Operator apps for remote live, timeline updates, and quick or manual event logging from a secondary device; Android viewer events use a received full-frame screenshot when video is available
 - **Live Overwatch Screen** — relay connection panel in Mission Overwatch
 - **Live stream (WebRTC)** — remote live viewing over the internet
 - **AI live watch** — Mission Overwatch control that analyzes sampled remote-live frames and logs officer-review alerts when configured; it defaults on unless a saved mission choice disables it
-- **Alert on people** — Copilot mission setting for optional informational person and hand-to-hand-contact alerts; Mission Overwatch can configure each standard detection separately, and enabled weapon-related alerts receive highest priority
+- **Alert on people** — Operator mission setting for optional informational person and hand-to-hand-contact alerts; Mission Overwatch can configure each standard detection separately, and enabled weapon-related alerts receive highest priority
 - **Scenario-specific AI targets** / **Mission-specific AI targets** — bounded visible details added to LiveAI's standard detections for an active mission
-- **Device Live AI** — cloud-first live analysis from the Copilot device when internet is healthy, with automatic on-device person and possible-weapon fallback when cloud analysis is unavailable; Android also exposes the fallback controls in **Pilot console → Flight → Local AI**
+- **Device Live AI** — cloud-first live analysis from the Operator device when internet is healthy, with automatic on-device person and possible-weapon fallback when cloud analysis is unavailable; Android also exposes the fallback controls in **Pilot console → Flight → Local AI**
 - **Person detection** — informational/yellow alert treatment; this is not identity or face recognition
 - **Possible weapon / urgent threat** — red alert treatment that still requires human review
 - **Automatic AI-alert review** — an officer must **Approve alert** or **Dismiss alert** before a Device Live AI or AI live-watch screenshot can be analyzed or used in a report
@@ -61,8 +61,8 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
 
 ## Five-step workflow
 
-1. **Set up devices** — Install AlphaRelay Copilot on the field devices, activate each device license, and sign in to the web app.
-2. **Start a mission** — In Copilot, tap **Start Mission**, choose how AlphaRelay will receive video, then complete the mission details. Use controller-screen capture, DJI RTMP or Skydio RTSP Controller Livestream, Android/iPad HDMI, or eligible Pilot mode. For laptop HDMI, use **New laptop HDMI mission** in the Dashboard, then connect the UVC card in Mission Overwatch. A compatible DJI Goggles connection can enable Goggles Mode automatically, but the operator still starts the mission from the Copilot landing screen.
+1. **Set up devices** — Install AlphaRelay Operator on the field devices, activate each device license, and sign in to the web app.
+2. **Start a mission** — In Operator, tap **Start Mission**, choose how AlphaRelay will receive video, then complete the mission details. Use controller-screen capture, DJI RTMP or Skydio RTSP Controller Livestream, Android/iPad HDMI, or eligible Pilot mode. For laptop HDMI, use **New laptop HDMI mission** in the Dashboard, then connect the UVC card in Mission Overwatch. A compatible DJI Goggles connection can enable Goggles Mode automatically, but the operator still starts the mission from the Operator landing screen.
 3. **Watch and log events** — Use Mission Overwatch's full-screen command view for remote live and focused AI live watch. The event timeline stays in the right rail while Quick Events, manual events, dictation, and applicable HDMI controls sit in **Events & input** beneath the feed. A second licensed Android or iOS device can use Mission Viewer for a compact live view and event logging. Controller Livestream can also run gateway-side Live AI independently of the setup phone. Device Live AI uses cloud analysis when available and automatically falls back to on-device detection when it is not.
 4. **Review the mission** — Upload or sync footage, then follow Mission Overwatch through **Timeline**, **Media**, and **AI Review** when available. Choose what AI should look for and use **Event-focused** or **Full mission — detailed** coverage. AI Review uploads and reviews original video, verifies candidate findings with evidence screenshots, and shows the latest run plus earlier analysis history. You can leave while it runs and return after the completion email. **Ask AI** uses the selected primary uploaded footage and remains available read-only after approval.
 5. **Finalize the record** — Generate the report, seal the evidence listed in the AAR Chain of Custody, submit for supervisor review, and export when ready. Submission locks review work; approval makes record mutations permanently read-only while Ask AI remains available for read-only questions.
@@ -70,8 +70,8 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
 ## Start here
 
 - **New users:** AlphaRelay in plain English.
-- **Pilots:** Start a mission from AlphaRelay Copilot.
-- **Enterprise controllers:** Use AlphaRelay Copilot beside an Android controller's flight app.
+- **Pilots:** Start a mission from AlphaRelay Operator.
+- **Enterprise controllers:** Use AlphaRelay Operator beside an Android controller's flight app.
 - **iPhone and iPad:** Capture an iOS flight app with ReplayKit, receive Controller Livestream, or use a UVC card on USB-C iPad.
 - **DJI Avata and DJI Goggles:** Relay the goggles live view through DJI Fly.
 - **Overwatch users:** Watch and log in Mission Overwatch.
@@ -88,7 +88,7 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
 ## Links
 
 - **Web app:** [alpha-relay.com](https://www.alpha-relay.com)
-- **AlphaRelay Copilot for Android (APK):** [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html)
+- **AlphaRelay Operator for Android (APK):** [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html)
 - **Ask the docs (NotebookLM):** [Chat with the documentation](https://notebooklm.google.com/notebook/d83a28f5-b26c-4908-8d5f-2c7fdfda2603)
 
 ---
@@ -97,11 +97,11 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
 
 AlphaRelay helps teams run drone or field missions and produce a defensible record afterward.
 
-**AlphaRelay Copilot** on Android, iPhone, or iPad runs missions, captures footage, and logs events while the flight app keeps aircraft control. Controller video can arrive through screen capture, DJI RTMP or Skydio RTSP Controller Livestream, Android or iPad UVC HDMI, or laptop/browser HDMI. A second licensed Copilot device can use Mission Viewer to watch an active mission and add events without controlling the aircraft. **Mission Overwatch** in a browser is where command staff watch live video, capture laptop HDMI, add events, share a mission with another user, review footage, build after-action reports, seal evidence, and export packages.
+**AlphaRelay Operator** on Android, iPhone, or iPad runs missions, captures footage, and logs events while the flight app keeps aircraft control. Controller video can arrive through screen capture, DJI RTMP or Skydio RTSP Controller Livestream, Android or iPad UVC HDMI, or laptop/browser HDMI. A second licensed Operator device can use Mission Viewer to watch an active mission and add events without controlling the aircraft. **Mission Overwatch** in a browser is where command staff watch live video, capture laptop HDMI, add events, share a mission with another user, review footage, build after-action reports, seal evidence, and export packages.
 
 ## Basic flow
 
-1. Start a live mission from AlphaRelay Copilot.
+1. Start a live mission from AlphaRelay Operator.
 2. Watch live and log command-side events in Mission Overwatch when the pilot device is online.
 3. End the mission when field work is complete.
 4. Upload and review footage.
@@ -114,19 +114,19 @@ AlphaRelay helps teams run drone or field missions and produce a defensible reco
 | Online | **Start Mission** creates the mission, syncs it, and starts remote **Live stream (WebRTC)** automatically. |
 | Offline | The mission still records locally. Events, footage, and closeout work queue until connectivity returns. |
 
-The current public Copilot workflow does not present a **Local Network** mission button. A LAN relay may still appear in older or deployment-specific Android builds, but it is separate from the normal public workflow.
+The current public Operator workflow does not present a **Local Network** mission button. A LAN relay may still appear in older or deployment-specific Android builds, but it is separate from the normal public workflow.
 
-On Android drone controllers, Copilot uses **Controller Screen Capture** by default. The controller's native flight app keeps flight control while AlphaRelay captures the controller screen, streams it into the mission, and records one continuous mission video. On detected DJI SDK-controller setups, a listed and connected DJI aircraft can instead unlock **Pilot mode** for AlphaRelay flight controls.
+On Android drone controllers, Operator uses **Controller Screen Capture** by default. The controller's native flight app keeps flight control while AlphaRelay captures the controller screen, streams it into the mission, and records one continuous mission video. On detected DJI SDK-controller setups, a listed and connected DJI aircraft can instead unlock **Pilot mode** for AlphaRelay flight controls.
 
-When AlphaRelay cannot be installed on the controller, Android or iOS Copilot can create **Controller Livestream** settings: RTMP for DJI or RTSP External Server for Skydio. A UVC card can instead send controller HDMI to Android, USB-C iPad, or a laptop browser. See Controller Livestream and HDMI Capture.
+When AlphaRelay cannot be installed on the controller, Android or iOS Operator can create **Controller Livestream** settings: RTMP for DJI or RTSP External Server for Skydio. A UVC card can instead send controller HDMI to Android, USB-C iPad, or a laptop browser. See Controller Livestream and HDMI Capture.
 
-On iPhone and iPad, Copilot offers **Controller Screen** through ReplayKit and **Controller Livestream** through RTMP or RTSP. USB-C iPad also supports **HDMI Capture Card**; iPhone does not support UVC capture.
+On iPhone and iPad, Operator offers **Controller Screen** through ReplayKit and **Controller Livestream** through RTMP or RTSP. USB-C iPad also supports **HDMI Capture Card**; iPhone does not support UVC capture.
 
 With a DJI Avata and compatible DJI Goggles, AlphaRelay uses **Goggles Mode** on a separate Android device. DJI Fly displays the goggles live view, AlphaRelay starts a mission with no scenario, and the goggles with their compatible controller remain responsible for the aircraft.
 
-Most live missions start from Copilot. **Laptop HDMI Capture** is the exception: create it with **New laptop HDMI mission** in the Dashboard and continue in Mission Overwatch. For work that already happened outside AlphaRelay, **Import mission** creates a closed post-flight record.
+Most live missions start from Operator. **Laptop HDMI Capture** is the exception: create it with **New laptop HDMI mission** in the Dashboard and continue in Mission Overwatch. For work that already happened outside AlphaRelay, **Import mission** creates a closed post-flight record.
 
-Copilot also includes **Device Live AI**. It uses licensed cloud analysis when internet is healthy and automatically falls back to on-device people and possible-weapon detection when cloud analysis is unavailable. Every alert still requires human review.
+Operator also includes **Device Live AI**. It uses licensed cloud analysis when internet is healthy and automatically falls back to on-device people and possible-weapon detection when cloud analysis is unavailable. Every alert still requires human review.
 
 ---
 
@@ -136,19 +136,19 @@ Use this page as the full lifecycle map. Each step links to a deeper guide.
 
 ## 1. Set up devices
 
-Install AlphaRelay Copilot, activate each Android or iOS device license, sign in to the web app, and open Mission Overwatch once while online on each browser profile that will use it in the field. A device used for Mission Viewer needs its own licensed installation. If the flight controller cannot run AlphaRelay, prepare DJI RTMP or Skydio RTSP Controller Livestream, or a UVC card connected to Android, USB-C iPad, or a laptop.
+Install AlphaRelay Operator, activate each Android or iOS device license, sign in to the web app, and open Mission Overwatch once while online on each browser profile that will use it in the field. A device used for Mission Viewer needs its own licensed installation. If the flight controller cannot run AlphaRelay, prepare DJI RTMP or Skydio RTSP Controller Livestream, or a UVC card connected to Android, USB-C iPad, or a laptop.
 
 → Devices and licenses · Before you go to the field
 
 ## 2. Start a mission
 
-Start most workflows in Copilot. Tap **Start Mission**, choose the video source, then set the operator, mission name, scenario, AI targets, and alert options. Android supports controller-screen capture, Controller Livestream, UVC HDMI, and eligible Pilot mode. iPhone/iPad support ReplayKit and Controller Livestream; USB-C iPad also supports UVC HDMI. Controller Livestream shows DJI RTMP fields and, when deployed, Skydio RTSP External Server fields. For laptop HDMI, use **New laptop HDMI mission**, then **Connect & go live** in Mission Overwatch. Stop and upload that browser recording before ending the mission.
+Start most workflows in Operator. Tap **Start Mission**, choose the video source, then set the operator, mission name, scenario, AI targets, and alert options. Android supports controller-screen capture, Controller Livestream, UVC HDMI, and eligible Pilot mode. iPhone/iPad support ReplayKit and Controller Livestream; USB-C iPad also supports UVC HDMI. Controller Livestream shows DJI RTMP fields and, when deployed, Skydio RTSP External Server fields. For laptop HDMI, use **New laptop HDMI mission**, then **Connect & go live** in Mission Overwatch. Stop and upload that browser recording before ending the mission.
 
 → Start a mission · Mission connectivity · Android Controller Screen Capture · Controller Livestream and HDMI Capture · iPhone and iPad · DJI Avata with DJI Goggles
 
 ## 3. Watch and log events
 
-Open the active mission in Mission Overwatch. Its full-screen command view protects the live feed, keeps the event timeline in the right rail, and places Quick Events, manual events, dictation, and applicable HDMI controls in the compact **Events & input** row below. When AI live watch is configured, Mission Overwatch can combine enabled standard detections with scenario-specific and mission-specific visible targets, sample the remote stream, and log alerts for officer review. A Controller Livestream also runs the same server-side Live AI from the gateway, independent of the phone that created the mission. A second licensed Android or iOS Copilot device can open Mission Viewer to watch remote live, follow the timeline, and add quick or manual events. On Android, viewer events include a full live-frame screenshot when video is available. Device Live AI can also create alerts while capture is running; cloud analysis hands off automatically to the on-device fallback when needed.
+Open the active mission in Mission Overwatch. Its full-screen command view protects the live feed, keeps the event timeline in the right rail, and places Quick Events, manual events, dictation, and applicable HDMI controls in the compact **Events & input** row below. When AI live watch is configured, Mission Overwatch can combine enabled standard detections with scenario-specific and mission-specific visible targets, sample the remote stream, and log alerts for officer review. A Controller Livestream also runs the same server-side Live AI from the gateway, independent of the phone that created the mission. A second licensed Android or iOS Operator device can open Mission Viewer to watch remote live, follow the timeline, and add quick or manual events. On Android, viewer events include a full live-frame screenshot when video is available. Device Live AI can also create alerts while capture is running; cloud analysis hands off automatically to the on-device fallback when needed.
 
 The Command Center brings active mission state, remote-live or sync problems, automatic alerts awaiting review, and report follow-ups into one attention queue. Mission Overwatch refreshes the focused timeline as device and viewer events arrive.
 
@@ -171,7 +171,7 @@ Generate the after-action report with AI drafting when configured, resolve **Ite
 ## AI across the workflow
 
 - During an active remote stream, **AI live watch** samples frames and logs possible threat indicators for officer review.
-- On a Copilot device, **Device Live AI** uses cloud analysis while it is healthy and automatically falls back to on-device people and possible-weapon detection when cloud analysis or internet is unavailable.
+- On an Operator device, **Device Live AI** uses cloud analysis while it is healthy and automatically falls back to on-device people and possible-weapon detection when cloud analysis or internet is unavailable.
 - For an AI live-watch or Device Live AI alert, choose **Approve alert** to allow configured screenshot analysis and report eligibility, or **Dismiss alert** to exclude it. Then review any resulting analysis with **Accept as is** or **Review & edit**.
 - Mission Overwatch, device cloud analysis, and the on-device fallback coordinate ownership to reduce duplicate alerts. The fallback resumes automatically when a healthy cloud handoff ends.
 - After a synced mission closes, **AI Review** analyzes operator-selected targets using **Event-focused** or **Full mission — detailed** coverage. Event-focused analysis reviews original-video intervals around accepted events without treating their existing screenshots as analysis input. Full mission reviews the union of selected recording timelines, preferring higher-quality or original footage where recordings overlap. Candidate findings are then checked against evidence screenshots before review.
@@ -187,15 +187,15 @@ Official event counts and evidence surfaces include every undeleted human-create
 
 | Role | Device | Responsibility |
 | --- | --- | --- |
-| Pilot | AlphaRelay Copilot (Android, iPhone, or iPad) plus the flight app or supported Pilot-mode controls | Selects the current operator, starts missions, flies through the applicable flight interface, logs field events, ends mission, uploads footage |
-| Controller-video operator | Android/iOS Copilot device or laptop plus an RTMP-capable or HDMI-output flight controller | Creates a Controller Livestream destination or receives HDMI video while the flight controller retains aircraft control |
-| Mission viewer | Copilot on a second licensed Android or iOS device | Watches active remote live, follows timeline events and alerts, and logs quick or manual events |
+| Pilot | AlphaRelay Operator (Android, iPhone, or iPad) plus the flight app or supported Pilot-mode controls | Selects the current operator, starts missions, flies through the applicable flight interface, logs field events, ends mission, uploads footage |
+| Controller-video operator | Android/iOS Operator device or laptop plus an RTMP-capable or HDMI-output flight controller | Creates a Controller Livestream destination or receives HDMI video while the flight controller retains aircraft control |
+| Mission viewer | Operator on a second licensed Android or iOS device | Watches active remote live, follows timeline events and alerts, and logs quick or manual events |
 | Overwatch user | Browser — Mission Overwatch | Relay viewing, remote live, command-side events, review, report, seal, export |
 | Reviewer / officer | Browser — Mission Overwatch | Checks timeline, footage, report draft, and custody |
 | Supervisor | Browser — Mission Dashboard / Overwatch | Approves or returns after-action reports |
 | Org admin | Browser — Organization Settings | Members, roles, agency scenarios, licenses, time zone, storage, and read-only Activity Log |
 
-Organization access uses four roles. **Admin/Owner** manages the organization and every mission. **Supervisor** oversees every mission and approves or returns reports. **Officer** works on missions they created, were assigned to, or received through mission sharing. **Mission operator** is a separate designation that can be applied to any member role; it controls whether the person appears in Copilot's field roster and can start missions.
+Organization access uses four roles. **Admin/Owner** manages the organization and every mission. **Supervisor** oversees every mission and approves or returns reports. **Officer** works on missions they created, were assigned to, or received through mission sharing. **Mission operator** is a separate designation that can be applied to any member role; it controls whether the person appears in the AlphaRelay Operator field roster and can start missions.
 
 ## Android drone controllers
 
@@ -209,11 +209,11 @@ For a DJI Avata with compatible DJI Goggles, the pilot operates through the gogg
 
 Use **Controller Livestream** when a DJI controller can publish to RTMP or a Skydio controller supports RTSP External Server. A licensed Android, iPhone, or iPad creates the mission and shows the matching RTMP or RTSP values. Internet is required.
 
-Use **HDMI Capture Card** when the controller exposes HDMI output. Connect it through a UVC card to Android Copilot, a USB-C iPad, or a laptop browser. The laptop path starts from **New laptop HDMI mission** and requires no phone or tablet app. None of these workflows transfers aircraft control away from the flight controller.
+Use **HDMI Capture Card** when the controller exposes HDMI output. Connect it through a UVC card to Android Operator, a USB-C iPad, or a laptop browser. The laptop path starts from **New laptop HDMI mission** and requires no phone or tablet app. None of these workflows transfers aircraft control away from the flight controller.
 
 ## iPhone and iPad
 
-On iOS 26, AlphaRelay Copilot can use ReplayKit screen capture, Controller Livestream, or USB-C iPad UVC HDMI capture. iPhone does not expose UVC capture to AlphaRelay. The flight app or controller remains responsible for aircraft control.
+On iOS 26, AlphaRelay Operator can use ReplayKit screen capture, Controller Livestream, or USB-C iPad UVC HDMI capture. iPhone does not expose UVC capture to AlphaRelay. The flight app or controller remains responsible for aircraft control.
 
 ## Secondary mission viewer
 
@@ -221,18 +221,18 @@ On a licensed Android device, tap **View Live Mission**. On iPhone or iPad, tap 
 
 ## Key rules
 
-- Most missions start from Copilot. **Laptop HDMI Capture** starts from **New laptop HDMI mission** in Mission Dashboard and continues in Mission Overwatch.
+- Most missions start from Operator. **Laptop HDMI Capture** starts from **New laptop HDMI mission** in Mission Dashboard and continues in Mission Overwatch.
 - The landing screen separates **Start a Mission** from **View a Live Mission**. Starting first opens **Choose video source**, then the operator, scenario, mission name, AI targets, and alert settings for that source.
 - Open missions from **Mission Dashboard** (link may say **Open Mission Console**).
-- Copilot presents one **Start Mission** action and starts remote live automatically when validated internet is available.
+- Operator presents one **Start Mission** action and starts remote live automatically when validated internet is available.
 - Mission Overwatch keeps the live **Event timeline** in the right rail. Quick Events, typed manual events, browser dictation, and applicable laptop HDMI controls stay in the compact **Events & input** row beneath the feed.
-- **Local Network** is a deployment-specific Android LAN relay path and is not presented by the current public Copilot workflow.
+- **Local Network** is a deployment-specific Android LAN relay path and is not presented by the current public Operator workflow.
 - **Controller Screen Capture** is automatic on integrated Android drone controllers and the recommended default on detected DJI SDK-controller setups; it is not a separate mission button.
 - **HDMI Capture Card** works through Android USB host/OTG, USB-C iPad, or a laptop browser; iPhone is not a UVC input device.
-- **Controller Livestream** works from Android or iOS Copilot and supports DJI RTMP plus Skydio RTSP External Server.
+- **Controller Livestream** works from Android or iOS Operator and supports DJI RTMP plus Skydio RTSP External Server.
 - **Pilot mode** is an explicit alternative on eligible DJI SDK-controller setups and requires supported-aircraft confirmation plus a successful live connection check.
 - Compatible DJI Goggles can enable **Goggles Mode** automatically over USB, but the operator still taps **Start Mission** before capture begins.
-- Mission Viewer requires internet and a valid Copilot license; only active missions in that license's organization appear. It normally runs on a second device, but the Android device that creates a Controller Livestream also opens that mission in Mission Viewer.
+- Mission Viewer requires internet and a valid Operator license; only active missions in that license's organization appear. It normally runs on a second device, but the Android device that creates a Controller Livestream also opens that mission in Mission Viewer.
 
 ## Share one mission
 
@@ -242,7 +242,7 @@ Authorized members of a mission team can click **Share** in Mission Overwatch. T
 
 ## Mission Connectivity
 
-AlphaRelay Copilot presents one **Start Mission** action. It creates an Internet mission and automatically starts **Live stream (WebRTC)** when the device has validated internet.
+AlphaRelay Operator presents one **Start Mission** action. It creates an Internet mission and automatically starts **Live stream (WebRTC)** when the device has validated internet.
 
 ## Online mission
 
@@ -259,7 +259,7 @@ If validated internet is unavailable, **Start Mission** still begins local captu
 
 ## Deployment-specific Local Network relay
 
-The current public Copilot workflow does not show a **Local Network** mission button. Some older or deployment-specific Android builds may expose **Local Network** and **Live Overwatch Screen** for same-Wi-Fi relay viewing. In those builds:
+The current public Operator workflow does not show a **Local Network** mission button. Some older or deployment-specific Android builds may expose **Local Network** and **Live Overwatch Screen** for same-Wi-Fi relay viewing. In those builds:
 
 - The pilot and Mission Overwatch devices must share a reachable Wi-Fi network.
 - **Live Overwatch Screen** connects to the pilot device by LAN IP.
@@ -291,7 +291,7 @@ In this mode, the controller's native flight app controls the aircraft while Alp
 
 ## Controller Livestream and HDMI Capture
 
-These workflows keep aircraft control on a separate flight controller. Controller Livestream is configured from Android or iOS Copilot. HDMI can be received by Android, USB-C iPad, or directly in Mission Overwatch on a laptop. Laptop HDMI is the only live mission that starts from the browser rather than Copilot.
+These workflows keep aircraft control on a separate flight controller. Controller Livestream is configured from Android or iOS Operator. HDMI can be received by Android, USB-C iPad, or directly in Mission Overwatch on a laptop. Laptop HDMI is the only live mission that starts from the browser rather than Operator.
 
 → Controller Livestream and HDMI Capture
 
@@ -313,7 +313,7 @@ This is the recommended capture path. On integrated Android drone controllers it
 
 ## Where it is available
 
-Controller Screen Capture is available on Android-based drone controllers that can install **AlphaRelay Copilot** and grant Android screen capture permission. It is not limited to one controller manufacturer.
+Controller Screen Capture is available on Android-based drone controllers that can install **AlphaRelay Operator** and grant Android screen capture permission. It is not limited to one controller manufacturer.
 
 AlphaRelay detects known drone-controller identity strings, including DJI RC / RC Pro / RC Plus / RM / Matrice controller families, Autel smart controllers, Herelink / CubePilot controllers, and Inspired Flight GS-ONE controllers. Generic Android phones, tablets, and rugged tablets use the normal pilot workflow unless they are connected to compatible DJI Goggles or Goggles Mode is enabled manually.
 
@@ -325,16 +325,16 @@ You do not need to enable Android Developer mode to install AlphaRelay.
 
 1. Connect the controller to internet.
 2. Open the controller web browser.
-3. Download **AlphaRelay Copilot** from the dashboard app download link. If needed, open [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html) directly.
+3. Download **AlphaRelay Operator** from the dashboard app download link. If needed, open [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html) directly.
 4. When Android asks about installing unknown apps, allow the browser or file manager to **install unknown apps** from that source.
-5. Install and open **AlphaRelay Copilot**.
+5. Install and open **AlphaRelay Operator**.
 6. Grant requested permissions.
 7. Activate the app with the short controller pairing code generated by an admin, or use another device license method from Devices and Licenses.
 
 ## What changes
 
 - The controller's native flight app remains responsible for flight, camera, and safety controls.
-- AlphaRelay disables direct aircraft commands in Copilot.
+- AlphaRelay disables direct aircraft commands in Operator.
 - The live source becomes the controller screen instead of an in-app aircraft camera preview.
 - **Takeoff**, **Land**, camera controls, and other aircraft commands in AlphaRelay are blocked.
 - AlphaRelay records one continuous controller-screen MP4 for the mission and queues it after closeout.
@@ -369,7 +369,7 @@ Use the controller's native flight app for flight operation. Use AlphaRelay for 
 
 - **Live stream (WebRTC)** publishes the controller screen to remote Overwatch users when the pilot device has internet.
 - Say `relay` followed by event details to create a voice relay event. AlphaRelay saves a current controller-screen screenshot with the event when available.
-- Return to Copilot for the dedicated active-mission dashboard. It shows capture, live-stream, Device Live AI, Overwatch AI, alert-banner, queued-event, queued-footage, and mission-time status, plus quick events, manual screenshot-backed events, **Sync now**, and **Stop and complete mission**.
+- Return to Operator for the dedicated active-mission dashboard. It shows capture, live-stream, Device Live AI, Overwatch AI, alert-banner, queued-event, queued-footage, and mission-time status, plus quick events, manual screenshot-backed events, **Sync now**, and **Stop and complete mission**.
 - Use **Update AI targets** to change mission-only visible targets without restarting. Offline edits remain queued until sync succeeds.
 - Device Live AI uses cloud analysis when available. The on-device fallback and direct Android alerts continue without internet; timeline sync and cloud follow-up wait for connectivity.
 - If you need AlphaRelay controls during the mission, return to AlphaRelay from recent apps or the notification, make the update, then return to the native flight app. The recording follows the visible screen.
@@ -414,28 +414,28 @@ Queued recordings are stored durably and resume uploading automatically when val
 
 ## Controller Livestream and HDMI Capture
 
-Use these workflows when the flight controller should keep aircraft control but cannot run AlphaRelay Copilot, or when you want a direct controller-video input instead of screen capture.
+Use these workflows when the flight controller should keep aircraft control but cannot run AlphaRelay Operator, or when you want a direct controller-video input instead of screen capture.
 
-- **Controller Livestream:** A DJI controller publishes to AlphaRelay with RTMP, or a Skydio controller uses RTSP External Server. Set up the mission from AlphaRelay Copilot on Android, iPhone, or iPad. Internet is required during capture.
+- **Controller Livestream:** A DJI controller publishes to AlphaRelay with RTMP, or a Skydio controller uses RTSP External Server. Set up the mission from AlphaRelay Operator on Android, iPhone, or iPad. Internet is required during capture.
 - **Laptop HDMI Capture:** Connect the controller through a USB Video Class (UVC) capture card to a laptop and start the mission from the web app. No phone or tablet app is required. Local evidence recording can continue through a temporary internet interruption.
-- **Copilot HDMI Capture:** Connect a UVC card to a compatible Android device or USB-C iPad. The Copilot app records the received video and can continue locally without internet. iPhone does not expose UVC capture to this workflow.
+- **Operator HDMI Capture:** Connect a UVC card to a compatible Android device or USB-C iPad. The Operator app records the received video and can continue locally without internet. iPhone does not expose UVC capture to this workflow.
 
 In every workflow, fly from the controller's native flight application. AlphaRelay does not take aircraft control.
 
 ## Controller Livestream
 
-Controller Livestream creates a mission-scoped publishing destination from a licensed Copilot device. AlphaRelay shows both DJI RTMP details and, when the deployed gateway supports it, Skydio RTSP External Server details. RTMP supports either one complete URL field or separate server and stream-key fields.
+Controller Livestream creates a mission-scoped publishing destination from a licensed Operator device. AlphaRelay shows both DJI RTMP details and, when the deployed gateway supports it, Skydio RTSP External Server details. RTMP supports either one complete URL field or separate server and stream-key fields.
 
 ### Requirements
 
-- A licensed Android, iPhone, or iPad running AlphaRelay Copilot
-- Validated internet on the Copilot device and streaming controller
+- A licensed Android, iPhone, or iPad running AlphaRelay Operator
+- Validated internet on the Operator device and streaming controller
 - A DJI controller or flight application that accepts custom RTMP, or a Skydio controller with RTSP External Server
 - A separate flight controller; the setup device does not open or control its flight app
 
 ### Start and watch
 
-1. Open AlphaRelay Copilot and select **Controller Livestream** as the video source.
+1. Open AlphaRelay Operator and select **Controller Livestream** as the video source.
 2. Select the operator and scenario, name the mission, and review the AI targets and people-alert setting.
 3. Tap **Create Controller Livestream** on Android or **Set Up Controller Livestream** on iPhone or iPad.
 4. Open the separate controller's livestream settings.
@@ -447,9 +447,9 @@ If the controller disconnects, restart its publisher with the same mission desti
 
 **Warning:** Treat the RTMP and RTSP addresses, keys, and stream names as publishing credentials. Enter them only on the intended controller and do not place them in reports, screenshots, or public messages.
 
-The Controller Livestream gateway runs server-side Live AI while the mission is active, so analysis does not depend on the phone that created the mission remaining on the viewer. A Copilot device viewing the stream can still show alerts and create screenshot-backed quick, manual, or `Relay` voice events from the received full video frame. AlphaRelay coordinates gateway, browser, and device analysis to reduce duplicate alerts.
+The Controller Livestream gateway runs server-side Live AI while the mission is active, so analysis does not depend on the phone that created the mission remaining on the viewer. An Operator device viewing the stream can still show alerts and create screenshot-backed quick, manual, or `Relay` voice events from the received full video frame. AlphaRelay coordinates gateway, browser, and device analysis to reduce duplicate alerts.
 
-When field work is complete, stop the controller's livestream first. Then close the mission in Mission Overwatch or Copilot. AlphaRelay finalizes the received Controller Livestream recording into the mission record.
+When field work is complete, stop the controller's livestream first. Then close the mission in Mission Overwatch or Operator. AlphaRelay finalizes the received Controller Livestream recording into the mission record.
 
 ## Laptop HDMI Capture
 
@@ -469,7 +469,7 @@ Controller HDMI out -> capture card HDMI in -> capture card USB -> laptop
 
 Laptop HDMI is video-only. AlphaRelay records MP4 when the browser supports it and WebM otherwise. If the tab or browser is interrupted, reopen the same mission and use **Recover interrupted recording**; do not clear browser data before recovery. A laptop HDMI output is not an input—a physical UVC capture card is required.
 
-## Copilot HDMI Capture
+## Operator HDMI Capture
 
 Use one of these paths:
 
@@ -481,8 +481,8 @@ A powered USB hub may be necessary when the card draws more power than the devic
 ### Android
 
 1. Connect the powered controller, card, and Android device before mission setup.
-2. Open Copilot, select the operator and scenario, and review the mission settings.
-3. Select **HDMI Capture Card**. Copilot may select it automatically when it detects a UVC input.
+2. Open Operator, select the operator and scenario, and review the mission settings.
+3. Select **HDMI Capture Card**. Operator may select it automatically when it detects a UVC input.
 4. Tap **Start Mission** and grant the Android camera and USB-device prompts.
 5. Confirm the preview changes from **Waiting for signal** to **Capturing** before flight.
 
@@ -493,35 +493,35 @@ A powered USB hub may be necessary when the card draws more power than the devic
 3. Grant camera permission and confirm the full-frame preview before flight.
 4. If the card disconnects, reconnect it and tap **Connect or retry HDMI input**. The prior segment finalizes and a new segment begins.
 
-Copilot HDMI follows the normal local recording, remote-live, Device Live AI, event-screenshot, upload, review, and custody workflow. It is video-only; optional voice events use the Android device or iPad microphone, not capture-card USB/UAC audio.
+Operator HDMI follows the normal local recording, remote-live, Device Live AI, event-screenshot, upload, review, and custody workflow. It is video-only; optional voice events use the Android device or iPad microphone, not capture-card USB/UAC audio.
 
 ## Before operational use
 
 Test the exact controller, capture card, cable or hub, receiving device, browser when applicable, resolution, orientation, sustained recording, and disconnect/reconnect behavior in training. Confirm a stable 16:9 preview and playable closeout footage. For Controller Livestream, confirm the correct DJI RTMP or Skydio RTSP entry and verify that the publisher can reconnect.
 
-→ Start a mission · Use Copilot on iPhone or iPad · Watch in Mission Overwatch · Upload footage · Troubleshooting
+→ Start a mission · Use Operator on iPhone or iPad · Watch in Mission Overwatch · Upload footage · Troubleshooting
 
 ---
 
-## Use AlphaRelay Copilot on iPhone or iPad
+## Use AlphaRelay Operator on iPhone or iPad
 
-**AlphaRelay Copilot** on iPhone and iPad can capture the controller screen with ReplayKit, set up a DJI RTMP or Skydio RTSP Controller Livestream, or—on USB-C iPad—receive HDMI video through a UVC capture card. Your flight app or controller keeps aircraft control.
+**AlphaRelay Operator** on iPhone and iPad can capture the controller screen with ReplayKit, set up a DJI RTMP or Skydio RTSP Controller Livestream, or—on USB-C iPad—receive HDMI video through a UVC capture card. Your flight app or controller keeps aircraft control.
 
 ## Requirements
 
 - iPhone or iPad running iOS 26
-- The organization-provided AlphaRelay Copilot app installed
-- A Copilot device license or one-installation pairing code
+- The organization-provided AlphaRelay Operator app installed
+- An Operator device license or one-installation pairing code
 - Screen Recording permission; microphone and speech-recognition permission when voice events are needed
 - Internet for remote live, immediate sync, cloud Live AI, Mission Viewer, and upload; saved events and footage can retry later
 
 ## Activate the device
 
-1. Open **AlphaRelay Copilot**.
+1. Open **AlphaRelay Operator**.
 2. Scan the organization license QR code, enter the 8-character pairing code, or enter the full `ar-…` license key.
 3. Select the operator when the organization roster contains more than one operator.
 
-The license is stored on the device. Copilot does not use the web-app email and password for device activation.
+The license is stored on the device. Operator does not use the web-app email and password for device activation.
 
 ## Choose the video source
 
@@ -529,13 +529,13 @@ From **What do you want to do?**, tap **Start a Mission**, then choose **Control
 
 ## Start Controller Screen capture
 
-1. Open **AlphaRelay Copilot** and choose a built-in or agency scenario, or **No scenario**.
+1. Open **AlphaRelay Operator** and choose a built-in or agency scenario, or **No scenario**.
 2. Confirm the operator, enter the mission name, optionally add up to eight **Mission-specific AI targets**, and choose whether **Alert on people** should include routine person and hand-to-hand-contact alerts. Other enabled detections and mission-specific targets remain active when it is off.
 3. Tap **Start Mission**.
 4. In the iOS broadcast picker, choose **AlphaRelay Capture**. Enable the microphone when the recording needs microphone audio, then start the broadcast.
 5. Open the flight app. Keep the iOS screen-recording indicator active while AlphaRelay captures in the background.
 
-Copilot publishes the captured display through **Live stream (WebRTC)** when internet is available. The active-mission screen shows capture, live-stream, Device Live AI, Overwatch AI, alert, queued-event, queued-footage, and mission-time status. If capture stops, return to Copilot and tap **Choose display and start capture**.
+Operator publishes the captured display through **Live stream (WebRTC)** when internet is available. The active-mission screen shows capture, live-stream, Device Live AI, Overwatch AI, alert, queued-event, queued-footage, and mission-time status. If capture stops, return to Operator and tap **Choose display and start capture**.
 
 ## Start Controller Livestream
 
@@ -550,29 +550,29 @@ Internet is required on both devices. Stop the publisher before closing the miss
 1. Connect the controller HDMI output through a UVC card to the USB-C iPad.
 2. Choose **HDMI Capture Card**, complete setup, and tap **Start HDMI Capture Mission**.
 3. Grant camera permission and verify the full video frame before flight.
-4. After a disconnect, reconnect the card and tap **Connect or retry HDMI input**. Copilot finalizes the prior segment and begins another.
+4. After a disconnect, reconnect the card and tap **Connect or retry HDMI input**. Operator finalizes the prior segment and begins another.
 
 This path is video-only. Voice events use the iPad microphone; capture-card USB/UAC audio is not added to the recording.
 
 ## Log and update the mission
 
-- Use scenario quick events or **Log event with current frame**. Copilot attaches a fresh controller-screen image when capture can provide one.
-- Leave **Voice events** enabled to say `Relay` followed by the note. Copilot saves the note with the latest captured frame.
+- Use scenario quick events or **Log event with current frame**. Operator attaches a fresh controller-screen image when capture can provide one.
+- Leave **Voice events** enabled to say `Relay` followed by the note. Operator saves the note with the latest captured frame.
 - Use **Update AI targets** to change mission-only visible targets without restarting the mission. Offline edits remain queued for cloud sync.
 - When Live Activities are enabled, Live AI alerts use a concise one-line Lock Screen or Dynamic Island presentation designed for the landscape flight-app view, then collapse back to monitoring after about one second. Urgent weapon-like alerts use red treatment; informational people alerts use yellow treatment.
-- If a mission Live Activity is unavailable, Copilot uses the **Screen Sharing** notification fallback. Allow time-sensitive notifications so alerts can appear over the flight app.
+- If a mission Live Activity is unavailable, Operator uses the **Screen Sharing** notification fallback. Allow time-sensitive notifications so alerts can appear over the flight app.
 - Alert presentations are review prompts, not confirmed findings. The mission timeline remains the durable review surface after the brief on-screen alert clears.
 
-With working internet, Device Live AI uses licensed server-side analysis without storing an OpenAI key in the app. If cloud analysis is unavailable, Copilot automatically falls back to on-device people detection and possible-weapon verification. Every alert still requires human review.
+With working internet, Device Live AI uses licensed server-side analysis without storing an OpenAI key in the app. If cloud analysis is unavailable, Operator automatically falls back to on-device people detection and possible-weapon verification. Every alert still requires human review.
 
 ## Complete the mission
 
-1. Return to AlphaRelay Copilot.
+1. Return to AlphaRelay Operator.
 2. Tap **Sync now** when pending items remain and connectivity is available.
 3. Tap **Stop and complete mission**.
-4. Keep Copilot open while the selected capture source finalizes and saved events and footage are handed off.
+4. Keep Operator open while the selected capture source finalizes and saved events and footage are handed off.
 
-Copilot hashes completed local recordings and uses the normal custody-aware upload flow. If ReplayKit finishes a playable file but its handoff is interrupted, Copilot can recover the recording when it next processes the queue.
+Operator hashes completed local recordings and uses the normal custody-aware upload flow. If ReplayKit finishes a playable file but its handoff is interrupted, Operator can recover the recording when it next processes the queue.
 
 ## Watch another active mission
 
@@ -580,7 +580,7 @@ From mission setup, tap **Watch Live Mission**. Choose an active mission in the 
 
 ## iOS boundaries
 
-- Copilot captures the selected iOS display or app; it does not control the aircraft.
+- Operator captures the selected iOS display or app; it does not control the aircraft.
 - USB-C iPad supports UVC HDMI capture; iPhone does not. Use RTMP or RTSP Controller Livestream when an iPhone must support a separate controller.
 - iOS does not use Android's DJI Goggles USB/LogicLink auto-detection or the deployment-specific Android local-network relay.
 - iOS uses its own on-device fallback rather than Android's full multi-object detector.
@@ -600,7 +600,7 @@ Use **Goggles Mode** to run an AlphaRelay mission with a DJI Avata, compatible D
 ## What you need
 
 - A DJI Avata, compatible DJI Goggles, and a compatible motion or FPV remote controller, powered on, activated, updated, and linked
-- An Android phone or tablet with both **DJI Fly** and **AlphaRelay Copilot** installed
+- An Android phone or tablet with both **DJI Fly** and **AlphaRelay Operator** installed
 - An active AlphaRelay device license
 - Android screen capture permission
 - Internet on the Android device for mission sync, remote live, and footage upload
@@ -611,9 +611,9 @@ Run a complete test mission with the same phone, cables, and network before oper
 ## Install and activate the Android apps
 
 1. Install **DJI Fly** on the Android device from DJI's official [DJI Fly download page](https://www.dji.com/downloads/djiapp/dji-fly).
-2. Download **AlphaRelay Copilot** from [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html).
+2. Download **AlphaRelay Operator** from [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html).
 3. If Android prompts for unknown-source installation, allow the browser or file manager to **install unknown apps** from that source.
-4. Open AlphaRelay Copilot, grant the requested permissions, and activate it with the device license or short controller pairing code.
+4. Open AlphaRelay Operator, grant the requested permissions, and activate it with the device license or short controller pairing code.
 
 Android Developer mode is not required. See Devices and Licenses for all AlphaRelay activation options.
 
@@ -628,7 +628,7 @@ Live-view sharing options vary by goggles model. Confirm that DJI supports your 
 3. Open **DJI Fly** on the Android device.
 4. Tap **GO FLY** and confirm that the goggles live view appears on the Android screen.
 
-AlphaRelay can identify compatible DJI Goggles over the wired USB connection and turn on Goggles Mode automatically. It still waits for you to start the mission from the Copilot landing screen.
+AlphaRelay can identify compatible DJI Goggles over the wired USB connection and turn on Goggles Mode automatically. It still waits for you to start the mission from the Operator landing screen.
 
 ### Wireless
 
@@ -639,13 +639,13 @@ AlphaRelay can identify compatible DJI Goggles over the wired USB connection and
 
 Wireless sharing uses the Android device's Wi-Fi connection. Keep cellular data available for AlphaRelay remote live, mission sync, and upload.
 
-If Goggles Mode does not turn on automatically during a wireless connection, enable **Use DJI Fly / goggles video feed** in Copilot before starting. The setting remains enabled for the next DJI Avata mission; turn it off when returning to the normal phone or tablet workflow.
+If Goggles Mode does not turn on automatically during a wireless connection, enable **Use DJI Fly / goggles video feed** in Operator before starting. The setting remains enabled for the next DJI Avata mission; turn it off when returning to the normal phone or tablet workflow.
 
 ## Start the AlphaRelay mission
 
 With the DJI Fly live view working:
 
-1. Open **AlphaRelay Copilot** on the same Android device.
+1. Open **AlphaRelay Operator** on the same Android device.
 2. Complete any first-time permission or license prompts.
 3. Tap **Start Mission**. AlphaRelay keeps the compatible Goggles Mode selection and skips ordinary scenario selection.
 4. If Android asks to share or record the screen, approve the screen capture request.
@@ -689,7 +689,7 @@ When you stop the mission, AlphaRelay finalizes an MP4 from the live frames it c
 ## Limits
 
 - This workflow records the DJI Fly screen, including overlays, not the original aircraft camera file.
-- Goggles Mode uses the cloud-backed mission workflow; the current Copilot workflow does not present a Local Network mission option.
+- Goggles Mode uses the cloud-backed mission workflow; the current Operator workflow does not present a Local Network mission option.
 - Remote live, cloud sync, and upload require a usable internet connection on the Android device.
 - Android screen capture permission is required each time capture starts.
 - If DJI Fly is not installed, AlphaRelay cannot open it automatically.
@@ -706,12 +706,12 @@ Run a short test mission to learn the workflow end to end.
 
 ## Steps
 
-1. Open AlphaRelay Copilot, tap **Start a Mission**, and choose how AlphaRelay will receive video.
+1. Open AlphaRelay Operator, tap **Start a Mission**, and choose how AlphaRelay will receive video.
 2. Select the test operator when an agency roster is available, pick a scenario template or **No scenario template**, enter `Training mission` as the mission name, and add one harmless mission-specific AI target if testing Live AI.
 3. Start the selected video path and confirm it is healthy: approve screen capture, confirm **Capturing** for HDMI, or create **Controller Livestream**, enter its DJI RTMP or Skydio RTSP values on the separate controller, and start that publisher. Confirm remote live when the workflow is online.
 4. Open the mission from Mission Dashboard and select **Live stream (WebRTC)**.
-5. If the team will use Mission Viewer, open Copilot on the second licensed Android or iOS device, choose the active mission, and confirm video, timeline, and alert updates.
-6. Add one event from Copilot (quick event, manual event with current frame, or voice: `relay `).
+5. If the team will use Mission Viewer, open Operator on the second licensed Android or iOS device, choose the active mission, and confirm video, timeline, and alert updates.
+6. Add one event from Operator (quick event, manual event with current frame, or voice: `relay `).
 7. Add one event from Mission Overwatch. Try **Dictate**, review the transcript, then click **Log Manual Event**.
 8. If Device Live AI will be used, confirm it is enabled and perform a safe person-detection check with internet, then verify automatic on-device fallback in a controlled connectivity test. Confirm the informational/yellow treatment. Do not simulate a weapon alert with a real weapon.
 9. Run a short, safe exercise.
@@ -749,21 +749,21 @@ Repeat this exercise when devices, networks, or aircraft change.
 ## Checklist
 
 1. Charge the pilot tablet, phone, or drone controller and confirm aircraft/controller are ready.
-2. Install or update **AlphaRelay Copilot**. Download the Android APK from [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html); use the organization-provided iOS app on iPhone or iPad.
+2. Install or update **AlphaRelay Operator**. Download the Android APK from [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html); use the organization-provided iOS app on iPhone or iPad.
 3. Confirm the **device license** is active (scan QR, enter an `ar-…` key, or use a non-expiring one-installation pairing code).
-4. Sign in to the web app with the correct operator account. On shared Copilot devices, refresh online and confirm the current pilot appears in the operator selector.
+4. Sign in to the web app with the correct operator account. On shared Operator devices, refresh online and confirm the current pilot appears in the operator selector.
 5. Open **Mission Overwatch** once while online on each browser that will use it in the field (installs the offline app shell).
 6. Run a test **Start Mission** flow and confirm remote live starts automatically when the pilot device is online.
 7. Confirm the Mission Overwatch browser can use its microphone if the team plans to use **Dictate** for manual events.
 8. If a second Android or iOS device will use Mission Viewer, activate its own license and test that it can see an active mission, remote video, timeline events, and alerts.
 9. If Device Live AI will be used, grant notification permission, confirm the intended Android settings under **Pilot console → Flight → Local AI**, review the per-detection choices in Mission Overwatch, and run a safe cloud-to-fallback detection test. Keep safety-critical detections enabled when your operating plan requires them.
-10. For Android drone controllers: install AlphaRelay Copilot, activate the device license, run a test **Controller Screen Capture** mission, and confirm Android screen capture permission works. If the crew will use **Pilot mode**, also confirm the aircraft appears in the supported list and passes AlphaRelay's live connection check.
+10. For Android drone controllers: install AlphaRelay Operator, activate the device license, run a test **Controller Screen Capture** mission, and confirm Android screen capture permission works. If the crew will use **Pilot mode**, also confirm the aircraft appears in the supported list and passes AlphaRelay's live connection check.
 11. For **Controller Livestream**, confirm the controller accepts the displayed DJI RTMP or Skydio RTSP External Server values, can reconnect, and produces playable closeout footage. RTMP stream keys and RTSP stream names are separate six-digit values.
 12. For **HDMI Capture Card**, test the exact controller, UVC card, cable or powered hub, Android device, USB-C iPad, or laptop browser as applicable. Verify the 16:9 signal, sustained recording, and disconnect/recovery path.
 13. For laptop HDMI, test **New laptop HDMI mission**, browser camera permission, **Connect & go live**, **Stop & upload**, and **Recover interrupted recording**. Do not clear browser data before recovery.
 14. For iPhone or iPad: confirm iOS 26 and test the selected ReplayKit, Controller Livestream, or iPad HDMI source. Test microphone/speech permissions if needed, allow Live Activities or the **Screen Sharing** notification fallback, and verify landscape alert presentation and recording finalization on the physical device.
-15. For a DJI Avata with compatible DJI Goggles: install DJI Fly and AlphaRelay Copilot on the Android device, test the supported goggles live-view connection, and confirm remote live and post-mission upload.
-16. Check for older queued video on the Copilot startup screen and let it finish, or consciously choose **Skip for now and start new mission**.
+15. For a DJI Avata with compatible DJI Goggles: install DJI Fly and AlphaRelay Operator on the Android device, test the supported goggles live-view connection, and confirm remote live and post-mission upload.
+16. Check for older queued video on the Operator startup screen and let it finish, or consciously choose **Skip for now and start new mission**.
 17. Plan for internet when you need remote live, Controller Livestream, Mission Viewer, cloud Live AI, sync, upload, reports, or export.
 18. If the mission uses an agency scenario, confirm it appears in mission setup and that its visible AI watch targets and Quick Events are current.
 19. Assign pilot, overwatch user, reviewer, and supervisor roles.
@@ -777,7 +777,7 @@ Repeat this exercise when devices, networks, or aircraft change.
 | Field work with no internet | Supported; data queues until sync |
 | Deployment-specific LAN relay | Same reachable Wi-Fi between pilot device and Overwatch |
 
-**Warning:** The current public Copilot workflow does not present a Local Network mission button. If your Android deployment exposes a LAN relay, it needs local Wi-Fi reachability and remains separate from internet sync.
+**Warning:** The current public Operator workflow does not present a Local Network mission button. If your Android deployment exposes a LAN relay, it needs local Wi-Fi reachability and remains separate from internet sync.
 
 Pilots can hide on-screen drone controls and use the physical controller while keeping quick events and relay status visible. See Minimum requirements for device specs.
 
@@ -785,11 +785,11 @@ Pilots can hide on-screen drone controls and use the physical controller while k
 
 ## Start a Mission
 
-Most live missions start from **AlphaRelay Copilot**. The exception is **Laptop HDMI Capture**, which starts from **New laptop HDMI mission** in the Mission Dashboard and continues in Mission Overwatch.
+Most live missions start from **AlphaRelay Operator**. The exception is **Laptop HDMI Capture**, which starts from **New laptop HDMI mission** in the Mission Dashboard and continues in Mission Overwatch.
 
 ## Steps
 
-1. Open AlphaRelay Copilot on the Android device, iPhone, or iPad.
+1. Open AlphaRelay Operator on the Android device, iPhone, or iPad.
 2. From **What do you want to do?**, tap **Start a Mission**.
 3. Under **Choose video source**, select **Controller Screen**, **Controller Livestream**, or **HDMI Capture Card** when supported. Eligible DJI SDK-controller setups can continue into Pilot mode from the controller-screen path.
 4. Select the operating person when the agency roster is available.
@@ -800,23 +800,23 @@ Most live missions start from **AlphaRelay Copilot**. The exception is **Laptop 
 9. Approve Android screen capture, choose **AlphaRelay Capture** from the iOS broadcast picker, or complete the RTMP, RTSP, or HDMI setup for the selected source.
 10. Open the native flight app when using screen capture. Use quick, manual, or `Relay` voice events and stop the mission when finished.
 
-Copilot prevents a new start while another mission or unfinished capture is active. Use the startup recovery action to close the existing mission through the normal finalization flow; do not discard it to force a new start.
+Operator prevents a new start while another mission or unfinished capture is active. Use the startup recovery action to close the existing mission through the normal finalization flow; do not discard it to force a new start.
 
 When an online license refresh provides an agency operator roster, AlphaRelay requires a member with the separate **Mission operator** designation to be selected before start and records that person with the mission and field-created events. An officer, supervisor, admin, or owner can be designated as a mission operator. If the roster is unavailable, the app warns the crew and can continue without identified-operator attribution; reconnect and refresh before operational use when attribution is required.
 
 Built-in and agency-created scenarios can provide scenario-specific AI targets. AlphaRelay copies those visible watch items into the mission for AI live watch and post-mission AI Review. The mission-only targets entered at setup supplement them and can be updated during the active mission without restarting. Offline target edits remain queued until cloud sync succeeds. Organization admins manage agency scenarios under **Organization Settings → Settings → Mission scenarios**.
 
-Agency scenarios can also provide up to seven Quick Events. If an agency scenario has no custom Quick Events, Copilot and Mission Overwatch use the standard event buttons.
+Agency scenarios can also provide up to seven Quick Events. If an agency scenario has no custom Quick Events, Operator and Mission Overwatch use the standard event buttons.
 
-Copilot starts an Internet mission and automatically starts **Live stream (WebRTC)** when the device has validated internet. If the device is offline, the mission still starts and stores work for later sync. On Android, remote live can be retried from **Pilot console → Mission** if internet becomes available during the mission.
+Operator starts an Internet mission and automatically starts **Live stream (WebRTC)** when the device has validated internet. If the device is offline, the mission still starts and stores work for later sync. On Android, remote live can be retried from **Pilot console → Mission** if internet becomes available during the mission.
 
-When supported Matrice aircraft or controllers are detected, Android Copilot may show additional camera tools such as wide/zoom/thermal source selection, visible zoom presets, thermal zoom, laser rangefinder, linked zoom, thermal super-resolution, or laser fill light. Validate those controls with the actual aircraft, payload, controller, and firmware before operational use.
+When supported Matrice aircraft or controllers are detected, Android Operator may show additional camera tools such as wide/zoom/thermal source selection, visible zoom presets, thermal zoom, laser rangefinder, linked zoom, thermal super-resolution, or laser fill light. Validate those controls with the actual aircraft, payload, controller, and firmware before operational use.
 
-On integrated Android drone controllers, Copilot uses **Controller Screen Capture** automatically. Approve the Android screen capture prompt, then operate the aircraft in the controller's native flight app. AlphaRelay records and streams the controller screen instead of taking over flight controls.
+On integrated Android drone controllers, Operator uses **Controller Screen Capture** automatically. Approve the Android screen capture prompt, then operate the aircraft in the controller's native flight app. AlphaRelay records and streams the controller screen instead of taking over flight controls.
 
-If a connected UVC HDMI capture card is detected, Android Copilot adds **HDMI Capture Card** and can select it automatically. Grant the camera and USB prompts, then confirm the received preview says **Capturing** before flight. This path records the controller's HDMI output without screen-sharing permission.
+If a connected UVC HDMI capture card is detected, Android Operator adds **HDMI Capture Card** and can select it automatically. Grant the camera and USB prompts, then confirm the received preview says **Capturing** before flight. This path records the controller's HDMI output without screen-sharing permission.
 
-On iPhone and iPad, choose **Controller Screen**, **Controller Livestream**, or—on USB-C iPad—**HDMI Capture Card**. Screen capture uses **AlphaRelay Capture** in the ReplayKit broadcast picker. See the iOS Copilot guide.
+On iPhone and iPad, choose **Controller Screen**, **Controller Livestream**, or—on USB-C iPad—**HDMI Capture Card**. Screen capture uses **AlphaRelay Capture** in the ReplayKit broadcast picker. See the iOS Operator guide.
 
 On a detected DJI SDK-controller setup — for example, an RC-N-series remote connected to the Android pilot device — the mission screen presents two choices:
 
@@ -836,7 +836,7 @@ For laptop HDMI, click **New laptop HDMI mission** in Mission Dashboard, add any
 - Lets Mission Overwatch users watch and log events without a LAN connection to the pilot device
 - Can be started or retried from **Pilot console → Mission** if automatic setup is skipped or fails
 
-The **Local Network** mission button is not presented in the current public Copilot workflow. See Mission connectivity if your Android deployment still exposes the LAN relay workflow.
+The **Local Network** mission button is not presented in the current public Operator workflow. See Mission connectivity if your Android deployment still exposes the LAN relay workflow.
 
 ## Choose Controller Screen Capture or Pilot mode
 
@@ -850,9 +850,9 @@ To use **Pilot mode** on an eligible setup:
 4. Keep the aircraft and controller powered on and connected while AlphaRelay checks the live DJI flight-controller connection.
 5. Wait for **Supported aircraft confirmed. Pilot mode is ready.** before tapping **Start Mission**.
 
-In Pilot mode, use the persisted **High quality (4K)** switch when the mission needs that aircraft recording profile; otherwise AlphaRelay applies the 1080p profile when supported. AlphaRelay starts or recovers aircraft SD recording after it detects takeoff, stops Live AI after landing, and can automatically close a confirmed airborne mission after touchdown while the longer aircraft-footage transfer continues. Keep the aircraft, controller, and Copilot powered until the transfer is secured. Some aircraft require physical-controller takeoff even in Pilot mode; AlphaRelay detects the airborne state and continues the mission.
+In Pilot mode, use the persisted **High quality (4K)** switch when the mission needs that aircraft recording profile; otherwise AlphaRelay applies the 1080p profile when supported. AlphaRelay starts or recovers aircraft SD recording after it detects takeoff, stops Live AI after landing, and can automatically close a confirmed airborne mission after touchdown while the longer aircraft-footage transfer continues. Keep the aircraft, controller, and Operator powered until the transfer is secured. Some aircraft require physical-controller takeoff even in Pilot mode; AlphaRelay detects the airborne state and continues the mission.
 
-Android Copilot's DJI MSDK 5.17 catalog includes:
+Android Operator's DJI MSDK 5.17 catalog includes:
 
 - DJI Mini 3
 - DJI Mini 3 Pro
@@ -882,7 +882,7 @@ If the aircraft is not listed, the SDK is unavailable, or the live check fails, 
 - The mission appears in **Mission Dashboard** after cloud sync.
 - Footage and events may upload during or after the mission depending on connectivity.
 - Use the active-mission **Alert on people** control to change routine person alerts without restarting. In Mission Overwatch, each standard detection can be enabled or disabled separately; enabled weapon-related alerts receive the highest presentation priority.
-- Tap **Stop and complete mission** or **Stop Mission** in Copilot (or **End Mission** in Mission Overwatch) when field work is done.
+- Tap **Stop and complete mission** or **Stop Mission** in Operator (or **End Mission** in Mission Overwatch) when field work is done.
 
 → Watch in Mission Overwatch · Android Controller Screen Capture · Controller Livestream and HDMI Capture · iPhone and iPad · DJI Avata with DJI Goggles · Connectivity
 
@@ -894,14 +894,14 @@ Use **View Live Mission** on Android or **Watch Live Mission** on iPhone and iPa
 
 ## Requirements
 
-- **AlphaRelay Copilot** installed and activated on the viewing device
+- **AlphaRelay Operator** installed and activated on the viewing device
 - A valid device license for the same organization as the mission; normally this is a separate device, while the Android device that created a Controller Livestream can view that mission itself
 - Internet on the viewing device
 - An active synced mission; remote live must be running for video
 
 ## Open Mission Viewer
 
-1. Open AlphaRelay Copilot on the viewing device.
+1. Open AlphaRelay Operator on the viewing device.
 2. On Android, tap **View Live Mission**. On iOS, tap **Watch Live Mission**.
 3. Choose an active mission. Use **Refresh** if the mission started after the list opened.
 4. Watch the live video and timeline. Timeline events can continue updating while video connects or retries.
@@ -924,7 +924,7 @@ Mission Viewer marks the timeline read-only and disables event entry after the m
 - Android viewer events cannot attach current-frame evidence until a complete live frame has arrived.
 - Mission Viewer does not expose aircraft controls or closed-mission review tools.
 
-→ Use AlphaRelay Copilot on iPhone or iPad · Watch in Mission Overwatch · Log events
+→ Use AlphaRelay Operator on iPhone or iPad · Watch in Mission Overwatch · Log events
 
 ---
 
@@ -938,7 +938,7 @@ Active missions open in a full-screen command view. The header shows elapsed tim
 
 ## Remote live — Live stream (WebRTC)
 
-When AlphaRelay Copilot starts a mission with validated internet, it starts remote live automatically. Open the active mission and select **Live stream (WebRTC)** to watch it.
+When AlphaRelay Operator starts a mission with validated internet, it starts remote live automatically. Open the active mission and select **Live stream (WebRTC)** to watch it.
 
 If the mission began offline or remote-live setup failed, restore internet and use **Pilot console → Mission → Start remote live** to retry.
 
@@ -966,7 +966,7 @@ Dictation depends on browser speech-recognition support. If it is unavailable or
 
 ## Deployment-specific Local Network relay
 
-The current public Copilot workflow does not present a **Local Network** mission option. If an older or deployment-specific Android build exposes **Live Overwatch Screen**, connect it to the field device on the same reachable Wi-Fi by scan or LAN IP. That LAN path is separate from remote live and cloud sync.
+The current public Operator workflow does not present a **Local Network** mission option. If an older or deployment-specific Android build exposes **Live Overwatch Screen**, connect it to the field device on the same reachable Wi-Fi by scan or LAN IP. That LAN path is separate from remote live and cloud sync.
 
 ## AI live watch
 
@@ -989,11 +989,11 @@ AI live watch alerts can show:
 
 - An **AI live alert** or **Urgent AI live alert** banner in Mission Overwatch
 - A timeline event with the sampled frame attached when available
-- A Live AI alert badge, notification, and log entry in Copilot while the same mission is active
+- A Live AI alert badge, notification, and log entry in Operator while the same mission is active
 
 Person detections use informational/yellow treatment. Possible weapons and other threat indicators use red review treatment, with **Urgent** reserved for the urgent-review level. Person-holding-a-weapon alerts rank ahead of other standard detections. The Mission Overwatch banner dismisses automatically after about three seconds, but the timeline event remains available for review.
 
-When browser AI live watch is successfully analyzing the same mission, Copilot pauses device-originated cloud requests and the on-device fallback to avoid duplicate automatic alerts. If browser analysis stops or the handoff expires, device analysis resumes automatically; cloud failure then falls back to on-device detection.
+When browser AI live watch is successfully analyzing the same mission, Operator pauses device-originated cloud requests and the on-device fallback to avoid duplicate automatic alerts. If browser analysis stops or the handoff expires, device analysis resumes automatically; cloud failure then falls back to on-device detection.
 
 Before a Device Live AI or AI live-watch alert can trigger configured screenshot analysis or enter a report, an officer must choose **Approve alert**. Choose **Dismiss alert** when the alert should be excluded. If an approved screenshot returns an analysis finding, it remains pending until an officer selects **Accept as is** or **Review & edit**. Unapproved, dismissed, and unreviewed findings do not enter the AAR narrative.
 
@@ -1026,7 +1026,7 @@ Use **Share** to give an eligible user mission-scoped collaborator access. Selec
 
 ## View from a licensed device
 
-For a compact active-mission view, open AlphaRelay Copilot on a second licensed device. Tap **View Live Mission** on Android or **Watch Live Mission** on iOS. It can watch remote live, follow timeline updates and alerts, and log quick or manual events. Closed-mission review stays in Mission Overwatch.
+For a compact active-mission view, open AlphaRelay Operator on a second licensed device. Tap **View Live Mission** on Android or **Watch Live Mission** on iOS. It can watch remote live, follow timeline updates and alerts, and log quick or manual events. Closed-mission review stays in Mission Overwatch.
 
 → View a live mission on Android or iOS
 
@@ -1042,7 +1042,7 @@ Events are timestamped notes on the mission timeline. Keep them short and specif
 
 ## During the mission
 
-**AlphaRelay Copilot**
+**AlphaRelay Operator**
 
 - Tap **quick event** buttons or the quick event wheel (phone layouts). Agency scenarios can provide up to seven custom buttons; the standard set appears when none is configured.
 - Enter manual event notes
@@ -1069,9 +1069,9 @@ In **Controller Screen Capture**, voice relay can save a controller-screen scree
 
 Screenshots from the live feed are captured automatically when the workflow supports them. Local AI screenshots can include yellow detection boxes.
 
-When configured AI and cloud sync are available, AlphaRelay automatically queues screenshot analysis for typed manual events and voice-relay events that have a synced screenshot. Standard Copilot Quick Events do not use this automatic path; screenshot-backed Android Mission Viewer Quick Events do. The human-created event remains an official event, but any generated image analysis must still be checked with **Accept as is** or **Review & edit** before the analysis can enter the report narrative.
+When configured AI and cloud sync are available, AlphaRelay automatically queues screenshot analysis for typed manual events and voice-relay events that have a synced screenshot. Standard Operator Quick Events do not use this automatic path; screenshot-backed Android Mission Viewer Quick Events do. The human-created event remains an official event, but any generated image analysis must still be checked with **Accept as is** or **Review & edit** before the analysis can enter the report narrative.
 
-Mission Overwatch refreshes the focused shared timeline while the page is open. Events logged by Copilot or Mission Viewer and automatic device alerts can appear without a page reload; an alert can appear before its screenshot finishes syncing.
+Mission Overwatch refreshes the focused shared timeline while the page is open. Events logged by Operator or Mission Viewer and automatic device alerts can appear without a page reload; an alert can appear before its screenshot finishes syncing.
 
 For a Device Live AI or AI live-watch alert, choose **Approve alert** in the timeline before configured screenshot analysis or report use can proceed. Choose **Dismiss alert** to exclude the event from the report. If approved analysis returns a finding, use **Accept as is** or **Review & edit** after checking the source image. This approval gate applies to automatic alerts; human-created manual and voice events do not need **Approve alert**.
 
@@ -1102,7 +1102,7 @@ Resolve event timing against footage before generating the final report. For any
 
 ## Use Device Live AI
 
-**Device Live AI** analyzes mission video supplied by AlphaRelay Copilot—including controller-screen, HDMI, supported Pilot camera, and locally viewed Controller Livestream frames—and creates review-oriented mission alerts. With working internet, the Copilot device sends sampled images to AlphaRelay's licensed server-side analysis. The app does not contain an AI-provider credential. When cloud analysis or connectivity is unavailable, Copilot automatically fails open to on-device people and possible-weapon detection.
+**Device Live AI** analyzes mission video supplied by AlphaRelay Operator—including controller-screen, HDMI, supported Pilot camera, and locally viewed Controller Livestream frames—and creates review-oriented mission alerts. With working internet, the Operator device sends sampled images to AlphaRelay's licensed server-side analysis. The app does not contain an AI-provider credential. When cloud analysis or connectivity is unavailable, Operator automatically fails open to on-device people and possible-weapon detection.
 
 The capture session must be running. On-device fallback and immediate alert notifications can work without internet, while timeline sync, cloud follow-up, and reporting wait for connectivity.
 
@@ -1112,7 +1112,7 @@ The capture session must be running. On-device fallback and immediate alert noti
 - **Multiple persons detected** — informational/yellow treatment
 - **Possible weapon detected** — urgent/red treatment
 
-Copilot uses **Alert on people** at mission setup or during an active mission to suppress routine person and hand-to-hand-contact alerts. In Mission Overwatch, **Standard detections** provides separate controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, hand-to-hand contact, reaching into clothing or bags, and safety hazards. Keep both weapon-related categories enabled; weapon-holder alerts receive the highest presentation priority.
+Operator uses **Alert on people** at mission setup or during an active mission to suppress routine person and hand-to-hand-contact alerts. In Mission Overwatch, **Standard detections** provides separate controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, hand-to-hand contact, reaching into clothing or bags, and safety hazards. Keep both weapon-related categories enabled; weapon-holder alerts receive the highest presentation priority.
 
 These are assistive detections, not operational conclusions. Person detection is not face recognition or identity matching. A possible-weapon alert does not establish that an object is a weapon, who possesses it, intent, legality, or threat level.
 
@@ -1180,7 +1180,7 @@ This is a two-stage review: approving the alert allows analysis and report consi
 
 1. Tap **Land** on the pilot device when appropriate.
 2. Follow normal landing and safety procedures.
-3. Tap **Stop and complete mission** or **Stop Mission** in AlphaRelay Copilot when field work is complete.
+3. Tap **Stop and complete mission** or **Stop Mission** in AlphaRelay Operator when field work is complete.
 4. For Laptop HDMI Capture, click **Stop & upload** and wait for the browser recording to be secured.
 5. Optionally open **Operations** and tap **End Mission** in Mission Overwatch.
 6. Check the upload or queue status before powering off the pilot device or closing its browser tab.
@@ -1199,13 +1199,13 @@ In a supported Pilot-mode mission, confirmed touchdown can trigger the same stop
 - In **Laptop HDMI Capture**, **Stop & upload** finalizes the recoverable browser recording before mission closeout. If interrupted, reopen the mission and use **Recover interrupted recording** without clearing browser data.
 - In **Goggles Mode**, AlphaRelay finalizes the captured DJI Fly live-view frames as an MP4 and queues it for upload. It does not pull the DJI Avata's internal-storage or microSD footage.
 - Footage may upload immediately or queue for later sync.
-- Queued Copilot video is stored durably and retries when validated connectivity returns, including after the app restarts.
+- Queued Operator video is stored durably and retries when validated connectivity returns, including after the app restarts.
 - Android and iOS Mission Viewer event logging stops and the selected timeline becomes read-only.
 - Mission Overwatch stops remote-live playback and switches to historical review instead of retrying the closed live stream.
 - Mission Overwatch selects **Timeline** after web closeout so review starts with unresolved events and alerts.
 - Review should wait until footage status is clear.
 
-**Warning:** Do not force-stop or uninstall Copilot while footage is queued. On iOS, keep Copilot open while ReplayKit finalization and handoff complete. Browser-initiated uploads still require the browser tab to remain open.
+**Warning:** Do not force-stop or uninstall Operator while footage is queued. On iOS, keep Operator open while ReplayKit finalization and handoff complete. Browser-initiated uploads still require the browser tab to remain open.
 
 → Upload footage
 
@@ -1264,11 +1264,11 @@ Footage often uploads **after** the mission when the pilot device or Overwatch b
 
 ## Automatic upload
 
-After mission closeout, AlphaRelay Copilot attempts to upload recorded footage when online. Pending videos are stored in a durable device queue and retry when connectivity returns, including after the app restarts.
+After mission closeout, AlphaRelay Operator attempts to upload recorded footage when online. Pending videos are stored in a durable device queue and retry when connectivity returns, including after the app restarts.
 
 Watch for upload banners, **Upload now**, or **Loading playback link** status in Mission Overwatch.
 
-In **Controller Screen Capture**, AlphaRelay records one continuous controller-screen MP4 for the mission and queues it after closeout. On iOS, ReplayKit likewise finalizes the capture recording before handoff. Keep the device powered on and Copilot available while closeout finishes; do not force-stop or uninstall it while queued footage remains.
+In **Controller Screen Capture**, AlphaRelay records one continuous controller-screen MP4 for the mission and queues it after closeout. On iOS, ReplayKit likewise finalizes the capture recording before handoff. Keep the device powered on and Operator available while closeout finishes; do not force-stop or uninstall it while queued footage remains.
 
 On a Controller Screen Capture setup where AlphaRelay confirmed a supported DJI SDK 5 aircraft, closeout can guide a USB handoff from DJI Fly to AlphaRelay and copy only aircraft video that began during the mission. The controller-screen MP4 stays primary; the copied SD clip is queued as an optional **Aircraft original**. Keep the aircraft/controller powered, follow the reconnect prompt, and retry while the mission remains open if the pull fails.
 
@@ -1276,13 +1276,13 @@ In **Pilot mode**, AlphaRelay can start or recover mission-time SD recording aft
 
 In **Goggles Mode**, AlphaRelay finalizes an MP4 from the DJI Fly live-view frames captured during the mission and queues it after **Stop Mission**. The durable queue resumes when connectivity returns. Add the original DJI Avata camera file as an optional recording if the mission needs the raw aircraft view.
 
-In Copilot **HDMI Capture Card**, AlphaRelay records the UVC video on Android or USB-C iPad and keeps it labeled as **HDMI Capture** through upload, playback, Ask AI selection, and custody. A disconnect does not close the mission; reconnect it to resume a new segment.
+In Operator **HDMI Capture Card**, AlphaRelay records the UVC video on Android or USB-C iPad and keeps it labeled as **HDMI Capture** through upload, playback, Ask AI selection, and custody. A disconnect does not close the mission; reconnect it to resume a new segment.
 
 In **Laptop HDMI Capture**, click **Stop & upload** before ending the mission. The browser records MP4 when supported and WebM otherwise. If interrupted, reopen the same mission and use **Recover interrupted recording** without clearing browser data.
 
 In **Controller Livestream**, the remote publisher records the received controller stream into the mission. Stop the controller publisher before closing the mission, then let AlphaRelay finalize the **Controller Livestream** recording.
 
-When Android Copilot opens with queued mission video, its startup panel shows the queue and upload progress. Let the upload finish when possible. Use **Skip for now and start new mission** only if field work must begin immediately; the queued work remains pending. On iOS, use **Sync pending items** or **Sync now** and keep Copilot open during final handoff.
+When Android Operator opens with queued mission video, its startup panel shows the queue and upload progress. Let the upload finish when possible. Use **Skip for now and start new mission** only if field work must begin immediately; the queued work remains pending. On iOS, use **Sync pending items** or **Sync now** and keep Operator open during final handoff.
 
 ## Add an optional recording
 
@@ -1311,7 +1311,7 @@ Use **Mission photos** / **Upload Photos** to add timeline photos or evidence-on
 
 AlphaRelay calculates and registers a SHA-256 hash for a manually added photo or video before reporting the upload as successful. Confirm the uploaded item appears in Mission Overwatch before closing the browser tab.
 
-**Warning:** Do not force-stop or uninstall Copilot while its queue is pending. Keep a browser tab open for browser-initiated uploads; manual browser uploads do not use the device background queue.
+**Warning:** Do not force-stop or uninstall Operator while its queue is pending. Keep a browser tab open for browser-initiated uploads; manual browser uploads do not use the device background queue.
 
 → Controller Livestream and HDMI Capture · Import a mission · Review footage · Troubleshooting
 
@@ -1600,7 +1600,7 @@ When several eligible Trash rows need irreversible deletion, organization owners
 
 ## Account
 
-Set full name, rank/title, password, and email change requests. Names and ranks appear in Copilot's operator picker and on mission attribution when an admin has enabled the separate **Mission operator** designation for that membership.
+Set full name, rank/title, password, and email change requests. Names and ranks appear in the AlphaRelay Operator picker and on mission attribution when an admin has enabled the separate **Mission operator** designation for that membership.
 
 ## Organization
 
@@ -1610,16 +1610,16 @@ Owners and admins manage:
 - Agency-specific mission scenarios with a name, category, summary, up to eight visible AI watch targets, and up to seven Quick Events
 - Organization time zone
 - Storage visibility
-- Copilot device license keys, QR codes, activation files, and controller pairing codes
+- Operator device license keys, QR codes, activation files, and controller pairing codes
 
-Agency scenarios appear in the web and Copilot mission pickers after refresh. Their AI watch items and Quick Events are copied into each mission so live detection, field logging, and post-mission review keep the mission-specific setup even if the scenario changes later.
+Agency scenarios appear in the web and Operator mission pickers after refresh. Their AI watch items and Quick Events are copied into each mission so live detection, field logging, and post-mission review keep the mission-specific setup even if the scenario changes later.
 
 ### Roles and mission operators
 
 - **Admin/Owner** manages organization settings, members, and all missions.
 - **Supervisor** can oversee every mission and approve or return reports.
 - **Officer** can work on missions they created, were assigned to, or received through mission sharing.
-- **Mission operator** is a separate checkbox, not a role. Enable it for any member who should appear in Copilot and start field or laptop HDMI missions.
+- **Mission operator** is a separate checkbox, not a role. Enable it for any member who should appear in Operator and start field or laptop HDMI missions.
 
 ### Share a mission
 
@@ -1634,7 +1634,7 @@ Mission sharing does not promote the person to Supervisor or Admin/Owner, expose
 3. Under **What should AI look for?**, enter one concrete visible item per line, up to eight.
 4. Under **Quick Events**, enter one pilot event button per line, up to seven. Leave it empty to use the standard Quick Events.
 5. Click **Create scenario**. Use **Edit** on an existing agency scenario to update it.
-6. Reopen **Start Mission** on an online Copilot device before the mission starts so it refreshes the scenario list.
+6. Reopen **Start Mission** on an online Operator device before the mission starts so it refreshes the scenario list.
 
 On desktop, the AI-target and Quick Event fields appear side by side, and agency scenario cards use two columns. Narrow screens stack them.
 
@@ -1711,10 +1711,10 @@ Internal AlphaRelay admins use **Admin → Pilot Documents** to:
 1. Go to [alpha-relay.com](https://www.alpha-relay.com) and sign in.
 2. Open **Mission Overwatch** once while online on each browser profile used in the field.
 
-## Android Copilot setup
+## Android Operator setup
 
 1. Download the APK from [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html).
-2. Install and open **AlphaRelay Copilot**.
+2. Install and open **AlphaRelay Operator**.
 3. Grant requested permissions.
 4. Use the startup screen to choose **Start a Mission** for a new mission or **View a Live Mission** to support an active mission.
 
@@ -1726,24 +1726,24 @@ You do not need to enable Android Developer mode to install AlphaRelay.
 
 1. Connect the controller to internet.
 2. Open the controller web browser.
-3. Download **AlphaRelay Copilot** from the dashboard app download link. If needed, open [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html) directly.
+3. Download **AlphaRelay Operator** from the dashboard app download link. If needed, open [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html) directly.
 4. When Android prompts for unknown-source installation, allow the browser or file manager to **install unknown apps** from that source.
-5. Install and open **AlphaRelay Copilot**.
+5. Install and open **AlphaRelay Operator**.
 6. Grant requested permissions.
 7. Activate with the short controller pairing code generated by an admin, or use another license method below.
 
 ## iPhone and iPad setup
 
-1. Install the organization-provided **AlphaRelay Copilot** app on a device running iOS 26.
-2. Open Copilot and scan the license QR code, enter the 8-character pairing code, or enter the full `ar-…` key.
+1. Install the organization-provided **AlphaRelay Operator** app on a device running iOS 26.
+2. Open Operator and scan the license QR code, enter the 8-character pairing code, or enter the full `ar-…` key.
 3. Allow Screen Recording when starting capture. Grant microphone and speech-recognition permission only when voice events or microphone audio are needed.
 4. Use **Start Mission** for a new controller-screen mission or **Watch Live Mission** to support an active mission.
 
-→ Use AlphaRelay Copilot on iPhone or iPad
+→ Use AlphaRelay Operator on iPhone or iPad
 
 ## Device license
 
-The Copilot app uses an organization license key — not the web-app email/password sign-in.
+The Operator app uses an organization license key — not the web-app email/password sign-in.
 
 Use one of these activation paths:
 
@@ -1773,7 +1773,7 @@ If your organization is onboarded through AlphaRelay pilot agreements, sign the 
 
 ## What runs locally
 
-- **AlphaRelay Copilot**: mission setup, quick and voice events, on-device Live AI fallback, Mission Viewer, remote-live publishing, recording, and durable sync queues
+- **AlphaRelay Operator**: mission setup, quick and voice events, on-device Live AI fallback, Mission Viewer, remote-live publishing, recording, and durable sync queues
 - **Mission Overwatch PWA shell**: page cache after first online visit (sign-in and sync still need network)
 
 ## What syncs to the cloud
@@ -1804,7 +1804,7 @@ Device Live AI and AI live-watch alerts are logged as review prompts, not final 
 
 Device Live AI uses licensed server-side analysis when connectivity is healthy and automatically falls back to on-device people and possible-weapon detection when it is not. Provider credentials remain server-side. Mission Overwatch, device cloud analysis, and local fallback coordinate temporary ownership to reduce duplicate alerts.
 
-Person detections use informational/yellow treatment and do not identify people. Copilot can disable routine person and hand-to-hand-contact alerts for a mission. Mission Overwatch provides separate controls for every standard detection. When weapon-related detections are enabled, AlphaRelay gives their alerts the highest priority; every alert remains subject to human review.
+Person detections use informational/yellow treatment and do not identify people. Operator can disable routine person and hand-to-hand-contact alerts for a mission. Mission Overwatch provides separate controls for every standard detection. When weapon-related detections are enabled, AlphaRelay gives their alerts the highest priority; every alert remains subject to human review.
 
 AlphaRelay uses one official-event rule across counts, playback markers, reports, offline exports, and custody views: undeleted human-created events are included; automatic AI alerts require approval; accepted AI Review findings require Timeline officer review. Pending or dismissed automatic alerts and accepted AI Review findings without Timeline officer review remain outside the official evidence set and are permanently removed when Timeline review completes or the mission seals.
 
@@ -1829,20 +1829,20 @@ Do not share exports before sync and review are complete.
 
 ## Minimum Requirements
 
-## AlphaRelay Copilot device
+## AlphaRelay Operator device
 
 - Supported Android version for the installed APK, or iPhone/iPad running iOS 26 for the iOS app
 - Usable internet for remote live and immediate cloud sync; offline capture can queue work
 - Enough CPU, memory, battery, and storage for live video, event logging, recording, and Device Live AI
 - Supported aircraft-control workflow when using aircraft integration
 - Conditional Matrice camera tools on supported Matrice aircraft or Matrice controllers
-- Android drone controller capable of installing **AlphaRelay Copilot** and granting screen capture permission for **Controller Screen Capture**
-- For **Controller Livestream**: a licensed Android or iOS Copilot device, validated internet, and either a DJI controller/flight app that accepts a complete RTMP URL or separate server/key fields, or a Skydio controller with RTSP External Server
-- For **Copilot HDMI Capture**: Android with USB host/OTG or a USB-C iPad, a compatible UVC capture card, controller HDMI output, and camera/USB permission; a powered hub may be required
+- Android drone controller capable of installing **AlphaRelay Operator** and granting screen capture permission for **Controller Screen Capture**
+- For **Controller Livestream**: a licensed Android or iOS Operator device, validated internet, and either a DJI controller/flight app that accepts a complete RTMP URL or separate server/key fields, or a Skydio controller with RTSP External Server
+- For **Operator HDMI Capture**: Android with USB host/OTG or a USB-C iPad, a compatible UVC capture card, controller HDMI output, and camera/USB permission; a powered hub may be required
 - For **Pilot mode**: detected DJI SDK remote-controller setup, a listed DJI MSDK 5.17 aircraft, and a live flight-controller connection that AlphaRelay can verify
-- For a DJI Avata with compatible DJI Goggles: separate Android phone or tablet with **DJI Fly**, **AlphaRelay Copilot**, screen capture permission, and internet
-- For iOS capture: iOS 26, the organization-provided Copilot app, ReplayKit Screen Recording permission, and optional microphone/speech permissions
-- For Mission Viewer: a second Copilot installation licensed to the mission's organization, plus internet
+- For a DJI Avata with compatible DJI Goggles: separate Android phone or tablet with **DJI Fly**, **AlphaRelay Operator**, screen capture permission, and internet
+- For iOS capture: iOS 26, the organization-provided Operator app, ReplayKit Screen Recording permission, and optional microphone/speech permissions
+- For Mission Viewer: a second Operator installation licensed to the mission's organization, plus internet
 
 ## Overwatch / review (browser)
 
@@ -1856,19 +1856,19 @@ Do not share exports before sync and review are complete.
 
 | Workflow | Requirement |
 | --- | --- |
-| Start Mission | Android or iOS Copilot app; validated internet for automatic remote live, or offline capture with queued sync |
-| Deployment-specific Local Network relay | Android device + Overwatch on same reachable Wi-Fi; not exposed by the current public Copilot workflow |
-| Controller Screen Capture | Android drone controller; AlphaRelay Copilot installed; Android screen capture permission |
-| Controller Livestream | Licensed Android or iOS Copilot device; validated internet on it and the separate flight controller; DJI one-field/two-field RTMP or Skydio RTSP External Server support |
-| Copilot HDMI Capture | Controller HDMI output; UVC card; USB host/OTG Android or USB-C iPad; camera/USB permission; internet only for live/sync |
+| Start Mission | Android or iOS Operator app; validated internet for automatic remote live, or offline capture with queued sync |
+| Deployment-specific Local Network relay | Android device + Overwatch on same reachable Wi-Fi; not exposed by the current public Operator workflow |
+| Controller Screen Capture | Android drone controller; AlphaRelay Operator installed; Android screen capture permission |
+| Controller Livestream | Licensed Android or iOS Operator device; validated internet on it and the separate flight controller; DJI one-field/two-field RTMP or Skydio RTSP External Server support |
+| Operator HDMI Capture | Controller HDMI output; UVC card; USB host/OTG Android or USB-C iPad; camera/USB permission; internet only for live/sync |
 | Laptop HDMI Capture | Online web-app session; physical UVC card; browser camera permission and local storage; tab kept open through stop and upload |
 | Pilot mode | Detected DJI SDK-controller setup; aircraft in the Pilot app's DJI MSDK 5.17 list; successful live connection check |
 | Optional DJI SDK 5 aircraft-original handoff after Controller Screen Capture | Aircraft confirmed during setup; Android USB accessory routing; powered aircraft/controller; usable aircraft SD card; ability to force-stop DJI Fly, clear its USB default, reconnect, and choose AlphaRelay |
-| iPhone/iPad Copilot capture | iOS 26; organization-provided app; device license; ReplayKit, Controller Livestream, or USB-C iPad HDMI source; internet for live/sync |
-| DJI Avata with DJI Goggles | Linked DJI Avata, compatible DJI Goggles, and compatible controller; Android device with DJI Fly and AlphaRelay Copilot; goggles live-view connection; Android screen capture permission; internet |
+| iPhone/iPad Operator capture | iOS 26; organization-provided app; device license; ReplayKit, Controller Livestream, or USB-C iPad HDMI source; internet for live/sync |
+| DJI Avata with DJI Goggles | Linked DJI Avata, compatible DJI Goggles, and compatible controller; Android device with DJI Fly and AlphaRelay Operator; goggles live-view connection; Android screen capture permission; internet |
 | **Live stream (WebRTC)** | Validated pilot-device internet; starts automatically with the mission and can be retried from the Pilot console |
-| Mission Viewer | Second licensed Copilot installation in the same organization; active mission; internet; remote live required for video |
-| Device Live AI | Copilot capture running; internet for cloud analysis; compatible device compute for automatic offline fallback; notification permission for immediate alert banners |
+| Mission Viewer | Second licensed Operator installation in the same organization; active mission; internet; remote live required for video |
+| Device Live AI | Operator capture running; internet for cloud analysis; compatible device compute for automatic offline fallback; notification permission for immediate alert banners |
 | AI Review | Closed, synced mission with playable footage or mission photos, at least one selected analysis tag, internet, AI configuration, and accepted event anchors for **Event-focused** coverage |
 | Ask AI | Closed, synced mission with playable primary uploaded footage; internet and AI configuration |
 | AI live watch | Active remote live stream; Mission Overwatch online; AI configuration enabled |
@@ -1880,7 +1880,7 @@ Permissions: grant camera, USB-device access, microphone, speech recognition, sc
 
 Aircraft camera controls appear only when the pilot app detects supported aircraft or controller capability. Availability still depends on aircraft firmware, payload, SDK support, and field validation.
 
-Controller Screen Capture appears on Android drone controllers that can run AlphaRelay Copilot and grant screen capture permission. The controller's native flight app remains responsible for aircraft operation in that mode.
+Controller Screen Capture appears on Android drone controllers that can run AlphaRelay Operator and grant screen capture permission. The controller's native flight app remains responsible for aircraft operation in that mode.
 
 Pilot mode is not enabled by controller detection alone. On an eligible DJI SDK-controller setup, confirm the aircraft in the in-app supported list and keep the aircraft and controller connected until AlphaRelay reports **Supported aircraft confirmed. Pilot mode is ready.** If that verification does not complete, use Controller Screen Capture.
 
@@ -1901,12 +1901,12 @@ Run a training mission on the same device class before operational use.
 3. Tap **Start remote live** if automatic setup was skipped or failed.
 4. In Mission Overwatch, open the active mission and select **Live stream (WebRTC)**.
 
-The current public Copilot workflow does not present a **Local Network** mission button. If your Android deployment exposes **Live Overwatch Screen**, keep both devices on the same reachable Wi-Fi, connect by scan or device IP, and trust the relay certificate if prompted.
+The current public Operator workflow does not present a **Local Network** mission button. If your Android deployment exposes **Live Overwatch Screen**, keep both devices on the same reachable Wi-Fi, connect by scan or device IP, and trust the relay certificate if prompted.
 
 ## Mission Viewer cannot see the mission
 
 1. Confirm the viewing device has internet.
-2. Confirm AlphaRelay Copilot is activated with a valid license for the same organization as the mission.
+2. Confirm AlphaRelay Operator is activated with a valid license for the same organization as the mission.
 3. Confirm the mission is still active. Closed missions do not appear in the viewer list.
 4. Tap **Refresh** in the mission picker.
 
@@ -1916,13 +1916,13 @@ For Controller Livestream, an active mission can appear before the separate cont
 
 ## Controller Livestream is waiting for video
 
-1. Confirm both the Android or iOS Copilot device and the separate flight controller have usable internet.
+1. Confirm both the Android or iOS Operator device and the separate flight controller have usable internet.
 2. On the AlphaRelay device, tap **Show Livestream Setup** and compare the displayed values character for character.
 3. For DJI two-field RTMP, include the final `/` in the server field and put only the six-digit code in the stream-key field. For Skydio, choose RTSP External Server and enter the displayed server address, port, and separate six-digit stream name.
 4. Start or restart the controller's native livestream, then return to **View Live Mission**.
 5. If the mission is no longer active, create a new Controller Livestream instead of publishing into the closed record.
 
-Stop the controller publisher before closing the mission. Use **End Mission** in Mission Overwatch or the matching close action in Copilot so AlphaRelay can finalize the received recording.
+Stop the controller publisher before closing the mission. Use **End Mission** in Mission Overwatch or the matching close action in Operator so AlphaRelay can finalize the received recording.
 
 ## HDMI Capture Card has no video
 
@@ -1932,7 +1932,7 @@ Stop the controller publisher before closing the mission. Use **End Mission** in
 4. In the active mission, wait for the preview to change from **Waiting for signal** to **Capturing**.
 5. If the card disconnected, reconnect it without closing the mission and verify the preview returns.
 
-The HDMI workflow ingests UVC video, not embedded USB/UAC audio. Use the receiving Android device or iPad microphone for optional voice events. If the image is stretched or double-height, update Copilot and reload Mission Overwatch; current capture and playback preserve 16:9, while legacy correction changes presentation without rewriting the evidence file.
+The HDMI workflow ingests UVC video, not embedded USB/UAC audio. Use the receiving Android device or iPad microphone for optional voice events. If the image is stretched or double-height, update Operator and reload Mission Overwatch; current capture and playback preserve 16:9, while legacy correction changes presentation without rewriting the evidence file.
 
 ## Laptop HDMI does not connect or upload
 
@@ -1945,19 +1945,19 @@ The HDMI workflow ingests UVC video, not embedded USB/UAC audio. Use the receivi
 ## Cloud sync delayed
 
 1. Confirm you are signed in.
-2. Move to validated internet. Copilot video uploads resume through the durable device queue; browser work still needs its tab open.
+2. Move to validated internet. Operator video uploads resume through the durable device queue; browser work still needs its tab open.
 3. Do not refresh during pending sync.
 
 ## A new mission will not start
 
-Copilot blocks a new start while an active mission, capture service, or unfinished recording still needs closeout. On Android, use **Close Active Mission** on the startup screen. On iOS, reopen the active mission and use **Stop and complete mission**. Keep the app open while capture finalizes and pending evidence is handed off, then start the next mission.
+Operator blocks a new start while an active mission, capture service, or unfinished recording still needs closeout. On Android, use **Close Active Mission** on the startup screen. On iOS, reopen the active mission and use **Stop and complete mission**. Keep the app open while capture finalizes and pending evidence is handed off, then start the next mission.
 
 Do not force-stop or reinstall the app to bypass this guard; doing so can delay recovery of the existing mission recording.
 
 ## Footage queued or not playing
 
 1. Keep the pilot device powered on and restore validated internet.
-2. If Android Copilot opens with a queued-video panel, let it run or use **Skip for now and start new mission** only when field work cannot wait. On iOS, use **Sync pending items** or **Sync now** and keep Copilot open during handoff.
+2. If Android Operator opens with a queued-video panel, let it run or use **Skip for now and start new mission** only when field work cannot wait. On iOS, use **Sync pending items** or **Sync now** and keep Operator open during handoff.
 3. Tap **Upload now** if shown.
 4. Wait for **Loading playback link** to clear in Mission Overwatch.
 5. For an optional recording: confirm you are signed in and online, the file is MP4 or MOV, the correct source is selected, and no other upload is running.
@@ -1970,7 +1970,7 @@ If an optional aircraft or goggles recording is out of sync, choose **Align with
 
 ## Controller Screen Capture did not start
 
-1. Confirm the pilot device is an Android drone controller with **AlphaRelay Copilot** installed.
+1. Confirm the pilot device is an Android drone controller with **AlphaRelay Operator** installed.
 2. Tap **Start Mission**, choose **Controller Screen**, and complete mission setup. On a detected DJI SDK-controller setup, select **Controller Screen Capture — Recommended**.
 3. Approve the Android screen capture prompt.
 4. If voice relay is needed, grant microphone permission and confirm speech recognition is available.
@@ -1992,13 +1992,13 @@ Use **Close without aircraft copy** only when you intentionally want to close wi
 
 ## Pilot-mode aircraft footage is still transferring
 
-After a confirmed touchdown, AlphaRelay can close the mission before the aircraft-SD transfer finishes. Keep Copilot, the aircraft, and controller powered on and watch the footage banner. A queued clip counts as secured and can continue through the durable upload path. If AlphaRelay says the footage was not secured and keeps the mission open, fix the connection or SD problem and retry closeout.
+After a confirmed touchdown, AlphaRelay can close the mission before the aircraft-SD transfer finishes. Keep Operator, the aircraft, and controller powered on and watch the footage banner. A queued clip counts as secured and can continue through the durable upload path. If AlphaRelay says the footage was not secured and keeps the mission open, fix the connection or SD problem and retry closeout.
 
 ## iPhone or iPad capture did not start
 
-1. Confirm the device runs iOS 26 and the organization-provided AlphaRelay Copilot app is current.
+1. Confirm the device runs iOS 26 and the organization-provided AlphaRelay Operator app is current.
 2. Start the mission, open the ReplayKit broadcast picker, and choose **AlphaRelay Capture**.
-3. Start the broadcast, then open the flight app. If capture stops, return to Copilot and tap **Choose display and start capture**.
+3. Start the broadcast, then open the flight app. If capture stops, return to Operator and tap **Choose display and start capture**.
 4. Check iOS Screen Recording restrictions and available storage. Grant microphone permission only when microphone audio or voice events are needed.
 
 ReplayKit must be verified on a physical device. A Simulator test does not prove controller-screen capture or background handoff.
@@ -2015,7 +2015,7 @@ If the aircraft is not listed, the DJI SDK is unavailable, or the connection che
 
 ## DJI Avata Goggles Mode did not start
 
-1. Confirm DJI Fly and AlphaRelay Copilot are installed on the same Android device.
+1. Confirm DJI Fly and AlphaRelay Operator are installed on the same Android device.
 2. Power on and link the DJI Avata, compatible DJI Goggles, and their compatible controller.
 3. For automatic detection, connect the DJI Goggles to the Android device with a compatible USB data/OTG cable.
 4. Open DJI Fly and confirm the goggles live view appears before opening AlphaRelay.
@@ -2113,7 +2113,7 @@ Ask AI can answer only from the selected primary uploaded recording. If the rele
 1. Confirm **Enable automatic OpenAI + local detection** is on in Android **Pilot console → Flight → Local AI**, or confirm iOS capture and notification permission are active.
 2. Start Controller Screen Capture; Device Live AI does not sample while capture is stopped.
 3. Check **Device Live AI** status. With internet it should report cloud analysis; after a cloud or connectivity failure it should move to the on-device fallback.
-4. Confirm Copilot is current and that the offline fallback model is available.
+4. Confirm Operator is current and that the offline fallback model is available.
 5. Grant notification permission if events are logged but direct alerts do not appear.
 
 If the status says browser or cloud Live AI is active, this is expected coordination for the same mission. The on-device fallback resumes automatically after healthy cloud analysis stops or the short handoff expires.
@@ -2124,9 +2124,9 @@ Review every auto-tag before treating it as an operational fact. Small, distant,
 
 Check mission state and your role. Submitting for supervisor approval locks report editing, mission renaming, timeline and media changes, and AI Review mutations. A supervisor can **Return to draft** to reopen work. Approved records cannot be changed and reports cannot be regenerated; read-only Ask AI remains available.
 
-## Operator is missing from Copilot
+## Mission operator is missing from AlphaRelay Operator
 
-1. Connect the Copilot device to internet and refresh its license or reopen mission setup so the agency roster can update.
+1. Connect the Operator device to internet and refresh its license or reopen mission setup so the agency roster can update.
 2. In **Organization Settings**, confirm the person has a full name, an active membership, and **Mission operator** enabled. Role and operator designation are separate.
 3. Tap **Operator — Select before starting** and choose the person.
 
@@ -2151,7 +2151,7 @@ On Android, opening `index.html` can isolate it from sibling media files. If **R
 AlphaRelay uses separate live and sync paths. Losing one does not always stop the mission.
 
 ```text
-AlphaRelay Copilot
+AlphaRelay Operator
   |-- Live stream (WebRTC) → Mission Overwatch / Android or iOS Mission Viewer over internet
   |-- Controller Livestream (DJI RTMP or Skydio RTSP) ← Separate flight controller over internet
   |-- HDMI Capture Card (UVC) ← Controller HDMI output over USB
@@ -2162,7 +2162,7 @@ Laptop browser
   `-- Live stream (WebRTC) + recoverable local evidence recording
 ```
 
-Some older or deployment-specific Android builds also expose a LAN relay to Mission Overwatch on the same Wi-Fi. The current public Copilot workflow does not show that mission-start option.
+Some older or deployment-specific Android builds also expose a LAN relay to Mission Overwatch on the same Wi-Fi. The current public Operator workflow does not show that mission-start option.
 
 ## Without internet
 
@@ -2185,7 +2185,7 @@ Some older or deployment-specific Android builds also expose a LAN relay to Miss
 
 ## Remote live connection
 
-1. Tap **Start Mission** in AlphaRelay Copilot while the device has validated internet.
+1. Tap **Start Mission** in AlphaRelay Operator while the device has validated internet.
 2. Open the active mission from Mission Dashboard.
 3. Select **Live stream (WebRTC)** in Mission Overwatch.
 4. If automatic live setup failed or the mission began offline, use **Pilot console → Mission → Start remote live** after connectivity returns.
@@ -2194,17 +2194,17 @@ A second licensed Android or iOS device can open Mission Viewer. It requires int
 
 ## Controller video inputs
 
-**Controller Livestream** requires validated internet on both the licensed Android or iOS Copilot device and the separate flight controller. For DJI, Copilot provides a complete RTMP URL and separate server/key values. For Skydio RTSP External Server, it provides a server address, port, and stream name. Restart the publisher with the same mission destination after a connection loss while the mission is active.
+**Controller Livestream** requires validated internet on both the licensed Android or iOS Operator device and the separate flight controller. For DJI, Operator provides a complete RTMP URL and separate server/key values. For Skydio RTSP External Server, it provides a server address, port, and stream name. Restart the publisher with the same mission destination after a connection loss while the mission is active.
 
-**Copilot HDMI Capture** receives video locally on Android or USB-C iPad and can keep recording when internet is unavailable. **Laptop HDMI Capture** starts online from the Dashboard and records recoverable evidence in the browser while publishing remote live. Keep the tab open and use **Stop & upload** before closeout.
+**Operator HDMI Capture** receives video locally on Android or USB-C iPad and can keep recording when internet is unavailable. **Laptop HDMI Capture** starts online from the Dashboard and records recoverable evidence in the browser while publishing remote live. Keep the tab open and use **Stop & upload** before closeout.
 
 ## Deployment-specific Local Network connection
 
-If your Android build exposes **Local Network**, run it on Wi-Fi, open **Live Overwatch Screen**, and connect by scanning or entering the device IP. Trust the self-signed relay certificate if prompted. This is not a selectable mission path in the current public Copilot workflow.
+If your Android build exposes **Local Network**, run it on Wi-Fi, open **Live Overwatch Screen**, and connect by scanning or entering the device IP. Trust the self-signed relay certificate if prompted. This is not a selectable mission path in the current public Operator workflow.
 
 ## Queued states
 
-**Queued for cloud sync**, **Loading playback link**, or upload banners mean local data still needs to reach the cloud. Queued Copilot videos are stored durably and retry when validated connectivity returns, including after the app restarts. Keep the device powered on, do not force-stop or uninstall the app, and use **Upload now**, **Sync now**, or **Sync pending items** when offered.
+**Queued for cloud sync**, **Loading playback link**, or upload banners mean local data still needs to reach the cloud. Queued Operator videos are stored durably and retry when validated connectivity returns, including after the app restarts. Keep the device powered on, do not force-stop or uninstall the app, and use **Upload now**, **Sync now**, or **Sync pending items** when offered.
 
 When AlphaRelay opens with queued mission video, the startup panel shows the queue and progress. Use **Skip for now and start new mission** only when field work must begin before the older upload finishes.
 
@@ -2220,13 +2220,13 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 
 ## Network
 
-- The current public Copilot workflow does not present a **Local Network** mission button. Deployment-specific Android LAN relay builds require the field and Overwatch devices on the same reachable Wi-Fi.
+- The current public Operator workflow does not present a **Local Network** mission button. Deployment-specific Android LAN relay builds require the field and Overwatch devices on the same reachable Wi-Fi.
 - **Live stream (WebRTC)** requires internet on the pilot device.
 - Cloud sync, upload, and export wait for internet.
 - Losing relay, remote live, or cloud sync does not always end the mission — paths are independent.
 - **View Live Mission** on Android and **Watch Live Mission** on iOS require internet and a valid licensed installation in the same organization. Timeline events can update even when remote video is not ready.
 - **Controller Livestream** requires internet on the Android or iOS setup/viewer device and the separate publishing controller. DJI requires either a complete RTMP URL or separate server/key fields. Skydio requires a deployed, reachable RTSP gateway and RTSP External Server support.
-- Copilot **HDMI Capture Card** can record locally without internet on Android or USB-C iPad; iPhone does not expose UVC capture. Remote viewing, cloud AI, sync, and upload still require connectivity.
+- Operator **HDMI Capture Card** can record locally without internet on Android or USB-C iPad; iPhone does not expose UVC capture. Remote viewing, cloud AI, sync, and upload still require connectivity.
 - **Laptop HDMI Capture** requires an online mission start, browser camera permission, a physical UVC card, available local browser storage, and an open tab. Use **Stop & upload** before ending the mission; do not clear browser data before recovering an interrupted recording.
 
 ## Media
@@ -2236,7 +2236,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 - **Controller Livestream** records the video published by the controller, not an aircraft-original camera file. Stop the publisher before normal mission closeout so the recording can finalize.
 - **HDMI Capture Card** ingests UVC video only. USB/UAC audio embedded by the card is not currently recorded; voice events use the receiving device microphone. Hardware power, USB support, negotiated resolution, browser compatibility, and reconnect behavior vary, so validate the exact stack.
 - **Goggles Mode** records the DJI Fly screen carrying the DJI Goggles live view, not the original DJI Avata camera file.
-- Queued Copilot footage retries when validated connectivity returns, but the device must remain powered and the app must not be force-stopped or uninstalled. iOS closeout also needs Copilot open while ReplayKit handoff completes.
+- Queued Operator footage retries when validated connectivity returns, but the device must remain powered and the app must not be force-stopped or uninstalled. iOS closeout also needs Operator open while ReplayKit handoff completes.
 - Queued footage must finish before final review.
 - Browser upload of an optional MP4 or MOV recording requires internet before upload starts (no pre-queue).
 - In Controller Screen Capture and Goggles Mode, optional aircraft or goggles recordings do not replace AlphaRelay's capture clock. Verify their visual alignment before relying on shared event timing.
@@ -2269,7 +2269,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 - AI Review does not draw model bounding boxes over finding thumbnails or the full-screen source image.
 - Device Live AI and AI live-watch alerts require **Approve alert** before configured screenshot analysis or report eligibility. **Dismiss alert** excludes the alert. Approved analysis still waits for the event, review decision, and screenshot to sync and requires internet plus AI configuration.
 - When healthy Mission Overwatch or device cloud analysis owns detection for a mission, the on-device fallback pauses to reduce duplicate alerts. The handoff is temporary and local detection resumes automatically, but there can be a brief transition after cloud analysis or connectivity stops.
-- iOS Copilot requires iOS 26 and physical-device ReplayKit validation. It does not include Android's DJI Goggles USB auto-detection, local-network relay, or full Android local detector.
+- iOS Operator requires iOS 26 and physical-device ReplayKit validation. It does not include Android's DJI Goggles USB auto-detection, local-network relay, or full Android local detector.
 
 ## Aircraft controls
 
@@ -2300,23 +2300,23 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 | --- | --- |
 | **AI** | Configured assistance for report drafting, media review, mission-media questions, screenshot analysis, and live-watch alerts |
 | **AI live watch** | Mission Overwatch control that samples remote-live frames and logs officer-review alerts when configured; it defaults on unless a saved mission choice disables it |
-| **AlphaRelay Copilot** | Licensed Android or iOS app for controller-screen mission capture, remote live, field events, Device Live AI, and Mission Viewer |
+| **AlphaRelay Operator** | Licensed Android or iOS app for controller-screen mission capture, remote live, field events, Device Live AI, and Mission Viewer |
 | **Approve alert** | Timeline decision that allows a Device Live AI or AI live-watch alert to proceed to configured screenshot analysis and report consideration; it does not complete officer review of the analysis |
 | **AI Review** | Closed-mission tab for reviewing actual video against selected targets, verifying candidate findings with evidence screenshots, and accepting or rejecting mission-relevant findings |
 | **Ask AI** | AI Review view for asking questions grounded only in the primary uploaded footage from a closed synced mission; it remains read-only and available after approval |
-| **Alert on people** | Copilot mission setting that controls routine person and hand-to-hand-contact alerts; Mission Overwatch separately controls each standard detection |
+| **Alert on people** | Operator mission setting that controls routine person and hand-to-hand-contact alerts; Mission Overwatch separately controls each standard detection |
 | **Activity Log** | Read-only Organization Settings tab showing server-attributed material actions with person, mission, action, and date filters |
 | **Add optional recording** | Media action for attaching an MP4/MOV aircraft, goggles-screen, or other external recording and aligning it to the mission timeline |
 | **AAR Chain of Custody** | Explicit report evidence set verified by **Seal entire mission**; included manual media is sealable while retained excluded screenshots remain unsealed |
 | **Chain of custody** | Evidence history and hash verification for a mission |
 | **Command Center** | Default Mission Dashboard view for operational status, active missions, attention items, automatic alerts, and report follow-ups |
-| **Controller Screen Capture** | Workflow where the native flight app keeps flight control while Copilot captures the visible screen; Android uses system screen capture and iOS uses ReplayKit |
-| **Controller Livestream** | Android/iOS Copilot workflow that provides DJI RTMP or Skydio RTSP External Server values for a separate controller to publish into a mission |
-| **HDMI Capture Card** | UVC controller-video input supported by Android Copilot, USB-C iPad, or laptop/browser capture; iPhone is not supported |
+| **Controller Screen Capture** | Workflow where the native flight app keeps flight control while Operator captures the visible screen; Android uses system screen capture and iOS uses ReplayKit |
+| **Controller Livestream** | Android/iOS Operator workflow that provides DJI RTMP or Skydio RTSP External Server values for a separate controller to publish into a mission |
+| **HDMI Capture Card** | UVC controller-video input supported by Android Operator, USB-C iPad, or laptop/browser capture; iPhone is not supported |
 | **Laptop HDMI Capture** | Browser workflow created from the Dashboard; **Connect & go live** records recoverable evidence and publishes remote live from a physical UVC card |
 | **Goggles Mode** | DJI Avata and compatible DJI Goggles workflow where AlphaRelay on a separate Android device captures the DJI Fly live view; compatible hardware enables the mode, then the operator taps **Start Mission** |
-| **Device Live AI** | Cloud-first live analysis from a Copilot device with automatic on-device people and possible-weapon fallback when cloud analysis is unavailable |
-| **Internet** | Cloud-backed mission mode used by the current Copilot **Start Mission** workflow |
+| **Device Live AI** | Cloud-first live analysis from an Operator device with automatic on-device people and possible-weapon fallback when cloud analysis is unavailable |
+| **Internet** | Cloud-backed mission mode used by the current Operator **Start Mission** workflow |
 | **Done — continue** | Closed-mission action that records completion of Timeline, Media, or AI Review and opens the next unfinished step; confirmation can remove or reject unresolved AI candidates |
 | **Import mission** | Mission History flow that creates a closed post-flight record from external footage and photos |
 | **Import mission data…** | Client-side workflow preview that inventories a large evidence or mapping package without uploading file contents or creating custody records |
@@ -2328,23 +2328,23 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 | **Mission Console** | Dashboard link name for opening Mission Overwatch |
 | **Mission Dashboard** | Command home — KPIs, history, search, AAR inboxes |
 | **Mission Overwatch** | Per-mission browser workspace; active missions use a full-screen live command view with a right-rail event timeline and bottom **Events & input** row, while closed missions use the review workflow |
-| **Mission operator** | Separate organization-membership designation that makes a person available in Copilot's operator roster and permits mission start; it is not an organization role |
+| **Mission operator** | Separate organization-membership designation that makes a person available in the AlphaRelay Operator roster and permits mission start; it is not an organization role |
 | **Mission sharing** | **Share** workflow that gives an eligible user working access to one mission without granting organization-wide access or mission-start authority |
 | **Mission Viewer** | **View Live Mission** on Android or **Watch Live Mission** on iOS for active remote live, timeline updates and alerts, and event logging from a secondary licensed device |
 | **Mission-specific AI targets** | Up to eight visible details saved for AI live watch on one mission in addition to standard and scenario targets |
 | **Offline package** | ZIP archive with viewer for point-in-time mission export |
 | **Official mission event** | Undeleted human-created event, approved automatic AI alert, or accepted AI Review finding that received Timeline officer review; this set drives counts, reports, exports, playback markers, and evidence views |
 | **Pilot agreement** | Prepared agreement PDF signed through AlphaRelay before or during agency onboarding |
-| **Pilot app** | Older documentation term for the Android app now named AlphaRelay Copilot |
+| **Pilot app** | Older documentation term for the Android app now named AlphaRelay Operator |
 | **Pilot mode** | Direct AlphaRelay aircraft-control mode available on detected DJI SDK-controller setups after supported-aircraft confirmation and a successful live connection check |
 | **Local AI** | Android settings label and fallback component within Device Live AI; it runs on-device when healthy cloud analysis does not own the mission |
 | **Pilot console** | In-app settings (Mission, Flight, Events, System) |
 | **Play with Events** | Footage player with synchronized event markers |
 | **Quick events** | One-tap event buttons; agency scenarios can define up to seven, with the standard set used when none is configured |
-| **Local Network** | Deployment-specific Android LAN WebSocket relay mode; not presented by the current public Copilot workflow |
+| **Local Network** | Deployment-specific Android LAN WebSocket relay mode; not presented by the current public Operator workflow |
 | **Scenario template** | Built-in or agency-created mission setup that can provide quick events, report focus, and visible AI watch targets |
 | **Trash** | Mission History recovery area that keeps a deleted mission and its linked record recoverable for up to 30 days; authorized admins can permanently **Delete now** sooner |
-| **Start a Mission** | Copilot landing-screen action that opens **Choose video source** before operator, scenario, mission name, AI targets, and alert setup |
+| **Start a Mission** | Operator landing-screen action that opens **Choose video source** before operator, scenario, mission name, AI targets, and alert setup |
 | **Voice relay** | Voice logging with keyword `relay` before event details |
 | **What should AI look for?** | Operator-selected tags that define a post-mission AI Review run; at least one is required before **Analyze media** |
 

@@ -7,21 +7,21 @@ icon: "clipboard-check"
 ## Checklist
 
 1. Charge the pilot tablet, phone, or drone controller and confirm aircraft/controller are ready.
-2. Install or update **AlphaRelay Copilot**. Download the Android APK from [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html); use the organization-provided iOS app on iPhone or iPad.
+2. Install or update **AlphaRelay Operator**. Download the Android APK from [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html); use the organization-provided iOS app on iPhone or iPad.
 3. Confirm the **device license** is active (scan QR, enter an `ar-…` key, or use a non-expiring one-installation pairing code).
-4. Sign in to the web app with the correct operator account. On shared Copilot devices, refresh online and confirm the current pilot appears in the operator selector.
+4. Sign in to the web app with the correct operator account. On shared Operator devices, refresh online and confirm the current pilot appears in the operator selector.
 5. Open **Mission Overwatch** once while online on each browser that will use it in the field (installs the offline app shell).
 6. Run a test **Start Mission** flow and confirm remote live starts automatically when the pilot device is online.
 7. Confirm the Mission Overwatch browser can use its microphone if the team plans to use **Dictate** for manual events.
 8. If a second Android or iOS device will use Mission Viewer, activate its own license and test that it can see an active mission, remote video, timeline events, and alerts.
 9. If Device Live AI will be used, grant notification permission, confirm the intended Android settings under **Pilot console → Flight → Local AI**, review the per-detection choices in Mission Overwatch, and run a safe cloud-to-fallback detection test. Keep safety-critical detections enabled when your operating plan requires them.
-10. For Android drone controllers: install AlphaRelay Copilot, activate the device license, run a test **Controller Screen Capture** mission, and confirm Android screen capture permission works. If the crew will use **Pilot mode**, also confirm the aircraft appears in the supported list and passes AlphaRelay's live connection check.
+10. For Android drone controllers: install AlphaRelay Operator, activate the device license, run a test **Controller Screen Capture** mission, and confirm Android screen capture permission works. If the crew will use **Pilot mode**, also confirm the aircraft appears in the supported list and passes AlphaRelay's live connection check.
 11. For **Controller Livestream**, confirm the controller accepts the displayed DJI RTMP or Skydio RTSP External Server values, can reconnect, and produces playable closeout footage. RTMP stream keys and RTSP stream names are separate six-digit values.
 12. For **HDMI Capture Card**, test the exact controller, UVC card, cable or powered hub, Android device, USB-C iPad, or laptop browser as applicable. Verify the 16:9 signal, sustained recording, and disconnect/recovery path.
 13. For laptop HDMI, test **New laptop HDMI mission**, browser camera permission, **Connect & go live**, **Stop & upload**, and **Recover interrupted recording**. Do not clear browser data before recovery.
 14. For iPhone or iPad: confirm iOS 26 and test the selected ReplayKit, Controller Livestream, or iPad HDMI source. Test microphone/speech permissions if needed, allow Live Activities or the **Screen Sharing** notification fallback, and verify landscape alert presentation and recording finalization on the physical device.
-15. For a DJI Avata with compatible DJI Goggles: install DJI Fly and AlphaRelay Copilot on the Android device, test the supported goggles live-view connection, and confirm remote live and post-mission upload.
-16. Check for older queued video on the Copilot startup screen and let it finish, or consciously choose **Skip for now and start new mission**.
+15. For a DJI Avata with compatible DJI Goggles: install DJI Fly and AlphaRelay Operator on the Android device, test the supported goggles live-view connection, and confirm remote live and post-mission upload.
+16. Check for older queued video on the Operator startup screen and let it finish, or consciously choose **Skip for now and start new mission**.
 17. Plan for internet when you need remote live, Controller Livestream, Mission Viewer, cloud Live AI, sync, upload, reports, or export.
 18. If the mission uses an agency scenario, confirm it appears in mission setup and that its visible AI watch targets and Quick Events are current.
 19. Assign pilot, overwatch user, reviewer, and supervisor roles.
@@ -36,7 +36,7 @@ icon: "clipboard-check"
 | Deployment-specific LAN relay | Same reachable Wi-Fi between pilot device and Overwatch |
 
 <Warning>
-  The current public Copilot workflow does not present a Local Network mission button. If your Android deployment exposes a LAN relay, it needs local Wi-Fi reachability and remains separate from internet sync.
+  The current public Operator workflow does not present a Local Network mission button. If your Android deployment exposes a LAN relay, it needs local Wi-Fi reachability and remains separate from internet sync.
 </Warning>
 
 Pilots can hide on-screen drone controls and use the physical controller while keeping quick events and relay status visible. See [Minimum requirements](/alpharelay/minimum-requirements) for device specs.

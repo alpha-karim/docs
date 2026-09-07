@@ -6,7 +6,7 @@ icon: "lock"
 
 ## What runs locally
 
-- **AlphaRelay Copilot**: mission setup, quick and voice events, on-device Live AI fallback, Mission Viewer, remote-live publishing, recording, and durable sync queues
+- **AlphaRelay Operator**: mission setup, quick and voice events, on-device Live AI fallback, Mission Viewer, remote-live publishing, recording, and durable sync queues
 - **Mission Overwatch PWA shell**: page cache after first online visit (sign-in and sync still need network)
 
 ## What syncs to the cloud
@@ -37,7 +37,7 @@ Device Live AI and AI live-watch alerts are logged as review prompts, not final 
 
 Device Live AI uses licensed server-side analysis when connectivity is healthy and automatically falls back to on-device people and possible-weapon detection when it is not. Provider credentials remain server-side. Mission Overwatch, device cloud analysis, and local fallback coordinate temporary ownership to reduce duplicate alerts.
 
-Person detections use informational/yellow treatment and do not identify people. Copilot can disable routine person and hand-to-hand-contact alerts for a mission. Mission Overwatch provides separate controls for every standard detection. When weapon-related detections are enabled, AlphaRelay gives their alerts the highest priority; every alert remains subject to human review.
+Person detections use informational/yellow treatment and do not identify people. Operator can disable routine person and hand-to-hand-contact alerts for a mission. Mission Overwatch provides separate controls for every standard detection. When weapon-related detections are enabled, AlphaRelay gives their alerts the highest priority; every alert remains subject to human review.
 
 AlphaRelay uses one official-event rule across counts, playback markers, reports, offline exports, and custody views: undeleted human-created events are included; automatic AI alerts require approval; accepted AI Review findings require Timeline officer review. Pending or dismissed automatic alerts and accepted AI Review findings without Timeline officer review remain outside the official evidence set and are permanently removed when Timeline review completes or the mission seals.
 

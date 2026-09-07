@@ -12,7 +12,7 @@ Active missions open in a full-screen command view. The header shows elapsed tim
 
 ## Remote live — Live stream (WebRTC)
 
-When AlphaRelay Copilot starts a mission with validated internet, it starts remote live automatically. Open the active mission and select **Live stream (WebRTC)** to watch it.
+When AlphaRelay Operator starts a mission with validated internet, it starts remote live automatically. Open the active mission and select **Live stream (WebRTC)** to watch it.
 
 If the mission began offline or remote-live setup failed, restore internet and use **Pilot console → Mission → Start remote live** to retry.
 
@@ -40,7 +40,7 @@ Dictation depends on browser speech-recognition support. If it is unavailable or
 
 ## Deployment-specific Local Network relay
 
-The current public Copilot workflow does not present a **Local Network** mission option. If an older or deployment-specific Android build exposes **Live Overwatch Screen**, connect it to the field device on the same reachable Wi-Fi by scan or LAN IP. That LAN path is separate from remote live and cloud sync.
+The current public Operator workflow does not present a **Local Network** mission option. If an older or deployment-specific Android build exposes **Live Overwatch Screen**, connect it to the field device on the same reachable Wi-Fi by scan or LAN IP. That LAN path is separate from remote live and cloud sync.
 
 ## AI live watch
 
@@ -65,11 +65,11 @@ AI live watch alerts can show:
 
 - An **AI live alert** or **Urgent AI live alert** banner in Mission Overwatch
 - A timeline event with the sampled frame attached when available
-- A Live AI alert badge, notification, and log entry in Copilot while the same mission is active
+- A Live AI alert badge, notification, and log entry in Operator while the same mission is active
 
 Person detections use informational/yellow treatment. Possible weapons and other threat indicators use red review treatment, with **Urgent** reserved for the urgent-review level. Person-holding-a-weapon alerts rank ahead of other standard detections. The Mission Overwatch banner dismisses automatically after about three seconds, but the timeline event remains available for review.
 
-When browser AI live watch is successfully analyzing the same mission, Copilot pauses device-originated cloud requests and the on-device fallback to avoid duplicate automatic alerts. If browser analysis stops or the handoff expires, device analysis resumes automatically; cloud failure then falls back to on-device detection.
+When browser AI live watch is successfully analyzing the same mission, Operator pauses device-originated cloud requests and the on-device fallback to avoid duplicate automatic alerts. If browser analysis stops or the handoff expires, device analysis resumes automatically; cloud failure then falls back to on-device detection.
 
 Before a Device Live AI or AI live-watch alert can trigger configured screenshot analysis or enter a report, an officer must choose **Approve alert**. Choose **Dismiss alert** when the alert should be excluded. If an approved screenshot returns an analysis finding, it remains pending until an officer selects **Accept as is** or **Review & edit**. Unapproved, dismissed, and unreviewed findings do not enter the AAR narrative.
 
@@ -102,7 +102,7 @@ Use **Share** to give an eligible user mission-scoped collaborator access. Selec
 
 ## View from a licensed device
 
-For a compact active-mission view, open AlphaRelay Copilot on a second licensed device. Tap **View Live Mission** on Android or **Watch Live Mission** on iOS. It can watch remote live, follow timeline updates and alerts, and log quick or manual events. Closed-mission review stays in Mission Overwatch.
+For a compact active-mission view, open AlphaRelay Operator on a second licensed device. Tap **View Live Mission** on Android or **Watch Live Mission** on iOS. It can watch remote live, follow timeline updates and alerts, and log quick or manual events. Closed-mission review stays in Mission Overwatch.
 
 → [View a live mission on Android or iOS](/alpharelay/view-live-mission-android)
 

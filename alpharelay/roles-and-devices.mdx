@@ -6,15 +6,15 @@ icon: "users"
 
 | Role | Device | Responsibility |
 | --- | --- | --- |
-| Pilot | AlphaRelay Copilot (Android, iPhone, or iPad) plus the flight app or supported Pilot-mode controls | Selects the current operator, starts missions, flies through the applicable flight interface, logs field events, ends mission, uploads footage |
-| Controller-video operator | Android/iOS Copilot device or laptop plus an RTMP-capable or HDMI-output flight controller | Creates a Controller Livestream destination or receives HDMI video while the flight controller retains aircraft control |
-| Mission viewer | Copilot on a second licensed Android or iOS device | Watches active remote live, follows timeline events and alerts, and logs quick or manual events |
+| Pilot | AlphaRelay Operator (Android, iPhone, or iPad) plus the flight app or supported Pilot-mode controls | Selects the current operator, starts missions, flies through the applicable flight interface, logs field events, ends mission, uploads footage |
+| Controller-video operator | Android/iOS Operator device or laptop plus an RTMP-capable or HDMI-output flight controller | Creates a Controller Livestream destination or receives HDMI video while the flight controller retains aircraft control |
+| Mission viewer | Operator on a second licensed Android or iOS device | Watches active remote live, follows timeline events and alerts, and logs quick or manual events |
 | Overwatch user | Browser — Mission Overwatch | Relay viewing, remote live, command-side events, review, report, seal, export |
 | Reviewer / officer | Browser — Mission Overwatch | Checks timeline, footage, report draft, and custody |
 | Supervisor | Browser — Mission Dashboard / Overwatch | Approves or returns after-action reports |
 | Org admin | Browser — Organization Settings | Members, roles, agency scenarios, licenses, time zone, storage, and read-only Activity Log |
 
-Organization access uses four roles. **Admin/Owner** manages the organization and every mission. **Supervisor** oversees every mission and approves or returns reports. **Officer** works on missions they created, were assigned to, or received through mission sharing. **Mission operator** is a separate designation that can be applied to any member role; it controls whether the person appears in Copilot's field roster and can start missions.
+Organization access uses four roles. **Admin/Owner** manages the organization and every mission. **Supervisor** oversees every mission and approves or returns reports. **Officer** works on missions they created, were assigned to, or received through mission sharing. **Mission operator** is a separate designation that can be applied to any member role; it controls whether the person appears in the AlphaRelay Operator field roster and can start missions.
 
 ## Android drone controllers
 
@@ -28,11 +28,11 @@ For a DJI Avata with compatible DJI Goggles, the pilot operates through the gogg
 
 Use **Controller Livestream** when a DJI controller can publish to RTMP or a Skydio controller supports RTSP External Server. A licensed Android, iPhone, or iPad creates the mission and shows the matching RTMP or RTSP values. Internet is required.
 
-Use **HDMI Capture Card** when the controller exposes HDMI output. Connect it through a UVC card to Android Copilot, a USB-C iPad, or a laptop browser. The laptop path starts from **New laptop HDMI mission** and requires no phone or tablet app. None of these workflows transfers aircraft control away from the flight controller.
+Use **HDMI Capture Card** when the controller exposes HDMI output. Connect it through a UVC card to Android Operator, a USB-C iPad, or a laptop browser. The laptop path starts from **New laptop HDMI mission** and requires no phone or tablet app. None of these workflows transfers aircraft control away from the flight controller.
 
 ## iPhone and iPad
 
-On iOS 26, AlphaRelay Copilot can use ReplayKit screen capture, Controller Livestream, or USB-C iPad UVC HDMI capture. iPhone does not expose UVC capture to AlphaRelay. The flight app or controller remains responsible for aircraft control.
+On iOS 26, AlphaRelay Operator can use ReplayKit screen capture, Controller Livestream, or USB-C iPad UVC HDMI capture. iPhone does not expose UVC capture to AlphaRelay. The flight app or controller remains responsible for aircraft control.
 
 ## Secondary mission viewer
 
@@ -40,18 +40,18 @@ On a licensed Android device, tap **View Live Mission**. On iPhone or iPad, tap 
 
 ## Key rules
 
-- Most missions start from Copilot. **Laptop HDMI Capture** starts from **New laptop HDMI mission** in Mission Dashboard and continues in Mission Overwatch.
+- Most missions start from Operator. **Laptop HDMI Capture** starts from **New laptop HDMI mission** in Mission Dashboard and continues in Mission Overwatch.
 - The landing screen separates **Start a Mission** from **View a Live Mission**. Starting first opens **Choose video source**, then the operator, scenario, mission name, AI targets, and alert settings for that source.
 - Open missions from **Mission Dashboard** (link may say **Open Mission Console**).
-- Copilot presents one **Start Mission** action and starts remote live automatically when validated internet is available.
+- Operator presents one **Start Mission** action and starts remote live automatically when validated internet is available.
 - Mission Overwatch keeps the live **Event timeline** in the right rail. Quick Events, typed manual events, browser dictation, and applicable laptop HDMI controls stay in the compact **Events & input** row beneath the feed.
-- **Local Network** is a deployment-specific Android LAN relay path and is not presented by the current public Copilot workflow.
+- **Local Network** is a deployment-specific Android LAN relay path and is not presented by the current public Operator workflow.
 - **Controller Screen Capture** is automatic on integrated Android drone controllers and the recommended default on detected DJI SDK-controller setups; it is not a separate mission button.
 - **HDMI Capture Card** works through Android USB host/OTG, USB-C iPad, or a laptop browser; iPhone is not a UVC input device.
-- **Controller Livestream** works from Android or iOS Copilot and supports DJI RTMP plus Skydio RTSP External Server.
+- **Controller Livestream** works from Android or iOS Operator and supports DJI RTMP plus Skydio RTSP External Server.
 - **Pilot mode** is an explicit alternative on eligible DJI SDK-controller setups and requires supported-aircraft confirmation plus a successful live connection check.
 - Compatible DJI Goggles can enable **Goggles Mode** automatically over USB, but the operator still taps **Start Mission** before capture begins.
-- Mission Viewer requires internet and a valid Copilot license; only active missions in that license's organization appear. It normally runs on a second device, but the Android device that creates a Controller Livestream also opens that mission in Mission Viewer.
+- Mission Viewer requires internet and a valid Operator license; only active missions in that license's organization appear. It normally runs on a second device, but the Android device that creates a Controller Livestream also opens that mission in Mission Viewer.
 
 ## Share one mission
 

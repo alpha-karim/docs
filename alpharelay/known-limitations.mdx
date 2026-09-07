@@ -6,13 +6,13 @@ icon: "triangle-alert"
 
 ## Network
 
-- The current public Copilot workflow does not present a **Local Network** mission button. Deployment-specific Android LAN relay builds require the field and Overwatch devices on the same reachable Wi-Fi.
+- The current public Operator workflow does not present a **Local Network** mission button. Deployment-specific Android LAN relay builds require the field and Overwatch devices on the same reachable Wi-Fi.
 - **Live stream (WebRTC)** requires internet on the pilot device.
 - Cloud sync, upload, and export wait for internet.
 - Losing relay, remote live, or cloud sync does not always end the mission — paths are independent.
 - **View Live Mission** on Android and **Watch Live Mission** on iOS require internet and a valid licensed installation in the same organization. Timeline events can update even when remote video is not ready.
 - **Controller Livestream** requires internet on the Android or iOS setup/viewer device and the separate publishing controller. DJI requires either a complete RTMP URL or separate server/key fields. Skydio requires a deployed, reachable RTSP gateway and RTSP External Server support.
-- Copilot **HDMI Capture Card** can record locally without internet on Android or USB-C iPad; iPhone does not expose UVC capture. Remote viewing, cloud AI, sync, and upload still require connectivity.
+- Operator **HDMI Capture Card** can record locally without internet on Android or USB-C iPad; iPhone does not expose UVC capture. Remote viewing, cloud AI, sync, and upload still require connectivity.
 - **Laptop HDMI Capture** requires an online mission start, browser camera permission, a physical UVC card, available local browser storage, and an open tab. Use **Stop & upload** before ending the mission; do not clear browser data before recovering an interrupted recording.
 
 ## Media
@@ -22,7 +22,7 @@ icon: "triangle-alert"
 - **Controller Livestream** records the video published by the controller, not an aircraft-original camera file. Stop the publisher before normal mission closeout so the recording can finalize.
 - **HDMI Capture Card** ingests UVC video only. USB/UAC audio embedded by the card is not currently recorded; voice events use the receiving device microphone. Hardware power, USB support, negotiated resolution, browser compatibility, and reconnect behavior vary, so validate the exact stack.
 - **Goggles Mode** records the DJI Fly screen carrying the DJI Goggles live view, not the original DJI Avata camera file.
-- Queued Copilot footage retries when validated connectivity returns, but the device must remain powered and the app must not be force-stopped or uninstalled. iOS closeout also needs Copilot open while ReplayKit handoff completes.
+- Queued Operator footage retries when validated connectivity returns, but the device must remain powered and the app must not be force-stopped or uninstalled. iOS closeout also needs Operator open while ReplayKit handoff completes.
 - Queued footage must finish before final review.
 - Browser upload of an optional MP4 or MOV recording requires internet before upload starts (no pre-queue).
 - In Controller Screen Capture and Goggles Mode, optional aircraft or goggles recordings do not replace AlphaRelay's capture clock. Verify their visual alignment before relying on shared event timing.
@@ -55,7 +55,7 @@ icon: "triangle-alert"
 - AI Review does not draw model bounding boxes over finding thumbnails or the full-screen source image.
 - Device Live AI and AI live-watch alerts require **Approve alert** before configured screenshot analysis or report eligibility. **Dismiss alert** excludes the alert. Approved analysis still waits for the event, review decision, and screenshot to sync and requires internet plus AI configuration.
 - When healthy Mission Overwatch or device cloud analysis owns detection for a mission, the on-device fallback pauses to reduce duplicate alerts. The handoff is temporary and local detection resumes automatically, but there can be a brief transition after cloud analysis or connectivity stops.
-- iOS Copilot requires iOS 26 and physical-device ReplayKit validation. It does not include Android's DJI Goggles USB auto-detection, local-network relay, or full Android local detector.
+- iOS Operator requires iOS 26 and physical-device ReplayKit validation. It does not include Android's DJI Goggles USB auto-detection, local-network relay, or full Android local detector.
 
 ## Aircraft controls
 

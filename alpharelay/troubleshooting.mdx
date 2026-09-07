@@ -11,12 +11,12 @@ icon: "wrench"
 3. Tap **Start remote live** if automatic setup was skipped or failed.
 4. In Mission Overwatch, open the active mission and select **Live stream (WebRTC)**.
 
-The current public Copilot workflow does not present a **Local Network** mission button. If your Android deployment exposes **Live Overwatch Screen**, keep both devices on the same reachable Wi-Fi, connect by scan or device IP, and trust the relay certificate if prompted.
+The current public Operator workflow does not present a **Local Network** mission button. If your Android deployment exposes **Live Overwatch Screen**, keep both devices on the same reachable Wi-Fi, connect by scan or device IP, and trust the relay certificate if prompted.
 
 ## Mission Viewer cannot see the mission
 
 1. Confirm the viewing device has internet.
-2. Confirm AlphaRelay Copilot is activated with a valid license for the same organization as the mission.
+2. Confirm AlphaRelay Operator is activated with a valid license for the same organization as the mission.
 3. Confirm the mission is still active. Closed missions do not appear in the viewer list.
 4. Tap **Refresh** in the mission picker.
 
@@ -26,13 +26,13 @@ For Controller Livestream, an active mission can appear before the separate cont
 
 ## Controller Livestream is waiting for video
 
-1. Confirm both the Android or iOS Copilot device and the separate flight controller have usable internet.
+1. Confirm both the Android or iOS Operator device and the separate flight controller have usable internet.
 2. On the AlphaRelay device, tap **Show Livestream Setup** and compare the displayed values character for character.
 3. For DJI two-field RTMP, include the final `/` in the server field and put only the six-digit code in the stream-key field. For Skydio, choose RTSP External Server and enter the displayed server address, port, and separate six-digit stream name.
 4. Start or restart the controller's native livestream, then return to **View Live Mission**.
 5. If the mission is no longer active, create a new Controller Livestream instead of publishing into the closed record.
 
-Stop the controller publisher before closing the mission. Use **End Mission** in Mission Overwatch or the matching close action in Copilot so AlphaRelay can finalize the received recording.
+Stop the controller publisher before closing the mission. Use **End Mission** in Mission Overwatch or the matching close action in Operator so AlphaRelay can finalize the received recording.
 
 ## HDMI Capture Card has no video
 
@@ -42,7 +42,7 @@ Stop the controller publisher before closing the mission. Use **End Mission** in
 4. In the active mission, wait for the preview to change from **Waiting for signal** to **Capturing**.
 5. If the card disconnected, reconnect it without closing the mission and verify the preview returns.
 
-The HDMI workflow ingests UVC video, not embedded USB/UAC audio. Use the receiving Android device or iPad microphone for optional voice events. If the image is stretched or double-height, update Copilot and reload Mission Overwatch; current capture and playback preserve 16:9, while legacy correction changes presentation without rewriting the evidence file.
+The HDMI workflow ingests UVC video, not embedded USB/UAC audio. Use the receiving Android device or iPad microphone for optional voice events. If the image is stretched or double-height, update Operator and reload Mission Overwatch; current capture and playback preserve 16:9, while legacy correction changes presentation without rewriting the evidence file.
 
 ## Laptop HDMI does not connect or upload
 
@@ -55,19 +55,19 @@ The HDMI workflow ingests UVC video, not embedded USB/UAC audio. Use the receivi
 ## Cloud sync delayed
 
 1. Confirm you are signed in.
-2. Move to validated internet. Copilot video uploads resume through the durable device queue; browser work still needs its tab open.
+2. Move to validated internet. Operator video uploads resume through the durable device queue; browser work still needs its tab open.
 3. Do not refresh during pending sync.
 
 ## A new mission will not start
 
-Copilot blocks a new start while an active mission, capture service, or unfinished recording still needs closeout. On Android, use **Close Active Mission** on the startup screen. On iOS, reopen the active mission and use **Stop and complete mission**. Keep the app open while capture finalizes and pending evidence is handed off, then start the next mission.
+Operator blocks a new start while an active mission, capture service, or unfinished recording still needs closeout. On Android, use **Close Active Mission** on the startup screen. On iOS, reopen the active mission and use **Stop and complete mission**. Keep the app open while capture finalizes and pending evidence is handed off, then start the next mission.
 
 Do not force-stop or reinstall the app to bypass this guard; doing so can delay recovery of the existing mission recording.
 
 ## Footage queued or not playing
 
 1. Keep the pilot device powered on and restore validated internet.
-2. If Android Copilot opens with a queued-video panel, let it run or use **Skip for now and start new mission** only when field work cannot wait. On iOS, use **Sync pending items** or **Sync now** and keep Copilot open during handoff.
+2. If Android Operator opens with a queued-video panel, let it run or use **Skip for now and start new mission** only when field work cannot wait. On iOS, use **Sync pending items** or **Sync now** and keep Operator open during handoff.
 3. Tap **Upload now** if shown.
 4. Wait for **Loading playback link** to clear in Mission Overwatch.
 5. For an optional recording: confirm you are signed in and online, the file is MP4 or MOV, the correct source is selected, and no other upload is running.
@@ -80,7 +80,7 @@ If an optional aircraft or goggles recording is out of sync, choose **Align with
 
 ## Controller Screen Capture did not start
 
-1. Confirm the pilot device is an Android drone controller with **AlphaRelay Copilot** installed.
+1. Confirm the pilot device is an Android drone controller with **AlphaRelay Operator** installed.
 2. Tap **Start Mission**, choose **Controller Screen**, and complete mission setup. On a detected DJI SDK-controller setup, select **Controller Screen Capture — Recommended**.
 3. Approve the Android screen capture prompt.
 4. If voice relay is needed, grant microphone permission and confirm speech recognition is available.
@@ -102,13 +102,13 @@ Use **Close without aircraft copy** only when you intentionally want to close wi
 
 ## Pilot-mode aircraft footage is still transferring
 
-After a confirmed touchdown, AlphaRelay can close the mission before the aircraft-SD transfer finishes. Keep Copilot, the aircraft, and controller powered on and watch the footage banner. A queued clip counts as secured and can continue through the durable upload path. If AlphaRelay says the footage was not secured and keeps the mission open, fix the connection or SD problem and retry closeout.
+After a confirmed touchdown, AlphaRelay can close the mission before the aircraft-SD transfer finishes. Keep Operator, the aircraft, and controller powered on and watch the footage banner. A queued clip counts as secured and can continue through the durable upload path. If AlphaRelay says the footage was not secured and keeps the mission open, fix the connection or SD problem and retry closeout.
 
 ## iPhone or iPad capture did not start
 
-1. Confirm the device runs iOS 26 and the organization-provided AlphaRelay Copilot app is current.
+1. Confirm the device runs iOS 26 and the organization-provided AlphaRelay Operator app is current.
 2. Start the mission, open the ReplayKit broadcast picker, and choose **AlphaRelay Capture**.
-3. Start the broadcast, then open the flight app. If capture stops, return to Copilot and tap **Choose display and start capture**.
+3. Start the broadcast, then open the flight app. If capture stops, return to Operator and tap **Choose display and start capture**.
 4. Check iOS Screen Recording restrictions and available storage. Grant microphone permission only when microphone audio or voice events are needed.
 
 ReplayKit must be verified on a physical device. A Simulator test does not prove controller-screen capture or background handoff.
@@ -125,7 +125,7 @@ If the aircraft is not listed, the DJI SDK is unavailable, or the connection che
 
 ## DJI Avata Goggles Mode did not start
 
-1. Confirm DJI Fly and AlphaRelay Copilot are installed on the same Android device.
+1. Confirm DJI Fly and AlphaRelay Operator are installed on the same Android device.
 2. Power on and link the DJI Avata, compatible DJI Goggles, and their compatible controller.
 3. For automatic detection, connect the DJI Goggles to the Android device with a compatible USB data/OTG cable.
 4. Open DJI Fly and confirm the goggles live view appears before opening AlphaRelay.
@@ -223,7 +223,7 @@ Ask AI can answer only from the selected primary uploaded recording. If the rele
 1. Confirm **Enable automatic OpenAI + local detection** is on in Android **Pilot console → Flight → Local AI**, or confirm iOS capture and notification permission are active.
 2. Start Controller Screen Capture; Device Live AI does not sample while capture is stopped.
 3. Check **Device Live AI** status. With internet it should report cloud analysis; after a cloud or connectivity failure it should move to the on-device fallback.
-4. Confirm Copilot is current and that the offline fallback model is available.
+4. Confirm Operator is current and that the offline fallback model is available.
 5. Grant notification permission if events are logged but direct alerts do not appear.
 
 If the status says browser or cloud Live AI is active, this is expected coordination for the same mission. The on-device fallback resumes automatically after healthy cloud analysis stops or the short handoff expires.
@@ -234,9 +234,9 @@ Review every auto-tag before treating it as an operational fact. Small, distant,
 
 Check mission state and your role. Submitting for supervisor approval locks report editing, mission renaming, timeline and media changes, and AI Review mutations. A supervisor can **Return to draft** to reopen work. Approved records cannot be changed and reports cannot be regenerated; read-only Ask AI remains available.
 
-## Operator is missing from Copilot
+## Mission operator is missing from AlphaRelay Operator
 
-1. Connect the Copilot device to internet and refresh its license or reopen mission setup so the agency roster can update.
+1. Connect the Operator device to internet and refresh its license or reopen mission setup so the agency roster can update.
 2. In **Organization Settings**, confirm the person has a full name, an active membership, and **Mission operator** enabled. Role and operator designation are separate.
 3. Tap **Operator — Select before starting** and choose the person.
 
