@@ -510,10 +510,15 @@ Test the exact controller, capture card, cable or hub, receiving device, browser
 ## Requirements
 
 - iPhone or iPad running iOS 26
-- The organization-provided AlphaRelay Operator app installed
+- AlphaRelay Operator installed through TestFlight
 - An Operator device license or one-installation pairing code
 - Screen Recording permission; microphone and speech-recognition permission when voice events are needed
 - Internet for remote live, immediate sync, cloud Live AI, Mission Viewer, and upload; saved events and footage can retry later
+
+## Install the app
+
+1. Install Apple's [**TestFlight**](https://apps.apple.com/us/app/testflight/id899247664) app from the App Store.
+2. Open the [**AlphaRelay Operator TestFlight invitation**](https://testflight.apple.com/join/AdxfvTca).
 
 ## Activate the device
 
@@ -1734,10 +1739,11 @@ You do not need to enable Android Developer mode to install AlphaRelay.
 
 ## iPhone and iPad setup
 
-1. Install the organization-provided **AlphaRelay Operator** app on a device running iOS 26.
-2. Open Operator and scan the license QR code, enter the 8-character pairing code, or enter the full `ar-…` key.
-3. Allow Screen Recording when starting capture. Grant microphone and speech-recognition permission only when voice events or microphone audio are needed.
-4. Use **Start Mission** for a new controller-screen mission or **Watch Live Mission** to support an active mission.
+1. On a device running iOS 26, install Apple's [**TestFlight**](https://apps.apple.com/us/app/testflight/id899247664) app from the App Store.
+2. Open the [**AlphaRelay Operator TestFlight invitation**](https://testflight.apple.com/join/AdxfvTca).
+3. Open Operator and scan the license QR code, enter the 8-character pairing code, or enter the full `ar-…` key.
+4. Allow Screen Recording when starting capture. Grant microphone and speech-recognition permission only when voice events or microphone audio are needed.
+5. Use **Start Mission** for a new controller-screen mission or **Watch Live Mission** to support an active mission.
 
 → Use AlphaRelay Operator on iPhone or iPad
 
@@ -1841,7 +1847,7 @@ Do not share exports before sync and review are complete.
 - For **Operator HDMI Capture**: Android with USB host/OTG or a USB-C iPad, a compatible UVC capture card, controller HDMI output, and camera/USB permission; a powered hub may be required
 - For **Pilot mode**: detected DJI SDK remote-controller setup, a listed DJI MSDK 5.17 aircraft, and a live flight-controller connection that AlphaRelay can verify
 - For a DJI Avata with compatible DJI Goggles: separate Android phone or tablet with **DJI Fly**, **AlphaRelay Operator**, screen capture permission, and internet
-- For iOS capture: iOS 26, the organization-provided Operator app, ReplayKit Screen Recording permission, and optional microphone/speech permissions
+- For iOS capture: iOS 26, AlphaRelay Operator installed through TestFlight, ReplayKit Screen Recording permission, and optional microphone/speech permissions
 - For Mission Viewer: a second Operator installation licensed to the mission's organization, plus internet
 
 ## Overwatch / review (browser)
@@ -1864,7 +1870,7 @@ Do not share exports before sync and review are complete.
 | Laptop HDMI Capture | Online web-app session; physical UVC card; browser camera permission and local storage; tab kept open through stop and upload |
 | Pilot mode | Detected DJI SDK-controller setup; aircraft in the Pilot app's DJI MSDK 5.17 list; successful live connection check |
 | Optional DJI SDK 5 aircraft-original handoff after Controller Screen Capture | Aircraft confirmed during setup; Android USB accessory routing; powered aircraft/controller; usable aircraft SD card; ability to force-stop DJI Fly, clear its USB default, reconnect, and choose AlphaRelay |
-| iPhone/iPad Operator capture | iOS 26; organization-provided app; device license; ReplayKit, Controller Livestream, or USB-C iPad HDMI source; internet for live/sync |
+| iPhone/iPad Operator capture | iOS 26; AlphaRelay Operator installed through TestFlight; device license; ReplayKit, Controller Livestream, or USB-C iPad HDMI source; internet for live/sync |
 | DJI Avata with DJI Goggles | Linked DJI Avata, compatible DJI Goggles, and compatible controller; Android device with DJI Fly and AlphaRelay Operator; goggles live-view connection; Android screen capture permission; internet |
 | **Live stream (WebRTC)** | Validated pilot-device internet; starts automatically with the mission and can be retried from the Pilot console |
 | Mission Viewer | Second licensed Operator installation in the same organization; active mission; internet; remote live required for video |
@@ -1996,7 +2002,7 @@ After a confirmed touchdown, AlphaRelay can close the mission before the aircraf
 
 ## iPhone or iPad capture did not start
 
-1. Confirm the device runs iOS 26 and the organization-provided AlphaRelay Operator app is current.
+1. Confirm the device runs iOS 26 and the TestFlight version of AlphaRelay Operator is current.
 2. Start the mission, open the ReplayKit broadcast picker, and choose **AlphaRelay Capture**.
 3. Start the broadcast, then open the flight app. If capture stops, return to Operator and tap **Choose display and start capture**.
 4. Check iOS Screen Recording restrictions and available storage. Grant microphone permission only when microphone audio or voice events are needed.
