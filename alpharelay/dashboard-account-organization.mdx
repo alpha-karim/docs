@@ -10,7 +10,7 @@ Command home at [alpha-relay.com/dashboard.html](https://www.alpha-relay.com/das
 
 - **Command Center** connection and refresh status, active remote-live count, and mission KPIs
 - Active mission rows with live state, operator and scenario context, event activity, elapsed time, and alerts awaiting review
-- **New laptop HDMI mission** for naming an online mission, optionally selecting a scenario, and continuing directly to browser capture setup in Mission Overwatch
+- **New Livestream** and **New HDMI mission** for authorized mission operators to name an online mission, optionally select a scenario and AI detections, and continue directly to controller or browser capture setup in Mission Overwatch
 - **Attention queue** for remote-live failures, unsynced mission data, automatic alerts awaiting review, and report follow-ups
 - **Latest alerts** with review status, source mission, screenshot when available, and a link into Mission Overwatch
 - Mission history with search and filters
@@ -22,11 +22,13 @@ Command home at [alpha-relay.com/dashboard.html](https://www.alpha-relay.com/das
 - **Import mission** for creating a closed post-flight record from external footage and photos
 - Intelligence search across missions, events, and footage
 - Supervisor inbox (pending approval) and operator returned-to-draft inbox
-- Analytics
+- **Analytics** for active missions, seven-day mission and official-event totals, evidence coverage, lifetime totals, close rate, median duration, event rate, storage, operational insights, mission throughput, scenario mix, capture channels, and highest event load
 
 Select a mission to open **Mission Overwatch** (dashboard link: **Open Mission Console**).
 
 **Events logged** and event-based KPIs use the official mission-event set: human-created events that have not been deleted, approved automatic AI alerts, and officer-reviewed AI findings. Pending or dismissed automatic alerts can still appear under **Latest alerts** for operational awareness, but they are not included in official event totals.
+
+Long **Attention queue** and **Latest alerts** lists load additional rows as you scroll. Focus the list before keyboard scrolling. Analytics rolling windows use the organization's mission records and local calendar dates; treat the summaries as operational decision support, not as a custody export.
 
 → [Import a mission](/alpharelay/import-mission)
 
@@ -79,6 +81,8 @@ Agency scenarios appear in the web and Operator mission pickers after refresh. T
 Open the mission in Mission Overwatch and click **Share**. Under **Available users**, AlphaRelay shows eligible organization users by name and email. Click **Share** beside the intended person; they receive mission-scoped collaborator access and an email link when mail delivery is configured. To revoke access, find the person under **People with access**, click **Remove**, and confirm.
 
 Mission sharing does not promote the person to Supervisor or Admin/Owner, expose every organization mission, or designate them as a mission operator. The mission creator, assigned mission team, supervisors, and admins/owners can manage sharing; a shared collaborator cannot re-share the mission.
+
+For an active mission, the same **Share** dialog prepares a **Public live view** QR code and bearer link. Recipients do not sign in and can only watch the livestream and see events and alerts. They cannot log or review events. Click **End public viewing** to revoke the current link; ending the mission also disables it.
 
 ### Create or edit an agency scenario
 

@@ -1,6 +1,6 @@
 # AlphaRelay Operator Documentation — NotebookLM Export
 
-Generated on 2026-09-07 by `scripts/generate-notebooklm-export.mjs`.
+Generated on 2026-09-17 by `scripts/generate-notebooklm-export.mjs`.
 
 **Web app:** https://www.alpha-relay.com
 **Pilot app (APK):** https://www.alpha-relay.com/download.html
@@ -14,27 +14,30 @@ Generated on 2026-09-07 by `scripts/generate-notebooklm-export.mjs`.
 - **Start Mission** — current Android and iOS Operator entry point. It first asks how the mission will receive video, then opens operator, mission name, scenario, mission-specific AI targets, and alert settings for the selected source; starting creates an Internet mission and automatically starts remote live when validated internet is available.
 - **Local Network** — deployment-specific Android LAN relay path retained in the product but not presented as a mission-start button in the current public Operator workflow.
 - **Controller Screen Capture** — recommended capture path on Android drone controllers where the controller's native flight app keeps flight control and AlphaRelay captures the controller screen
-- **Controller Livestream** — Android/iOS Operator workflow that provides DJI RTMP values or Skydio RTSP External Server values for a controller or flight app to publish directly; it requires internet and does not control the flight controller
+- **Controller Livestream** — Browser or Android/iOS Operator workflow that provides DJI RTMP values or Skydio RTSP External Server values for a controller or flight app to publish directly; it requires internet and does not control the flight controller
 - **HDMI Capture Card** — UVC workflow available through Android Operator, USB-C iPad, or a laptop browser; recording stays associated with the mission while flight remains on the controller
 - **Pilot mode** — direct AlphaRelay aircraft-control path offered on detected DJI SDK-controller setups only after the operator confirms a listed DJI MSDK 5.17 aircraft and AlphaRelay verifies its live connection
 - **Goggles Mode** — DJI Avata and compatible DJI Goggles workflow on a separate Android phone or tablet; compatible USB hardware can enable the mode automatically, but the operator still taps **Start Mission** before AlphaRelay starts an Internet mission with no scenario and opens DJI Fly after screen-capture approval
 - **Pilot console** — in-app settings panel (Mission, Flight, Events, System)
 - **Mission Dashboard** — command home (`dashboard.html`)
 - **Command Center** — default Mission Dashboard view with connection/refresh status, active missions, operational KPIs, attention queue, and latest automatic alerts
-- **Mission Overwatch** / **Mission Console** — per-mission browser workspace (`mission-overwatch.html`; dashboard link says **Open Mission Console**); active missions use a full-screen command view with the live feed, event timeline in the right rail, and a compact **Events & input** row beneath the feed
+- **Mission Overwatch** / **Mission Console** — per-mission browser workspace (`mission-overwatch.html`; dashboard link says **Open Mission Console**); active missions use a full-screen command view with the live feed and a tabbed right-rail Mission sidebar
 - **Mission Viewer** / **View Live Mission** / **Watch Live Mission** — active-mission viewer in licensed Android and iOS Operator apps for remote live, timeline updates, and quick or manual event logging from a secondary device; Android viewer events use a received full-frame screenshot when video is available
 - **Live Overwatch Screen** — relay connection panel in Mission Overwatch
 - **Live stream (WebRTC)** — remote live viewing over the internet
 - **AI live watch** — Mission Overwatch control that analyzes sampled remote-live frames and logs officer-review alerts when configured; it defaults on unless a saved mission choice disables it
-- **Alert on people** — Operator mission setting for optional informational person and hand-to-hand-contact alerts; Mission Overwatch can configure each standard detection separately, and enabled weapon-related alerts receive highest priority
+- **Alert on people** — Operator mission setting for optional informational person alerts; Mission Overwatch can configure each standard detection separately, and enabled weapon-related alerts receive highest priority
 - **Scenario-specific AI targets** / **Mission-specific AI targets** — bounded visible details added to LiveAI's standard detections for an active mission
 - **Device Live AI** — cloud-first live analysis from the Operator device when internet is healthy, with automatic on-device person and possible-weapon fallback when cloud analysis is unavailable; Android also exposes the fallback controls in **Pilot console → Flight → Local AI**
 - **Person detection** — informational/yellow alert treatment; this is not identity or face recognition
 - **Possible weapon / urgent threat** — red alert treatment that still requires human review
 - **Automatic AI-alert review** — an officer must **Approve alert** or **Dismiss alert** before a Device Live AI or AI live-watch screenshot can be analyzed or used in a report
-- **Mission tools** — Quick Events, typed manual events, browser **Dictate**, and laptop HDMI controls in the compact **Events & input** row beneath the Mission Overwatch feed for active Internet missions
+- **Mission sidebar** — right-rail active-mission tabs for **Timeline**, **Events**, **Ask AI**, an optional **Map**, and a conditional **Livestream** or **HDMI Input** tab
+- **Live Ask AI** — active-mission question workflow in Mission Overwatch and Android/iOS Operator that freezes one fresh current frame at submission time, returns a shared saved answer for that frame, and requires verification against the live feed
+- **Public live view** — revocable, read-only active-mission link and QR code that lets anyone with the link watch live video and see events and alerts without signing in; viewers cannot log or review events
+- **Location Sharing** / **Nearby map** / **Map** — optional mission-scoped sharing of a selected person's licensed-device location; live positions are advisory, and recorded mission tracks finalize as custody-aware GeoJSON evidence
 - **Timeline finding review** — accepted AI Review findings and analyzed AI-alert screenshots require **Accept as is** or **Review & edit** in the timeline before AAR use
-- **Done — continue** — closed-mission action on Timeline, Media, and AI Review that records completion and advances to the next unfinished review step; Timeline removes remaining unaccepted AI candidates and AI Review rejects remaining undecided findings after confirmation
+- **Done — continue** — closed-mission action on Timeline, Media, and AI Review that records completion and advances to the next unfinished review step; Timeline moves remaining unaccepted AI candidates to **Dismissed**, while AI Review rejects remaining undecided findings after confirmation
 - **Official mission event** — a human-created event that has not been deleted, an approved automatic AI alert, or an accepted AI Review finding whose timeline analysis is officer-reviewed; use this set for counts, playback markers, reports, exports, and evidence-chain views
 - **Quick events** — one-tap event buttons; agency scenarios can define up to seven, with the standard buttons used when the list is empty
 - **AI Review analysis coverage** — **Event-focused** reviews original-video intervals around accepted events by default; **Full mission — detailed** reviews the union of selected recording timelines, preferring higher-quality/original footage for overlapping time, then verifies candidate findings against evidence screenshots
@@ -62,9 +65,9 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
 ## Five-step workflow
 
 1. **Set up devices** — Install AlphaRelay Operator on the field devices, activate each device license, and sign in to the web app.
-2. **Start a mission** — In Operator, tap **Start Mission**, choose how AlphaRelay will receive video, then complete the mission details. Use controller-screen capture, DJI RTMP or Skydio RTSP Controller Livestream, Android/iPad HDMI, or eligible Pilot mode. For laptop HDMI, use **New laptop HDMI mission** in the Dashboard, then connect the UVC card in Mission Overwatch. A compatible DJI Goggles connection can enable Goggles Mode automatically, but the operator still starts the mission from the Operator landing screen.
-3. **Watch and log events** — Use Mission Overwatch's full-screen command view for remote live and focused AI live watch. The event timeline stays in the right rail while Quick Events, manual events, dictation, and applicable HDMI controls sit in **Events & input** beneath the feed. A second licensed Android or iOS device can use Mission Viewer for a compact live view and event logging. Controller Livestream can also run gateway-side Live AI independently of the setup phone. Device Live AI uses cloud analysis when available and automatically falls back to on-device detection when it is not.
-4. **Review the mission** — Upload or sync footage, then follow Mission Overwatch through **Timeline**, **Media**, and **AI Review** when available. Choose what AI should look for and use **Event-focused** or **Full mission — detailed** coverage. AI Review uploads and reviews original video, verifies candidate findings with evidence screenshots, and shows the latest run plus earlier analysis history. You can leave while it runs and return after the completion email. **Ask AI** uses the selected primary uploaded footage and remains available read-only after approval.
+2. **Start a mission** — In Operator, tap **Start Mission**, choose how AlphaRelay will receive video, then complete the mission details. Use controller-screen capture, DJI RTMP or Skydio RTSP Controller Livestream, Android/iPad HDMI, or eligible Pilot mode. Command staff can also use **New Livestream** or **New HDMI mission** in the Dashboard to start those controller-video workflows in Mission Overwatch. A compatible DJI Goggles connection can enable Goggles Mode automatically, but the operator still starts the mission from the Operator landing screen.
+3. **Watch and log events** — Use Mission Overwatch's full-screen command view for remote live and focused AI live watch. Its right-rail **Mission sidebar** switches among **Timeline**, **Events**, **Ask AI**, an optional mission **Map**, and a mission-scoped **Livestream** or **HDMI Input** tab. Live Ask AI in Mission Overwatch and Android/iOS Operator answers a typed or dictated question from one fresh frame and shares saved-answer history across those views; verify each answer against the live feed. A second licensed device can use Mission Viewer for compact live viewing, event logging, Ask AI, and mission-scoped location sharing. Authorized team members can also create a revocable read-only public live QR. Controller Livestream can run gateway-side Live AI independently of the setup device. Device Live AI uses cloud analysis when available and automatically falls back to on-device detection when it is not.
+4. **Review the mission** — Upload or sync footage, then follow Mission Overwatch through **Timeline**, **Media**, **AI Review**, and **Report**. Timeline filters separate **Needs Review**, **Dismissed**, and **All Events**; unresolved AI candidates move to Dismissed when Timeline review completes and remain outside the official record. Choose what AI should look for and use **Event-focused** or **Full mission — detailed** coverage. AI Review uploads and reviews original video, verifies candidate findings with evidence screenshots, and shows the latest run plus earlier analysis history. You can leave while it runs and return after the completion email. **Ask AI** uses the selected primary uploaded footage and remains available read-only after approval.
 5. **Finalize the record** — Generate the report, seal the evidence listed in the AAR Chain of Custody, submit for supervisor review, and export when ready. Submission locks review work; approval makes record mutations permanently read-only while Ask AI remains available for read-only questions.
 
 ## Start here
@@ -118,13 +121,13 @@ The current public Operator workflow does not present a **Local Network** missio
 
 On Android drone controllers, Operator uses **Controller Screen Capture** by default. The controller's native flight app keeps flight control while AlphaRelay captures the controller screen, streams it into the mission, and records one continuous mission video. On detected DJI SDK-controller setups, a listed and connected DJI aircraft can instead unlock **Pilot mode** for AlphaRelay flight controls.
 
-When AlphaRelay cannot be installed on the controller, Android or iOS Operator can create **Controller Livestream** settings: RTMP for DJI or RTSP External Server for Skydio. A UVC card can instead send controller HDMI to Android, USB-C iPad, or a laptop browser. See Controller Livestream and HDMI Capture.
+When AlphaRelay cannot be installed on the controller, Android/iOS Operator or **New Livestream** in the browser Command Center can create **Controller Livestream** settings: RTMP for DJI or RTSP External Server for Skydio. A UVC card can instead send controller HDMI to Android, USB-C iPad, or a laptop browser. See Controller Livestream and HDMI Capture.
 
 On iPhone and iPad, Operator offers **Controller Screen** through ReplayKit and **Controller Livestream** through RTMP or RTSP. USB-C iPad also supports **HDMI Capture Card**; iPhone does not support UVC capture.
 
 With a DJI Avata and compatible DJI Goggles, AlphaRelay uses **Goggles Mode** on a separate Android device. DJI Fly displays the goggles live view, AlphaRelay starts a mission with no scenario, and the goggles with their compatible controller remain responsible for the aircraft.
 
-Most live missions start from Operator. **Laptop HDMI Capture** is the exception: create it with **New laptop HDMI mission** in the Dashboard and continue in Mission Overwatch. For work that already happened outside AlphaRelay, **Import mission** creates a closed post-flight record.
+Most live missions start from Operator. Command Center can also create **Controller Livestream** with **New Livestream** or browser HDMI capture with **New HDMI mission**, then continue setup in Mission Overwatch. For work that already happened outside AlphaRelay, **Import mission** creates a closed post-flight record.
 
 Operator also includes **Device Live AI**. It uses licensed cloud analysis when internet is healthy and automatically falls back to on-device people and possible-weapon detection when cloud analysis is unavailable. Every alert still requires human review.
 
@@ -142,21 +145,21 @@ Install AlphaRelay Operator, activate each Android or iOS device license, sign i
 
 ## 2. Start a mission
 
-Start most workflows in Operator. Tap **Start Mission**, choose the video source, then set the operator, mission name, scenario, AI targets, and alert options. Android supports controller-screen capture, Controller Livestream, UVC HDMI, and eligible Pilot mode. iPhone/iPad support ReplayKit and Controller Livestream; USB-C iPad also supports UVC HDMI. Controller Livestream shows DJI RTMP fields and, when deployed, Skydio RTSP External Server fields. For laptop HDMI, use **New laptop HDMI mission**, then **Connect & go live** in Mission Overwatch. Stop and upload that browser recording before ending the mission.
+Start most workflows in Operator. Tap **Start Mission**, choose the video source, then set the operator, mission name, scenario, AI targets, and alert options. Android supports controller-screen capture, Controller Livestream, UVC HDMI, and eligible Pilot mode. iPhone/iPad support ReplayKit and Controller Livestream; USB-C iPad also supports UVC HDMI. An authorized mission operator can instead use **New Livestream** or **New HDMI mission** in Command Center and finish setup in Mission Overwatch. Controller Livestream shows DJI RTMP fields and, when deployed, Skydio RTSP External Server fields. Stop and upload a browser HDMI recording before ending the mission.
 
 → Start a mission · Mission connectivity · Android Controller Screen Capture · Controller Livestream and HDMI Capture · iPhone and iPad · DJI Avata with DJI Goggles
 
 ## 3. Watch and log events
 
-Open the active mission in Mission Overwatch. Its full-screen command view protects the live feed, keeps the event timeline in the right rail, and places Quick Events, manual events, dictation, and applicable HDMI controls in the compact **Events & input** row below. When AI live watch is configured, Mission Overwatch can combine enabled standard detections with scenario-specific and mission-specific visible targets, sample the remote stream, and log alerts for officer review. A Controller Livestream also runs the same server-side Live AI from the gateway, independent of the phone that created the mission. A second licensed Android or iOS Operator device can open Mission Viewer to watch remote live, follow the timeline, and add quick or manual events. On Android, viewer events include a full live-frame screenshot when video is available. Device Live AI can also create alerts while capture is running; cloud analysis hands off automatically to the on-device fallback when needed.
+Open the active mission in Mission Overwatch. Its full-screen command view protects the live feed and keeps **Timeline**, **Events**, **Ask AI**, an optional **Map**, and a mission-scoped **Livestream** or **HDMI Input** tab in the right-rail **Mission sidebar**. Live Ask AI in Mission Overwatch and Android/iOS Operator freezes one fresh frame when you submit a typed or dictated question, saves the answer into shared mission history, and does not analyze later frames; verify it against the live feed. When AI live watch is configured, Mission Overwatch can combine enabled standard detections with scenario-specific and mission-specific visible targets, sample the remote stream, and log alerts for officer review. A Controller Livestream also runs the same server-side Live AI from the gateway, independent of the device that created the mission. A second licensed Android or iOS Operator device can open Mission Viewer to watch remote live, follow the timeline, add quick or manual events, ask about its current frame, and—when enabled—share the selected person's location with the mission map. Authorized mission-team members can open **Share** or the mobile QR control to create a revocable, read-only public live view. On Android, viewer events include a full live-frame screenshot when video is available. Device Live AI can also create alerts while capture is running; cloud analysis hands off automatically to the on-device fallback when needed.
 
 The Command Center brings active mission state, remote-live or sync problems, automatic alerts awaiting review, and report follow-ups into one attention queue. Mission Overwatch refreshes the focused timeline as device and viewer events arrive.
 
-→ View a live mission · Watch in Mission Overwatch · Log events · Device Live AI
+→ View a live mission · Share personnel location · Watch in Mission Overwatch · Log events · Device Live AI
 
 ## 4. Review the mission
 
-End the mission, let its selected capture recording upload or queue, then follow **Timeline** → **Media** → **AI Review** when available and use **Done — continue** after each completed step. Open **Play with Events** to check markers against video. In AI Review, move at least one tag into **What should AI look for?**, then choose **Event-focused** or **Full mission — detailed**. AlphaRelay reviews original-video intervals, verifies candidate findings against evidence screenshots, and reports video coverage separately from screenshot checks. Analysis continues in the background and sends a completion email. Accept or reject suggested findings; an accepted finding moves to the timeline, where **Accept as is** or **Review & edit** makes it officer-reviewed before it can enter the AAR. **Redo analysis** removes the current AI Review runs and findings while preserving accepted timeline events. **Ask AI** answers from the selected primary uploaded footage rather than mixing in event screenshots or mission photos, and remains available read-only after approval. For work captured outside AlphaRelay, use **Import mission** from **Mission History** to create a closed post-flight record first. Mission History supports organization-shared flags and one-confirmation bulk moves to recoverable Trash. Restore trashed missions within 30 days or, when authorized, permanently delete them sooner with **Delete now**.
+End the mission, let its selected capture recording upload or queue, then follow **Timeline** → **Media** → **AI Review** → **Report** and use **Done — continue** after each applicable review step. **Timeline** can filter **Needs Review**, **Dismissed**, and **All Events**; completing Timeline review moves unresolved AI candidates to **Dismissed** so they remain inspectable until sealing. Open **Play with Events** to check markers against video. In AI Review, move at least one tag into **What should AI look for?**, then choose **Event-focused** or **Full mission — detailed**. AlphaRelay reviews original-video intervals, verifies candidate findings against evidence screenshots, and reports video coverage separately from screenshot checks. Analysis continues in the background and sends a completion email. Accept or reject suggested findings; an accepted finding moves to the timeline, where **Accept as is** or **Review & edit** makes it officer-reviewed before it can enter the AAR. **Redo analysis** removes the current AI Review runs and findings while preserving accepted timeline events. **Ask AI** answers from the selected primary uploaded footage rather than mixing in event screenshots or mission photos, shows the saved source frame beside Live Ask AI answers, and remains available read-only after approval. For work captured outside AlphaRelay, use **Import mission** from **Mission History** to create a closed post-flight record first. Mission History supports organization-shared flags and one-confirmation bulk moves to recoverable Trash. Restore trashed missions within 30 days or, when authorized, permanently delete them sooner with **Delete now**.
 
 → End a mission · Import a mission · Upload footage · Review footage · Delete or restore a mission
 
@@ -188,8 +191,8 @@ Official event counts and evidence surfaces include every undeleted human-create
 | Role | Device | Responsibility |
 | --- | --- | --- |
 | Pilot | AlphaRelay Operator (Android, iPhone, or iPad) plus the flight app or supported Pilot-mode controls | Selects the current operator, starts missions, flies through the applicable flight interface, logs field events, ends mission, uploads footage |
-| Controller-video operator | Android/iOS Operator device or laptop plus an RTMP-capable or HDMI-output flight controller | Creates a Controller Livestream destination or receives HDMI video while the flight controller retains aircraft control |
-| Mission viewer | Operator on a second licensed Android or iOS device | Watches active remote live, follows timeline events and alerts, and logs quick or manual events |
+| Controller-video operator | Android/iOS Operator device or signed-in browser plus an RTMP-capable or HDMI-output flight controller | Creates a Controller Livestream destination or receives HDMI video while the flight controller retains aircraft control |
+| Mission viewer | Operator on a second licensed Android or iOS device | Watches active remote live, follows timeline events and alerts, logs events, asks AI about a fresh current frame, and shares the selected person's mission-scoped location when enabled |
 | Overwatch user | Browser — Mission Overwatch | Relay viewing, remote live, command-side events, review, report, seal, export |
 | Reviewer / officer | Browser — Mission Overwatch | Checks timeline, footage, report draft, and custody |
 | Supervisor | Browser — Mission Dashboard / Overwatch | Approves or returns after-action reports |
@@ -207,9 +210,9 @@ For a DJI Avata with compatible DJI Goggles, the pilot operates through the gogg
 
 ## Controller video from a separate flight controller
 
-Use **Controller Livestream** when a DJI controller can publish to RTMP or a Skydio controller supports RTSP External Server. A licensed Android, iPhone, or iPad creates the mission and shows the matching RTMP or RTSP values. Internet is required.
+Use **Controller Livestream** when a DJI controller can publish to RTMP or a Skydio controller supports RTSP External Server. A licensed Android, iPhone, or iPad—or an authorized mission operator using **New Livestream** in Command Center—creates the mission and shows the matching RTMP or RTSP values. Internet is required.
 
-Use **HDMI Capture Card** when the controller exposes HDMI output. Connect it through a UVC card to Android Operator, a USB-C iPad, or a laptop browser. The laptop path starts from **New laptop HDMI mission** and requires no phone or tablet app. None of these workflows transfers aircraft control away from the flight controller.
+Use **HDMI Capture Card** when the controller exposes HDMI output. Connect it through a UVC card to Android Operator, a USB-C iPad, or a laptop browser. The laptop path starts from **New HDMI mission** and requires no phone or tablet app. None of these workflows transfers aircraft control away from the flight controller.
 
 ## iPhone and iPad
 
@@ -217,19 +220,19 @@ On iOS 26, AlphaRelay Operator can use ReplayKit screen capture, Controller Live
 
 ## Secondary mission viewer
 
-On a licensed Android device, tap **View Live Mission**. On iPhone or iPad, tap **Watch Live Mission**. The viewer shows remote video when available, refreshes the live timeline and alerts, and can log scenario quick events or manual events. It cannot start missions, control aircraft, or perform closed-mission review.
+On a licensed Android device, tap **View Live Mission**. On iPhone or iPad, tap **Watch Live Mission**. The viewer shows remote video when available, refreshes the live timeline and alerts, and can log scenario quick events or manual events. When Operational Map is enabled and precise location is allowed, joining also shares the selected person's position with that mission and exposes **Nearby map** / **Map**. It cannot start missions, control aircraft, or perform closed-mission review.
 
 ## Key rules
 
-- Most missions start from Operator. **Laptop HDMI Capture** starts from **New laptop HDMI mission** in Mission Dashboard and continues in Mission Overwatch.
+- Most missions start from Operator. Command Center can also start **Controller Livestream** with **New Livestream** or laptop capture with **New HDMI mission**.
 - The landing screen separates **Start a Mission** from **View a Live Mission**. Starting first opens **Choose video source**, then the operator, scenario, mission name, AI targets, and alert settings for that source.
 - Open missions from **Mission Dashboard** (link may say **Open Mission Console**).
 - Operator presents one **Start Mission** action and starts remote live automatically when validated internet is available.
-- Mission Overwatch keeps the live **Event timeline** in the right rail. Quick Events, typed manual events, browser dictation, and applicable laptop HDMI controls stay in the compact **Events & input** row beneath the feed.
+- Mission Overwatch keeps **Timeline**, **Events**, **Ask AI**, an optional **Map**, and a conditional **Livestream** or **HDMI Input** tab in the right-rail **Mission sidebar**.
 - **Local Network** is a deployment-specific Android LAN relay path and is not presented by the current public Operator workflow.
 - **Controller Screen Capture** is automatic on integrated Android drone controllers and the recommended default on detected DJI SDK-controller setups; it is not a separate mission button.
 - **HDMI Capture Card** works through Android USB host/OTG, USB-C iPad, or a laptop browser; iPhone is not a UVC input device.
-- **Controller Livestream** works from Android or iOS Operator and supports DJI RTMP plus Skydio RTSP External Server.
+- **Controller Livestream** works from Android/iOS Operator or Command Center **New Livestream** and supports DJI RTMP plus Skydio RTSP External Server.
 - **Pilot mode** is an explicit alternative on eligible DJI SDK-controller setups and requires supported-aircraft confirmation plus a successful live connection check.
 - Compatible DJI Goggles can enable **Goggles Mode** automatically over USB, but the operator still taps **Start Mission** before capture begins.
 - Mission Viewer requires internet and a valid Operator license; only active missions in that license's organization appear. It normally runs on a second device, but the Android device that creates a Controller Livestream also opens that mission in Mission Viewer.
@@ -237,6 +240,8 @@ On a licensed Android device, tap **View Live Mission**. On iPhone or iPad, tap 
 ## Share one mission
 
 Authorized members of a mission team can click **Share** in Mission Overwatch. The dialog lists eligible users by name and email; click **Share** beside a person, then confirm they appear under **People with access**. Shared collaborators can review and work on that mission, including custody and official exports, without receiving organization-wide mission access or permission to start new missions. Use **Remove** to revoke the mission share.
+
+The same **Share** dialog can create a **Public live view** for an active mission. Anyone with its QR code or link can watch the livestream and see events and alerts without signing in, but cannot log or review them. Use **End public viewing** to revoke the link; it also stops working when the mission ends. Android and iOS Operator expose the same public-live QR from an active mission or Mission Viewer.
 
 ---
 
@@ -273,8 +278,8 @@ The current public Operator workflow does not show a **Local Network** mission b
 | No usable internet | **Start Mission**; capture locally and sync later |
 | Remote viewers need live video | Keep the pilot device online and open **Live stream (WebRTC)** in Mission Overwatch |
 | A second licensed Android or iOS device needs a compact live view | Open Mission Viewer; internet is required for the mission list, timeline, alerts, events, and video |
-| Flight controller supports DJI RTMP or Skydio RTSP External Server but cannot install AlphaRelay | Create **Controller Livestream** from a licensed Android or iOS device; internet is required on both devices |
-| Flight controller has HDMI output | Connect a UVC card to Android, USB-C iPad, or a laptop; the laptop path starts with **New laptop HDMI mission** |
+| Flight controller supports DJI RTMP or Skydio RTSP External Server but cannot install AlphaRelay | Create **Controller Livestream** from a licensed Android/iOS device or Command Center **New Livestream**; internet is required on the setup surface and controller |
+| Flight controller has HDMI output | Connect a UVC card to Android, USB-C iPad, or a laptop; the laptop path starts with **New HDMI mission** |
 | Your deployment exposes **Local Network** | Use its LAN relay instructions on the same reachable Wi-Fi |
 
 **Note:** Remote live and cloud sync use internet. A deployment-specific LAN relay uses local Wi-Fi and is a separate connection path.
@@ -291,13 +296,13 @@ In this mode, the controller's native flight app controls the aircraft while Alp
 
 ## Controller Livestream and HDMI Capture
 
-These workflows keep aircraft control on a separate flight controller. Controller Livestream is configured from Android or iOS Operator. HDMI can be received by Android, USB-C iPad, or directly in Mission Overwatch on a laptop. Laptop HDMI is the only live mission that starts from the browser rather than Operator.
+These workflows keep aircraft control on a separate flight controller. Controller Livestream can be configured from Android/iOS Operator or **New Livestream** in the browser Command Center. HDMI can be received by Android, USB-C iPad, or directly in Mission Overwatch on a laptop. Browser HDMI begins with **New HDMI mission**.
 
 → Controller Livestream and HDMI Capture
 
 ## DJI Avata with DJI Goggles
 
-Goggles Mode requires internet for remote live and sync. On a prepared Android device, a wired connection to compatible DJI Goggles turns on the mode automatically, bypasses mission and scenario selection, and starts remote live from the DJI Fly goggles view.
+Goggles Mode requires internet for remote live and sync. On a prepared Android device, a wired connection to compatible DJI Goggles turns on the mode automatically, but the operator still taps **Start Mission**. AlphaRelay then bypasses ordinary scenario selection and starts remote live from the DJI Fly goggles view.
 
 → DJI Avata with DJI Goggles
 
@@ -370,6 +375,7 @@ Use the controller's native flight app for flight operation. Use AlphaRelay for 
 - **Live stream (WebRTC)** publishes the controller screen to remote Overwatch users when the pilot device has internet.
 - Say `relay` followed by event details to create a voice relay event. AlphaRelay saves a current controller-screen screenshot with the event when available.
 - Return to Operator for the dedicated active-mission dashboard. It shows capture, live-stream, Device Live AI, Overwatch AI, alert-banner, queued-event, queued-footage, and mission-time status, plus quick events, manual screenshot-backed events, **Sync now**, and **Stop and complete mission**.
+- Use **Ask Live AI** to type or dictate a question about one fresh controller-screen frame. Review the transcript before asking and verify the saved answer against the live screen.
 - Use **Update AI targets** to change mission-only visible targets without restarting. Offline edits remain queued until sync succeeds.
 - Device Live AI uses cloud analysis when available. The on-device fallback and direct Android alerts continue without internet; timeline sync and cloud follow-up wait for connectivity.
 - If you need AlphaRelay controls during the mission, return to AlphaRelay from recent apps or the notification, make the update, then return to the native flight app. The recording follows the visible screen.
@@ -416,7 +422,7 @@ Queued recordings are stored durably and resume uploading automatically when val
 
 Use these workflows when the flight controller should keep aircraft control but cannot run AlphaRelay Operator, or when you want a direct controller-video input instead of screen capture.
 
-- **Controller Livestream:** A DJI controller publishes to AlphaRelay with RTMP, or a Skydio controller uses RTSP External Server. Set up the mission from AlphaRelay Operator on Android, iPhone, or iPad. Internet is required during capture.
+- **Controller Livestream:** A DJI controller publishes to AlphaRelay with RTMP, or a Skydio controller uses RTSP External Server. Set up the mission from AlphaRelay Operator or use **New Livestream** in the browser Command Center. Internet is required during capture.
 - **Laptop HDMI Capture:** Connect the controller through a USB Video Class (UVC) capture card to a laptop and start the mission from the web app. No phone or tablet app is required. Local evidence recording can continue through a temporary internet interruption.
 - **Operator HDMI Capture:** Connect a UVC card to a compatible Android device or USB-C iPad. The Operator app records the received video and can continue locally without internet. iPhone does not expose UVC capture to this workflow.
 
@@ -424,19 +430,19 @@ In every workflow, fly from the controller's native flight application. AlphaRel
 
 ## Controller Livestream
 
-Controller Livestream creates a mission-scoped publishing destination from a licensed Operator device. AlphaRelay shows both DJI RTMP details and, when the deployed gateway supports it, Skydio RTSP External Server details. RTMP supports either one complete URL field or separate server and stream-key fields.
+Controller Livestream creates a mission-scoped publishing destination from a licensed Operator device or an authorized signed-in mission operator in Command Center. AlphaRelay shows both DJI RTMP details and, when the deployed gateway supports it, Skydio RTSP External Server details. RTMP supports either one complete URL field or separate server and stream-key fields.
 
 ### Requirements
 
-- A licensed Android, iPhone, or iPad running AlphaRelay Operator
-- Validated internet on the Operator device and streaming controller
+- A licensed Android, iPhone, or iPad running AlphaRelay Operator, or an authorized signed-in browser session with the **Mission operator** designation
+- Validated internet on the setup device and streaming controller
 - A DJI controller or flight application that accepts custom RTMP, or a Skydio controller with RTSP External Server
 - A separate flight controller; the setup device does not open or control its flight app
 
-### Start and watch
+### Start from Operator
 
 1. Open AlphaRelay Operator and select **Controller Livestream** as the video source.
-2. Select the operator and scenario, name the mission, and review the AI targets and people-alert setting.
+2. Select the operator and scenario, name the mission, and review the AI targets, people-alert setting, **Controller audio in stream & recording**, and **Voice event logging**.
 3. Tap **Create Controller Livestream** on Android or **Set Up Controller Livestream** on iPhone or iPad.
 4. Open the separate controller's livestream settings.
 5. For DJI, use **RTMP URL — one-field screens**, or enter **Server URL — two-field screens** and **Stream key — two-field screens** separately. For Skydio, open **Global Settings → Sharing → RTSP**, choose the external-server option, then enter AlphaRelay's **Server address**, **Port**, and **Stream name**.
@@ -445,9 +451,21 @@ Controller Livestream creates a mission-scoped publishing destination from a lic
 
 If the controller disconnects, restart its publisher with the same mission destination while the mission remains active. Reopen **Show Livestream Setup** when you need to see the values again. AlphaRelay uses a six-digit RTMP stream key and a separate six-digit RTSP stream name.
 
+### Start from Command Center
+
+1. In the active-missions panel, click **New Livestream**. This action appears only while you are online and designated as a mission operator.
+2. Enter the mission name, choose a scenario, and optionally add one visible **AI detection** per line.
+3. Click **Create mission & set up livestream**.
+4. In the main live-feed area, copy the DJI RTMP or Skydio RTSP External Server values into the separate controller and start its publisher.
+5. Wait for the live feed. The setup panel closes when playback begins; open **Mission sidebar → Livestream** to show it again, or click **Refresh setup** for fresh details.
+
+Opening AI detection settings closes the livestream setup panel so the two feed overlays do not cover each other.
+
 **Warning:** Treat the RTMP and RTSP addresses, keys, and stream names as publishing credentials. Enter them only on the intended controller and do not place them in reports, screenshots, or public messages.
 
-The Controller Livestream gateway runs server-side Live AI while the mission is active, so analysis does not depend on the phone that created the mission remaining on the viewer. An Operator device viewing the stream can still show alerts and create screenshot-backed quick, manual, or `Relay` voice events from the received full video frame. AlphaRelay coordinates gateway, browser, and device analysis to reduce duplicate alerts.
+The Controller Livestream gateway runs server-side Live AI while the mission is active, so analysis does not depend on the phone that created the mission remaining on the viewer. An Operator device viewing the stream can still show alerts, ask AI about a fresh received frame, and create screenshot-backed quick, manual, or `Relay` voice events from the received full video frame. AlphaRelay coordinates gateway, browser, and device analysis to reduce duplicate alerts.
+
+Use the active Operator or Mission Viewer settings to change **Controller audio** and **Voice event logging** for the mission. Controller audio affects the live stream and new recording segments. Voice event logging listens for `Relay` followed by the event and transcribes only the triggered utterance. A viewing Android device can use its own microphone for this even when the incoming controller stream has no audio track.
 
 When field work is complete, stop the controller's livestream first. Then close the mission in Mission Overwatch or Operator. AlphaRelay finalizes the received Controller Livestream recording into the mission record.
 
@@ -459,9 +477,9 @@ Use this physical path:
 Controller HDMI out -> capture card HDMI in -> capture card USB -> laptop
 ```
 
-1. In **Mission Dashboard**, click **New laptop HDMI mission**.
+1. In **Mission Dashboard**, click **New HDMI mission**.
 2. Name the mission, optionally select a scenario, and click **Create mission & set up HDMI**.
-3. In Mission Overwatch, find **Laptop HDMI Capture** in the **Events & input** row beneath the live feed.
+3. In Mission Overwatch, open **Mission sidebar → HDMI Input**.
 4. Grant browser camera permission and select the capture card.
 5. Click **Connect & go live**. AlphaRelay starts the recoverable local evidence recording and remote live together.
 6. Confirm the same full frame appears in the preview and supplies Live AI and event screenshots.
@@ -513,7 +531,8 @@ Test the exact controller, capture card, cable or hub, receiving device, browser
 - AlphaRelay Operator installed through TestFlight
 - An Operator device license or one-installation pairing code
 - Screen Recording permission; microphone and speech-recognition permission when voice events are needed
-- Internet for remote live, immediate sync, cloud Live AI, Mission Viewer, and upload; saved events and footage can retry later
+- Internet for remote live, immediate sync, cloud Live AI, Mission Viewer, live map updates, and upload; saved events, footage, and eligible location points can retry later
+- Precise foreground/background location permission when the organization uses mission personnel mapping
 
 ## Install the app
 
@@ -528,6 +547,8 @@ Test the exact controller, capture card, cable or hub, receiving device, browser
 
 The license is stored on the device. Operator does not use the web-app email and password for device activation.
 
+Select who is using the device before starting or viewing a mission. That selection supplies mission attribution and, when Operational Map is enabled, the advisory identity shown for this device's shared location.
+
 ## Choose the video source
 
 From **What do you want to do?**, tap **Start a Mission**, then choose **Controller Screen**, **Controller Livestream**, or, on supported iPads, **HDMI Capture Card**. The HDMI option is marked **IPAD ONLY** because iPhone does not expose UVC video capture to this workflow. Use **Watch Live Mission** from the landing screen to join a mission that is already active.
@@ -535,7 +556,7 @@ From **What do you want to do?**, tap **Start a Mission**, then choose **Control
 ## Start Controller Screen capture
 
 1. Open **AlphaRelay Operator** and choose a built-in or agency scenario, or **No scenario**.
-2. Confirm the operator, enter the mission name, optionally add up to eight **Mission-specific AI targets**, and choose whether **Alert on people** should include routine person and hand-to-hand-contact alerts. Other enabled detections and mission-specific targets remain active when it is off.
+2. Confirm the operator, enter the mission name, optionally add up to eight **Mission-specific AI targets**, and choose whether **Alert on people** should include routine person alerts. Other enabled detections and mission-specific targets remain active when it is off.
 3. Tap **Start Mission**.
 4. In the iOS broadcast picker, choose **AlphaRelay Capture**. Enable the microphone when the recording needs microphone audio, then start the broadcast.
 5. Open the flight app. Keep the iOS screen-recording indicator active while AlphaRelay captures in the background.
@@ -564,8 +585,9 @@ This path is video-only. Voice events use the iPad microphone; capture-card USB/
 - Use scenario quick events or **Log event with current frame**. Operator attaches a fresh controller-screen image when capture can provide one.
 - Leave **Voice events** enabled to say `Relay` followed by the note. Operator saves the note with the latest captured frame.
 - Use **Update AI targets** to change mission-only visible targets without restarting the mission. Offline edits remain queued for cloud sync.
-- When Live Activities are enabled, Live AI alerts use a concise one-line Lock Screen or Dynamic Island presentation designed for the landscape flight-app view, then collapse back to monitoring after about one second. Urgent weapon-like alerts use red treatment; informational people alerts use yellow treatment.
-- If a mission Live Activity is unavailable, Operator uses the **Screen Sharing** notification fallback. Allow time-sensitive notifications so alerts can appear over the flight app.
+- Use **Ask Live AI** to type or dictate a question about one fresh current capture frame. Review the transcript before submitting, then verify the saved answer against the live video. Saved answers are shared with Mission Viewer and Mission Overwatch.
+- **Live Alerts** shows whether the active mission can use the Dynamic Island or needs the notification fallback. When a Live Activity is available, alerts use a concise one-line Lock Screen or Dynamic Island presentation designed for the landscape flight-app view, then return to a current **ALPHARELAY MONITORING** state. Urgent weapon-like alerts use red treatment; informational people alerts use yellow treatment.
+- For Controller Screen capture when the Dynamic Island is unavailable, Operator uses the **Screen Sharing** notification fallback. Allow time-sensitive notifications so alerts can appear over the flight app. HDMI alerts can be presented by the host Operator app.
 - Alert presentations are review prompts, not confirmed findings. The mission timeline remains the durable review surface after the brief on-screen alert clears.
 
 With working internet, Device Live AI uses licensed server-side analysis without storing an OpenAI key in the app. If cloud analysis is unavailable, Operator automatically falls back to on-device people detection and possible-weapon verification. Every alert still requires human review.
@@ -581,7 +603,13 @@ Operator hashes completed local recordings and uses the normal custody-aware upl
 
 ## Watch another active mission
 
-From mission setup, tap **Watch Live Mission**. Choose an active mission in the same licensed organization to watch remote video, follow its live timeline and alerts, and add quick or manual events. Mission Viewer cannot start the mission or control the aircraft; event entry becomes read-only after the mission closes.
+From mission setup, tap **Watch Live Mission**. Choose an active mission in the same licensed organization to watch remote video, follow its live timeline and alerts, add quick or manual events, and use **Ask AI** on a fresh received frame. When Operational Map is enabled, joining starts mission-scoped location sharing for the selected person and the viewer's **Map** panel shows pilot and officer positions. Mission Viewer cannot start the mission or control the aircraft; event entry becomes read-only after the mission closes.
+
+Use **Share live** to show or share a read-only public QR/link. Anyone with the link can watch the active livestream and see events and alerts without signing in, but cannot log or review them. The link stops working when the mission ends.
+
+## Share location without joining
+
+Tap **Share Location**, choose a live mission, and confirm the selected person. AlphaRelay requests precise foreground and background location and can share for up to 12 hours; tap **Stop Sharing** sooner when the person leaves the operation. Mission starts also begin sharing automatically for the selected pilot when the feature and permissions are available.
 
 ## iOS boundaries
 
@@ -591,8 +619,9 @@ From mission setup, tap **Watch Live Mission**. Choose an active mission in the 
 - iOS uses its own on-device fallback rather than Android's full multi-object detector.
 - Dynamic Island, Live Activity, notification-fallback timing, and landscape placement vary by iPhone model and iOS settings; verify them on the physical flight device before operational use.
 - ReplayKit capture must be verified on a physical device; Simulator behavior does not prove field capture.
+- Personnel-map positions are advisory and reflect the person selected on the licensed device. They are not independently identity-verified and are not aircraft telemetry.
 
-→ Controller Screen Capture on Android · View a live mission · Device Live AI · Upload footage
+→ Controller Screen Capture on Android · View a live mission · Share personnel location · Device Live AI · Upload footage
 
 ---
 
@@ -711,27 +740,31 @@ Run a short test mission to learn the workflow end to end.
 
 ## Steps
 
-1. Open AlphaRelay Operator, tap **Start a Mission**, and choose how AlphaRelay will receive video.
+1. Open AlphaRelay Operator, tap **Start a Mission**, and choose how AlphaRelay will receive video. To train on the browser setup path instead, use Command Center **New Livestream** or **New HDMI mission**.
 2. Select the test operator when an agency roster is available, pick a scenario template or **No scenario template**, enter `Training mission` as the mission name, and add one harmless mission-specific AI target if testing Live AI.
 3. Start the selected video path and confirm it is healthy: approve screen capture, confirm **Capturing** for HDMI, or create **Controller Livestream**, enter its DJI RTMP or Skydio RTSP values on the separate controller, and start that publisher. Confirm remote live when the workflow is online.
 4. Open the mission from Mission Dashboard and select **Live stream (WebRTC)**.
-5. If the team will use Mission Viewer, open Operator on the second licensed Android or iOS device, choose the active mission, and confirm video, timeline, and alert updates.
+5. If the team will use Mission Viewer, open Operator on the second licensed Android or iOS device, choose the active mission, and confirm video, timeline, and alert updates. Ask one harmless typed or dictated question about a fresh frame and verify the answer appears in shared mission history. When Operational Map is enabled, verify the selected person's location starts sharing and appears under **Nearby map** / **Map**.
 6. Add one event from Operator (quick event, manual event with current frame, or voice: `relay `).
-7. Add one event from Mission Overwatch. Try **Dictate**, review the transcript, then click **Log Manual Event**.
-8. If Device Live AI will be used, confirm it is enabled and perform a safe person-detection check with internet, then verify automatic on-device fallback in a controlled connectivity test. Confirm the informational/yellow treatment. Do not simulate a weapon alert with a real weapon.
-9. Run a short, safe exercise.
-10. Complete the normal closeout for the selected path. Stop a Controller Livestream publisher first; for HDMI, verify the last needed frame arrived; for a supported DJI SDK 5 aircraft-original handoff, practice the USB reconnect without risking operational footage. Then use **Stop and complete mission**, **Stop Mission**, **Close Active Mission**, or **End Mission** as the workflow presents it.
-11. Confirm footage uploaded or is queued (see upload banner / status).
-12. Review the Timeline. For each test Device Live AI or AI live-watch alert, practice **Approve alert** or **Dismiss alert**. Review any available image analysis with **Accept as is** or **Review & edit**, then click **Done — continue**.
-13. Under **Media**, open **Play with Events**, confirm markers appear, and click **Done — continue** after checking footage and photos.
-14. If AI Review is configured, confirm the status distinguishes original-video review from evidence-screenshot verification, expand any related-sighting group, accept one safe test finding, reject the rest, and click **Done — continue**. Return to Timeline if the accepted finding reopens it for officer review.
-15. Generate the after-action report and walk through seal / approval / export if your workflow uses them.
+7. Open **Mission sidebar → Events** and add one event. Try **Dictate**, review the transcript, then click **Log Manual Event**.
+8. Open **Mission sidebar → Ask AI**, ask a harmless question about the current frame, and verify the saved answer against the live feed.
+9. Open **Share** or the mobile QR control, scan the **Public live view** code in a signed-out browser, and confirm it can only watch video, events, and alerts. Revoke the link with **End public viewing**.
+10. If Device Live AI will be used, confirm it is enabled and perform a safe person-detection check with internet, then verify automatic on-device fallback in a controlled connectivity test. Confirm the informational/yellow treatment. Do not simulate a weapon alert with a real weapon.
+11. Run a short, safe exercise.
+12. Complete the normal closeout for the selected path. Stop a Controller Livestream publisher first; for HDMI, verify the last needed frame arrived; for a supported DJI SDK 5 aircraft-original handoff, practice the USB reconnect without risking operational footage. Then use **Stop and complete mission**, **Stop Mission**, **Close Active Mission**, or **End Mission** as the workflow presents it.
+13. Confirm footage uploaded or is queued (see upload banner / status). If location sharing was enabled, confirm the saved track finalized and the post-mission map appears only when valid fixes were recorded.
+14. Review the Timeline. Use **Needs Review**, **Dismissed**, and **All Events**. For each test Device Live AI or AI live-watch alert, practice **Approve alert**, **Dismiss alert**, and recovery to pending where appropriate. Review any available image analysis with **Accept as is** or **Review & edit**, then click **Done — continue**.
+15. Under **Media**, open **Play with Events**, confirm markers appear, and click **Done — continue** after checking footage and photos.
+16. If AI Review is configured, confirm the status distinguishes original-video review from evidence-screenshot verification, expand any related-sighting group, accept one safe test finding, reject the rest, and click **Done — continue**. Return to Timeline if the accepted finding reopens it for officer review.
+17. Generate the after-action report and walk through seal / approval / export if your workflow uses them.
 
 ## Debrief
 
 - Did the mission and remote live start as expected for the available connectivity?
 - Did events appear on the timeline?
 - Did Mission Viewer show the active mission and stop event logging after close?
+- Did mission-scoped location sharing identify the correct selected person, show an advisory live position, and finalize a saved track after stop?
+- Did the public live QR work without sign-in, remain read-only, and stop working after revocation?
 - On Android, did a viewer event attach the complete live frame and show its screenshot in the timeline?
 - Did Device Live AI avoid repeated alerts for one continuously visible test subject?
 - Did cloud analysis hand off cleanly to the on-device fallback and later resume without duplicate alerts?
@@ -742,6 +775,7 @@ Run a short test mission to learn the workflow end to end.
 - Did Controller Livestream Live AI continue from the gateway without depending on the setup phone's viewer?
 - On a supported DJI SDK 5 setup, did the optional aircraft-original handoff select only mission-time SD footage and preserve the controller-screen recording if the pull failed?
 - Were any AI-derived timeline findings reviewed before report generation?
+- Did unresolved AI candidates move to **Dismissed** rather than disappear when Timeline review completed?
 - Did AI Review report actual video coverage separately from evidence screenshots checked?
 - Was the report understandable before submission?
 
@@ -754,24 +788,25 @@ Repeat this exercise when devices, networks, or aircraft change.
 ## Checklist
 
 1. Charge the pilot tablet, phone, or drone controller and confirm aircraft/controller are ready.
-2. Install or update **AlphaRelay Operator**. Download the Android APK from [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html); use the organization-provided iOS app on iPhone or iPad.
+2. Install or update **AlphaRelay Operator**. Download the Android APK from [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html); install the iOS app through the organization TestFlight invitation.
 3. Confirm the **device license** is active (scan QR, enter an `ar-…` key, or use a non-expiring one-installation pairing code).
 4. Sign in to the web app with the correct operator account. On shared Operator devices, refresh online and confirm the current pilot appears in the operator selector.
 5. Open **Mission Overwatch** once while online on each browser that will use it in the field (installs the offline app shell).
 6. Run a test **Start Mission** flow and confirm remote live starts automatically when the pilot device is online.
-7. Confirm the Mission Overwatch browser can use its microphone if the team plans to use **Dictate** for manual events.
+7. Confirm the Mission Overwatch browser can use its microphone if the team plans to use **Dictate** for manual events or Live Ask AI questions.
 8. If a second Android or iOS device will use Mission Viewer, activate its own license and test that it can see an active mission, remote video, timeline events, and alerts.
-9. If Device Live AI will be used, grant notification permission, confirm the intended Android settings under **Pilot console → Flight → Local AI**, review the per-detection choices in Mission Overwatch, and run a safe cloud-to-fallback detection test. Keep safety-critical detections enabled when your operating plan requires them.
-10. For Android drone controllers: install AlphaRelay Operator, activate the device license, run a test **Controller Screen Capture** mission, and confirm Android screen capture permission works. If the crew will use **Pilot mode**, also confirm the aircraft appears in the supported list and passes AlphaRelay's live connection check.
-11. For **Controller Livestream**, confirm the controller accepts the displayed DJI RTMP or Skydio RTSP External Server values, can reconnect, and produces playable closeout footage. RTMP stream keys and RTSP stream names are separate six-digit values.
-12. For **HDMI Capture Card**, test the exact controller, UVC card, cable or powered hub, Android device, USB-C iPad, or laptop browser as applicable. Verify the 16:9 signal, sustained recording, and disconnect/recovery path.
-13. For laptop HDMI, test **New laptop HDMI mission**, browser camera permission, **Connect & go live**, **Stop & upload**, and **Recover interrupted recording**. Do not clear browser data before recovery.
-14. For iPhone or iPad: confirm iOS 26 and test the selected ReplayKit, Controller Livestream, or iPad HDMI source. Test microphone/speech permissions if needed, allow Live Activities or the **Screen Sharing** notification fallback, and verify landscape alert presentation and recording finalization on the physical device.
-15. For a DJI Avata with compatible DJI Goggles: install DJI Fly and AlphaRelay Operator on the Android device, test the supported goggles live-view connection, and confirm remote live and post-mission upload.
-16. Check for older queued video on the Operator startup screen and let it finish, or consciously choose **Skip for now and start new mission**.
-17. Plan for internet when you need remote live, Controller Livestream, Mission Viewer, cloud Live AI, sync, upload, reports, or export.
-18. If the mission uses an agency scenario, confirm it appears in mission setup and that its visible AI watch targets and Quick Events are current.
-19. Assign pilot, overwatch user, reviewer, and supervisor roles.
+9. If Operational Map will be used, select the correct person on every sharing device, grant precise/background location as requested, test **Share Location** or Mission Viewer auto-sharing, and confirm the mission **Map** shows the right advisory identity. Verify the saved track finalizes after stop.
+10. If Device Live AI will be used, grant notification permission, confirm the intended Android settings under **Pilot console → Flight → Local AI**, review the per-detection choices in Mission Overwatch, and run a safe cloud-to-fallback detection test. Keep safety-critical detections enabled when your operating plan requires them.
+11. For Android drone controllers: install AlphaRelay Operator, activate the device license, run a test **Controller Screen Capture** mission, and confirm Android screen capture permission works. If the crew will use **Pilot mode**, also confirm the aircraft appears in the supported list and passes AlphaRelay's live connection check.
+12. For **Controller Livestream**, test the intended Operator or Command Center **New Livestream** setup path. Confirm the controller accepts the displayed DJI RTMP or Skydio RTSP External Server values, can reconnect, and produces playable closeout footage. RTMP stream keys and RTSP stream names are separate six-digit values.
+13. For **HDMI Capture Card**, test the exact controller, UVC card, cable or powered hub, Android device, USB-C iPad, or laptop browser as applicable. Verify the 16:9 signal, sustained recording, and disconnect/recovery path.
+14. For laptop HDMI, test **New HDMI mission**, **Mission sidebar → HDMI Input**, browser camera permission, **Connect & go live**, **Stop & upload**, and **Recover interrupted recording**. Do not clear browser data before recovery.
+15. For iPhone or iPad: confirm iOS 26 and test the selected ReplayKit, Controller Livestream, or iPad HDMI source. Test microphone/speech permissions if needed, allow Live Activities or the **Screen Sharing** notification fallback, and verify landscape alert presentation and recording finalization on the physical device.
+16. For a DJI Avata with compatible DJI Goggles: install DJI Fly and AlphaRelay Operator on the Android device, test the supported goggles live-view connection, and confirm remote live and post-mission upload.
+17. Check for older queued video on the Operator startup screen and let it finish, or consciously choose **Skip for now and start new mission**.
+18. Plan for internet when you need remote live, Controller Livestream, Mission Viewer, live map updates, cloud Live AI, sync, upload, reports, or export.
+19. If the mission uses an agency scenario, confirm it appears in mission setup and that its visible AI watch targets and Quick Events are current.
+20. Assign pilot, overwatch user, reviewer, and supervisor roles.
 
 ## Connection quick reference
 
@@ -790,7 +825,7 @@ Pilots can hide on-screen drone controls and use the physical controller while k
 
 ## Start a Mission
 
-Most live missions start from **AlphaRelay Operator**. The exception is **Laptop HDMI Capture**, which starts from **New laptop HDMI mission** in the Mission Dashboard and continues in Mission Overwatch.
+Most live missions start from **AlphaRelay Operator**. Authorized mission operators can also start **Controller Livestream** with **New Livestream** or laptop capture with **New HDMI mission** in the Mission Dashboard, then continue in Mission Overwatch.
 
 ## Steps
 
@@ -800,7 +835,7 @@ Most live missions start from **AlphaRelay Operator**. The exception is **Laptop
 4. Select the operating person when the agency roster is available.
 5. Select a scenario category and template, or **No scenario template**.
 6. Enter the mission name your team will recognize and optionally add up to eight **Mission-specific AI targets**, one visible item per line.
-7. Leave **Alert on people** on for informational person and hand-to-hand-contact alerts, or turn it off to suppress those routine categories. Other enabled detections and mission-specific targets remain active.
+7. Leave **Alert on people** on for informational person alerts, or turn it off to suppress that routine category. Other enabled detections and mission-specific targets remain active.
 8. Tap the matching start or setup action and complete the license check if prompted.
 9. Approve Android screen capture, choose **AlphaRelay Capture** from the iOS broadcast picker, or complete the RTMP, RTSP, or HDMI setup for the selected source.
 10. Open the native flight app when using screen capture. Use quick, manual, or `Relay` voice events and stop the mission when finished.
@@ -815,9 +850,11 @@ Agency scenarios can also provide up to seven Quick Events. If an agency scenari
 
 Operator starts an Internet mission and automatically starts **Live stream (WebRTC)** when the device has validated internet. If the device is offline, the mission still starts and stores work for later sync. On Android, remote live can be retried from **Pilot console → Mission** if internet becomes available during the mission.
 
+When Operational Map is enabled, Operator also starts mission-scoped location sharing for the selected pilot after the device has precise location access. The active mission shows location-sharing status and lets you grant missing permission. Location is advisory personnel data from the licensed device; it is not aircraft telemetry.
+
 When supported Matrice aircraft or controllers are detected, Android Operator may show additional camera tools such as wide/zoom/thermal source selection, visible zoom presets, thermal zoom, laser rangefinder, linked zoom, thermal super-resolution, or laser fill light. Validate those controls with the actual aircraft, payload, controller, and firmware before operational use.
 
-On integrated Android drone controllers, Operator uses **Controller Screen Capture** automatically. Approve the Android screen capture prompt, then operate the aircraft in the controller's native flight app. AlphaRelay records and streams the controller screen instead of taking over flight controls.
+On integrated Android drone controllers, Operator shows a simplified centered startup and goes directly from **Start Mission** to Controller Screen setup. Mission name appears above scenario in both orientations. Approve the Android screen capture prompt, then operate the aircraft in the controller's native flight app. AlphaRelay records and streams the controller screen instead of taking over flight controls. Standard Android phones and tablets keep the video-source picker and Mission Viewer option.
 
 If a connected UVC HDMI capture card is detected, Android Operator adds **HDMI Capture Card** and can select it automatically. Grant the camera and USB prompts, then confirm the received preview says **Capturing** before flight. This path records the controller's HDMI output without screen-sharing permission.
 
@@ -828,11 +865,11 @@ On a detected DJI SDK-controller setup — for example, an RC-N-series remote co
 - **Controller Screen Capture — Recommended** keeps the flight app in control while AlphaRelay captures the visible controller screen.
 - **Pilot mode** gives AlphaRelay the DJI SDK connection and direct aircraft controls. It stays locked until you confirm a listed aircraft and AlphaRelay verifies that aircraft's live connection.
 
-For a DJI Avata with compatible DJI Goggles, first show the goggles live view in DJI Fly on the Android device. When Goggles Mode is active, opening AlphaRelay skips these mission-selection steps, starts a mission with no scenario, starts remote live, requests screen capture, and returns to DJI Fly.
+For a DJI Avata with compatible DJI Goggles, first show the goggles live view in DJI Fly on the Android device. Compatible hardware can enable Goggles Mode automatically, but AlphaRelay waits for you to tap **Start Mission**. It then skips ordinary scenario selection, starts a mission with no scenario and remote live, requests screen capture, and returns to DJI Fly.
 
-For a separate controller, use **Controller Livestream** on a licensed Android, iPhone, or iPad. DJI workflows provide either one complete RTMP URL or separate server and stream-key values. Skydio workflows provide RTSP External Server values: server address, port, and stream name.
+For a separate controller, use **Controller Livestream** on a licensed Android, iPhone, or iPad, or click **New Livestream** in Command Center while signed in with mission-operator access. DJI workflows provide either one complete RTMP URL or separate server and stream-key values. Skydio workflows provide RTSP External Server values: server address, port, and stream name. Browser-created setup appears over the main live-feed area and closes automatically when video starts.
 
-For laptop HDMI, click **New laptop HDMI mission** in Mission Dashboard, add any mission-specific **AI detections**, then use **Laptop HDMI Capture** in the **Events & input** row beneath the Mission Overwatch feed. **Connect & go live** starts remote live and recoverable local evidence recording together. Use **Stop & upload** before **End Mission**. Follow Controller Livestream and HDMI Capture.
+For laptop HDMI, click **New HDMI mission** in Mission Dashboard, add any mission-specific **AI detections**, then open **Mission sidebar → HDMI Input**. **Connect & go live** starts remote live and recoverable local evidence recording together. Use **Stop & upload** before **End Mission**. Follow Controller Livestream and HDMI Capture.
 
 ## Remote live
 
@@ -887,7 +924,9 @@ If the aircraft is not listed, the SDK is unavailable, or the live check fails, 
 - The mission appears in **Mission Dashboard** after cloud sync.
 - Footage and events may upload during or after the mission depending on connectivity.
 - Use the active-mission **Alert on people** control to change routine person alerts without restarting. In Mission Overwatch, each standard detection can be enabled or disabled separately; enabled weapon-related alerts receive the highest presentation priority.
+- Use **Ask Live AI** in Android/iOS Operator or **Ask AI** in Mission Viewer to ask a typed or dictated question about one fresh current frame. Saved answers are shared with Mission Overwatch; verify each answer against the live video.
 - Tap **Stop and complete mission** or **Stop Mission** in Operator (or **End Mission** in Mission Overwatch) when field work is done.
+- If location sharing is enabled, confirm the mission's saved personnel track finalizes before sealing the evidence record.
 
 → Watch in Mission Overwatch · Android Controller Screen Capture · Controller Livestream and HDMI Capture · iPhone and iPad · DJI Avata with DJI Goggles · Connectivity
 
@@ -895,7 +934,7 @@ If the aircraft is not listed, the SDK is unavailable, or the live check fails, 
 
 ## View a Live Mission on Android or iOS
 
-Use **View Live Mission** on Android or **Watch Live Mission** on iPhone and iPad when a team member needs a compact active-mission view without opening the browser workspace. Mission Viewer can watch remote video, follow the live timeline and AI alerts, and log events. It does not start the mission or control the aircraft.
+Use **View Live Mission** on Android or **Watch Live Mission** on iPhone and iPad when a team member needs a compact active-mission view without opening the browser workspace. Mission Viewer can watch remote video, follow the live timeline and AI alerts, log events, ask AI about a fresh current frame, open the mission map, and create a read-only public live QR. It does not start the mission or control the aircraft.
 
 ## Requirements
 
@@ -903,6 +942,7 @@ Use **View Live Mission** on Android or **Watch Live Mission** on iPhone and iPa
 - A valid device license for the same organization as the mission; normally this is a separate device, while the Android device that created a Controller Livestream can view that mission itself
 - Internet on the viewing device
 - An active synced mission; remote live must be running for video
+- A selected device person and precise location permission when Operational Map is enabled
 
 ## Open Mission Viewer
 
@@ -911,11 +951,22 @@ Use **View Live Mission** on Android or **Watch Live Mission** on iPhone and iPa
 3. Choose an active mission. Use **Refresh** if the mission started after the list opened.
 4. Watch the live video and timeline. Timeline events can continue updating while video connects or retries.
 5. Use a scenario quick-event button or enter a manual event, then tap **Log event**.
-6. Use **Switch mission** to choose another active mission.
+6. Open **Ask AI**, type or dictate a question, review it, and submit it after a current live frame is available. Verify the saved answer against the video.
+7. Open **Nearby map** / **Map** to see mission-scoped pilot and officer positions when available.
+8. Use **Share live** or the QR control to show a read-only public live-view link.
+9. Use **Switch mission** to choose another active mission.
 
 On Android, Mission Viewer waits for a complete received video frame and attaches that uncropped frame to quick, manual, and `Relay` voice events when live video is available. If the frame is not ready, wait for video and try the event again. The screenshot is registered with the mission record, appears as a timeline thumbnail, and can enter the configured screenshot-analysis queue; review any generated analysis before report use.
 
 New AI alerts appear as highlighted banners and remain in the timeline. Person detections use informational/yellow treatment; possible weapons and other threat indicators use red review treatment. Treat every alert as a prompt for human review, not a confirmed finding.
+
+When Operational Map is enabled, selecting a mission starts location sharing for the person selected on the viewing device. The map labels that device as a **Remote viewer**. Tap **Stop Sharing** in Operator when the viewer leaves the operation; ending or switching the selected mission also reconciles the sharing session. Treat every position as advisory rather than independently verified identity or aircraft telemetry.
+
+The public live QR opens a browser view without requiring AlphaRelay sign-in. Anyone with the link can watch the active video and see events and alerts, but cannot log or review them. Share it only with intended viewers.
+
+Live Ask AI captures a fresh received frame after you submit the question and saves the answer into the same mission history used by Mission Overwatch and the active Operator screen. Dictation fills the question; review the transcript before submitting. The answer covers only that frame and does not follow later scene changes.
+
+For Controller Livestream missions, Mission Viewer settings can update **Controller audio** for new stream/recording segments and **Voice event logging** for `Relay` utterances. On an Android viewing device, voice-event logging can use that device's microphone even when the incoming stream has no audio track.
 
 ## When the mission ends
 
@@ -928,8 +979,49 @@ Mission Viewer marks the timeline read-only and disables event entry after the m
 - A mission can provide timeline updates even when remote video is unavailable.
 - Android viewer events cannot attach current-frame evidence until a complete live frame has arrived.
 - Mission Viewer does not expose aircraft controls or closed-mission review tools.
+- Live Ask AI needs internet, AI configuration, and a complete current frame. Dictation also needs microphone and speech-recognition permission.
+- Public live links are bearer links: anyone who receives one can view the active read-only mission until the link is revoked or the mission ends.
 
-→ Use AlphaRelay Operator on iPhone or iPad · Watch in Mission Overwatch · Log events
+→ Use AlphaRelay Operator on iPhone or iPad · Share personnel location · Watch in Mission Overwatch · Log events
+
+---
+
+## Share Personnel Location
+
+When Operational Map is enabled for your organization, AlphaRelay can show the mission pilot, remote viewers, and other selected personnel on a mission-scoped map. These positions come from licensed Android or iOS devices. They do not identify a person by biometrics and do not represent aircraft telemetry.
+
+**Warning:** Treat every map position as advisory. The displayed identity is the person selected on the licensed device, not an independently verified identity. Confirm identity and location through normal operational channels.
+
+## Before sharing
+
+- Select the person using the Operator device.
+- Allow **Precise Location**. Allow background location when the operating system requests it so sharing can continue while the flight app is in front.
+- Keep internet available for live map updates. AlphaRelay can hold eligible points securely during a temporary interruption and retry when connectivity returns.
+- Confirm the live mission that should receive the location.
+
+## Start and stop sharing
+
+Location sharing starts automatically for the selected pilot when that device starts a mission. It also starts for the selected person when a licensed Android or iOS device joins through **View Live Mission**.
+
+To share without opening Mission Viewer, tap **Share Location** on a supported Android phone/tablet or iPhone/iPad, choose the live mission, and confirm the selected person. Tap **Stop Sharing** at any time. Android drone-controller layouts keep the status inside the active mission instead of showing the standalone home-screen action.
+
+If location access is off during an active Android mission, tap the **Location sharing · Precise Location required** status to grant access. On iOS, follow the system prompts for precise foreground and background access. A sharing session can remain active for up to 12 hours, but ending the mission or tapping **Stop Sharing** ends that device's session sooner.
+
+## View the live map
+
+- In Mission Overwatch, open **Mission sidebar → Map** when the tab is available. Browser access is limited to authorized supervisory roles.
+- In Android or iOS Mission Viewer, open **Nearby map** / **Map** for the selected mission.
+- Use **People on map** to hide or show individual people. Selecting a roster entry focuses that person and their matching trail; select it again to return to the full mission view.
+
+The mission pilot uses a distinct marker. Other devices can appear as selected personnel or **Remote viewer**. Stale or unavailable fixes remain visually distinct from a current live position. If map tiles are unavailable, AlphaRelay keeps the roster/list view when possible.
+
+## After the mission
+
+Mission-scoped breadcrumb points are retained with the mission. When sharing stops, AlphaRelay finalizes each non-empty track as deterministic GeoJSON, records its SHA-256 hash and custody creation, and shows the saved trail beneath the closed-mission Timeline. The post-mission map stays hidden when no valid location points were recorded.
+
+An active track or a failed/pending track export blocks **Seal entire mission**. Wait for finalization or use the available retry action before sealing. A session that ended without a usable fix is reported as having no location fixes; it does not create an invented route.
+
+→ View a live mission · Watch in Mission Overwatch · Seal the mission record
 
 ---
 
@@ -939,7 +1031,7 @@ Mission Overwatch is the per-mission browser workspace. Open it from **Mission D
 
 Sign in at [alpha-relay.com](https://www.alpha-relay.com). The page shell can reopen after an online visit, but active Internet missions, remote live, cloud event logging, and synced review require connectivity.
 
-Active missions open in a full-screen command view. The header shows elapsed time, feed state, the mission-assigned operator, AI detection status, and a **Timeline** alert count. The live feed stays in the main workspace, the event timeline occupies the right rail, and a compact **Events & input** row sits beneath the feed. Mission Overwatch adapts to phone and tablet browsers; a desktop-sized screen is still easier for long footage and report reviews.
+Active missions open in a full-screen command view. The header shows elapsed time, feed state, the mission-assigned operator, AI detection status, and a **Sidebar** alert count. The live feed stays in the main workspace. The right-rail **Mission sidebar** switches among **Timeline**, **Events**, **Ask AI**, an optional **Map**, and a mission-scoped tab labeled **Livestream** for browser-created Controller Livestream or **HDMI Input** for laptop capture. Mission Overwatch adapts to phone and tablet browsers; a desktop-sized screen is still easier for long footage and report reviews.
 
 ## Remote live — Live stream (WebRTC)
 
@@ -953,21 +1045,42 @@ If the mission began offline or remote-live setup failed, restore internet and u
 
 ## Laptop HDMI Capture
 
-Create this mission from **Mission Dashboard → New laptop HDMI mission**, add any mission-specific **AI detections**, then find **Laptop HDMI Capture** in the **Events & input** row beneath the feed. Select the UVC card and click **Connect & go live**. The browser uses the same full frame for preview, Live AI, and event screenshots.
+Create this mission from **Mission Dashboard → New HDMI mission**, add any mission-specific **AI detections**, then open **Mission sidebar → HDMI Input**. Select the UVC card and click **Connect & go live**. The browser uses the same full frame for preview, Live AI, and event screenshots.
 
 Keep the tab open. Click **Stop & upload** and wait for the recording to be secured before **End Mission**. If the browser was interrupted, reopen the same mission and use **Recover interrupted recording** without clearing browser data.
 
-## Timeline and mission tools
+## Mission sidebar
 
-The **Event timeline** stays beside the feed on wide screens and can be closed or restored with **Timeline** on narrower layouts. **Mission tools** remain available for an active Internet mission even though the LAN relay panel is hidden.
+Use the right-rail tabs while an Internet mission is active:
 
-- In **Events & input**, use scenario Quick Events for common events. Agency-created scenarios can provide up to seven custom buttons; the standard buttons appear when none are configured.
-- Type a note under **Manual Event (fast)** and click **Log Manual Event**.
-- Or tap **Dictate**, allow microphone access, speak the event, review the transcript, and click **Log Manual Event**.
+- **Timeline** follows incoming events and alerts.
+- **Events** contains scenario Quick Events and **Manual event**. Agency-created scenarios can provide up to seven custom buttons; the standard buttons appear when none are configured.
+- In **Events**, type a note or tap **Dictate**, review the transcript, and click **Log Manual Event**.
+- **Ask AI** asks about one current frame. It is separate from automatic AI live-watch alerts and post-mission Ask AI.
+- **Map** shows advisory pilot, remote-viewer, and selected-personnel positions when Operational Map is enabled and location is being shared.
+- **Livestream** reopens setup for a browser-created Controller Livestream; **HDMI Input** appears for laptop HDMI missions.
 
-After a quick or manual event is appended, Mission Overwatch shows a confirmation in **Events & input**. Use its chevron to collapse or expand the bottom row. **End Mission** is the live command view's closeout action.
+After a quick or manual event is appended, Mission Overwatch shows a confirmation in **Events**. **End Mission** is the live command view's closeout action.
 
 Dictation depends on browser speech-recognition support. If it is unavailable or blocked, manual typing still works.
+
+## Ask AI live
+
+Open **Mission sidebar → Ask AI**, type a question about what is visible, and click **Ask AI**. You can also tap **Dictate**, speak the question, review the transcript, and submit it normally. AlphaRelay freezes one current live frame at submission time, answers only from that frame, and saves the timestamped question and answer under **Saved questions**.
+
+Wait until a live frame is available. The answer does not update as the scene changes and does not identify people, perform face recognition, or infer intent, criminality, injury, or that an area is clear. Verify the answer against the live feed before acting on it.
+
+## Share a read-only public live view
+
+Click **Share** and use **Public live view** to display the QR code or copy the link. Anyone with the link can watch the active livestream and see events and alerts without signing in. The public view is read-only: it cannot log events, review alerts, or open the private mission workspace.
+
+Treat the URL like a bearer credential and share it only with intended viewers. Click **End public viewing** to revoke it immediately. Reopening **Share** can create a new link; any current link also stops working when the mission ends. Android and iOS Operator can display the same public-live QR from an active mission or Mission Viewer.
+
+## View personnel on the mission map
+
+When Operational Map is enabled, open **Mission sidebar → Map**. Use **People on map** to show or hide individuals, and select a roster entry to focus that person's live position and matching saved trail. Browser map access is limited to authorized supervisory roles. Positions are advisory and reflect the identity selected on each licensed device, not independently verified identity or aircraft telemetry.
+
+After the mission, a saved map appears below Timeline only when at least one valid location point exists. Active or failed track finalization blocks sealing until the track completes or is retried.
 
 ## Deployment-specific Local Network relay
 
@@ -981,7 +1094,7 @@ The current default cadence can start a new sample as often as every two seconds
 
 When AI live watch is enabled, select **Show details** or leave the expanded card open to review its focus:
 
-- **Standard detections** provides individual controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, hand-to-hand contact, reaching into clothing or bags, and safety hazards.
+- **Standard detections** provides individual controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, and safety hazards.
 - **Include scenario targets** adds the scenario's saved visual targets.
 - **Scenario-specific AI targets** come from the mission's built-in or agency scenario.
 - **Mission-specific AI targets** let you add up to eight visible details for this mission, one per line. Click **Save targets** after editing.
@@ -1006,7 +1119,7 @@ Treat these alerts as prompts for human review. They do not replace pilot judgme
 
 ## Closed missions
 
-After **Stop Mission** or **End Mission**, Mission Overwatch selects **Timeline** and switches to the closed-mission review tabs: timeline, media and **Play with Events**, **AI Review**, and report. The lifecycle tracker moves through **Mission Review**, **Draft AAR**, **Evidence Sealed**, **Supervisor Review**, and **Approved & Locked**, and its next-action prompt changes as review work is completed.
+After **Stop Mission** or **End Mission**, Mission Overwatch selects **Timeline** and switches to the closed-mission review tabs in order: **Timeline**, **Media** and **Play with Events**, **AI Review**, and **Report**. A mission with an existing generated AAR opens directly on **Report**. The lifecycle tracker moves through **Mission Review**, **Draft AAR**, **Evidence Sealed**, **Supervisor Review**, and **Approved & Locked**, and its next-action prompt changes as review work is completed.
 
 Follow the guided review sequence:
 
@@ -1015,11 +1128,11 @@ Follow the guided review sequence:
 3. Analyze and decide AI findings when AI Review is available, then click **Done — continue**.
 4. Continue to **Report**.
 
-Completing Timeline review keeps human-created and approved AI events but permanently removes remaining unaccepted AI candidates after confirmation. Completing AI Review keeps accepted or edited findings and rejects remaining undecided findings after confirmation. A newly synced pending item reopens the affected review step.
+Use the Timeline filters to switch among **Needs Review**, **Dismissed**, and **All Events**. Completing Timeline review keeps human-created and approved AI events and moves remaining unaccepted AI candidates to **Dismissed** after confirmation. Dismissed items remain visible for audit and recovery until evidence is sealed, but stay outside official counts, playback markers, reports, exports, and the evidence chain. Completing AI Review keeps accepted or edited findings and rejects remaining undecided findings after confirmation. A newly synced pending item reopens the affected review step.
 
 AI Review requires at least one selected tag under **What should AI look for?**. **Event-focused** reviews original-video intervals around accepted events; **Full mission — detailed** reviews the union of selected recording timelines and prefers higher-quality/original footage where recordings overlap. The status reports original-video upload, video sections reviewed, and evidence screenshots verified. Candidate findings are checked against those screenshots before they appear for review. The latest run stays visible and earlier runs appear under **Previous analyses**. Analysis runs in the background and emails the requesting signed-in user when complete. Findings accepted in AI Review move to the timeline for final officer review before report use.
 
-**Ask AI** is grounded only in the selected primary uploaded footage. It does not mix mission photos or event screenshots into the question. Source images remain unaltered without model bounding boxes over finding thumbnails or the full-screen viewer. Ask AI remains available after supervisor approval as a read-only question and saved-answer workflow; it does not unlock timeline, evidence, media, AI Review finding, or report changes.
+**Ask AI** is grounded only in the selected primary uploaded footage. It does not mix mission photos or event screenshots into the question. Saved Live Ask AI questions show the exact frozen source frame beside the answer and can open it at a larger size for verification. Source images remain unaltered without model bounding boxes over finding thumbnails or the full-screen viewer. Ask AI remains available after supervisor approval as a read-only question and saved-answer workflow; it does not unlock timeline, evidence, media, AI Review finding, or report changes.
 
 Closed-mission timelines render chronologically, with the oldest event at the top and the latest at the bottom. Closed missions show historical content only; Mission Overwatch stops remote-live playback and background live-stream retries after the mission closes.
 
@@ -1058,12 +1171,12 @@ In **Controller Screen Capture**, voice relay can save a controller-screen scree
 
 **Mission Overwatch**
 
-- Use the **Events & input** row beneath the live feed in the full-screen command view
-- Use **Event Logging** Quick Events (match the scenario template labels)
-- Use **Manual Event (fast)** for free-text notes
+- Open **Mission sidebar → Events** in the full-screen command view
+- Use **Quick events** that match the scenario template labels
+- Use **Manual event** for free-text notes
 - Tap **Dictate**, speak the event, review the transcript, and click **Log Manual Event** when the browser supports speech recognition
-- These Mission tools remain available for active Internet missions; they do not require a Local Network relay
-- A success message appears after the event is appended; verify it before repeating the action
+- These event tools remain available for active Internet missions; they do not require a Local Network relay
+- A success message appears in the **Events** tab after the event is appended; verify it before repeating the action
 
 **Android or iOS Mission Viewer**
 
@@ -1087,7 +1200,7 @@ For a Device Live AI or AI live-watch alert, choose **Approve alert** in the tim
 - Accepted AI Review findings become official only after **Accept as is** or **Review & edit** on the Timeline.
 - Pending or dismissed automatic alerts and accepted AI Review findings without Timeline officer review stay out of official event counts, playback markers, reports, offline exports, and evidence-chain views.
 
-Pending and dismissed alerts may remain visible in the Timeline and Command Center so a reviewer can understand what was evaluated. **Done — continue** on Timeline or sealing the mission permanently removes AI candidates that never became official; it does not remove human-created events.
+Pending and dismissed alerts may remain visible in the Timeline and Command Center so a reviewer can understand what was evaluated. **Done — continue** on Timeline moves unresolved AI candidates to the visible **Dismissed** filter; sealing the mission permanently removes AI candidates that never became official. Neither action removes human-created events.
 
 **Note:** Browser dictation uses the browser's speech-recognition capability. Allow microphone access when prompted. If dictation is unavailable, blocked, or cannot reach the browser speech service, type the event instead.
 
@@ -1117,7 +1230,7 @@ The capture session must be running. On-device fallback and immediate alert noti
 - **Multiple persons detected** — informational/yellow treatment
 - **Possible weapon detected** — urgent/red treatment
 
-Operator uses **Alert on people** at mission setup or during an active mission to suppress routine person and hand-to-hand-contact alerts. In Mission Overwatch, **Standard detections** provides separate controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, hand-to-hand contact, reaching into clothing or bags, and safety hazards. Keep both weapon-related categories enabled; weapon-holder alerts receive the highest presentation priority.
+Operator uses **Alert on people** at mission setup or during an active mission to suppress routine person alerts. In Mission Overwatch, **Standard detections** provides separate controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, and safety hazards. Keep both weapon-related categories enabled; weapon-holder alerts receive the highest presentation priority. Hand-to-hand contact and reaching into clothing or bags are no longer standard detections; an agency can still add a concrete visible behavior as a scenario-specific or mission-specific target.
 
 These are assistive detections, not operational conclusions. Person detection is not face recognition or identity matching. A possible-weapon alert does not establish that an object is a weapon, who possesses it, intent, legality, or threat level.
 
@@ -1151,11 +1264,11 @@ AlphaRelay can create a timeline event with a screenshot. On-device fallback scr
 
 In Controller Screen Capture, AlphaRelay filters small person boxes inside fixed flight-app HUD rails and collapses overlapping boxes around the same person. These filters reduce repeated and HUD-driven alerts, but they do not eliminate false positives or missed detections.
 
-For cloud analysis of thermal or infrared video, AlphaRelay checks the full underlying camera scene rather than only the center, reticle, bright regions, or prior boxes. A partial human thermal signature can be reported when multiple human-consistent shape cues are visible, but the analysis also checks common hot-object and scene false targets such as warmed roofs or pavement, vents, furniture, vegetation, reflections, shadows, and image artifacts.
+For cloud and post-mission analysis of thermal or infrared video, AlphaRelay checks the full underlying camera scene rather than only the center, reticle, bright regions, or prior boxes. It accounts for white-hot, black-hot, ironbow, rainbow, other pseudo-color palettes, isotherm overlays, and steep overhead foreshortening. Hue, brightness, and red highlighting map apparent temperature; they are not classifications. A compact or partial thermal signature can be reported only when multiple human-consistent structural cues are visible. The analysis also checks warmed roofs or pavement, vents, rigid furniture or architecture, vegetation, reflections, shadows, isolated hot spots, and enhancement artifacts.
 
 When the full-frame pass does not already find a qualifying possible weapon, AlphaRelay can spend one additional high-detail pass around a weak weapon candidate or detected person before falling back to a frame region. This improves review coverage for smaller objects without making the detector conclusive.
 
-AlphaRelay captures evidence before posting the device alert. A banner can dismiss while the mission Timeline event remains available for review. Analysis sampling and user-visible alert frequency are separate: slow analysis, confidence thresholds, stable-target deduplication, and cooldowns can reduce visible alerts.
+AlphaRelay captures evidence before posting the device alert. A banner can dismiss while the mission Timeline event remains available for review. Analysis sampling and user-visible alert frequency are separate: cloud live analysis can sample as often as every two seconds, while a qualifying continuing detection can be logged again after about 10 seconds. Network latency, confidence thresholds, and stable-target deduplication can make alerts less frequent.
 
 ## Review an alert in Mission Overwatch
 
@@ -1206,9 +1319,11 @@ In a supported Pilot-mode mission, confirmed touchdown can trigger the same stop
 - Footage may upload immediately or queue for later sync.
 - Queued Operator video is stored durably and retries when validated connectivity returns, including after the app restarts.
 - Android and iOS Mission Viewer event logging stops and the selected timeline becomes read-only.
+- Mission-scoped personnel location sharing stops and each non-empty recorded track begins finalizing as GeoJSON evidence with custody and hash records.
 - Mission Overwatch stops remote-live playback and switches to historical review instead of retrying the closed live stream.
 - Mission Overwatch selects **Timeline** after web closeout so review starts with unresolved events and alerts.
 - Review should wait until footage status is clear.
+- Evidence sealing must also wait until every location-sharing session has stopped and each saved track export is complete.
 
 **Warning:** Do not force-stop or uninstall Operator while footage is queued. On iOS, keep Operator open while ReplayKit finalization and handoff complete. Browser-initiated uploads still require the browser tab to remain open.
 
@@ -1326,6 +1441,8 @@ AlphaRelay calculates and registers a SHA-256 hash for a manually added photo or
 
 Open a closed mission from **Mission Dashboard**, then go to **Mission Footage**.
 
+Mission Overwatch orders closed-mission work as **Timeline**, **Media**, **AI Review**, and **Report**. It opens the next unfinished review step automatically; a mission with an existing generated AAR opens on **Report**.
+
 ## Controller-screen recordings
 
 Current Controller Screen Capture missions store one continuous controller-screen recording for the capture session. Older missions can still contain adjacent chunks; playback continues through recognized legacy chunks from the same recording. A separately restarted capture remains a separate recording.
@@ -1392,11 +1509,13 @@ Related sightings can appear as one expandable group. Expand it to compare the s
 
 AI Review findings and alert screenshot analyses are suggestions. Verify the source media before accepting or editing them for report or evidence use.
 
+Use **Needs Review** to focus unresolved AI alerts or screenshot analyses, **Dismissed** to inspect excluded AI items, and **All Events** for the complete visible timeline. Dismissed items remain outside the official record and can be recovered until the evidence is sealed.
+
 ## Complete the review steps
 
 The closed-mission **Timeline** and **Media** tabs, plus **AI Review** when available, have **Done — continue**:
 
-- **Timeline**: approves no items automatically. If unaccepted AI candidates remain, AlphaRelay shows the count and asks before permanently deleting them. Human-created and approved AI events remain.
+- **Timeline**: approves no items automatically. If unaccepted AI candidates remain, AlphaRelay shows the count and asks before moving them to **Dismissed**. Human-created and approved AI events remain.
 - **Media**: records that footage and photos were reviewed.
 - **AI Review**: keeps accepted or edited findings and asks before rejecting any undecided findings.
 
@@ -1409,7 +1528,7 @@ Open **AI Review → Ask AI** for a closed, synced mission with playable uploade
 1. Enter a question about visible mission details, such as **How many vehicles are visible?** or **Is a weapon visible?**
 2. Click **Ask AI**.
 3. Review the answer, confidence, supporting observations, limitations, and supporting evidence.
-4. Open an item under **Previous answers** to revisit it, or click **Clear** to remove the saved question history for that mission.
+4. Open an item under **Previous answers** to revisit it, or click **Clear** to remove the saved question history for that mission. Saved Live Ask AI answers include the exact frozen source frame for side-by-side review and larger inspection.
 
 If supporting still frames have not been prepared, AlphaRelay prepares them before answering. Ask AI uses only the primary uploaded footage selected for the mission question. It does not mix event screenshots or mission photos into the answer. When an aircraft-original recording is available, AlphaRelay prefers it over a duplicate controller-screen view; otherwise it uses the best available playable recording.
 
@@ -1475,7 +1594,7 @@ Sealing locks reviewed custody evidence and hashes. It is **separate** from supe
 
 ## When to seal
 
-After footage, events, photos, and the report draft have been reviewed, the Timeline, Media, and AI Review steps are complete, timeline findings are officer-reviewed, and report-readiness **Items Requiring Officer Review** are resolved.
+After footage, events, photos, and the report draft have been reviewed, the Timeline, Media, and AI Review steps are complete, timeline findings are officer-reviewed, any mission location tracks are finalized, and report-readiness **Items Requiring Officer Review** are resolved.
 
 ## Steps
 
@@ -1483,12 +1602,15 @@ After footage, events, photos, and the report draft have been reviewed, the Time
 2. Confirm footage plays and **Play with Events** markers look correct.
 3. Confirm official event counts contain the expected human-created events, approved automatic alerts, and officer-reviewed AI findings.
 4. Open **Mission chain of custody** and review the evidence listed in the AAR Chain of Custody, including any manual photos or videos.
-5. Click **Seal entire mission (verify downloads)** when ready.
-6. Optionally download **Download mission custody certificate (HTML)**.
+5. If the mission used Location Sharing, confirm no session is still active and every non-empty GeoJSON track shows a completed export and recorded SHA-256. Retry a failed export before continuing.
+6. Click **Seal entire mission (verify downloads)** when ready.
+7. Optionally download **Download mission custody certificate (HTML)**.
 
 Sealing verifies downloaded bytes against stored hashes and locks the evidence rows explicitly included in the AAR Chain of Custody. It does not bulk-seal every retained mission asset. Manual photos and videos are registered with a SHA-256 hash before their upload is reported as successful; items included in the AAR chain are then verified and sealed through the same workflow.
 
 AlphaRelay keeps the stored evidence image separate from any bounded or resized copy used for AI analysis. Screenshot-to-alert matching uses the image's actual capture time, not only the later event-log or upload time, so delayed sync does not silently substitute a nearby screenshot. Verify the displayed source image and timestamp before sealing.
+
+Mission-scoped personnel tracks are append-only while sharing is active and finalize as deterministic GeoJSON evidence. An active sharing session or a pending/failed track export blocks sealing; a session with no valid location fixes is reported as empty rather than creating a route.
 
 The mission-wide HTML certificate and exported/printed after-action report include a QR code and public certificate link. A recipient can open the current chain-of-custody certificate without signing in. The link is unguessable but works for anyone who has it, so share it only with intended recipients. The public page exposes certificate fields and current authoritative chain validation, not the signed-in mission workspace.
 
@@ -1564,7 +1686,7 @@ Command home at [alpha-relay.com/dashboard.html](https://www.alpha-relay.com/das
 
 - **Command Center** connection and refresh status, active remote-live count, and mission KPIs
 - Active mission rows with live state, operator and scenario context, event activity, elapsed time, and alerts awaiting review
-- **New laptop HDMI mission** for naming an online mission, optionally selecting a scenario, and continuing directly to browser capture setup in Mission Overwatch
+- **New Livestream** and **New HDMI mission** for authorized mission operators to name an online mission, optionally select a scenario and AI detections, and continue directly to controller or browser capture setup in Mission Overwatch
 - **Attention queue** for remote-live failures, unsynced mission data, automatic alerts awaiting review, and report follow-ups
 - **Latest alerts** with review status, source mission, screenshot when available, and a link into Mission Overwatch
 - Mission history with search and filters
@@ -1576,11 +1698,13 @@ Command home at [alpha-relay.com/dashboard.html](https://www.alpha-relay.com/das
 - **Import mission** for creating a closed post-flight record from external footage and photos
 - Intelligence search across missions, events, and footage
 - Supervisor inbox (pending approval) and operator returned-to-draft inbox
-- Analytics
+- **Analytics** for active missions, seven-day mission and official-event totals, evidence coverage, lifetime totals, close rate, median duration, event rate, storage, operational insights, mission throughput, scenario mix, capture channels, and highest event load
 
 Select a mission to open **Mission Overwatch** (dashboard link: **Open Mission Console**).
 
 **Events logged** and event-based KPIs use the official mission-event set: human-created events that have not been deleted, approved automatic AI alerts, and officer-reviewed AI findings. Pending or dismissed automatic alerts can still appear under **Latest alerts** for operational awareness, but they are not included in official event totals.
+
+Long **Attention queue** and **Latest alerts** lists load additional rows as you scroll. Focus the list before keyboard scrolling. Analytics rolling windows use the organization's mission records and local calendar dates; treat the summaries as operational decision support, not as a custody export.
 
 → Import a mission
 
@@ -1631,6 +1755,8 @@ Agency scenarios appear in the web and Operator mission pickers after refresh. T
 Open the mission in Mission Overwatch and click **Share**. Under **Available users**, AlphaRelay shows eligible organization users by name and email. Click **Share** beside the intended person; they receive mission-scoped collaborator access and an email link when mail delivery is configured. To revoke access, find the person under **People with access**, click **Remove**, and confirm.
 
 Mission sharing does not promote the person to Supervisor or Admin/Owner, expose every organization mission, or designate them as a mission operator. The mission creator, assigned mission team, supervisors, and admins/owners can manage sharing; a shared collaborator cannot re-share the mission.
+
+For an active mission, the same **Share** dialog prepares a **Public live view** QR code and bearer link. Recipients do not sign in and can only watch the livestream and see events and alerts. They cannot log or review events. Click **End public viewing** to revoke the current link; ending the mission also disables it.
 
 ### Create or edit an agency scenario
 
@@ -1784,7 +1910,7 @@ If your organization is onboarded through AlphaRelay pilot agreements, sign the 
 
 ## What syncs to the cloud
 
-When internet is available: mission metadata, events, screenshots, photos, footage references, reports, custody records, and org data — protected by sign-in and database access rules.
+When internet is available: mission metadata, events, screenshots, photos, footage references, optional mission-scoped personnel location points, reports, custody records, and org data — protected by sign-in and database access rules.
 
 High-resolution evidence remains distinct from bounded imagery prepared for AI analysis. AlphaRelay records the screenshot's capture time for evidence matching even when event logging or upload finishes later, and manual photo/video uploads are registered with a SHA-256 hash before success is reported.
 
@@ -1810,11 +1936,13 @@ Device Live AI and AI live-watch alerts are logged as review prompts, not final 
 
 Device Live AI uses licensed server-side analysis when connectivity is healthy and automatically falls back to on-device people and possible-weapon detection when it is not. Provider credentials remain server-side. Mission Overwatch, device cloud analysis, and local fallback coordinate temporary ownership to reduce duplicate alerts.
 
-Person detections use informational/yellow treatment and do not identify people. Operator can disable routine person and hand-to-hand-contact alerts for a mission. Mission Overwatch provides separate controls for every standard detection. When weapon-related detections are enabled, AlphaRelay gives their alerts the highest priority; every alert remains subject to human review.
+Person detections use informational/yellow treatment and do not identify people. Operator can disable routine person alerts for a mission. Mission Overwatch provides separate controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, and safety hazards. Hand-to-hand contact and reaching into clothing or bags are not standard detections; agencies may add concrete visible behaviors as scenario or mission targets. When weapon-related detections are enabled, AlphaRelay gives their alerts the highest priority; every alert remains subject to human review.
 
-AlphaRelay uses one official-event rule across counts, playback markers, reports, offline exports, and custody views: undeleted human-created events are included; automatic AI alerts require approval; accepted AI Review findings require Timeline officer review. Pending or dismissed automatic alerts and accepted AI Review findings without Timeline officer review remain outside the official evidence set and are permanently removed when Timeline review completes or the mission seals.
+AlphaRelay uses one official-event rule across counts, playback markers, reports, offline exports, and custody views: undeleted human-created events are included; automatic AI alerts require approval; accepted AI Review findings require Timeline officer review. Pending or dismissed automatic alerts and accepted AI Review findings without Timeline officer review remain outside the official evidence set. Timeline completion moves unresolved candidates to **Dismissed** for inspection and recovery; mission sealing permanently removes candidates that never became official.
 
-Mission Overwatch **Dictate** uses the browser's speech-recognition capability and microphone permission. Availability and speech processing depend on the browser and operating system; type the event when agency policy or browser support does not permit dictation.
+When Operational Map is enabled, location sharing uses the selected person on a licensed device as an advisory identity. Precise location can continue in the background during an active sharing session. Mission-scoped breadcrumb points are retained as a finalized GeoJSON evidence track with a recorded hash; current coordinates stop updating when sharing ends. AlphaRelay does not place precise location in analytics, crash metadata, application logs, or mission event text.
+
+Mission Overwatch **Dictate** uses the browser's speech-recognition capability and microphone permission for manual events and Live Ask AI questions. Availability and speech processing depend on the browser and operating system; type the event or question when agency policy or browser support does not permit dictation. A Live Ask AI answer is saved against one frozen current frame and must be verified against the live feed.
 
 ## Pilot agreements
 
@@ -1843,18 +1971,19 @@ Do not share exports before sync and review are complete.
 - Supported aircraft-control workflow when using aircraft integration
 - Conditional Matrice camera tools on supported Matrice aircraft or Matrice controllers
 - Android drone controller capable of installing **AlphaRelay Operator** and granting screen capture permission for **Controller Screen Capture**
-- For **Controller Livestream**: a licensed Android or iOS Operator device, validated internet, and either a DJI controller/flight app that accepts a complete RTMP URL or separate server/key fields, or a Skydio controller with RTSP External Server
+- For **Controller Livestream**: either a licensed Android/iOS Operator device or an authorized signed-in browser session with mission-operator access, validated internet, and either a DJI controller/flight app that accepts a complete RTMP URL or separate server/key fields, or a Skydio controller with RTSP External Server
 - For **Operator HDMI Capture**: Android with USB host/OTG or a USB-C iPad, a compatible UVC capture card, controller HDMI output, and camera/USB permission; a powered hub may be required
 - For **Pilot mode**: detected DJI SDK remote-controller setup, a listed DJI MSDK 5.17 aircraft, and a live flight-controller connection that AlphaRelay can verify
 - For a DJI Avata with compatible DJI Goggles: separate Android phone or tablet with **DJI Fly**, **AlphaRelay Operator**, screen capture permission, and internet
 - For iOS capture: iOS 26, AlphaRelay Operator installed through TestFlight, ReplayKit Screen Recording permission, and optional microphone/speech permissions
 - For Mission Viewer: a second Operator installation licensed to the mission's organization, plus internet
+- For Operational Map: feature enabled for the organization, a selected person on each licensed sharing device, precise foreground/background location permission, and internet for live updates
 
 ## Overwatch / review (browser)
 
 - Current Chrome, Edge, or Safari on desktop or mobile for Mission Overwatch, dashboard, and export; a larger screen is recommended for long review sessions
 - Internet for sync, upload, reports, and export media downloads
-- Internet and AI configuration for report drafting, AI Review, Ask AI, event screenshot analysis, or AI live watch
+- Internet and AI configuration for report drafting, AI Review, post-mission Ask AI, Live Ask AI, event screenshot analysis, or AI live watch
 - Browser microphone permission and speech-recognition support for **Dictate** in Mission Overwatch
 - For **Laptop HDMI Capture**: a physical UVC capture card, browser camera permission, enough local browser storage, and a tab that remains open through **Stop & upload**
 
@@ -1865,7 +1994,7 @@ Do not share exports before sync and review are complete.
 | Start Mission | Android or iOS Operator app; validated internet for automatic remote live, or offline capture with queued sync |
 | Deployment-specific Local Network relay | Android device + Overwatch on same reachable Wi-Fi; not exposed by the current public Operator workflow |
 | Controller Screen Capture | Android drone controller; AlphaRelay Operator installed; Android screen capture permission |
-| Controller Livestream | Licensed Android or iOS Operator device; validated internet on it and the separate flight controller; DJI one-field/two-field RTMP or Skydio RTSP External Server support |
+| Controller Livestream | Licensed Android/iOS Operator device or authorized signed-in browser with mission-operator access; validated internet on the setup device and separate flight controller; DJI one-field/two-field RTMP or Skydio RTSP External Server support |
 | Operator HDMI Capture | Controller HDMI output; UVC card; USB host/OTG Android or USB-C iPad; camera/USB permission; internet only for live/sync |
 | Laptop HDMI Capture | Online web-app session; physical UVC card; browser camera permission and local storage; tab kept open through stop and upload |
 | Pilot mode | Detected DJI SDK-controller setup; aircraft in the Pilot app's DJI MSDK 5.17 list; successful live connection check |
@@ -1874,15 +2003,18 @@ Do not share exports before sync and review are complete.
 | DJI Avata with DJI Goggles | Linked DJI Avata, compatible DJI Goggles, and compatible controller; Android device with DJI Fly and AlphaRelay Operator; goggles live-view connection; Android screen capture permission; internet |
 | **Live stream (WebRTC)** | Validated pilot-device internet; starts automatically with the mission and can be retried from the Pilot console |
 | Mission Viewer | Second licensed Operator installation in the same organization; active mission; internet; remote live required for video |
+| Operational Map | Enabled deployment; selected device person; active mission; precise device location; internet for live updates; authorized supervisory browser role for Mission Overwatch map access |
+| Public live view | Active synced mission; internet; authorized mission-team member to create the bearer link; no sign-in required for the read-only recipient |
 | Device Live AI | Operator capture running; internet for cloud analysis; compatible device compute for automatic offline fallback; notification permission for immediate alert banners |
 | AI Review | Closed, synced mission with playable footage or mission photos, at least one selected analysis tag, internet, AI configuration, and accepted event anchors for **Event-focused** coverage |
 | Ask AI | Closed, synced mission with playable primary uploaded footage; internet and AI configuration |
+| Live Ask AI | Active mission with a fresh current frame in Mission Overwatch or Android/iOS Operator; internet and AI configuration; microphone/speech permission only for optional dictation |
 | AI live watch | Active remote live stream; Mission Overwatch online; AI configuration enabled |
 | Cloud sync / upload | Internet + signed-in session |
 | Optional aircraft/goggles recording | Signed-in online browser; MP4 or MOV; visual alignment to the AlphaRelay or primary timeline |
 | Offline package export | Internet at export time to download media; extracted package can be reviewed later on desktop or mobile |
 
-Permissions: grant camera, USB-device access, microphone, speech recognition, screen capture/Screen Recording, storage, notifications, and location only as requested for the selected workflow. HDMI Capture uses Android camera permission for the external UVC device, not the phone or tablet camera. In Mission Overwatch, allow browser microphone access only when using **Dictate**.
+Permissions: grant camera, USB-device access, microphone, speech recognition, screen capture/Screen Recording, storage, notifications, and location only as requested for the selected workflow. Operational Map needs precise location and can request background access for an active sharing session. HDMI Capture uses Android camera permission for the external UVC device, not the phone or tablet camera. In Mission Overwatch, allow browser microphone access only when using **Dictate**.
 
 Aircraft camera controls appear only when the pilot app detects supported aircraft or controller capability. Availability still depends on aircraft firmware, payload, SDK support, and field validation.
 
@@ -1943,7 +2075,7 @@ The HDMI workflow ingests UVC video, not embedded USB/UAC audio. Use the receivi
 ## Laptop HDMI does not connect or upload
 
 1. Confirm the card is a physical UVC input and the controller's HDMI output is enabled; a laptop HDMI port is normally output-only.
-2. Grant browser camera permission and select the card under **Laptop HDMI Capture** in the **Events & input** row beneath the feed.
+2. Grant browser camera permission and select the card under **Mission sidebar → HDMI Input**.
 3. Click **Connect & go live** and keep the tab open.
 4. Before **End Mission**, click **Stop & upload** and wait for secured status.
 5. After an interruption, reopen the same mission and use **Recover interrupted recording**. Do not clear browser data first.
@@ -2044,7 +2176,7 @@ If DJI Fly does not open automatically after approval, open it manually and conf
 3. Check that the operating system can see a working microphone.
 4. If the browser speech service needs network access, confirm the browser is online.
 
-You can always type the event under **Manual Event (fast)**. Dictation only fills the note; review it and click **Log Manual Event** to save the event.
+You can always type the event under **Mission sidebar → Events → Manual event**. Dictation only fills the note; review it and click **Log Manual Event** to save the event. For a Live Ask AI question in Mission Overwatch or Android/iOS Operator, dictation fills the question field; review it before clicking **Ask AI**.
 
 ## Play with Events has no markers
 
@@ -2090,7 +2222,27 @@ Accepting a finding in **AI Review** only moves it to the timeline. The timeline
 
 1. Read the status beside the button for unresolved Timeline or AI Review items.
 2. Finish the decisions you want to keep.
-3. Click **Done — continue** and review the confirmation count. Timeline completion deletes remaining unaccepted AI candidates; AI Review completion rejects remaining undecided findings.
+3. Click **Done — continue** and review the confirmation count. Timeline completion moves remaining unaccepted AI candidates to **Dismissed**; AI Review completion rejects remaining undecided findings.
+
+Dismissed Timeline items remain available under the **Dismissed** filter until the mission is sealed. They stay outside official counts, playback markers, reports, exports, and evidence-chain views.
+
+## Public live link should no longer be available
+
+1. Open the active mission in Mission Overwatch and click **Share**.
+2. Under **Public live view**, click **End public viewing** and confirm.
+3. If a new link is needed later, reopen **Share** to create one.
+
+The current link also stops working when the mission ends. Treat every public-live URL as a bearer link: anyone who has it can view the active read-only mission without signing in.
+
+## Mission map is empty or missing
+
+1. Confirm Operational Map is enabled for the organization and the mission is active.
+2. On each sharing device, select the correct person and allow precise location. On iOS, allow background location if the operating system requests it.
+3. Confirm the device says location sharing is active for the intended mission and has internet.
+4. In Mission Viewer, make sure the correct active mission is selected. In Mission Overwatch, use **Mission sidebar → Map** with an authorized supervisory account.
+5. After closeout, wait for the saved track to finalize. The post-mission map stays hidden when no valid fixes were recorded.
+
+If sealing reports an active, pending, or failed location track, stop the sharing session, wait for finalization, or use the available export retry. Do not treat a stale marker or a route with no fixes as verified personnel movement.
 4. Stay online for a synced mission. If the action is unavailable, sign in again and reload the page.
 
 A newly synced pending alert or finding reopens the affected review step even if it was completed earlier.
@@ -2200,7 +2352,7 @@ A second licensed Android or iOS device can open Mission Viewer. It requires int
 
 ## Controller video inputs
 
-**Controller Livestream** requires validated internet on both the licensed Android or iOS Operator device and the separate flight controller. For DJI, Operator provides a complete RTMP URL and separate server/key values. For Skydio RTSP External Server, it provides a server address, port, and stream name. Restart the publisher with the same mission destination after a connection loss while the mission is active.
+**Controller Livestream** requires validated internet on both the setup surface—licensed Android/iOS Operator or an authorized signed-in browser—and the separate flight controller. For DJI, AlphaRelay provides a complete RTMP URL and separate server/key values. For Skydio RTSP External Server, it provides a server address, port, and stream name. Restart the publisher with the same mission destination after a connection loss while the mission is active.
 
 **Operator HDMI Capture** receives video locally on Android or USB-C iPad and can keep recording when internet is unavailable. **Laptop HDMI Capture** starts online from the Dashboard and records recoverable evidence in the browser while publishing remote live. Keep the tab open and use **Stop & upload** before closeout.
 
@@ -2231,7 +2383,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 - Cloud sync, upload, and export wait for internet.
 - Losing relay, remote live, or cloud sync does not always end the mission — paths are independent.
 - **View Live Mission** on Android and **Watch Live Mission** on iOS require internet and a valid licensed installation in the same organization. Timeline events can update even when remote video is not ready.
-- **Controller Livestream** requires internet on the Android or iOS setup/viewer device and the separate publishing controller. DJI requires either a complete RTMP URL or separate server/key fields. Skydio requires a deployed, reachable RTSP gateway and RTSP External Server support.
+- **Controller Livestream** requires internet on the Operator device or signed-in browser used for setup and on the separate publishing controller. DJI requires either a complete RTMP URL or separate server/key fields. Skydio requires a deployed, reachable RTSP gateway and RTSP External Server support.
 - Operator **HDMI Capture Card** can record locally without internet on Android or USB-C iPad; iPhone does not expose UVC capture. Remote viewing, cloud AI, sync, and upload still require connectivity.
 - **Laptop HDMI Capture** requires an online mission start, browser camera permission, a physical UVC card, available local browser storage, and an open tab. Use **Stop & upload** before ending the mission; do not clear browser data before recovering an interrupted recording.
 
@@ -2269,8 +2421,8 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 - **AI live watch** requires active **Live stream (WebRTC)**, internet, Mission Overwatch online, and AI configuration. The default cadence can start a sample as often as every two seconds, but network and analysis latency may make it slower.
 - Scenario-specific and mission-specific AI targets are bounded visual search cues, not guaranteed detections. Use concrete visible details and verify every match against the live view or source media.
 - Person detections use informational/yellow treatment and do not perform identity or face recognition. Possible weapons and other urgent threat indicators use red treatment but remain unconfirmed until human review.
-- Mission Overwatch exposes individual standard-detection controls, including weapon-related detections. Enabled weapon-related alerts receive priority, but every alert remains an unconfirmed review prompt. Review the saved choices before each operational mission.
-- Thermal and infrared people analysis accepts incomplete signatures only when multiple human-consistent cues are visible and checks common warm-object, furniture, vegetation, reflection, shadow, and image-artifact alternatives. It can still miss people or produce false positives.
+- Mission Overwatch exposes individual standard-detection controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, and safety hazards. Enabled weapon-related alerts receive priority, but every alert remains an unconfirmed review prompt. Hand-to-hand contact and reaching into clothing or bags require an agency or mission target rather than a standard-detection switch.
+- Thermal and infrared people analysis supports white-hot, black-hot, pseudo-color palettes, and isotherm overlays, and accounts for compact overhead views. Palette colors and red highlights represent apparent temperature rather than object classes. The analysis requires multiple human-consistent structural cues and checks warm objects, rigid surfaces, furniture, vegetation, reflections, shadows, and image artifacts, but it can still miss people or produce false positives.
 - AI media findings are suggestions. Accepting one in AI Review moves it to the timeline; an officer must then use **Accept as is** or **Review & edit** before it is eligible for the AAR.
 - AI Review does not draw model bounding boxes over finding thumbnails or the full-screen source image.
 - Device Live AI and AI live-watch alerts require **Approve alert** before configured screenshot analysis or report eligibility. **Dismiss alert** excludes the alert. Approved analysis still waits for the event, review decision, and screenshot to sync and requires internet plus AI configuration.
@@ -2287,7 +2439,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 
 ## Workflow locks
 
-- **Done — continue** is a recorded review decision, not only navigation. Timeline completion permanently removes remaining unaccepted AI candidates; AI Review completion rejects remaining undecided findings. Review the confirmation count before continuing.
+- **Done — continue** is a recorded review decision, not only navigation. Timeline completion moves remaining unaccepted AI candidates to **Dismissed**; AI Review completion rejects remaining undecided findings. Dismissed timeline items remain inspectable until sealing, but stay outside the official record. Review the confirmation count before continuing.
 - Submitting a report for supervisor approval locks the report, mission name, timeline, footage, photos, and AI Review mutations. Returning it to draft reopens work; approval makes the mutation lock permanent. Read-only Ask AI remains available after approval.
 - Evidence sealing preserves custody hashes — it is not report approval.
 - **Seal entire mission** seals only evidence included in the AAR Chain of Custody. Excluded alert screenshots can remain retained and registered but unsealed.
@@ -2296,6 +2448,9 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 
 - Large offline ZIP exports work best in Chrome or Edge. The viewer adapts to phones, but mobile file-provider rules may require reconnecting extracted package files.
 - **Dictate** depends on browser speech-recognition support, microphone permission, and any browser speech-service connectivity.
+- Live Ask AI in Mission Overwatch or Android/iOS Operator requires a fresh current frame, internet, and AI configuration. It answers only from the frame captured for that request; it does not track later scene changes. Verify shared saved answers against the live feed.
+- Public live links require an active mission and internet. Anyone who receives the bearer link can watch live video and see events and alerts until the link is revoked or the mission ends; the view is read-only but is not sign-in restricted.
+- Operational Map is deployment-controlled and requires a selected person, precise device location, and connectivity for live updates. Positions are advisory, can be stale or unavailable, and are not independently identity-verified or aircraft telemetry. A mission cannot seal while a location session is active or its saved-track export is pending or failed.
 - Self-signed relay certificates require a one-time browser trust step on HTTPS Mission Overwatch.
 
 ---
@@ -2310,33 +2465,35 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 | **Approve alert** | Timeline decision that allows a Device Live AI or AI live-watch alert to proceed to configured screenshot analysis and report consideration; it does not complete officer review of the analysis |
 | **AI Review** | Closed-mission tab for reviewing actual video against selected targets, verifying candidate findings with evidence screenshots, and accepting or rejecting mission-relevant findings |
 | **Ask AI** | AI Review view for asking questions grounded only in the primary uploaded footage from a closed synced mission; it remains read-only and available after approval |
-| **Alert on people** | Operator mission setting that controls routine person and hand-to-hand-contact alerts; Mission Overwatch separately controls each standard detection |
+| **Alert on people** | Operator mission setting that controls routine person alerts; Mission Overwatch separately controls each standard detection |
 | **Activity Log** | Read-only Organization Settings tab showing server-attributed material actions with person, mission, action, and date filters |
 | **Add optional recording** | Media action for attaching an MP4/MOV aircraft, goggles-screen, or other external recording and aligning it to the mission timeline |
 | **AAR Chain of Custody** | Explicit report evidence set verified by **Seal entire mission**; included manual media is sealable while retained excluded screenshots remain unsealed |
 | **Chain of custody** | Evidence history and hash verification for a mission |
 | **Command Center** | Default Mission Dashboard view for operational status, active missions, attention items, automatic alerts, and report follow-ups |
 | **Controller Screen Capture** | Workflow where the native flight app keeps flight control while Operator captures the visible screen; Android uses system screen capture and iOS uses ReplayKit |
-| **Controller Livestream** | Android/iOS Operator workflow that provides DJI RTMP or Skydio RTSP External Server values for a separate controller to publish into a mission |
+| **Controller Livestream** | Browser or Android/iOS Operator workflow that provides DJI RTMP or Skydio RTSP External Server values for a separate controller to publish into a mission |
 | **HDMI Capture Card** | UVC controller-video input supported by Android Operator, USB-C iPad, or laptop/browser capture; iPhone is not supported |
 | **Laptop HDMI Capture** | Browser workflow created from the Dashboard; **Connect & go live** records recoverable evidence and publishes remote live from a physical UVC card |
 | **Goggles Mode** | DJI Avata and compatible DJI Goggles workflow where AlphaRelay on a separate Android device captures the DJI Fly live view; compatible hardware enables the mode, then the operator taps **Start Mission** |
 | **Device Live AI** | Cloud-first live analysis from an Operator device with automatic on-device people and possible-weapon fallback when cloud analysis is unavailable |
 | **Internet** | Cloud-backed mission mode used by the current Operator **Start Mission** workflow |
-| **Done — continue** | Closed-mission action that records completion of Timeline, Media, or AI Review and opens the next unfinished step; confirmation can remove or reject unresolved AI candidates |
+| **Done — continue** | Closed-mission action that records completion of Timeline, Media, or AI Review and opens the next unfinished step; Timeline moves unresolved candidates to **Dismissed**, while AI Review rejects undecided findings |
 | **Import mission** | Mission History flow that creates a closed post-flight record from external footage and photos |
 | **Import mission data…** | Client-side workflow preview that inventories a large evidence or mapping package without uploading file contents or creating custody records |
 | **Items Requiring Officer Review** | Report checklist items that need human resolution before submission |
 | **Live Overwatch Screen** | Mission Overwatch panel for LAN relay connection |
 | **Live stream (WebRTC)** | Remote live video over the internet |
-| **Mission tools** | Active-mission Quick Events, manual event entry, browser dictation, and applicable laptop HDMI controls in the **Events & input** row beneath the Mission Overwatch feed |
+| **Live Ask AI** | Active-mission workflow in Mission Overwatch and Android/iOS Operator that answers a typed or dictated question from one fresh current frame and shares the saved answer across mission views |
+| **Mission sidebar** | Right-rail active-mission tabs for **Timeline**, **Events**, **Ask AI**, optional **Map**, and a conditional **Livestream** or **HDMI Input** tab |
 | **Organization Documents** | Signed pilot agreement PDFs linked to an organization |
 | **Mission Console** | Dashboard link name for opening Mission Overwatch |
 | **Mission Dashboard** | Command home — KPIs, history, search, AAR inboxes |
-| **Mission Overwatch** | Per-mission browser workspace; active missions use a full-screen live command view with a right-rail event timeline and bottom **Events & input** row, while closed missions use the review workflow |
+| **Mission Overwatch** | Per-mission browser workspace; active missions use a full-screen live command view with a tabbed right-rail Mission sidebar, while closed missions use the review workflow |
 | **Mission operator** | Separate organization-membership designation that makes a person available in the AlphaRelay Operator roster and permits mission start; it is not an organization role |
 | **Mission sharing** | **Share** workflow that gives an eligible user working access to one mission without granting organization-wide access or mission-start authority |
-| **Mission Viewer** | **View Live Mission** on Android or **Watch Live Mission** on iOS for active remote live, timeline updates and alerts, and event logging from a secondary licensed device |
+| **Mission Viewer** | **View Live Mission** on Android or **Watch Live Mission** on iOS for active remote live, timeline updates and alerts, event logging, and optional mission-scoped location sharing from a secondary licensed device |
+| **Operational Map** | Optional mission map of advisory personnel positions shared by selected users on licensed Android or iOS devices; saved mission tracks finalize as GeoJSON evidence |
 | **Mission-specific AI targets** | Up to eight visible details saved for AI live watch on one mission in addition to standard and scenario targets |
 | **Offline package** | ZIP archive with viewer for point-in-time mission export |
 | **Official mission event** | Undeleted human-created event, approved automatic AI alert, or accepted AI Review finding that received Timeline officer review; this set drives counts, reports, exports, playback markers, and evidence views |
@@ -2346,6 +2503,7 @@ Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, u
 | **Local AI** | Android settings label and fallback component within Device Live AI; it runs on-device when healthy cloud analysis does not own the mission |
 | **Pilot console** | In-app settings (Mission, Flight, Events, System) |
 | **Play with Events** | Footage player with synchronized event markers |
+| **Public live view** | Revocable bearer link and QR code for an active mission's read-only livestream, events, and alerts; recipients do not sign in and cannot log or review events |
 | **Quick events** | One-tap event buttons; agency scenarios can define up to seven, with the standard set used when none is configured |
 | **Local Network** | Deployment-specific Android LAN WebSocket relay mode; not presented by the current public Operator workflow |
 | **Scenario template** | Built-in or agency-created mission setup that can provide quick events, report focus, and visible AI watch targets |

@@ -29,9 +29,11 @@ In a supported Pilot-mode mission, confirmed touchdown can trigger the same stop
 - Footage may upload immediately or queue for later sync.
 - Queued Operator video is stored durably and retries when validated connectivity returns, including after the app restarts.
 - Android and iOS Mission Viewer event logging stops and the selected timeline becomes read-only.
+- Mission-scoped personnel location sharing stops and each non-empty recorded track begins finalizing as GeoJSON evidence with custody and hash records.
 - Mission Overwatch stops remote-live playback and switches to historical review instead of retrying the closed live stream.
 - Mission Overwatch selects **Timeline** after web closeout so review starts with unresolved events and alerts.
 - Review should wait until footage status is clear.
+- Evidence sealing must also wait until every location-sharing session has stopped and each saved track export is complete.
 
 <Warning>
   Do not force-stop or uninstall Operator while footage is queued. On iOS, keep Operator open while ReplayKit finalization and handoff complete. Browser-initiated uploads still require the browser tab to remain open.

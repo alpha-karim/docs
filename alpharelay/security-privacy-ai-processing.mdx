@@ -11,7 +11,7 @@ icon: "lock"
 
 ## What syncs to the cloud
 
-When internet is available: mission metadata, events, screenshots, photos, footage references, reports, custody records, and org data — protected by sign-in and database access rules.
+When internet is available: mission metadata, events, screenshots, photos, footage references, optional mission-scoped personnel location points, reports, custody records, and org data — protected by sign-in and database access rules.
 
 High-resolution evidence remains distinct from bounded imagery prepared for AI analysis. AlphaRelay records the screenshot's capture time for evidence matching even when event logging or upload finishes later, and manual photo/video uploads are registered with a SHA-256 hash before success is reported.
 
@@ -37,11 +37,13 @@ Device Live AI and AI live-watch alerts are logged as review prompts, not final 
 
 Device Live AI uses licensed server-side analysis when connectivity is healthy and automatically falls back to on-device people and possible-weapon detection when it is not. Provider credentials remain server-side. Mission Overwatch, device cloud analysis, and local fallback coordinate temporary ownership to reduce duplicate alerts.
 
-Person detections use informational/yellow treatment and do not identify people. Operator can disable routine person and hand-to-hand-contact alerts for a mission. Mission Overwatch provides separate controls for every standard detection. When weapon-related detections are enabled, AlphaRelay gives their alerts the highest priority; every alert remains subject to human review.
+Person detections use informational/yellow treatment and do not identify people. Operator can disable routine person alerts for a mission. Mission Overwatch provides separate controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, and safety hazards. Hand-to-hand contact and reaching into clothing or bags are not standard detections; agencies may add concrete visible behaviors as scenario or mission targets. When weapon-related detections are enabled, AlphaRelay gives their alerts the highest priority; every alert remains subject to human review.
 
-AlphaRelay uses one official-event rule across counts, playback markers, reports, offline exports, and custody views: undeleted human-created events are included; automatic AI alerts require approval; accepted AI Review findings require Timeline officer review. Pending or dismissed automatic alerts and accepted AI Review findings without Timeline officer review remain outside the official evidence set and are permanently removed when Timeline review completes or the mission seals.
+AlphaRelay uses one official-event rule across counts, playback markers, reports, offline exports, and custody views: undeleted human-created events are included; automatic AI alerts require approval; accepted AI Review findings require Timeline officer review. Pending or dismissed automatic alerts and accepted AI Review findings without Timeline officer review remain outside the official evidence set. Timeline completion moves unresolved candidates to **Dismissed** for inspection and recovery; mission sealing permanently removes candidates that never became official.
 
-Mission Overwatch **Dictate** uses the browser's speech-recognition capability and microphone permission. Availability and speech processing depend on the browser and operating system; type the event when agency policy or browser support does not permit dictation.
+When Operational Map is enabled, location sharing uses the selected person on a licensed device as an advisory identity. Precise location can continue in the background during an active sharing session. Mission-scoped breadcrumb points are retained as a finalized GeoJSON evidence track with a recorded hash; current coordinates stop updating when sharing ends. AlphaRelay does not place precise location in analytics, crash metadata, application logs, or mission event text.
+
+Mission Overwatch **Dictate** uses the browser's speech-recognition capability and microphone permission for manual events and Live Ask AI questions. Availability and speech processing depend on the browser and operating system; type the event or question when agency policy or browser support does not permit dictation. A Live Ask AI answer is saved against one frozen current frame and must be verified against the live feed.
 
 ## Pilot agreements
 

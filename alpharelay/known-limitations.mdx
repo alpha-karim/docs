@@ -11,7 +11,7 @@ icon: "triangle-alert"
 - Cloud sync, upload, and export wait for internet.
 - Losing relay, remote live, or cloud sync does not always end the mission — paths are independent.
 - **View Live Mission** on Android and **Watch Live Mission** on iOS require internet and a valid licensed installation in the same organization. Timeline events can update even when remote video is not ready.
-- **Controller Livestream** requires internet on the Android or iOS setup/viewer device and the separate publishing controller. DJI requires either a complete RTMP URL or separate server/key fields. Skydio requires a deployed, reachable RTSP gateway and RTSP External Server support.
+- **Controller Livestream** requires internet on the Operator device or signed-in browser used for setup and on the separate publishing controller. DJI requires either a complete RTMP URL or separate server/key fields. Skydio requires a deployed, reachable RTSP gateway and RTSP External Server support.
 - Operator **HDMI Capture Card** can record locally without internet on Android or USB-C iPad; iPhone does not expose UVC capture. Remote viewing, cloud AI, sync, and upload still require connectivity.
 - **Laptop HDMI Capture** requires an online mission start, browser camera permission, a physical UVC card, available local browser storage, and an open tab. Use **Stop & upload** before ending the mission; do not clear browser data before recovering an interrupted recording.
 
@@ -49,8 +49,8 @@ icon: "triangle-alert"
 - **AI live watch** requires active **Live stream (WebRTC)**, internet, Mission Overwatch online, and AI configuration. The default cadence can start a sample as often as every two seconds, but network and analysis latency may make it slower.
 - Scenario-specific and mission-specific AI targets are bounded visual search cues, not guaranteed detections. Use concrete visible details and verify every match against the live view or source media.
 - Person detections use informational/yellow treatment and do not perform identity or face recognition. Possible weapons and other urgent threat indicators use red treatment but remain unconfirmed until human review.
-- Mission Overwatch exposes individual standard-detection controls, including weapon-related detections. Enabled weapon-related alerts receive priority, but every alert remains an unconfirmed review prompt. Review the saved choices before each operational mission.
-- Thermal and infrared people analysis accepts incomplete signatures only when multiple human-consistent cues are visible and checks common warm-object, furniture, vegetation, reflection, shadow, and image-artifact alternatives. It can still miss people or produce false positives.
+- Mission Overwatch exposes individual standard-detection controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, and safety hazards. Enabled weapon-related alerts receive priority, but every alert remains an unconfirmed review prompt. Hand-to-hand contact and reaching into clothing or bags require an agency or mission target rather than a standard-detection switch.
+- Thermal and infrared people analysis supports white-hot, black-hot, pseudo-color palettes, and isotherm overlays, and accounts for compact overhead views. Palette colors and red highlights represent apparent temperature rather than object classes. The analysis requires multiple human-consistent structural cues and checks warm objects, rigid surfaces, furniture, vegetation, reflections, shadows, and image artifacts, but it can still miss people or produce false positives.
 - AI media findings are suggestions. Accepting one in AI Review moves it to the timeline; an officer must then use **Accept as is** or **Review & edit** before it is eligible for the AAR.
 - AI Review does not draw model bounding boxes over finding thumbnails or the full-screen source image.
 - Device Live AI and AI live-watch alerts require **Approve alert** before configured screenshot analysis or report eligibility. **Dismiss alert** excludes the alert. Approved analysis still waits for the event, review decision, and screenshot to sync and requires internet plus AI configuration.
@@ -67,7 +67,7 @@ icon: "triangle-alert"
 
 ## Workflow locks
 
-- **Done — continue** is a recorded review decision, not only navigation. Timeline completion permanently removes remaining unaccepted AI candidates; AI Review completion rejects remaining undecided findings. Review the confirmation count before continuing.
+- **Done — continue** is a recorded review decision, not only navigation. Timeline completion moves remaining unaccepted AI candidates to **Dismissed**; AI Review completion rejects remaining undecided findings. Dismissed timeline items remain inspectable until sealing, but stay outside the official record. Review the confirmation count before continuing.
 - Submitting a report for supervisor approval locks the report, mission name, timeline, footage, photos, and AI Review mutations. Returning it to draft reopens work; approval makes the mutation lock permanent. Read-only Ask AI remains available after approval.
 - Evidence sealing preserves custody hashes — it is not report approval.
 - **Seal entire mission** seals only evidence included in the AAR Chain of Custody. Excluded alert screenshots can remain retained and registered but unsealed.
@@ -76,4 +76,7 @@ icon: "triangle-alert"
 
 - Large offline ZIP exports work best in Chrome or Edge. The viewer adapts to phones, but mobile file-provider rules may require reconnecting extracted package files.
 - **Dictate** depends on browser speech-recognition support, microphone permission, and any browser speech-service connectivity.
+- Live Ask AI in Mission Overwatch or Android/iOS Operator requires a fresh current frame, internet, and AI configuration. It answers only from the frame captured for that request; it does not track later scene changes. Verify shared saved answers against the live feed.
+- Public live links require an active mission and internet. Anyone who receives the bearer link can watch live video and see events and alerts until the link is revoked or the mission ends; the view is read-only but is not sign-in restricted.
+- Operational Map is deployment-controlled and requires a selected person, precise device location, and connectivity for live updates. Positions are advisory, can be stale or unavailable, and are not independently identity-verified or aircraft telemetry. A mission cannot seal while a location session is active or its saved-track export is pending or failed.
 - Self-signed relay certificates require a one-time browser trust step on HTTPS Mission Overwatch.

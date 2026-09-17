@@ -6,6 +6,8 @@ icon: "play"
 
 Open a closed mission from **Mission Dashboard**, then go to **Mission Footage**.
 
+Mission Overwatch orders closed-mission work as **Timeline**, **Media**, **AI Review**, and **Report**. It opens the next unfinished review step automatically; a mission with an existing generated AAR opens on **Report**.
+
 ## Controller-screen recordings
 
 Current Controller Screen Capture missions store one continuous controller-screen recording for the capture session. Older missions can still contain adjacent chunks; playback continues through recognized legacy chunks from the same recording. A separately restarted capture remains a separate recording.
@@ -72,11 +74,13 @@ Related sightings can appear as one expandable group. Expand it to compare the s
 
 AI Review findings and alert screenshot analyses are suggestions. Verify the source media before accepting or editing them for report or evidence use.
 
+Use **Needs Review** to focus unresolved AI alerts or screenshot analyses, **Dismissed** to inspect excluded AI items, and **All Events** for the complete visible timeline. Dismissed items remain outside the official record and can be recovered until the evidence is sealed.
+
 ## Complete the review steps
 
 The closed-mission **Timeline** and **Media** tabs, plus **AI Review** when available, have **Done — continue**:
 
-- **Timeline**: approves no items automatically. If unaccepted AI candidates remain, AlphaRelay shows the count and asks before permanently deleting them. Human-created and approved AI events remain.
+- **Timeline**: approves no items automatically. If unaccepted AI candidates remain, AlphaRelay shows the count and asks before moving them to **Dismissed**. Human-created and approved AI events remain.
 - **Media**: records that footage and photos were reviewed.
 - **AI Review**: keeps accepted or edited findings and asks before rejecting any undecided findings.
 
@@ -89,7 +93,7 @@ Open **AI Review → Ask AI** for a closed, synced mission with playable uploade
 1. Enter a question about visible mission details, such as **How many vehicles are visible?** or **Is a weapon visible?**
 2. Click **Ask AI**.
 3. Review the answer, confidence, supporting observations, limitations, and supporting evidence.
-4. Open an item under **Previous answers** to revisit it, or click **Clear** to remove the saved question history for that mission.
+4. Open an item under **Previous answers** to revisit it, or click **Clear** to remove the saved question history for that mission. Saved Live Ask AI answers include the exact frozen source frame for side-by-side review and larger inspection.
 
 If supporting still frames have not been prepared, AlphaRelay prepares them before answering. Ask AI uses only the primary uploaded footage selected for the mission question. It does not mix event screenshots or mission photos into the answer. When an aircraft-original recording is available, AlphaRelay prefers it over a duplicate controller-screen view; otherwise it uses the best available playable recording.
 

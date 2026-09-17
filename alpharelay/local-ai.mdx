@@ -14,7 +14,7 @@ The capture session must be running. On-device fallback and immediate alert noti
 - **Multiple persons detected** — informational/yellow treatment
 - **Possible weapon detected** — urgent/red treatment
 
-Operator uses **Alert on people** at mission setup or during an active mission to suppress routine person and hand-to-hand-contact alerts. In Mission Overwatch, **Standard detections** provides separate controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, hand-to-hand contact, reaching into clothing or bags, and safety hazards. Keep both weapon-related categories enabled; weapon-holder alerts receive the highest presentation priority.
+Operator uses **Alert on people** at mission setup or during an active mission to suppress routine person alerts. In Mission Overwatch, **Standard detections** provides separate controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, and safety hazards. Keep both weapon-related categories enabled; weapon-holder alerts receive the highest presentation priority. Hand-to-hand contact and reaching into clothing or bags are no longer standard detections; an agency can still add a concrete visible behavior as a scenario-specific or mission-specific target.
 
 These are assistive detections, not operational conclusions. Person detection is not face recognition or identity matching. A possible-weapon alert does not establish that an object is a weapon, who possesses it, intent, legality, or threat level.
 
@@ -48,11 +48,11 @@ AlphaRelay can create a timeline event with a screenshot. On-device fallback scr
 
 In Controller Screen Capture, AlphaRelay filters small person boxes inside fixed flight-app HUD rails and collapses overlapping boxes around the same person. These filters reduce repeated and HUD-driven alerts, but they do not eliminate false positives or missed detections.
 
-For cloud analysis of thermal or infrared video, AlphaRelay checks the full underlying camera scene rather than only the center, reticle, bright regions, or prior boxes. A partial human thermal signature can be reported when multiple human-consistent shape cues are visible, but the analysis also checks common hot-object and scene false targets such as warmed roofs or pavement, vents, furniture, vegetation, reflections, shadows, and image artifacts.
+For cloud and post-mission analysis of thermal or infrared video, AlphaRelay checks the full underlying camera scene rather than only the center, reticle, bright regions, or prior boxes. It accounts for white-hot, black-hot, ironbow, rainbow, other pseudo-color palettes, isotherm overlays, and steep overhead foreshortening. Hue, brightness, and red highlighting map apparent temperature; they are not classifications. A compact or partial thermal signature can be reported only when multiple human-consistent structural cues are visible. The analysis also checks warmed roofs or pavement, vents, rigid furniture or architecture, vegetation, reflections, shadows, isolated hot spots, and enhancement artifacts.
 
 When the full-frame pass does not already find a qualifying possible weapon, AlphaRelay can spend one additional high-detail pass around a weak weapon candidate or detected person before falling back to a frame region. This improves review coverage for smaller objects without making the detector conclusive.
 
-AlphaRelay captures evidence before posting the device alert. A banner can dismiss while the mission Timeline event remains available for review. Analysis sampling and user-visible alert frequency are separate: slow analysis, confidence thresholds, stable-target deduplication, and cooldowns can reduce visible alerts.
+AlphaRelay captures evidence before posting the device alert. A banner can dismiss while the mission Timeline event remains available for review. Analysis sampling and user-visible alert frequency are separate: cloud live analysis can sample as often as every two seconds, while a qualifying continuing detection can be logged again after about 10 seconds. Network latency, confidence thresholds, and stable-target deduplication can make alerts less frequent.
 
 ## Review an alert in Mission Overwatch
 

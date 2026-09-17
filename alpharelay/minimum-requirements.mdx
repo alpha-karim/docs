@@ -12,18 +12,19 @@ icon: "clipboard-list"
 - Supported aircraft-control workflow when using aircraft integration
 - Conditional Matrice camera tools on supported Matrice aircraft or Matrice controllers
 - Android drone controller capable of installing **AlphaRelay Operator** and granting screen capture permission for **Controller Screen Capture**
-- For **Controller Livestream**: a licensed Android or iOS Operator device, validated internet, and either a DJI controller/flight app that accepts a complete RTMP URL or separate server/key fields, or a Skydio controller with RTSP External Server
+- For **Controller Livestream**: either a licensed Android/iOS Operator device or an authorized signed-in browser session with mission-operator access, validated internet, and either a DJI controller/flight app that accepts a complete RTMP URL or separate server/key fields, or a Skydio controller with RTSP External Server
 - For **Operator HDMI Capture**: Android with USB host/OTG or a USB-C iPad, a compatible UVC capture card, controller HDMI output, and camera/USB permission; a powered hub may be required
 - For **Pilot mode**: detected DJI SDK remote-controller setup, a listed DJI MSDK 5.17 aircraft, and a live flight-controller connection that AlphaRelay can verify
 - For a DJI Avata with compatible DJI Goggles: separate Android phone or tablet with **DJI Fly**, **AlphaRelay Operator**, screen capture permission, and internet
 - For iOS capture: iOS 26, AlphaRelay Operator installed through TestFlight, ReplayKit Screen Recording permission, and optional microphone/speech permissions
 - For Mission Viewer: a second Operator installation licensed to the mission's organization, plus internet
+- For Operational Map: feature enabled for the organization, a selected person on each licensed sharing device, precise foreground/background location permission, and internet for live updates
 
 ## Overwatch / review (browser)
 
 - Current Chrome, Edge, or Safari on desktop or mobile for Mission Overwatch, dashboard, and export; a larger screen is recommended for long review sessions
 - Internet for sync, upload, reports, and export media downloads
-- Internet and AI configuration for report drafting, AI Review, Ask AI, event screenshot analysis, or AI live watch
+- Internet and AI configuration for report drafting, AI Review, post-mission Ask AI, Live Ask AI, event screenshot analysis, or AI live watch
 - Browser microphone permission and speech-recognition support for **Dictate** in Mission Overwatch
 - For **Laptop HDMI Capture**: a physical UVC capture card, browser camera permission, enough local browser storage, and a tab that remains open through **Stop & upload**
 
@@ -34,7 +35,7 @@ icon: "clipboard-list"
 | Start Mission | Android or iOS Operator app; validated internet for automatic remote live, or offline capture with queued sync |
 | Deployment-specific Local Network relay | Android device + Overwatch on same reachable Wi-Fi; not exposed by the current public Operator workflow |
 | Controller Screen Capture | Android drone controller; AlphaRelay Operator installed; Android screen capture permission |
-| Controller Livestream | Licensed Android or iOS Operator device; validated internet on it and the separate flight controller; DJI one-field/two-field RTMP or Skydio RTSP External Server support |
+| Controller Livestream | Licensed Android/iOS Operator device or authorized signed-in browser with mission-operator access; validated internet on the setup device and separate flight controller; DJI one-field/two-field RTMP or Skydio RTSP External Server support |
 | Operator HDMI Capture | Controller HDMI output; UVC card; USB host/OTG Android or USB-C iPad; camera/USB permission; internet only for live/sync |
 | Laptop HDMI Capture | Online web-app session; physical UVC card; browser camera permission and local storage; tab kept open through stop and upload |
 | Pilot mode | Detected DJI SDK-controller setup; aircraft in the Pilot app's DJI MSDK 5.17 list; successful live connection check |
@@ -43,15 +44,18 @@ icon: "clipboard-list"
 | DJI Avata with DJI Goggles | Linked DJI Avata, compatible DJI Goggles, and compatible controller; Android device with DJI Fly and AlphaRelay Operator; goggles live-view connection; Android screen capture permission; internet |
 | **Live stream (WebRTC)** | Validated pilot-device internet; starts automatically with the mission and can be retried from the Pilot console |
 | Mission Viewer | Second licensed Operator installation in the same organization; active mission; internet; remote live required for video |
+| Operational Map | Enabled deployment; selected device person; active mission; precise device location; internet for live updates; authorized supervisory browser role for Mission Overwatch map access |
+| Public live view | Active synced mission; internet; authorized mission-team member to create the bearer link; no sign-in required for the read-only recipient |
 | Device Live AI | Operator capture running; internet for cloud analysis; compatible device compute for automatic offline fallback; notification permission for immediate alert banners |
 | AI Review | Closed, synced mission with playable footage or mission photos, at least one selected analysis tag, internet, AI configuration, and accepted event anchors for **Event-focused** coverage |
 | Ask AI | Closed, synced mission with playable primary uploaded footage; internet and AI configuration |
+| Live Ask AI | Active mission with a fresh current frame in Mission Overwatch or Android/iOS Operator; internet and AI configuration; microphone/speech permission only for optional dictation |
 | AI live watch | Active remote live stream; Mission Overwatch online; AI configuration enabled |
 | Cloud sync / upload | Internet + signed-in session |
 | Optional aircraft/goggles recording | Signed-in online browser; MP4 or MOV; visual alignment to the AlphaRelay or primary timeline |
 | Offline package export | Internet at export time to download media; extracted package can be reviewed later on desktop or mobile |
 
-Permissions: grant camera, USB-device access, microphone, speech recognition, screen capture/Screen Recording, storage, notifications, and location only as requested for the selected workflow. HDMI Capture uses Android camera permission for the external UVC device, not the phone or tablet camera. In Mission Overwatch, allow browser microphone access only when using **Dictate**.
+Permissions: grant camera, USB-device access, microphone, speech recognition, screen capture/Screen Recording, storage, notifications, and location only as requested for the selected workflow. Operational Map needs precise location and can request background access for an active sharing session. HDMI Capture uses Android camera permission for the external UVC device, not the phone or tablet camera. In Mission Overwatch, allow browser microphone access only when using **Dictate**.
 
 Aircraft camera controls appear only when the pilot app detects supported aircraft or controller capability. Availability still depends on aircraft firmware, payload, SDK support, and field validation.
 

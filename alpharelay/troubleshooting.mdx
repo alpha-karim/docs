@@ -47,7 +47,7 @@ The HDMI workflow ingests UVC video, not embedded USB/UAC audio. Use the receivi
 ## Laptop HDMI does not connect or upload
 
 1. Confirm the card is a physical UVC input and the controller's HDMI output is enabled; a laptop HDMI port is normally output-only.
-2. Grant browser camera permission and select the card under **Laptop HDMI Capture** in the **Events & input** row beneath the feed.
+2. Grant browser camera permission and select the card under **Mission sidebar → HDMI Input**.
 3. Click **Connect & go live** and keep the tab open.
 4. Before **End Mission**, click **Stop & upload** and wait for secured status.
 5. After an interruption, reopen the same mission and use **Recover interrupted recording**. Do not clear browser data first.
@@ -148,7 +148,7 @@ If DJI Fly does not open automatically after approval, open it manually and conf
 3. Check that the operating system can see a working microphone.
 4. If the browser speech service needs network access, confirm the browser is online.
 
-You can always type the event under **Manual Event (fast)**. Dictation only fills the note; review it and click **Log Manual Event** to save the event.
+You can always type the event under **Mission sidebar → Events → Manual event**. Dictation only fills the note; review it and click **Log Manual Event** to save the event. For a Live Ask AI question in Mission Overwatch or Android/iOS Operator, dictation fills the question field; review it before clicking **Ask AI**.
 
 ## Play with Events has no markers
 
@@ -194,7 +194,27 @@ Accepting a finding in **AI Review** only moves it to the timeline. The timeline
 
 1. Read the status beside the button for unresolved Timeline or AI Review items.
 2. Finish the decisions you want to keep.
-3. Click **Done — continue** and review the confirmation count. Timeline completion deletes remaining unaccepted AI candidates; AI Review completion rejects remaining undecided findings.
+3. Click **Done — continue** and review the confirmation count. Timeline completion moves remaining unaccepted AI candidates to **Dismissed**; AI Review completion rejects remaining undecided findings.
+
+Dismissed Timeline items remain available under the **Dismissed** filter until the mission is sealed. They stay outside official counts, playback markers, reports, exports, and evidence-chain views.
+
+## Public live link should no longer be available
+
+1. Open the active mission in Mission Overwatch and click **Share**.
+2. Under **Public live view**, click **End public viewing** and confirm.
+3. If a new link is needed later, reopen **Share** to create one.
+
+The current link also stops working when the mission ends. Treat every public-live URL as a bearer link: anyone who has it can view the active read-only mission without signing in.
+
+## Mission map is empty or missing
+
+1. Confirm Operational Map is enabled for the organization and the mission is active.
+2. On each sharing device, select the correct person and allow precise location. On iOS, allow background location if the operating system requests it.
+3. Confirm the device says location sharing is active for the intended mission and has internet.
+4. In Mission Viewer, make sure the correct active mission is selected. In Mission Overwatch, use **Mission sidebar → Map** with an authorized supervisory account.
+5. After closeout, wait for the saved track to finalize. The post-mission map stays hidden when no valid fixes were recorded.
+
+If sealing reports an active, pending, or failed location track, stop the sharing session, wait for finalization, or use the available export retry. Do not treat a stale marker or a route with no fixes as verified personnel movement.
 4. Stay online for a synced mission. If the action is unavailable, sign in again and reload the page.
 
 A newly synced pending alert or finding reopens the affected review step even if it was completed earlier.

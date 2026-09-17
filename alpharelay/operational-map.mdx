@@ -1,0 +1,42 @@
+---
+title: "Share Personnel Location"
+description: "Share a licensed device's location with a live mission and review the saved mission track."
+icon: "route"
+---
+
+When Operational Map is enabled for your organization, AlphaRelay can show the mission pilot, remote viewers, and other selected personnel on a mission-scoped map. These positions come from licensed Android or iOS devices. They do not identify a person by biometrics and do not represent aircraft telemetry.
+
+<Warning>
+  Treat every map position as advisory. The displayed identity is the person selected on the licensed device, not an independently verified identity. Confirm identity and location through normal operational channels.
+</Warning>
+
+## Before sharing
+
+- Select the person using the Operator device.
+- Allow **Precise Location**. Allow background location when the operating system requests it so sharing can continue while the flight app is in front.
+- Keep internet available for live map updates. AlphaRelay can hold eligible points securely during a temporary interruption and retry when connectivity returns.
+- Confirm the live mission that should receive the location.
+
+## Start and stop sharing
+
+Location sharing starts automatically for the selected pilot when that device starts a mission. It also starts for the selected person when a licensed Android or iOS device joins through **View Live Mission**.
+
+To share without opening Mission Viewer, tap **Share Location** on a supported Android phone/tablet or iPhone/iPad, choose the live mission, and confirm the selected person. Tap **Stop Sharing** at any time. Android drone-controller layouts keep the status inside the active mission instead of showing the standalone home-screen action.
+
+If location access is off during an active Android mission, tap the **Location sharing · Precise Location required** status to grant access. On iOS, follow the system prompts for precise foreground and background access. A sharing session can remain active for up to 12 hours, but ending the mission or tapping **Stop Sharing** ends that device's session sooner.
+
+## View the live map
+
+- In Mission Overwatch, open **Mission sidebar → Map** when the tab is available. Browser access is limited to authorized supervisory roles.
+- In Android or iOS Mission Viewer, open **Nearby map** / **Map** for the selected mission.
+- Use **People on map** to hide or show individual people. Selecting a roster entry focuses that person and their matching trail; select it again to return to the full mission view.
+
+The mission pilot uses a distinct marker. Other devices can appear as selected personnel or **Remote viewer**. Stale or unavailable fixes remain visually distinct from a current live position. If map tiles are unavailable, AlphaRelay keeps the roster/list view when possible.
+
+## After the mission
+
+Mission-scoped breadcrumb points are retained with the mission. When sharing stops, AlphaRelay finalizes each non-empty track as deterministic GeoJSON, records its SHA-256 hash and custody creation, and shows the saved trail beneath the closed-mission Timeline. The post-mission map stays hidden when no valid location points were recorded.
+
+An active track or a failed/pending track export blocks **Seal entire mission**. Wait for finalization or use the available retry action before sealing. A session that ended without a usable fix is reported as having no location fixes; it does not create an invented route.
+
+→ [View a live mission](/alpharelay/view-live-mission-android) · [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Seal the mission record](/alpharelay/evidence-sealing)

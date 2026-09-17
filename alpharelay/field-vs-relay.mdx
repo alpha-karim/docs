@@ -35,8 +35,8 @@ The current public Operator workflow does not show a **Local Network** mission b
 | No usable internet | **Start Mission**; capture locally and sync later |
 | Remote viewers need live video | Keep the pilot device online and open **Live stream (WebRTC)** in Mission Overwatch |
 | A second licensed Android or iOS device needs a compact live view | Open Mission Viewer; internet is required for the mission list, timeline, alerts, events, and video |
-| Flight controller supports DJI RTMP or Skydio RTSP External Server but cannot install AlphaRelay | Create **Controller Livestream** from a licensed Android or iOS device; internet is required on both devices |
-| Flight controller has HDMI output | Connect a UVC card to Android, USB-C iPad, or a laptop; the laptop path starts with **New laptop HDMI mission** |
+| Flight controller supports DJI RTMP or Skydio RTSP External Server but cannot install AlphaRelay | Create **Controller Livestream** from a licensed Android/iOS device or Command Center **New Livestream**; internet is required on the setup surface and controller |
+| Flight controller has HDMI output | Connect a UVC card to Android, USB-C iPad, or a laptop; the laptop path starts with **New HDMI mission** |
 | Your deployment exposes **Local Network** | Use its LAN relay instructions on the same reachable Wi-Fi |
 
 <Note>
@@ -55,12 +55,12 @@ In this mode, the controller's native flight app controls the aircraft while Alp
 
 ## Controller Livestream and HDMI Capture
 
-These workflows keep aircraft control on a separate flight controller. Controller Livestream is configured from Android or iOS Operator. HDMI can be received by Android, USB-C iPad, or directly in Mission Overwatch on a laptop. Laptop HDMI is the only live mission that starts from the browser rather than Operator.
+These workflows keep aircraft control on a separate flight controller. Controller Livestream can be configured from Android/iOS Operator or **New Livestream** in the browser Command Center. HDMI can be received by Android, USB-C iPad, or directly in Mission Overwatch on a laptop. Browser HDMI begins with **New HDMI mission**.
 
 → [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs)
 
 ## DJI Avata with DJI Goggles
 
-Goggles Mode requires internet for remote live and sync. On a prepared Android device, a wired connection to compatible DJI Goggles turns on the mode automatically, bypasses mission and scenario selection, and starts remote live from the DJI Fly goggles view.
+Goggles Mode requires internet for remote live and sync. On a prepared Android device, a wired connection to compatible DJI Goggles turns on the mode automatically, but the operator still taps **Start Mission**. AlphaRelay then bypasses ordinary scenario selection and starts remote live from the DJI Fly goggles view.
 
 → [DJI Avata with DJI Goggles](/alpharelay/avata-goggles)

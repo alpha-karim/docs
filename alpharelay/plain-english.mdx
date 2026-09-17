@@ -27,12 +27,12 @@ The current public Operator workflow does not present a **Local Network** missio
 
 On Android drone controllers, Operator uses **Controller Screen Capture** by default. The controller's native flight app keeps flight control while AlphaRelay captures the controller screen, streams it into the mission, and records one continuous mission video. On detected DJI SDK-controller setups, a listed and connected DJI aircraft can instead unlock **Pilot mode** for AlphaRelay flight controls.
 
-When AlphaRelay cannot be installed on the controller, Android or iOS Operator can create **Controller Livestream** settings: RTMP for DJI or RTSP External Server for Skydio. A UVC card can instead send controller HDMI to Android, USB-C iPad, or a laptop browser. See [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs).
+When AlphaRelay cannot be installed on the controller, Android/iOS Operator or **New Livestream** in the browser Command Center can create **Controller Livestream** settings: RTMP for DJI or RTSP External Server for Skydio. A UVC card can instead send controller HDMI to Android, USB-C iPad, or a laptop browser. See [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs).
 
 On iPhone and iPad, Operator offers **Controller Screen** through ReplayKit and **Controller Livestream** through RTMP or RTSP. USB-C iPad also supports **HDMI Capture Card**; iPhone does not support UVC capture.
 
 With a DJI Avata and compatible DJI Goggles, AlphaRelay uses **Goggles Mode** on a separate Android device. DJI Fly displays the goggles live view, AlphaRelay starts a mission with no scenario, and the goggles with their compatible controller remain responsible for the aircraft.
 
-Most live missions start from Operator. **Laptop HDMI Capture** is the exception: create it with **New laptop HDMI mission** in the Dashboard and continue in Mission Overwatch. For work that already happened outside AlphaRelay, **Import mission** creates a closed post-flight record.
+Most live missions start from Operator. Command Center can also create **Controller Livestream** with **New Livestream** or browser HDMI capture with **New HDMI mission**, then continue setup in Mission Overwatch. For work that already happened outside AlphaRelay, **Import mission** creates a closed post-flight record.
 
 Operator also includes **Device Live AI**. It uses licensed cloud analysis when internet is healthy and automatically falls back to on-device people and possible-weapon detection when cloud analysis is unavailable. Every alert still requires human review.

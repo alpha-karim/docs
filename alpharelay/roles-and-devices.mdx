@@ -7,8 +7,8 @@ icon: "users"
 | Role | Device | Responsibility |
 | --- | --- | --- |
 | Pilot | AlphaRelay Operator (Android, iPhone, or iPad) plus the flight app or supported Pilot-mode controls | Selects the current operator, starts missions, flies through the applicable flight interface, logs field events, ends mission, uploads footage |
-| Controller-video operator | Android/iOS Operator device or laptop plus an RTMP-capable or HDMI-output flight controller | Creates a Controller Livestream destination or receives HDMI video while the flight controller retains aircraft control |
-| Mission viewer | Operator on a second licensed Android or iOS device | Watches active remote live, follows timeline events and alerts, and logs quick or manual events |
+| Controller-video operator | Android/iOS Operator device or signed-in browser plus an RTMP-capable or HDMI-output flight controller | Creates a Controller Livestream destination or receives HDMI video while the flight controller retains aircraft control |
+| Mission viewer | Operator on a second licensed Android or iOS device | Watches active remote live, follows timeline events and alerts, logs events, asks AI about a fresh current frame, and shares the selected person's mission-scoped location when enabled |
 | Overwatch user | Browser — Mission Overwatch | Relay viewing, remote live, command-side events, review, report, seal, export |
 | Reviewer / officer | Browser — Mission Overwatch | Checks timeline, footage, report draft, and custody |
 | Supervisor | Browser — Mission Dashboard / Overwatch | Approves or returns after-action reports |
@@ -26,9 +26,9 @@ For a DJI Avata with compatible DJI Goggles, the pilot operates through the gogg
 
 ## Controller video from a separate flight controller
 
-Use **Controller Livestream** when a DJI controller can publish to RTMP or a Skydio controller supports RTSP External Server. A licensed Android, iPhone, or iPad creates the mission and shows the matching RTMP or RTSP values. Internet is required.
+Use **Controller Livestream** when a DJI controller can publish to RTMP or a Skydio controller supports RTSP External Server. A licensed Android, iPhone, or iPad—or an authorized mission operator using **New Livestream** in Command Center—creates the mission and shows the matching RTMP or RTSP values. Internet is required.
 
-Use **HDMI Capture Card** when the controller exposes HDMI output. Connect it through a UVC card to Android Operator, a USB-C iPad, or a laptop browser. The laptop path starts from **New laptop HDMI mission** and requires no phone or tablet app. None of these workflows transfers aircraft control away from the flight controller.
+Use **HDMI Capture Card** when the controller exposes HDMI output. Connect it through a UVC card to Android Operator, a USB-C iPad, or a laptop browser. The laptop path starts from **New HDMI mission** and requires no phone or tablet app. None of these workflows transfers aircraft control away from the flight controller.
 
 ## iPhone and iPad
 
@@ -36,19 +36,19 @@ On iOS 26, AlphaRelay Operator can use ReplayKit screen capture, Controller Live
 
 ## Secondary mission viewer
 
-On a licensed Android device, tap **View Live Mission**. On iPhone or iPad, tap **Watch Live Mission**. The viewer shows remote video when available, refreshes the live timeline and alerts, and can log scenario quick events or manual events. It cannot start missions, control aircraft, or perform closed-mission review.
+On a licensed Android device, tap **View Live Mission**. On iPhone or iPad, tap **Watch Live Mission**. The viewer shows remote video when available, refreshes the live timeline and alerts, and can log scenario quick events or manual events. When Operational Map is enabled and precise location is allowed, joining also shares the selected person's position with that mission and exposes **Nearby map** / **Map**. It cannot start missions, control aircraft, or perform closed-mission review.
 
 ## Key rules
 
-- Most missions start from Operator. **Laptop HDMI Capture** starts from **New laptop HDMI mission** in Mission Dashboard and continues in Mission Overwatch.
+- Most missions start from Operator. Command Center can also start **Controller Livestream** with **New Livestream** or laptop capture with **New HDMI mission**.
 - The landing screen separates **Start a Mission** from **View a Live Mission**. Starting first opens **Choose video source**, then the operator, scenario, mission name, AI targets, and alert settings for that source.
 - Open missions from **Mission Dashboard** (link may say **Open Mission Console**).
 - Operator presents one **Start Mission** action and starts remote live automatically when validated internet is available.
-- Mission Overwatch keeps the live **Event timeline** in the right rail. Quick Events, typed manual events, browser dictation, and applicable laptop HDMI controls stay in the compact **Events & input** row beneath the feed.
+- Mission Overwatch keeps **Timeline**, **Events**, **Ask AI**, an optional **Map**, and a conditional **Livestream** or **HDMI Input** tab in the right-rail **Mission sidebar**.
 - **Local Network** is a deployment-specific Android LAN relay path and is not presented by the current public Operator workflow.
 - **Controller Screen Capture** is automatic on integrated Android drone controllers and the recommended default on detected DJI SDK-controller setups; it is not a separate mission button.
 - **HDMI Capture Card** works through Android USB host/OTG, USB-C iPad, or a laptop browser; iPhone is not a UVC input device.
-- **Controller Livestream** works from Android or iOS Operator and supports DJI RTMP plus Skydio RTSP External Server.
+- **Controller Livestream** works from Android/iOS Operator or Command Center **New Livestream** and supports DJI RTMP plus Skydio RTSP External Server.
 - **Pilot mode** is an explicit alternative on eligible DJI SDK-controller setups and requires supported-aircraft confirmation plus a successful live connection check.
 - Compatible DJI Goggles can enable **Goggles Mode** automatically over USB, but the operator still taps **Start Mission** before capture begins.
 - Mission Viewer requires internet and a valid Operator license; only active missions in that license's organization appear. It normally runs on a second device, but the Android device that creates a Controller Livestream also opens that mission in Mission Viewer.
@@ -56,3 +56,5 @@ On a licensed Android device, tap **View Live Mission**. On iPhone or iPad, tap 
 ## Share one mission
 
 Authorized members of a mission team can click **Share** in Mission Overwatch. The dialog lists eligible users by name and email; click **Share** beside a person, then confirm they appear under **People with access**. Shared collaborators can review and work on that mission, including custody and official exports, without receiving organization-wide mission access or permission to start new missions. Use **Remove** to revoke the mission share.
+
+The same **Share** dialog can create a **Public live view** for an active mission. Anyone with its QR code or link can watch the livestream and see events and alerts without signing in, but cannot log or review them. Use **End public viewing** to revoke the link; it also stops working when the mission ends. Android and iOS Operator expose the same public-live QR from an active mission or Mission Viewer.
