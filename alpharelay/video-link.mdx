@@ -1,0 +1,45 @@
+---
+title: "Use a Video Link"
+description: "Bring an authorized video QR code or web link into a mission without recording the device screen."
+icon: "qrcode"
+---
+
+Use **Video Link** when a controller, camera, or video service gives you a QR code or web link for live video. AlphaRelay opens that link on its secure video service and sends the video into the mission. Your phone or tablet does not open or record the webpage.
+
+You still get the normal Mission Viewer and Mission Overwatch video, recording, Live AI, event screenshots, evidence history, and post-mission review. AlphaRelay does not take control of the aircraft or camera.
+
+## Requirements
+
+- Current AlphaRelay Operator on a licensed Android device, iPhone, or iPad
+- Working internet on the Operator device and a video link that can be opened without joining the controller's private Wi-Fi network
+- An authorized web link that starts with `http://` or `https://` and does not include a username or password
+- Camera permission only when scanning a QR code; you can paste the URL instead
+
+<Warning>
+  Use only video your agency is authorized to view. Treat any private-looking video link like a password: do not place it in a report or public message, and turn it off after the mission when the video service allows that.
+</Warning>
+
+## Start the mission
+
+1. In AlphaRelay Operator, tap **Start a Mission**.
+2. Under **Choose video source**, select **Video Link**.
+3. Tap **Scan QR** / **Scan video QR code**, or paste the complete public HTTP/HTTPS URL.
+4. Complete the operator, scenario, mission name, AI-target, and alert settings.
+5. Tap **Start Video Link Mission**.
+6. Wait for **Backend relay prepared**. This means AlphaRelay has started opening the link. Open Mission Viewer or Mission Overwatch and confirm that the picture is moving before relying on it.
+
+**Backend relay prepared** does not guarantee that the video itself will play. A normal webpage with a video player can take longer to start than a link that points directly to video.
+
+## During and after the mission
+
+- Keep the original video available and the mission active. If the link points to a short video file, AlphaRelay repeats it until the mission ends. A true live feed continues from the camera or controller.
+- Use Mission Viewer or Mission Overwatch for video, events, Live Ask AI, Live AI, and screenshots. Operator shows the linked-video status, but it is not capturing the device screen.
+- End the mission through Operator or Mission Overwatch. AlphaRelay stops opening the link and finishes the mission recording for normal review, reporting, evidence history, and export.
+
+## Supported boundaries
+
+AlphaRelay can open direct video links and many public webpages that contain video. A link can still fail if it expired, requires sign-in, asks the viewer to accept a popup, blocks playback by location, protects the video from copying, checks whether the viewer is human, uses an unsupported player, or is offline. For security, AlphaRelay rejects links that contain a username/password or point to a private home or agency network.
+
+If a DJI controller has a **Custom RTMP** livestream setting or a Skydio controller has **RTSP External Server**, use **Controller Livestream**. If the controller has an HDMI port, use **HDMI Capture Card**. These direct connections are usually more dependable than opening a third-party webpage.
+
+→ [Start a mission](/alpharelay/start-a-mission) · [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs) · [Troubleshooting](/alpharelay/troubleshooting)

@@ -1,25 +1,29 @@
 ---
 title: "Security, Privacy, and AI"
-description: "Local vs cloud processing, AI drafts, and review responsibilities."
+description: "Understand what stays on the device, what uploads, and how AI results must be reviewed."
 icon: "lock"
 ---
 
+## Video Link handling
+
+For a **Video Link** mission, Operator sends the submitted web link to AlphaRelay's online video service. The phone or tablet does not browse or record that page. For security, AlphaRelay rejects links that include a username/password or point to a private home or agency network. A private-looking or single-use video link can still act like a password, so treat it as sensitive mission information and turn it off when practical.
+
 ## What runs locally
 
-- **AlphaRelay Operator**: mission setup, quick and voice events, on-device Live AI fallback, Mission Viewer, remote-live publishing, recording, and durable sync queues
-- **Mission Overwatch PWA shell**: page cache after first online visit (sign-in and sync still need network)
+- **AlphaRelay Operator**: mission setup, quick and voice events, basic on-device AI backup, Mission Viewer, live video, recording, and saved items waiting for internet
+- **Mission Overwatch browser app**: basic page files saved after the first online visit; sign-in, uploads, and current mission information still need internet
 
-## What syncs to the cloud
+## What uploads to AlphaRelay
 
-When internet is available: mission metadata, events, screenshots, photos, footage references, optional mission-scoped personnel location points, reports, custody records, and org data — protected by sign-in and database access rules.
+When internet is available, AlphaRelay sends mission details, events, screenshots, photos, footage information, optional personnel locations, reports, evidence history, and agency information to the organization's protected AlphaRelay account.
 
-High-resolution evidence remains distinct from bounded imagery prepared for AI analysis. AlphaRelay records the screenshot's capture time for evidence matching even when event logging or upload finishes later, and manual photo/video uploads are registered with a SHA-256 hash before success is reported.
+Full-quality evidence stays separate from any smaller image prepared for AI review. AlphaRelay records when a screenshot was actually taken even if it uploads later. It also records a digital fingerprint for manually uploaded photos and videos so later changes can be detected.
 
 Read the public [AlphaRelay Privacy Policy](https://www.alpha-relay.com/privacy.html) for the current service-level privacy notice.
 
 ## AI
 
-Configured AI can draft after-action report content from structured mission data, help review uploaded media, answer questions about primary uploaded footage, analyze selected or automatically queued manual/voice event screenshots, and watch sampled remote-live frames when enabled. AI live watch can combine standard detections with bounded scenario-specific and mission-specific visible targets. Always review:
+When enabled, AI can help draft reports, review uploaded media, answer questions about the main mission video, describe selected event screenshots, and check occasional pictures from live video. It can also look for the visible items selected for the scenario or mission. Always review:
 
 - Timeline accuracy
 - Footage and photo references
@@ -29,25 +33,39 @@ Configured AI can draft after-action report content from structured mission data
 - AI live watch alerts and attached frame evidence
 - **Items Requiring Officer Review**
 
-Treat AI output as draft material. AI Review analyzes only the tags placed under **What should AI look for?**. **Event-focused** reviews original-video intervals around accepted events while using their existing screenshots as coverage boundaries. **Full mission — detailed** reviews the union of selected recording timelines, preferring higher-quality or original footage where recordings overlap, and can include mission photos. After actual-video analysis, AlphaRelay checks candidate findings against evidence screenshots before showing them for human review. Accepted findings are added to the timeline, where an officer must **Accept as is** or **Review & edit** before report use. Ask AI uses only the selected primary uploaded footage, excluding mission photos and event screenshots, and does not replace review of the original recording. It remains available as a read-only question and saved-answer workflow after approval while record mutations stay locked.
+Treat every AI result as a draft.
 
-AI Review can retain region metadata for matching and deduplication, but it does not draw model bounding boxes over thumbnails or the full-screen source viewer.
+- **Event-focused** checks video around accepted events.
+- **Full mission — detailed** checks the available mission timeline and prefers higher-quality or original video where recordings overlap.
+- AlphaRelay verifies possible findings against evidence screenshots before showing them for review.
+- An officer must use **Accept as is** or **Review & edit** before an accepted finding can enter a report.
+- **Ask AI** uses only the selected main uploaded video. It does not use mission photos or event screenshots.
 
-Device Live AI and AI live-watch alerts are logged as review prompts, not final determinations. An officer must choose **Approve alert** before a synced alert screenshot can be analyzed or considered for the report, or **Dismiss alert** to exclude it. Any resulting image analysis still requires **Accept as is** or **Review & edit**.
+After approval, Ask AI remains available for read-only questions, but it does not unlock the record.
 
-Device Live AI uses licensed server-side analysis when connectivity is healthy and automatically falls back to on-device people and possible-weapon detection when it is not. Provider credentials remain server-side. Mission Overwatch, device cloud analysis, and local fallback coordinate temporary ownership to reduce duplicate alerts.
+AI Review can remember the area of the picture connected to a finding so it can match repeated results. It does not draw AI boxes over evidence thumbnails or the full-screen original image.
+
+Device Live AI and AI live-watch alerts are prompts for officer review, not final findings. An officer must choose **Approve alert** before AlphaRelay can review the alert screenshot or consider it for the report. Choose **Dismiss alert** to exclude it. Any AI description of the image still requires **Accept as is** or **Review & edit**.
+
+Device Live AI uses AlphaRelay's protected online AI review when internet is working. Without internet, it automatically continues basic checks for people and possible weapons on the device. Private access codes for the online service are not stored in the app. Mission Overwatch and Operator coordinate their checks to reduce duplicate alerts.
 
 Person detections use informational/yellow treatment and do not identify people. Operator can disable routine person alerts for a mission. Mission Overwatch provides separate controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, and safety hazards. Hand-to-hand contact and reaching into clothing or bags are not standard detections; agencies may add concrete visible behaviors as scenario or mission targets. When weapon-related detections are enabled, AlphaRelay gives their alerts the highest priority; every alert remains subject to human review.
 
-AlphaRelay uses one official-event rule across counts, playback markers, reports, offline exports, and custody views: undeleted human-created events are included; automatic AI alerts require approval; accepted AI Review findings require Timeline officer review. Pending or dismissed automatic alerts and accepted AI Review findings without Timeline officer review remain outside the official evidence set. Timeline completion moves unresolved candidates to **Dismissed** for inspection and recovery; mission sealing permanently removes candidates that never became official.
+AlphaRelay uses the same rule everywhere an official event appears:
 
-When Operational Map is enabled, location sharing uses the selected person on a licensed device as an advisory identity. Precise location can continue in the background during an active sharing session. Mission-scoped breadcrumb points are retained as a finalized GeoJSON evidence track with a recorded hash; current coordinates stop updating when sharing ends. AlphaRelay does not place precise location in analytics, crash metadata, application logs, or mission event text.
+- Include officer-created events unless they were deleted.
+- Include an automatic alert only after **Approve alert**.
+- Include an AI Review finding only after final officer review on the Timeline.
+
+Pending, dismissed, or unreviewed AI items stay outside official counts, playback markers, reports, exports, and evidence views. Finishing Timeline review moves unresolved suggestions to **Dismissed**. Sealing permanently removes suggestions that never became official.
+
+When Operational Map is enabled, location sharing uses the person selected on the licensed device. This is a reported identity, not independent proof of who carries the device. Precise location can continue in the background while sharing is active. When sharing ends, AlphaRelay creates a map evidence file and records its digital fingerprint. AlphaRelay does not place precise location in product-usage measurements, crash reports, application logs, or mission event text.
 
 Mission Overwatch **Dictate** uses the browser's speech-recognition capability and microphone permission for manual events and Live Ask AI questions. Availability and speech processing depend on the browser and operating system; type the event or question when agency policy or browser support does not permit dictation. A Live Ask AI answer is saved against one frozen current frame and must be verified against the live feed.
 
 ## Pilot agreements
 
-Pilot agreement PDFs and signed copies are stored in private storage. Signing links use tokens, and completed PDFs are opened through short-lived signed URLs. Completed signing records may include signer details, timestamp, IP address when available, user agent, agreement version, PDF hash, and audit metadata.
+Pilot agreement PDFs and signed copies are stored privately. Signing links contain a private code and completed files open through links that expire. The signing record may include the signer's details, date and time, network address when available, browser/device information, agreement version, document fingerprint, and audit history.
 
 ## Custody and approval
 
@@ -55,7 +73,7 @@ Pilot agreement PDFs and signed copies are stored in private storage. Signing li
 | --- | --- |
 | **Seal entire mission** | Verifies and locks hashes for evidence explicitly included in the AAR Chain of Custody; retained excluded screenshots remain unsealed |
 | **Submit for supervisor approval** | Temporarily locks the report, mission name, timeline, media, and AI Review actions until a supervisor returns it to draft or approves it |
-| **Supervisor approval** | Makes the submitted record mutations permanently read-only; read-only Ask AI remains available |
+| **Supervisor approval** | Permanently prevents changes to the submitted record; Ask AI remains available for view-only questions |
 | **Export offline package…** / **Export evidence package (JSON)** | Point-in-time copies for retention or handoff |
 
-Do not share exports before sync and review are complete.
+Do not share exports until all saved mission information has reached the agency account and officer review is complete.

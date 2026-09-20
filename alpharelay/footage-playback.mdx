@@ -1,6 +1,6 @@
 ---
 title: "Review Footage"
-description: "Play with Events, multi-angle sync, and post-mission tagging."
+description: "Review mission video, line up additional camera angles, and add timeline events."
 icon: "play"
 ---
 
@@ -38,11 +38,11 @@ After the mission is closed:
 
 ## Locks
 
-Once a report is submitted for approval, timeline events, footage, photos, mission renaming, and AI Review mutations are locked. A supervisor can return the report to draft to reopen work. Approval makes those record changes permanently read-only. **Ask AI** remains available for read-only questions and saved answers after approval; it cannot change the timeline, evidence set, AI Review findings, or report.
+Once a report is submitted for approval, no one can change timeline events, footage, photos, the mission name, or AI Review findings. A supervisor can return the report to draft to reopen work. Approval permanently prevents those changes. **Ask AI** remains available for view-only questions and saved answers after approval; it cannot change the timeline, evidence set, AI Review findings, or report.
 
 ## AI Review
 
-For a closed synced mission, open **AI Review** after footage or photos are available.
+For a closed mission whose saved information has reached the agency account, open **AI Review** after footage or photos are available.
 
 1. Under **Available tags**, select at least one tag to move it into **What should AI look for?**. Add a concrete custom target when needed. Only selected tags are included in the run.
 2. Choose **Event-focused** or **Full mission — detailed** under **Analysis coverage**.
@@ -50,7 +50,7 @@ For a closed synced mission, open **AI Review** after footage or photos are avai
 
 **Event-focused** reviews original-video intervals around accepted human events and approved alerts for observations live AI may have missed. Existing event screenshots serve as coverage boundaries rather than the video-analysis input. If the mission has no accepted event anchors, choose **Full mission — detailed**. Full-mission coverage reviews the union of selected recording timelines, preferring higher-quality or aircraft-original footage where recordings overlap; controller-only time gaps are still included. It can also include mission photos and takes longer.
 
-Analysis runs in the background. The status can show the original recording upload, video sections reviewed, evidence screenshots verified, and completion. AlphaRelay first analyzes the actual video, then prepares and checks evidence screenshots for candidate findings before presenting them for human review. Video coverage and screenshot-check counts are reported separately in the completion email. You can leave the page and AlphaRelay emails when the run completes. Return to AI Review or click **Refresh** to see current progress and findings.
+AI Review can continue after you leave the page. Its status can show the original recording upload, video sections reviewed, evidence screenshots checked, and completion. AlphaRelay first reviews the actual video, then prepares and checks evidence screenshots for possible findings before presenting them to an officer. The completion email lists video reviewed separately from screenshots checked. While AI Review remains open, it updates progress and findings automatically. You can leave the page and return after the completion email; use **Refresh** if the page was offline or the displayed information appears old.
 
 - **Accept** adds a timeline event for the finding when timeline edits are still allowed. It does not complete officer review by itself.
 - **Reject** keeps the finding out of the mission timeline.
@@ -88,7 +88,7 @@ After completion, AlphaRelay opens the next unfinished step or **Report**. New p
 
 ## Ask AI about the mission
 
-Open **AI Review → Ask AI** for a closed, synced mission with playable uploaded footage. You can also use this read-only tool after the mission is approved.
+Open **AI Review → Ask AI** for a closed mission whose saved information and playable footage have reached the agency account. You can also use this view-only tool after the mission is approved.
 
 1. Enter a question about visible mission details, such as **How many vehicles are visible?** or **Is a weapon visible?**
 2. Click **Ask AI**.

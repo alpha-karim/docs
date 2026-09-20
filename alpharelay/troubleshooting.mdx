@@ -1,8 +1,18 @@
 ---
 title: "Troubleshooting"
-description: "Common fixes for connection, sync, footage, and reports."
+description: "Common fixes for live video, uploads, footage, maps, AI, and reports."
 icon: "wrench"
 ---
+
+## Video Link is prepared but video is missing
+
+1. Confirm the Operator device has internet and the mission is still active.
+2. Open the URL outside AlphaRelay only when agency policy allows it, and confirm it is still public, unexpired, and actively playing.
+3. Confirm the URL begins with `http://` or `https://`, contains no embedded username/password, and does not point to a private or local-network address.
+4. Return to Mission Viewer or Mission Overwatch and allow time for AlphaRelay to open the page and receive video. A direct video link usually starts faster than a webpage that contains a player.
+5. If the page requires sign-in, a popup, copy protection, a supported location, or a human-verification check, use the controller's built-in livestream setting or HDMI output instead.
+
+If QR scanning is unavailable or camera permission is denied, paste the complete URL manually. **Backend relay prepared** confirms setup, not playable video; verify motion before operational use.
 
 ## Remote live is missing
 
@@ -11,7 +21,7 @@ icon: "wrench"
 3. Tap **Start remote live** if automatic setup was skipped or failed.
 4. In Mission Overwatch, open the active mission and select **Live stream (WebRTC)**.
 
-The current public Operator workflow does not present a **Local Network** mission button. If your Android deployment exposes **Live Overwatch Screen**, keep both devices on the same reachable Wi-Fi, connect by scan or device IP, and trust the relay certificate if prompted.
+The standard public Operator app does not show a **Local Network** mission button. If your agency's Android version shows **Live Overwatch Screen**, keep both devices on the same reachable Wi-Fi, connect by scanning the code or entering the displayed device address, and accept the one-time browser trust prompt if it appears.
 
 ## Mission Viewer cannot see the mission
 
@@ -22,57 +32,57 @@ The current public Operator workflow does not present a **Local Network** missio
 
 If timeline events appear but video does not, the pilot's remote **Live stream (WebRTC)** has not started or is not ready. Restore pilot-device internet and retry remote live from **Pilot console → Mission**.
 
-For Controller Livestream, an active mission can appear before the separate controller starts publishing. Reopen the setup and match the controller's protocol: use the complete **RTMP URL — one-field screens** or separate **Server URL** and **Stream key** for DJI; use **Server address**, **Port**, and **Stream name** under RTSP External Server for Skydio. Then restart the publisher.
+For Controller Livestream, the mission can appear before the controller starts sending video. Reopen setup. On DJI, copy either the complete **RTMP URL** or the separate **Server URL** and **Stream key** into **Custom RTMP**. On Skydio, copy **Server address**, **Port**, and **Stream name** into **RTSP External Server**. Then restart livestreaming on the controller.
 
 ## Controller Livestream is waiting for video
 
 1. Confirm both the Android or iOS Operator device and the separate flight controller have usable internet.
 2. On the AlphaRelay device, tap **Show Livestream Setup** and compare the displayed values character for character.
-3. For DJI two-field RTMP, include the final `/` in the server field and put only the six-digit code in the stream-key field. For Skydio, choose RTSP External Server and enter the displayed server address, port, and separate six-digit stream name.
+3. On a DJI screen with two fields, include the final `/` in **Server URL** and put only the six-digit code in **Stream key**. On Skydio, choose **RTSP External Server** and enter the displayed address, port, and separate six-digit stream name.
 4. Start or restart the controller's native livestream, then return to **View Live Mission**.
 5. If the mission is no longer active, create a new Controller Livestream instead of publishing into the closed record.
 
-Stop the controller publisher before closing the mission. Use **End Mission** in Mission Overwatch or the matching close action in Operator so AlphaRelay can finalize the received recording.
+Stop livestreaming on the controller before closing the mission. Use **End Mission** in Mission Overwatch or the matching close action in Operator so AlphaRelay can finish the recording.
 
 ## HDMI Capture Card has no video
 
-1. Confirm the controller's HDMI output is enabled and the card is connected through a USB data/OTG path, not a charge-only adapter.
-2. Grant both Android camera and USB-device access. Camera permission is for the external UVC input.
+1. Confirm the controller's HDMI output is enabled and the capture card is connected with a USB cable or adapter that carries data, not a charge-only adapter.
+2. Grant both Android camera and USB-device access. Android calls this a camera permission even though the picture comes from the capture card.
 3. Check capture-card power; use a powered USB hub if the Android device cannot supply enough power.
 4. In the active mission, wait for the preview to change from **Waiting for signal** to **Capturing**.
 5. If the card disconnected, reconnect it without closing the mission and verify the preview returns.
 
-The HDMI workflow ingests UVC video, not embedded USB/UAC audio. Use the receiving Android device or iPad microphone for optional voice events. If the image is stretched or double-height, update Operator and reload Mission Overwatch; current capture and playback preserve 16:9, while legacy correction changes presentation without rewriting the evidence file.
+The HDMI workflow receives video but does not record audio carried through the capture card. Use the Android device or iPad microphone for optional voice events. If the image looks stretched or twice as tall as it should, update Operator and reload Mission Overwatch. The correction changes how older evidence is displayed; it does not rewrite the evidence file.
 
 ## Laptop HDMI does not connect or upload
 
-1. Confirm the card is a physical UVC input and the controller's HDMI output is enabled; a laptop HDMI port is normally output-only.
+1. Confirm a physical USB HDMI capture card is connected and the controller's HDMI output is enabled. A laptop's own HDMI port normally sends video out and cannot receive controller video.
 2. Grant browser camera permission and select the card under **Mission sidebar → HDMI Input**.
 3. Click **Connect & go live** and keep the tab open.
 4. Before **End Mission**, click **Stop & upload** and wait for secured status.
 5. After an interruption, reopen the same mission and use **Recover interrupted recording**. Do not clear browser data first.
 
-## Cloud sync delayed
+## Saved mission information is not uploading
 
 1. Confirm you are signed in.
-2. Move to validated internet. Operator video uploads resume through the durable device queue; browser work still needs its tab open.
-3. Do not refresh during pending sync.
+2. Move to a tested internet connection. Operator resumes video uploads from saved files on the device; work started in a browser still needs its tab open.
+3. Do not refresh while saved information is still uploading.
 
 ## A new mission will not start
 
-Operator blocks a new start while an active mission, capture service, or unfinished recording still needs closeout. On Android, use **Close Active Mission** on the startup screen. On iOS, reopen the active mission and use **Stop and complete mission**. Keep the app open while capture finalizes and pending evidence is handed off, then start the next mission.
+Operator blocks a new start while an active mission or unfinished recording still needs closeout. On Android, use **Close Active Mission** on the startup screen. On iOS, reopen the active mission and use **Stop and complete mission**. Keep the app open while it finishes the recording and sends the remaining evidence, then start the next mission.
 
 Do not force-stop or reinstall the app to bypass this guard; doing so can delay recovery of the existing mission recording.
 
-## Footage queued or not playing
+## Footage is waiting to upload or will not play
 
 1. Keep the pilot device powered on and restore validated internet.
-2. If Android Operator opens with a queued-video panel, let it run or use **Skip for now and start new mission** only when field work cannot wait. On iOS, use **Sync pending items** or **Sync now** and keep Operator open during handoff.
+2. If Android Operator opens with a panel showing video waiting to upload, let it run. Use **Skip for now and start new mission** only when field work cannot wait. On iOS, use **Sync pending items** or **Sync now** and keep Operator open while it sends the files.
 3. Tap **Upload now** if shown.
 4. Wait for **Loading playback link** to clear in Mission Overwatch.
 5. For an optional recording: confirm you are signed in and online, the file is MP4 or MOV, the correct source is selected, and no other upload is running.
 
-Manual browser uploads do **not** queue before starting — retry when online.
+The browser does **not** save a manual upload for later before it starts. Retry when online.
 
 Current Controller Screen Capture missions produce one continuous recording. If a legacy mission contains adjacent chunks, ordinary Mission Footage playback should continue through recognized neighbors. A separately restarted capture remains separate. If a legacy chunk does not continue, reload the current app version, confirm the next chunk uploaded, and reopen the first chunk.
 
@@ -81,7 +91,7 @@ If an optional aircraft or goggles recording is out of sync, choose **Align with
 ## Controller Screen Capture did not start
 
 1. Confirm the pilot device is an Android drone controller with **AlphaRelay Operator** installed.
-2. Tap **Start Mission**, choose **Controller Screen**, and complete mission setup. On a detected DJI SDK-controller setup, select **Controller Screen Capture — Recommended**.
+2. Tap **Start Mission**, choose **Controller Screen**, and complete mission setup. If AlphaRelay also offers Pilot mode, select **Controller Screen Capture — Recommended**.
 3. Approve the Android screen capture prompt.
 4. If voice relay is needed, grant microphone permission and confirm speech recognition is available.
 5. If the app cannot be installed, allow the browser or file manager to **install unknown apps**. Android Developer mode is not required.
@@ -90,9 +100,9 @@ The controller's native flight app remains the flight control app. AlphaRelay ai
 
 ## Reconnect controller for SD footage is waiting
 
-This conditional closeout appears only when AlphaRelay confirmed a supported DJI SDK 5 setup and can add a mission-time aircraft original after Controller Screen Capture.
+This optional closeout appears only when AlphaRelay confirmed supported DJI equipment and can copy the matching aircraft video after Controller Screen Capture.
 
-1. Keep the aircraft and controller powered on. The finalized controller-screen recording remains safe and the mission remains open.
+1. Keep the aircraft and controller powered on. The completed controller-screen recording remains safe and the mission remains open.
 2. Open DJI Fly app info and tap **Force stop**.
 3. Open **Open by default** and clear its defaults.
 4. Return to AlphaRelay, physically unplug and reconnect the controller cable, and choose **AlphaRelay → Just once**.
@@ -102,32 +112,32 @@ Use **Close without aircraft copy** only when you intentionally want to close wi
 
 ## Pilot-mode aircraft footage is still transferring
 
-After a confirmed touchdown, AlphaRelay can close the mission before the aircraft-SD transfer finishes. Keep Operator, the aircraft, and controller powered on and watch the footage banner. A queued clip counts as secured and can continue through the durable upload path. If AlphaRelay says the footage was not secured and keeps the mission open, fix the connection or SD problem and retry closeout.
+After a confirmed touchdown, AlphaRelay can close the mission before it finishes copying video from the aircraft's memory card. Keep Operator, the aircraft, and controller powered on and watch the footage message. A clip marked as waiting to upload is secured on the device and can continue later. If AlphaRelay says the footage was not secured and keeps the mission open, fix the connection or memory-card problem and retry closeout.
 
 ## iPhone or iPad capture did not start
 
 1. Confirm the device runs iOS 26 and the TestFlight version of AlphaRelay Operator is current.
-2. Start the mission, open the ReplayKit broadcast picker, and choose **AlphaRelay Capture**.
+2. Start the mission, open Apple's Screen Recording picker, and choose **AlphaRelay Capture**.
 3. Start the broadcast, then open the flight app. If capture stops, return to Operator and tap **Choose display and start capture**.
 4. Check iOS Screen Recording restrictions and available storage. Grant microphone permission only when microphone audio or voice events are needed.
 
-ReplayKit must be verified on a physical device. A Simulator test does not prove controller-screen capture or background handoff.
+Screen Recording must be tested on the physical iPhone or iPad. A computer simulation does not prove screen capture or the completed-video handoff.
 
 ## Pilot mode stays locked
 
-1. Confirm AlphaRelay detected the DJI SDK remote-controller setup and displays the capture-mode chooser.
+1. Confirm AlphaRelay detected the supported DJI controller connection and displays the choice between Controller Screen Capture and Pilot mode.
 2. Select **Pilot mode**, open the 12-aircraft list, and confirm the exact aircraft family is listed.
 3. Tap **My drone is listed — Use Pilot**.
 4. Power on and connect the aircraft and controller, then wait for AlphaRelay's live flight-controller check.
 5. Start only after AlphaRelay reports **Supported aircraft confirmed. Pilot mode is ready.**
 
-If the aircraft is not listed, the DJI SDK is unavailable, or the connection check times out, select **Controller Screen Capture — Recommended** and use the native flight app. Do not rely on Pilot mode until the same aircraft, controller, payload, and firmware combination has been validated in training.
+If the aircraft is not listed or the connection check times out, select **Controller Screen Capture — Recommended** and use the normal DJI flight app. Do not rely on Pilot mode until the same aircraft, controller, installed camera or sensor, and firmware have passed a training mission.
 
 ## DJI Avata Goggles Mode did not start
 
 1. Confirm DJI Fly and AlphaRelay Operator are installed on the same Android device.
 2. Power on and link the DJI Avata, compatible DJI Goggles, and their compatible controller.
-3. For automatic detection, connect the DJI Goggles to the Android device with a compatible USB data/OTG cable.
+3. For automatic detection, connect the DJI Goggles to the Android device with a compatible USB data cable.
 4. Open DJI Fly and confirm the goggles live view appears before opening AlphaRelay.
 5. If you use wireless live-view sharing, enable **Use DJI Fly / goggles video feed**, return to the landing screen, and tap **Start Mission**.
 6. Approve the Android screen capture prompt.
@@ -139,7 +149,7 @@ If DJI Fly does not open automatically after approval, open it manually and conf
 1. Keep the Android device connected to internet. If DJI Fly uses Wi-Fi live-view sharing, keep cellular data available.
 2. Keep DJI Fly in the foreground during the mission.
 3. Stop through the **Controller Screen Capture** notification or AlphaRelay **Stop Mission** button; do not force-close the app.
-4. Keep the Android device powered on while queued footage remains. AlphaRelay resumes it automatically when validated internet returns; do not force-stop or uninstall the app.
+4. Keep the Android device powered on while footage is waiting to upload. AlphaRelay resumes automatically when working internet returns; do not force-stop or uninstall the app.
 
 ## Mission Overwatch dictation is unavailable
 
@@ -160,10 +170,10 @@ You can always type the event under **Mission sidebar → Events → Manual even
 
 1. Confirm the pilot started **Live stream (WebRTC)** and the remote live feed is visible in Mission Overwatch.
 2. Confirm Mission Overwatch is online and the mission is still active.
-3. Confirm AI live watch is enabled for the deployment and this mission.
-4. If the status says the request timed out or failed, leave the page open; Mission Overwatch retries bounded requests automatically.
+3. Confirm the agency has AI live watch enabled and that it is on for this mission.
+4. If the status says a check took too long or failed, leave the page open; Mission Overwatch automatically tries again without starting overlapping checks.
 
-AI live watch does not run from the LAN-only relay video source and does not run after the mission is closed.
+AI live watch does not run from an agency-specific same-Wi-Fi-only video connection and does not run after the mission closes.
 
 If scenario or mission targets are missing, turn AI live watch on and expand **Show details**. Scenario targets come from the scenario saved with the mission. Enter mission-only targets one visible item per line and click **Save targets**; these supplement rather than replace standard detections.
 
@@ -204,7 +214,7 @@ Dismissed Timeline items remain available under the **Dismissed** filter until t
 2. Under **Public live view**, click **End public viewing** and confirm.
 3. If a new link is needed later, reopen **Share** to create one.
 
-The current link also stops working when the mission ends. Treat every public-live URL as a bearer link: anyone who has it can view the active read-only mission without signing in.
+The link also stops when the mission ends. Anyone who has it can view the active read-only mission without signing in, so treat it like a password.
 
 ## Mission map is empty or missing
 
@@ -212,47 +222,47 @@ The current link also stops working when the mission ends. Treat every public-li
 2. On each sharing device, select the correct person and allow precise location. On iOS, allow background location if the operating system requests it.
 3. Confirm the device says location sharing is active for the intended mission and has internet.
 4. In Mission Viewer, make sure the correct active mission is selected. In Mission Overwatch, use **Mission sidebar → Map** with an authorized supervisory account.
-5. After closeout, wait for the saved track to finalize. The post-mission map stays hidden when no valid fixes were recorded.
+5. After closeout, wait for the saved route to finish processing. The post-mission map stays hidden when the device recorded no valid locations.
 
-If sealing reports an active, pending, or failed location track, stop the sharing session, wait for finalization, or use the available export retry. Do not treat a stale marker or a route with no fixes as verified personnel movement.
-4. Stay online for a synced mission. If the action is unavailable, sign in again and reload the page.
+If sealing reports an active location route or one that has not saved successfully, stop the sharing session, wait for it to finish, or use the available retry action. Do not treat an old map marker or a route with no recorded locations as verified personnel movement.
+4. Stay online and wait for the mission's saved information to reach the agency account. If the action is unavailable, sign in again and reload the page.
 
-A newly synced pending alert or finding reopens the affected review step even if it was completed earlier.
+A new alert or finding that reaches the agency account reopens the affected review step even if it was completed earlier.
 
 ## AI Review will not start or appears stuck
 
-1. Open a closed, synced mission and select **AI Review**.
+1. Open a closed mission whose saved information has reached the agency account and select **AI Review**.
 2. Move at least one tag from **Available tags** into **What should AI look for?**.
 3. For **Event-focused**, confirm the mission has an accepted human event or approved alert. If not, choose **Full mission — detailed**.
 4. Confirm the selected recordings are playable. Full-mission coverage can use multiple aligned recordings and can also include uploaded mission photos.
-5. Keep the deployment online and confirm AI is configured. Click **Refresh** to reload the background job state.
+5. Keep Mission Overwatch online and confirm the agency has AI Review enabled. Click **Refresh** to check progress again.
 
-The status can show the original recording upload, video sections reviewed, evidence screenshots verified, or completion. A queued or uploading job has not completed actual-video analysis. You can leave the page while it runs; AlphaRelay sends a completion email when configured delivery succeeds. The email reports video reviewed separately from evidence screenshots checked.
+The status can show the original recording upload, video sections reviewed, evidence screenshots checked, or completion. If the work is waiting or uploading, AlphaRelay has not finished reviewing the actual video. You can leave the page while it runs. AlphaRelay sends a completion email when the agency has email delivery enabled. The email lists video reviewed separately from evidence screenshots checked.
 
 ## Ask AI is unavailable or cannot answer
 
-1. Open a closed, synced mission and select **AI Review → Ask AI**.
+1. Open a closed mission whose saved information has reached the agency account and select **AI Review → Ask AI**.
 2. Confirm the primary uploaded footage is available and playable. Ask AI does not use mission photos or event screenshots.
-3. Keep Mission Overwatch online and confirm AI is configured for the deployment.
-4. If AlphaRelay says it is preparing supporting evidence, keep the page open while it samples frames from playable footage.
+3. Keep Mission Overwatch online and confirm the agency has Ask AI enabled.
+4. If AlphaRelay says it is preparing supporting evidence, keep the page open while it checks selected pictures from the playable footage.
 
-Ask AI can answer only from the selected primary uploaded recording. If the relevant moment is missing, obscured, low quality, or outside the sampled frames, it may report that the question cannot be answered. Ask AI remains available after supervisor approval as a read-only tool; if it is missing on an approved mission, reload the current Mission Overwatch assets. Approval still blocks timeline, evidence, media, AI Review finding, and report mutations.
+Ask AI can answer only from the selected main uploaded recording. If the relevant moment is missing, blocked, low quality, or outside the portions it checked, it may report that the question cannot be answered. Ask AI remains available after supervisor approval as a view-only tool. If it is missing on an approved mission, reload Mission Overwatch. Approval still prevents changes to the timeline, evidence, media, AI Review findings, and report.
 
 ## Device Live AI is not tagging
 
 1. Confirm **Enable automatic OpenAI + local detection** is on in Android **Pilot console → Flight → Local AI**, or confirm iOS capture and notification permission are active.
 2. Start Controller Screen Capture; Device Live AI does not sample while capture is stopped.
-3. Check **Device Live AI** status. With internet it should report cloud analysis; after a cloud or connectivity failure it should move to the on-device fallback.
-4. Confirm Operator is current and that the offline fallback model is available.
+3. Check **Device Live AI** status. With internet it should report online review. After an internet or online-service failure, it should report basic checks on the device.
+4. Confirm Operator is current and that offline checks are available on the device.
 5. Grant notification permission if events are logged but direct alerts do not appear.
 
-If the status says browser or cloud Live AI is active, this is expected coordination for the same mission. The on-device fallback resumes automatically after healthy cloud analysis stops or the short handoff expires.
+If the status says browser or online Live AI is active, AlphaRelay is coordinating checks for the same mission. Basic on-device checks resume automatically after online review stops or the short changeover period ends.
 
 Review every auto-tag before treating it as an operational fact. Small, distant, dark, blurred, or partially hidden objects may be missed.
 
 ## Report actions blocked
 
-Check mission state and your role. Submitting for supervisor approval locks report editing, mission renaming, timeline and media changes, and AI Review mutations. A supervisor can **Return to draft** to reopen work. Approved records cannot be changed and reports cannot be regenerated; read-only Ask AI remains available.
+Check the mission status and your role. Submitting for supervisor approval prevents report edits, mission renaming, timeline and media changes, and changes to AI Review findings. A supervisor can **Return to draft** to reopen work. Approved records cannot be changed and reports cannot be created again; Ask AI remains available for view-only questions.
 
 ## Mission operator is missing from AlphaRelay Operator
 
@@ -264,7 +274,7 @@ If no roster is available, AlphaRelay warns and can start without identified-ope
 
 ## Import mission data did not upload files
 
-**Import mission data…** is intentionally a workflow preview. It inventories filenames, paths, types, and sizes locally and ends with an ingestion plan; it does not upload file contents or change custody. Use **Import mission**, **Add optional recording**, or **Upload Photos** for the currently connected production workflows.
+**Import mission data…** is only a preview. It lists file names, locations, types, and sizes on the computer, then shows how AlphaRelay plans to group them. The exact message **Ingestion plan ready** means the plan is ready; it does not mean files were uploaded or custody changed. Use **Import mission**, **Add optional recording**, or **Upload Photos** for the available upload options.
 
 ## Offline package video won't play
 

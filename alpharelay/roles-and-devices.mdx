@@ -7,7 +7,7 @@ icon: "users"
 | Role | Device | Responsibility |
 | --- | --- | --- |
 | Pilot | AlphaRelay Operator (Android, iPhone, or iPad) plus the flight app or supported Pilot-mode controls | Selects the current operator, starts missions, flies through the applicable flight interface, logs field events, ends mission, uploads footage |
-| Controller-video operator | Android/iOS Operator device or signed-in browser plus an RTMP-capable or HDMI-output flight controller | Creates a Controller Livestream destination or receives HDMI video while the flight controller retains aircraft control |
+| Controller-video operator | Android/iOS Operator device or signed-in browser plus a video link, livestream-capable controller, or HDMI-output controller | Brings controller video into AlphaRelay while the original device keeps control |
 | Mission viewer | Operator on a second licensed Android or iOS device | Watches active remote live, follows timeline events and alerts, logs events, asks AI about a fresh current frame, and shares the selected person's mission-scoped location when enabled |
 | Overwatch user | Browser — Mission Overwatch | Relay viewing, remote live, command-side events, review, report, seal, export |
 | Reviewer / officer | Browser — Mission Overwatch | Checks timeline, footage, report draft, and custody |
@@ -20,19 +20,21 @@ Organization access uses four roles. **Admin/Owner** manages the organization an
 
 On Android drone controllers, the pilot device can run **Controller Screen Capture**. The controller's native flight app handles flight control while AlphaRelay captures the controller screen, streams it to the active mission, records controller-screen footage, and logs events.
 
-On a detected DJI SDK-controller setup, AlphaRelay also presents **Pilot mode**. It remains locked until the operator confirms a listed DJI MSDK 5.17 aircraft and AlphaRelay verifies a live flight-controller connection. Pilot mode lets AlphaRelay own the DJI SDK connection and present direct flight and camera controls; availability still depends on the aircraft, controller, payload, firmware, and field validation.
+On a supported DJI controller and aircraft combination, AlphaRelay may also present **Pilot mode**. It remains locked until the operator confirms a listed aircraft and AlphaRelay verifies the live connection. Pilot mode provides direct flight and camera controls. Availability still depends on the exact aircraft, controller, installed camera or sensor, firmware, and a successful field test.
 
 For a DJI Avata with compatible DJI Goggles, the pilot operates through the goggles and their compatible controller. A separate Android phone or tablet runs DJI Fly and AlphaRelay **Goggles Mode** to relay and record the goggles live view.
 
 ## Controller video from a separate flight controller
 
-Use **Controller Livestream** when a DJI controller can publish to RTMP or a Skydio controller supports RTSP External Server. A licensed Android, iPhone, or iPad—or an authorized mission operator using **New Livestream** in Command Center—creates the mission and shows the matching RTMP or RTSP values. Internet is required.
+Use **Video Link** when the controller or camera provides an authorized video QR code or web link. Operator scans or accepts the link, and AlphaRelay brings in that video without recording the phone or tablet screen. Internet is required, and the link must open without joining a private Wi-Fi network.
 
-Use **HDMI Capture Card** when the controller exposes HDMI output. Connect it through a UVC card to Android Operator, a USB-C iPad, or a laptop browser. The laptop path starts from **New HDMI mission** and requires no phone or tablet app. None of these workflows transfers aircraft control away from the flight controller.
+Use **Controller Livestream** when a DJI controller has **Custom RTMP** or a Skydio controller has **RTSP External Server**. A licensed phone/tablet—or an authorized officer using **New Livestream** in Command Center—creates the mission and shows the exact values to copy into the controller. Internet is required.
+
+Use **HDMI Capture Card** when the controller has an HDMI output. Connect a standard USB HDMI capture card to Android Operator, a USB-C iPad, or a laptop. The laptop path starts from **New HDMI mission** and does not need the phone/tablet app. The flight controller keeps aircraft control.
 
 ## iPhone and iPad
 
-On iOS 26, AlphaRelay Operator can use ReplayKit screen capture, Controller Livestream, or USB-C iPad UVC HDMI capture. iPhone does not expose UVC capture to AlphaRelay. The flight app or controller remains responsible for aircraft control.
+On iOS 26, AlphaRelay Operator can use Apple's Screen Recording, Video Link, Controller Livestream, or a USB HDMI capture card on USB-C iPad. iPhone cannot receive video from that capture card. The flight app or controller remains responsible for aircraft control.
 
 ## Secondary mission viewer
 
@@ -45,11 +47,12 @@ On a licensed Android device, tap **View Live Mission**. On iPhone or iPad, tap 
 - Open missions from **Mission Dashboard** (link may say **Open Mission Console**).
 - Operator presents one **Start Mission** action and starts remote live automatically when validated internet is available.
 - Mission Overwatch keeps **Timeline**, **Events**, **Ask AI**, an optional **Map**, and a conditional **Livestream** or **HDMI Input** tab in the right-rail **Mission sidebar**.
-- **Local Network** is a deployment-specific Android LAN relay path and is not presented by the current public Operator workflow.
-- **Controller Screen Capture** is automatic on integrated Android drone controllers and the recommended default on detected DJI SDK-controller setups; it is not a separate mission button.
-- **HDMI Capture Card** works through Android USB host/OTG, USB-C iPad, or a laptop browser; iPhone is not a UVC input device.
+- **Local Network** is an Android-only same-Wi-Fi option in certain agency deployments. It is not shown in the current public Operator workflow.
+- **Controller Screen Capture** starts automatically on many Android drone controllers and remains the recommended default when optional Pilot mode is available.
+- **HDMI Capture Card** works with a compatible Android device, USB-C iPad, or laptop; iPhone cannot receive this USB video.
 - **Controller Livestream** works from Android/iOS Operator or Command Center **New Livestream** and supports DJI RTMP plus Skydio RTSP External Server.
-- **Pilot mode** is an explicit alternative on eligible DJI SDK-controller setups and requires supported-aircraft confirmation plus a successful live connection check.
+- **Video Link** works from Android/iOS Operator, requires internet and an authorized web link, and lets AlphaRelay's online video service handle recording and evidence capture rather than the device.
+- **Pilot mode** is an optional alternative on supported DJI equipment and requires aircraft confirmation plus a successful live connection check.
 - Compatible DJI Goggles can enable **Goggles Mode** automatically over USB, but the operator still taps **Start Mission** before capture begins.
 - Mission Viewer requires internet and a valid Operator license; only active missions in that license's organization appear. It normally runs on a second device, but the Android device that creates a Controller Livestream also opens that mission in Mission Viewer.
 

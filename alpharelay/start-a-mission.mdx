@@ -1,6 +1,6 @@
 ---
 title: "Start a Mission"
-description: "Start a mission, controller-screen capture, and remote live from AlphaRelay Operator."
+description: "Choose a video source and start a live mission from AlphaRelay Operator."
 icon: "tablet-screen-button"
 ---
 
@@ -10,43 +10,43 @@ Most live missions start from **AlphaRelay Operator**. Authorized mission operat
 
 1. Open AlphaRelay Operator on the Android device, iPhone, or iPad.
 2. From **What do you want to do?**, tap **Start a Mission**.
-3. Under **Choose video source**, select **Controller Screen**, **Controller Livestream**, or **HDMI Capture Card** when supported. Eligible DJI SDK-controller setups can continue into Pilot mode from the controller-screen path.
+3. Under **Choose video source**, select **Controller Screen**, **Video Link**, **Controller Livestream**, or **HDMI Capture Card** when supported. Supported DJI controller and aircraft combinations can continue into Pilot mode from the controller-screen path.
 4. Select the operating person when the agency roster is available.
 5. Select a scenario category and template, or **No scenario template**.
 6. Enter the mission name your team will recognize and optionally add up to eight **Mission-specific AI targets**, one visible item per line.
 7. Leave **Alert on people** on for informational person alerts, or turn it off to suppress that routine category. Other enabled detections and mission-specific targets remain active.
 8. Tap the matching start or setup action and complete the license check if prompted.
-9. Approve Android screen capture, choose **AlphaRelay Capture** from the iOS broadcast picker, or complete the RTMP, RTSP, or HDMI setup for the selected source.
+9. Approve Android screen capture, choose **AlphaRelay Capture** from the iPhone/iPad Screen Recording picker, scan or paste the authorized link for **Video Link**, copy the displayed livestream values into the DJI or Skydio controller, or connect the HDMI capture card.
 10. Open the native flight app when using screen capture. Use quick, manual, or `Relay` voice events and stop the mission when finished.
 
-Operator prevents a new start while another mission or unfinished capture is active. Use the startup recovery action to close the existing mission through the normal finalization flow; do not discard it to force a new start.
+Operator prevents a new start while another mission or unfinished recording is active. Use the startup recovery action to complete the existing mission normally; do not discard it to force a new start.
 
 When an online license refresh provides an agency operator roster, AlphaRelay requires a member with the separate **Mission operator** designation to be selected before start and records that person with the mission and field-created events. An officer, supervisor, admin, or owner can be designated as a mission operator. If the roster is unavailable, the app warns the crew and can continue without identified-operator attribution; reconnect and refresh before operational use when attribution is required.
 
-Built-in and agency-created scenarios can provide scenario-specific AI targets. AlphaRelay copies those visible watch items into the mission for AI live watch and post-mission AI Review. The mission-only targets entered at setup supplement them and can be updated during the active mission without restarting. Offline target edits remain queued until cloud sync succeeds. Organization admins manage agency scenarios under **Organization Settings → Settings → Mission scenarios**.
+Built-in and agency-created scenarios can list specific items for AI to watch for. AlphaRelay adds those visible items to the mission for live alerts and post-mission AI Review. Officers can add mission-only items during setup and update them during the mission without restarting. Changes made without internet remain saved on the device until AlphaRelay can upload them. Organization admins manage agency scenarios under **Organization Settings → Settings → Mission scenarios**.
 
 Agency scenarios can also provide up to seven Quick Events. If an agency scenario has no custom Quick Events, Operator and Mission Overwatch use the standard event buttons.
 
-Operator starts an Internet mission and automatically starts **Live stream (WebRTC)** when the device has validated internet. If the device is offline, the mission still starts and stores work for later sync. On Android, remote live can be retried from **Pilot console → Mission** if internet becomes available during the mission.
+When the device has working internet, Operator starts remote live video automatically. The on-screen label is **Live stream (WebRTC)**; WebRTC is only the underlying video technology. If the device is offline, screen and HDMI capture can still save work for later upload. **Video Link** and **Controller Livestream** require internet. On Android, use **Pilot console → Mission → Start remote live** if internet returns during a locally recorded mission.
 
-When Operational Map is enabled, Operator also starts mission-scoped location sharing for the selected pilot after the device has precise location access. The active mission shows location-sharing status and lets you grant missing permission. Location is advisory personnel data from the licensed device; it is not aircraft telemetry.
+When Operational Map is enabled, Operator also starts location sharing for the selected pilot after the device has precise location access. The active mission shows whether sharing is working and lets you grant missing permission. The position is advisory, comes from the licensed device, and is not the aircraft's location.
 
-When supported Matrice aircraft or controllers are detected, Android Operator may show additional camera tools such as wide/zoom/thermal source selection, visible zoom presets, thermal zoom, laser rangefinder, linked zoom, thermal super-resolution, or laser fill light. Validate those controls with the actual aircraft, payload, controller, and firmware before operational use.
+When AlphaRelay detects a supported DJI Matrice aircraft or controller, Android Operator may show additional camera controls for wide, zoom, or thermal views; preset zoom levels; the laser rangefinder; linked zoom; enhanced thermal detail; or the laser fill light. Test every needed control with the actual aircraft, camera, controller, and installed DJI software before operational use.
 
 On integrated Android drone controllers, Operator shows a simplified centered startup and goes directly from **Start Mission** to Controller Screen setup. Mission name appears above scenario in both orientations. Approve the Android screen capture prompt, then operate the aircraft in the controller's native flight app. AlphaRelay records and streams the controller screen instead of taking over flight controls. Standard Android phones and tablets keep the video-source picker and Mission Viewer option.
 
-If a connected UVC HDMI capture card is detected, Android Operator adds **HDMI Capture Card** and can select it automatically. Grant the camera and USB prompts, then confirm the received preview says **Capturing** before flight. This path records the controller's HDMI output without screen-sharing permission.
+If Android detects a USB HDMI capture card, Operator adds **HDMI Capture Card** and may select it automatically. Grant the camera and USB prompts, then confirm the preview says **Capturing** before flight. This records the controller's HDMI picture without recording the Android screen.
 
-On iPhone and iPad, choose **Controller Screen**, **Controller Livestream**, or—on USB-C iPad—**HDMI Capture Card**. Screen capture uses **AlphaRelay Capture** in the ReplayKit broadcast picker. See the [iOS Operator guide](/alpharelay/ios-copilot).
+On iPhone and iPad, choose **Controller Screen**, **Video Link**, **Controller Livestream**, or—on USB-C iPad—**HDMI Capture Card**. For screen capture, choose **AlphaRelay Capture** in Apple's Screen Recording picker. See the [iOS Operator guide](/alpharelay/ios-copilot).
 
-On a detected DJI SDK-controller setup — for example, an RC-N-series remote connected to the Android pilot device — the mission screen presents two choices:
+When AlphaRelay detects a supported DJI controller connection—for example, an RC-N-series remote connected to the Android device—the mission screen presents two choices:
 
 - **Controller Screen Capture — Recommended** keeps the flight app in control while AlphaRelay captures the visible controller screen.
-- **Pilot mode** gives AlphaRelay the DJI SDK connection and direct aircraft controls. It stays locked until you confirm a listed aircraft and AlphaRelay verifies that aircraft's live connection.
+- **Pilot mode** gives AlphaRelay a direct connection to supported DJI aircraft controls. It stays locked until you confirm a listed aircraft and AlphaRelay verifies the live connection.
 
 For a DJI Avata with compatible DJI Goggles, first show the goggles live view in DJI Fly on the Android device. Compatible hardware can enable Goggles Mode automatically, but AlphaRelay waits for you to tap **Start Mission**. It then skips ordinary scenario selection, starts a mission with no scenario and remote live, requests screen capture, and returns to DJI Fly.
 
-For a separate controller, use **Controller Livestream** on a licensed Android, iPhone, or iPad, or click **New Livestream** in Command Center while signed in with mission-operator access. DJI workflows provide either one complete RTMP URL or separate server and stream-key values. Skydio workflows provide RTSP External Server values: server address, port, and stream name. Browser-created setup appears over the main live-feed area and closes automatically when video starts.
+For a separate controller, use **Controller Livestream** on a licensed Android device, iPhone, or iPad, or click **New Livestream** in Command Center. For DJI, copy the values into **Custom RTMP**. For Skydio, copy them into **RTSP External Server**. AlphaRelay shows the exact field names, and the setup panel closes when video starts.
 
 For laptop HDMI, click **New HDMI mission** in Mission Dashboard, add any mission-specific **AI detections**, then open **Mission sidebar → HDMI Input**. **Connect & go live** starts remote live and recoverable local evidence recording together. Use **Stop & upload** before **End Mission**. Follow [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs).
 
@@ -54,14 +54,14 @@ For laptop HDMI, click **New HDMI mission** in Mission Dashboard, add any missio
 
 - Works over validated cellular, Wi-Fi, Ethernet, or VPN internet on the pilot device
 - Starts automatically with the mission when internet is available
-- Lets Mission Overwatch users watch and log events without a LAN connection to the pilot device
+- Lets Mission Overwatch users watch and log events without being on the same Wi-Fi as the pilot device
 - Can be started or retried from **Pilot console → Mission** if automatic setup is skipped or fails
 
-The **Local Network** mission button is not presented in the current public Operator workflow. See [Mission connectivity](/alpharelay/field-vs-relay) if your Android deployment still exposes the LAN relay workflow.
+The **Local Network** mission button is not shown in the current public Operator workflow. See [Mission connectivity](/alpharelay/field-vs-relay) if your agency's Android build still includes same-Wi-Fi viewing.
 
 ## Choose Controller Screen Capture or Pilot mode
 
-Use **Controller Screen Capture — Recommended** when the native flight app should retain flight and camera operation, when the aircraft is not in the Pilot mode list, or when AlphaRelay cannot verify a live supported-aircraft connection. This path blocks AlphaRelay aircraft commands, records one continuous controller-screen MP4 for the mission, and queues it after **Stop Mission**.
+Use **Controller Screen Capture — Recommended** when the normal DJI flight app should keep flight and camera control, when the aircraft is not in the Pilot mode list, or when AlphaRelay cannot confirm the connection. AlphaRelay records one continuous controller-screen video and prepares it for upload after **Stop Mission**.
 
 To use **Pilot mode** on an eligible setup:
 
@@ -73,7 +73,7 @@ To use **Pilot mode** on an eligible setup:
 
 In Pilot mode, use the persisted **High quality (4K)** switch when the mission needs that aircraft recording profile; otherwise AlphaRelay applies the 1080p profile when supported. AlphaRelay starts or recovers aircraft SD recording after it detects takeoff, stops Live AI after landing, and can automatically close a confirmed airborne mission after touchdown while the longer aircraft-footage transfer continues. Keep the aircraft, controller, and Operator powered until the transfer is secured. Some aircraft require physical-controller takeoff even in Pilot mode; AlphaRelay detects the airborne state and continues the mission.
 
-Android Operator's DJI MSDK 5.17 catalog includes:
+The current Pilot mode list includes:
 
 - DJI Mini 3
 - DJI Mini 3 Pro
@@ -88,7 +88,7 @@ Android Operator's DJI MSDK 5.17 catalog includes:
 - DJI Matrice 4D Series (4D / 4TD)
 - DJI Matrice 400
 
-If the aircraft is not listed, the SDK is unavailable, or the live check fails, keep **Controller Screen Capture** selected and fly from the native flight app. A catalog entry is not a substitute for a successful connection check or field validation with the installed controller, aircraft, payload, and firmware.
+If the aircraft is not listed or the live connection check fails, keep **Controller Screen Capture** selected and fly from the normal DJI flight app. A model appearing in the list does not replace a successful connection check and a training test with the same controller, aircraft, camera, and firmware.
 
 ## DJI Avata with DJI Goggles
 
@@ -96,15 +96,15 @@ If the aircraft is not listed, the SDK is unavailable, or the live check fails, 
 - Uses the DJI Fly goggles live view as the live and recorded source
 - Starts the mission and remote live automatically with no scenario template
 - Uses compatible DJI Goggles and their paired controller for aircraft operation
-- Finalizes and queues captured DJI Fly footage after **Stop Mission**
+- Finishes the captured DJI Fly video and saves it for upload after **Stop Mission**
 
 ## After start
 
-- The mission appears in **Mission Dashboard** after cloud sync.
+- The mission appears in **Mission Dashboard** after AlphaRelay sends its saved information to the agency account.
 - Footage and events may upload during or after the mission depending on connectivity.
 - Use the active-mission **Alert on people** control to change routine person alerts without restarting. In Mission Overwatch, each standard detection can be enabled or disabled separately; enabled weapon-related alerts receive the highest presentation priority.
 - Use **Ask Live AI** in Android/iOS Operator or **Ask AI** in Mission Viewer to ask a typed or dictated question about one fresh current frame. Saved answers are shared with Mission Overwatch; verify each answer against the live video.
 - Tap **Stop and complete mission** or **Stop Mission** in Operator (or **End Mission** in Mission Overwatch) when field work is done.
-- If location sharing is enabled, confirm the mission's saved personnel track finalizes before sealing the evidence record.
+- If location sharing is enabled, confirm the person's saved route finishes processing before sealing the evidence record.
 
-→ [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Android Controller Screen Capture](/alpharelay/companion-capture-mode) · [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs) · [iPhone and iPad](/alpharelay/ios-copilot) · [DJI Avata with DJI Goggles](/alpharelay/avata-goggles) · [Connectivity](/alpharelay/connectivity-guide)
+→ [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Android Controller Screen Capture](/alpharelay/companion-capture-mode) · [Video Link](/alpharelay/video-link) · [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs) · [iPhone and iPad](/alpharelay/ios-copilot) · [DJI Avata with DJI Goggles](/alpharelay/avata-goggles) · [Connectivity](/alpharelay/connectivity-guide)

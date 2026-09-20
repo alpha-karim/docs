@@ -13,7 +13,7 @@ Events are timestamped notes on the mission timeline. Keep them short and specif
 - Tap **quick event** buttons or the quick event wheel (phone layouts). Agency scenarios can provide up to seven custom buttons; the standard set appears when none is configured.
 - Enter manual event notes
 - Voice relay: say `relay` followed by the event details (e.g. `relay suspect entered north door`)
-- **Device Live AI** person and possible-weapon alerts from cloud analysis or automatic on-device fallback — review these before treating them as facts
+- **Device Live AI** people and possible-weapon alerts from AlphaRelay's online service or the device's basic backup — review these before treating them as facts
 
 In **Controller Screen Capture**, voice relay can save a controller-screen screenshot with the event when screen capture is active.
 
@@ -35,9 +35,9 @@ In **Controller Screen Capture**, voice relay can save a controller-screen scree
 
 Screenshots from the live feed are captured automatically when the workflow supports them. Local AI screenshots can include yellow detection boxes.
 
-When configured AI and cloud sync are available, AlphaRelay automatically queues screenshot analysis for typed manual events and voice-relay events that have a synced screenshot. Standard Operator Quick Events do not use this automatic path; screenshot-backed Android Mission Viewer Quick Events do. The human-created event remains an official event, but any generated image analysis must still be checked with **Accept as is** or **Review & edit** before the analysis can enter the report narrative.
+When AI is available and the screenshot has uploaded, AlphaRelay can automatically analyze screenshots attached to typed or voice events. Standard Operator Quick Events do not use this automatic analysis; Android Mission Viewer Quick Events with screenshots do. The officer-created event remains official, but any AI description of its image must still be checked with **Accept as is** or **Review & edit** before it can enter the report.
 
-Mission Overwatch refreshes the focused shared timeline while the page is open. Events logged by Operator or Mission Viewer and automatic device alerts can appear without a page reload; an alert can appear before its screenshot finishes syncing.
+Mission Overwatch updates the open mission timeline while the page is open. Events entered in Operator or Mission Viewer and automatic device alerts can appear without reloading the page. An alert may appear before its screenshot finishes uploading.
 
 For a Device Live AI or AI live-watch alert, choose **Approve alert** in the timeline before configured screenshot analysis or report use can proceed. Choose **Dismiss alert** to exclude the event from the report. If approved analysis returns a finding, use **Accept as is** or **Review & edit** after checking the source image. This approval gate applies to automatic alerts; human-created manual and voice events do not need **Approve alert**.
 

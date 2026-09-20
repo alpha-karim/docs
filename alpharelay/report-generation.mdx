@@ -23,7 +23,14 @@ Configured AI can draft the after-action report from mission events, footage ref
 9. Edit the narrative or use **Edit executive summary** for the dashboard header summary.
 10. Confirm the AAR Chain of Custody contains the intended footage, photos, and official-event screenshots, then click **Submit for supervisor approval** when ready.
 
-All undeleted human-created events are eligible for AAR content. Automatic alerts require approval, and accepted AI Review findings require Timeline officer review. AlphaRelay presents reviewed findings in neutral, officer-owned language and omits AI confidence, automation labels, and internal review status from the report prose. The report event list can show the source screenshot, observations, report relevance, uncertainty, and officer-review state. AI Review does not draw model bounding boxes over the source image. Pending image analysis can still appear with a review warning, but unreviewed analysis is excluded from generated narrative. If a timeline finding changes after a draft is generated, regenerate or update the report before submission.
+The report uses these rules:
+
+- Officer-created events can be used unless they were deleted.
+- Automatic alerts must be approved first.
+- AI Review findings must receive final officer review on the Timeline.
+- Pending or unreviewed AI descriptions stay out of the generated narrative.
+
+AlphaRelay writes reviewed findings in neutral language and leaves internal AI scores and labels out of the report narrative. The event list can still show the source screenshot, visible observations, why the item may matter, uncertainty, and review status. If a Timeline finding changes after the draft was generated, update or regenerate the report before submission.
 
 ## Supervisor actions
 
@@ -36,7 +43,7 @@ Once approved:
 
 - The report cannot be regenerated or edited
 - Mission name, timeline events, footage, photos, and AI Review actions stay locked
-- **Ask AI** remains available as a read-only way to ask about the primary uploaded footage or reopen saved answers; it does not reopen any record mutation
+- **Ask AI** remains available for read-only questions about the primary uploaded footage; it does not unlock the approved record
 
 Supervisor and operator inboxes live on **Mission Dashboard** under Reports & Reviews.
 

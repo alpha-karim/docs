@@ -1,12 +1,12 @@
 ---
 title: "Use Device Live AI"
-description: "Use cloud-first live analysis with automatic on-device fallback on Android and iOS."
+description: "Understand live AI alerts, internet use, and the basic on-device backup."
 icon: "tablet-screen-button"
 ---
 
-**Device Live AI** analyzes mission video supplied by AlphaRelay Operator—including controller-screen, HDMI, supported Pilot camera, and locally viewed Controller Livestream frames—and creates review-oriented mission alerts. With working internet, the Operator device sends sampled images to AlphaRelay's licensed server-side analysis. The app does not contain an AI-provider credential. When cloud analysis or connectivity is unavailable, Operator automatically fails open to on-device people and possible-weapon detection.
+**Device Live AI** checks selected pictures from the live mission video and creates alerts for officer review. It can work with controller-screen video, HDMI, supported Pilot cameras, and Controller Livestream. With internet, AlphaRelay uses its protected online AI service. If that service or the connection is unavailable, Operator automatically uses the device for basic people and possible-weapon checks.
 
-The capture session must be running. On-device fallback and immediate alert notifications can work without internet, while timeline sync, cloud follow-up, and reporting wait for connectivity.
+Recording must be running. Basic on-device checks and immediate alerts can work without internet. The timeline, more detailed online checks, and reporting update after internet returns.
 
 ## Current alert controls and priority
 
@@ -28,31 +28,31 @@ These are assistive detections, not operational conclusions. Person detection is
 
 During Controller Screen Capture, grant Android notification permission if the pilot should receive immediate on-controller alerts. Person notifications use the yellow informational style; possible-weapon detections use the red urgent style.
 
-Mission Overwatch AI live watch, device cloud analysis, and the on-device fallback coordinate ownership for the same mission. Healthy Mission Overwatch analysis pauses device-originated cloud requests. Healthy device cloud analysis places the local fallback on standby. When the active cloud handoff stops or expires, the on-device detector resumes automatically.
+Mission Overwatch and Operator coordinate so they do not create the same automatic alert twice. When Mission Overwatch is checking the live video, Operator pauses its own checks. If Mission Overwatch stops, Operator resumes automatically. If the online service is unavailable, the device's basic checks can take over.
 
 In Pilot mode, AlphaRelay suppresses Live AI after a land command or confirmed touchdown so the closed or closing mission does not continue producing alerts. It resumes normally on a later mission.
 
 ## iPhone and iPad
 
-iOS capture runs the same cloud-first path for ReplayKit, Controller Livestream viewing, and iPad HDMI frames. Its offline fallback uses iOS Vision people detection plus the same weapon-presence verifier validated for the Android fallback. iOS does not run Android's full multi-object detector. Allow time-sensitive notifications if alerts should appear over the flight app.
+iPhone/iPad uses the same online-first process for Screen Recording, Controller Livestream, and iPad HDMI. Without internet, it can perform basic people and possible-weapon checks on the device. Its on-device backup is more limited than Android's. Allow time-sensitive notifications if alerts should appear over the flight app.
 
-For Controller Livestream, the gateway also runs the licensed server-side Live AI service directly against the normalized RTMP or RTSP feed. This keeps analysis active independently of the setup phone and coordinates an expiring handoff with browser and device analysis to reduce duplicate alerts. If gateway analysis stops, device-local analysis can resume when a viewing device is supplying frames.
+For Controller Livestream, AlphaRelay's online video service can run Live AI directly on the incoming controller video. This lets checks continue even when the setup phone leaves the viewer screen. AlphaRelay coordinates the browser and viewing devices to reduce duplicate alerts. If the online check stops, a viewing device can resume its own checks.
 
-When Live Activities are available, iPhone presents a compact alert in the Dynamic Island or Lock Screen and then returns it to monitoring. If Live Activities are unavailable, **Screen Sharing** notifications provide the fallback alert path.
+When Live Activities are available, iPhone presents a compact alert in the Dynamic Island or Lock Screen and then returns to the monitoring message. If Live Activities are unavailable, **Screen Sharing** notifications show the alert instead.
 
-Mission-specific AI targets selected before start or updated during the mission apply to device cloud analysis. Use one concrete visible item per line, up to eight. Offline edits remain queued until mission metadata sync succeeds.
+Mission-specific AI targets selected before start or updated during the mission apply to online analysis. Enter one visible item per line, up to eight. Changes made without internet wait until mission information uploads.
 
 ## What happens after a detection
 
-AlphaRelay can create a timeline event with a screenshot. On-device fallback screenshots can include detection annotations. Person, group, and possible-weapon alerts use stable categories and cooldowns so one continuously visible subject is not logged over and over; a new subject elsewhere can still create a new alert.
+AlphaRelay can create a timeline event with a screenshot. Screenshots from the on-device backup can include detection boxes. AlphaRelay limits repeated alerts for the same continuously visible subject, while allowing a new subject elsewhere to create a new alert.
 
-In Controller Screen Capture, AlphaRelay filters small person boxes inside fixed flight-app HUD rails and collapses overlapping boxes around the same person. These filters reduce repeated and HUD-driven alerts, but they do not eliminate false positives or missed detections.
+In Controller Screen Capture, AlphaRelay tries to ignore small detections inside fixed flight-app displays and combine overlapping boxes around the same person. This reduces repeated or screen-overlay alerts, but it does not eliminate false alerts or missed detections.
 
-For cloud and post-mission analysis of thermal or infrared video, AlphaRelay checks the full underlying camera scene rather than only the center, reticle, bright regions, or prior boxes. It accounts for white-hot, black-hot, ironbow, rainbow, other pseudo-color palettes, isotherm overlays, and steep overhead foreshortening. Hue, brightness, and red highlighting map apparent temperature; they are not classifications. A compact or partial thermal signature can be reported only when multiple human-consistent structural cues are visible. The analysis also checks warmed roofs or pavement, vents, rigid furniture or architecture, vegetation, reflections, shadows, isolated hot spots, and enhancement artifacts.
+For thermal or infrared video, AlphaRelay checks the full picture, not only the center or brightest area. It recognizes common white-hot, black-hot, and color palettes. Bright or red areas show apparent heat; they do not automatically mean a person or threat. Roofs, pavement, vents, furniture, vegetation, reflections, shadows, and camera effects can all resemble a person, so every thermal alert requires careful human review.
 
-When the full-frame pass does not already find a qualifying possible weapon, AlphaRelay can spend one additional high-detail pass around a weak weapon candidate or detected person before falling back to a frame region. This improves review coverage for smaller objects without making the detector conclusive.
+If the first check does not confirm a possible-weapon concern, AlphaRelay may inspect one smaller area around a person or unclear object in more detail. This may help with small objects, but it does not make the result conclusive.
 
-AlphaRelay captures evidence before posting the device alert. A banner can dismiss while the mission Timeline event remains available for review. Analysis sampling and user-visible alert frequency are separate: cloud live analysis can sample as often as every two seconds, while a qualifying continuing detection can be logged again after about 10 seconds. Network latency, confidence thresholds, and stable-target deduplication can make alerts less frequent.
+AlphaRelay saves the evidence image before showing the device alert. The banner can disappear while the Timeline event remains available for review. The service may check a picture as often as every two seconds, but it normally waits longer before logging the same continuing concern again. Internet speed, image clarity, and repeated-subject filtering can make alerts less frequent.
 
 ## Review an alert in Mission Overwatch
 
@@ -66,10 +66,10 @@ This is a two-stage review: approving the alert allows analysis and report consi
 ## Limits
 
 - Device Live AI runs only while capture supplies images.
-- Healthy Mission Overwatch or device cloud analysis temporarily owns detection for the same mission; the on-device detector remains the fallback and resumes automatically.
-- Internet is required for cloud analysis, sync, and reporting, but not for on-device fallback inference.
+- Mission Overwatch or Operator performs the main live checks for a mission; the device's basic backup resumes automatically when needed.
+- Internet is required for online AI, uploading mission information, and reporting, but not for basic on-device checks.
 - Small, blurred, distant, dark, partially hidden, or unusual objects may be missed. Tools, toys, sporting equipment, and silhouettes may be false positives.
-- The bundled fallback has not been validated across broad real-world controller-screen and field conditions. Do not treat held-out model tests as field performance.
+- The built-in backup has not been proven across every real controller screen and field condition. Training tests are not a guarantee of field performance.
 - Device Live AI does not determine identity, intent, policy compliance, criminal activity, injury, or whether an area is clear.
 
 → [Log events](/alpharelay/event-logging) · [Review footage](/alpharelay/footage-playback) · [Known limitations](/alpharelay/known-limitations)

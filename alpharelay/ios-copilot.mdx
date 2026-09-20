@@ -1,18 +1,18 @@
 ---
 title: "Use AlphaRelay Operator on iPhone or iPad"
-description: "Capture an iOS screen, controller livestream, or iPad HDMI source and support another active mission."
+description: "Capture an iOS screen, relay a video link, use controller livestream or iPad HDMI, and support another mission."
 icon: "tablet-screen-button"
 ---
 
-**AlphaRelay Operator** on iPhone and iPad can capture the controller screen with ReplayKit, set up a DJI RTMP or Skydio RTSP Controller Livestream, or—on USB-C iPad—receive HDMI video through a UVC capture card. Your flight app or controller keeps aircraft control.
+**AlphaRelay Operator** on iPhone and iPad can record the visible flight-app screen with Apple's Screen Recording feature, open an authorized Video Link, receive a DJI or Skydio controller livestream, or—on USB-C iPad—receive HDMI through a standard USB capture card. Your flight app or controller keeps aircraft control.
 
 ## Requirements
 
 - iPhone or iPad running iOS 26
 - AlphaRelay Operator installed through TestFlight
 - An Operator device license or one-installation pairing code
-- Screen Recording permission; microphone and speech-recognition permission when voice events are needed
-- Internet for remote live, immediate sync, cloud Live AI, Mission Viewer, live map updates, and upload; saved events, footage, and eligible location points can retry later
+- Screen Recording permission; microphone and speech-recognition permission only when voice events are needed
+- Internet for remote viewing, immediate upload to the agency account, online Live AI, Mission Viewer, live map updates, and footage upload. Saved events, footage, and valid location points can be sent later if internet is lost.
 - Precise foreground/background location permission when the organization uses mission personnel mapping
 
 ## Install the app
@@ -32,55 +32,63 @@ Select who is using the device before starting or viewing a mission. That select
 
 ## Choose the video source
 
-From **What do you want to do?**, tap **Start a Mission**, then choose **Controller Screen**, **Controller Livestream**, or, on supported iPads, **HDMI Capture Card**. The HDMI option is marked **IPAD ONLY** because iPhone does not expose UVC video capture to this workflow. Use **Watch Live Mission** from the landing screen to join a mission that is already active.
+From **What do you want to do?**, tap **Start a Mission**, then choose **Controller Screen**, **Video Link**, **Controller Livestream**, or, on supported iPads, **HDMI Capture Card**. The HDMI option is marked **IPAD ONLY** because iPhone cannot receive this USB video. Use **Watch Live Mission** from the landing screen to join a mission that is already active.
+
+## Start a Video Link mission
+
+1. Choose **Video Link**, then scan the source's public video QR code or paste its complete HTTP/HTTPS URL.
+2. Complete mission setup and tap **Start Video Link Mission**.
+3. Wait for **Backend relay prepared**, then open Mission Viewer or Mission Overwatch and confirm video arrives.
+
+Video Link requires internet. It does not record the iPhone/iPad screen or open the webpage on the device. AlphaRelay's online video service handles the live picture, recording, Live AI, screenshots, and evidence history. See [Use a Video Link](/alpharelay/video-link) for supported boundaries.
 
 ## Start Controller Screen capture
 
 1. Open **AlphaRelay Operator** and choose a built-in or agency scenario, or **No scenario**.
 2. Confirm the operator, enter the mission name, optionally add up to eight **Mission-specific AI targets**, and choose whether **Alert on people** should include routine person alerts. Other enabled detections and mission-specific targets remain active when it is off.
 3. Tap **Start Mission**.
-4. In the iOS broadcast picker, choose **AlphaRelay Capture**. Enable the microphone when the recording needs microphone audio, then start the broadcast.
+4. In Apple's Screen Recording picker, choose **AlphaRelay Capture**. Turn on the microphone only when the recording needs microphone audio, then start recording.
 5. Open the flight app. Keep the iOS screen-recording indicator active while AlphaRelay captures in the background.
 
-Operator publishes the captured display through **Live stream (WebRTC)** when internet is available. The active-mission screen shows capture, live-stream, Device Live AI, Overwatch AI, alert, queued-event, queued-footage, and mission-time status. If capture stops, return to Operator and tap **Choose display and start capture**.
+When internet is available, Operator sends the captured screen to Mission Overwatch and Mission Viewer. The app calls this **Live stream (WebRTC)**; you do not need to configure WebRTC. The active-mission screen shows capture, live video, AI, alerts, saved items waiting to upload, and mission time. If capture stops, return to Operator and tap **Choose display and start capture**.
 
 ## Start Controller Livestream
 
 1. Choose **Controller Livestream**, complete mission setup, and tap **Set Up Controller Livestream**.
-2. For DJI, enter **RTMP URL — one-field screens**, or enter **Server URL — two-field screens** and **Stream key — two-field screens** separately. For Skydio, use RTSP External Server and enter **Server address**, **Port**, and **Stream name**.
-3. Start the controller publisher, then tap **View live mission** and confirm video arrives.
+2. For DJI, open **Custom RTMP** and copy either the single **RTMP URL** or the separate **Server URL** and **Stream key** shown by AlphaRelay. For Skydio, open **RTSP External Server** and copy **Server address**, **Port**, and **Stream name**.
+3. Start livestreaming on the controller, then tap **View live mission** and confirm video arrives.
 
-Internet is required on both devices. Stop the publisher before closing the mission so its recording can finalize.
+Internet is required on both devices. Stop livestreaming on the controller before closing the mission so AlphaRelay can finish the recording.
 
 ## Start HDMI Capture on iPad
 
-1. Connect the controller HDMI output through a UVC card to the USB-C iPad.
+1. Connect the controller's HDMI output to the USB-C iPad through a standard USB HDMI capture card.
 2. Choose **HDMI Capture Card**, complete setup, and tap **Start HDMI Capture Mission**.
 3. Grant camera permission and verify the full video frame before flight.
-4. After a disconnect, reconnect the card and tap **Connect or retry HDMI input**. Operator finalizes the prior segment and begins another.
+4. After a disconnect, reconnect the card and tap **Connect or retry HDMI input**. Operator saves the earlier section and begins another.
 
-This path is video-only. Voice events use the iPad microphone; capture-card USB/UAC audio is not added to the recording.
+This path is video-only. Voice events use the iPad microphone. AlphaRelay does not record audio carried through the HDMI capture card.
 
 ## Log and update the mission
 
 - Use scenario quick events or **Log event with current frame**. Operator attaches a fresh controller-screen image when capture can provide one.
 - Leave **Voice events** enabled to say `Relay` followed by the note. Operator saves the note with the latest captured frame.
-- Use **Update AI targets** to change mission-only visible targets without restarting the mission. Offline edits remain queued for cloud sync.
+- Use **Update AI targets** to change mission-only watch items without restarting the mission. Changes made without internet stay saved on the device until AlphaRelay can upload them.
 - Use **Ask Live AI** to type or dictate a question about one fresh current capture frame. Review the transcript before submitting, then verify the saved answer against the live video. Saved answers are shared with Mission Viewer and Mission Overwatch.
-- **Live Alerts** shows whether the active mission can use the Dynamic Island or needs the notification fallback. When a Live Activity is available, alerts use a concise one-line Lock Screen or Dynamic Island presentation designed for the landscape flight-app view, then return to a current **ALPHARELAY MONITORING** state. Urgent weapon-like alerts use red treatment; informational people alerts use yellow treatment.
-- For Controller Screen capture when the Dynamic Island is unavailable, Operator uses the **Screen Sharing** notification fallback. Allow time-sensitive notifications so alerts can appear over the flight app. HDMI alerts can be presented by the host Operator app.
+- **Live Alerts** shows whether the mission can use the iPhone's Dynamic Island or must use regular notifications. When Live Activities are available, alerts appear as a short line on the Lock Screen or Dynamic Island, including while the flight app is sideways, then return to **ALPHARELAY MONITORING**. Urgent possible-weapon alerts are red; informational people alerts are yellow.
+- During Controller Screen capture, Operator uses **Screen Sharing** notifications when the Dynamic Island is unavailable. Allow time-sensitive notifications so alerts can appear over the flight app. For HDMI capture, the Operator app can show the alerts itself.
 - Alert presentations are review prompts, not confirmed findings. The mission timeline remains the durable review surface after the brief on-screen alert clears.
 
-With working internet, Device Live AI uses licensed server-side analysis without storing an OpenAI key in the app. If cloud analysis is unavailable, Operator automatically falls back to on-device people detection and possible-weapon verification. Every alert still requires human review.
+With working internet, AlphaRelay analyzes selected live pictures through its online service. If that service or the connection is unavailable, Operator automatically uses the device for basic people and possible-weapon checks. Every alert still requires human review.
 
 ## Complete the mission
 
 1. Return to AlphaRelay Operator.
 2. Tap **Sync now** when pending items remain and connectivity is available.
 3. Tap **Stop and complete mission**.
-4. Keep Operator open while the selected capture source finalizes and saved events and footage are handed off.
+4. Keep Operator open while it finishes the selected recording and sends saved events and footage.
 
-Operator hashes completed local recordings and uses the normal custody-aware upload flow. If ReplayKit finishes a playable file but its handoff is interrupted, Operator can recover the recording when it next processes the queue.
+Operator records a digital fingerprint for each completed local video and uploads it through the normal evidence process. If Apple's Screen Recording finishes the video but the handoff is interrupted, Operator can recover it the next time it processes saved items.
 
 ## Watch another active mission
 
@@ -95,11 +103,11 @@ Tap **Share Location**, choose a live mission, and confirm the selected person. 
 ## iOS boundaries
 
 - Operator captures the selected iOS display or app; it does not control the aircraft.
-- USB-C iPad supports UVC HDMI capture; iPhone does not. Use RTMP or RTSP Controller Livestream when an iPhone must support a separate controller.
-- iOS does not use Android's DJI Goggles USB/LogicLink auto-detection or the deployment-specific Android local-network relay.
-- iOS uses its own on-device fallback rather than Android's full multi-object detector.
-- Dynamic Island, Live Activity, notification-fallback timing, and landscape placement vary by iPhone model and iOS settings; verify them on the physical flight device before operational use.
-- ReplayKit capture must be verified on a physical device; Simulator behavior does not prove field capture.
-- Personnel-map positions are advisory and reflect the person selected on the licensed device. They are not independently identity-verified and are not aircraft telemetry.
+- USB-C iPad supports a USB HDMI capture card; iPhone does not. On iPhone, use Video Link or the controller's built-in livestream setting.
+- iPhone/iPad does not use Android's automatic wired DJI Goggles detection or Android-only same-Wi-Fi relay.
+- Without internet, iPhone and iPad continue simpler on-device checks than Android.
+- Dynamic Island, Live Activities, the timing of regular notifications, and alert placement in the sideways flight-app view vary by iPhone model and iOS settings. Test them on the actual flight device before operational use.
+- Apple's Screen Recording must be tested on the physical iPhone or iPad; a computer simulation does not prove field capture.
+- Personnel-map positions are advisory and reflect the person selected on the licensed device. They do not independently verify who carries the device and do not show the aircraft's location.
 
 → [Controller Screen Capture on Android](/alpharelay/companion-capture-mode) · [View a live mission](/alpharelay/view-live-mission-android) · [Share personnel location](/alpharelay/operational-map) · [Device Live AI](/alpharelay/local-ai) · [Upload footage](/alpharelay/footage-upload)

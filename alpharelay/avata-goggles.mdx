@@ -16,8 +16,8 @@ Use **Goggles Mode** to run an AlphaRelay mission with a DJI Avata, compatible D
 - An Android phone or tablet with both **DJI Fly** and **AlphaRelay Operator** installed
 - An active AlphaRelay device license
 - Android screen capture permission
-- Internet on the Android device for mission sync, remote live, and footage upload
-- For the automatic wired workflow: a compatible USB data/OTG cable for the goggles and Android device
+- Internet on the Android device to send mission information to the agency account, provide remote viewing, and upload footage
+- For the automatic wired workflow: a compatible USB cable that carries data, not a charge-only cable
 
 Run a complete test mission with the same phone, cables, and network before operational use.
 
@@ -37,7 +37,7 @@ Live-view sharing options vary by goggles model. Confirm that DJI supports your 
 ### Wired — recommended for automatic detection
 
 1. Power on the DJI Avata, DJI Goggles, and paired controller. Confirm the aircraft and controls are linked.
-2. Connect the goggles to the Android device using the compatible USB data/OTG cable for your hardware.
+2. Connect the goggles to the Android device using the compatible USB data cable for your hardware.
 3. Open **DJI Fly** on the Android device.
 4. Tap **GO FLY** and confirm that the goggles live view appears on the Android screen.
 
@@ -50,7 +50,7 @@ AlphaRelay can identify compatible DJI Goggles over the wired USB connection and
 3. Open DJI Fly, select the goggles from the connection prompt, and tap **Watch Liveview**.
 4. The first time you connect, follow the DJI Fly prompt to confirm the goggles connection.
 
-Wireless sharing uses the Android device's Wi-Fi connection. Keep cellular data available for AlphaRelay remote live, mission sync, and upload.
+Wireless sharing uses the Android device's Wi-Fi connection. Keep cellular data available for AlphaRelay remote viewing and for sending mission information and footage to the agency account.
 
 If Goggles Mode does not turn on automatically during a wireless connection, enable **Use DJI Fly / goggles video feed** in Operator before starting. The setting remains enabled for the next DJI Avata mission; turn it off when returning to the normal phone or tablet workflow.
 
@@ -67,7 +67,7 @@ With the DJI Fly live view working:
 
 After you tap **Start Mission** with compatible DJI Goggles detected, AlphaRelay skips ordinary mission and scenario setup. It then:
 
-- Starts a cloud-backed mission with no scenario template
+- Starts an online mission with no scenario template
 - Starts remote **Live stream (WebRTC)**
 - Captures the DJI Fly screen
 - Opens DJI Fly after screen capture is ready
@@ -93,17 +93,17 @@ After landing:
 3. Find the **Controller Screen Capture** notification.
 4. Tap **Stop Mission**.
 5. Let AlphaRelay reopen and complete mission closeout.
-6. Keep the Android device powered on while queued footage remains. Upload resumes automatically when validated internet returns.
+6. Keep the Android device powered on while footage is waiting to upload. Upload resumes automatically when working internet returns.
 
 The notification uses the shared capture-service name **Controller Screen Capture**, even during a DJI Avata Goggles Mode mission.
 
-When you stop the mission, AlphaRelay finalizes an MP4 from the live frames it captured from DJI Fly and queues that footage for upload. It does not pull video from the DJI Avata's internal storage or microSD card.
+When you stop the mission, AlphaRelay creates an MP4 video from the DJI Fly view it captured and saves that footage for upload. It does not copy video from the DJI Avata's internal storage or microSD card.
 
 ## Limits
 
 - This workflow records the DJI Fly screen, including overlays, not the original aircraft camera file.
-- Goggles Mode uses the cloud-backed mission workflow; the current Operator workflow does not present a Local Network mission option.
-- Remote live, cloud sync, and upload require a usable internet connection on the Android device.
+- Goggles Mode creates an online mission; Operator does not offer **Local Network** mission mode in this workflow.
+- Remote viewing and sending mission information or footage to the agency account require usable internet on the Android device.
 - Android screen capture permission is required each time capture starts.
 - If DJI Fly is not installed, AlphaRelay cannot open it automatically.
 - If you need the original aircraft recording, copy it from the DJI Avata after the flight. In the closed mission, open **Media → Mission footage**, choose **Aircraft original**, and use **Add optional recording**. MP4 and MOV are supported.

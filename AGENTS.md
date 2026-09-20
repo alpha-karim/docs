@@ -20,6 +20,7 @@
 - **Local Network** — deployment-specific Android LAN relay path retained in the product but not presented as a mission-start button in the current public Operator workflow.
 - **Controller Screen Capture** — recommended capture path on Android drone controllers where the controller's native flight app keeps flight control and AlphaRelay captures the controller screen
 - **Controller Livestream** — Browser or Android/iOS Operator workflow that provides DJI RTMP values or Skydio RTSP External Server values for a controller or flight app to publish directly; it requires internet and does not control the flight controller
+- **Video Link** — Android/iOS Operator workflow that scans or accepts a public HTTP/HTTPS video or video-page URL; an isolated AlphaRelay backend opens and relays it into Mission Viewer, recording, Live AI, screenshots, custody, and review without device screen capture
 - **HDMI Capture Card** — UVC workflow available through Android Operator, USB-C iPad, or a laptop browser; recording stays associated with the mission while flight remains on the controller
 - **Pilot mode** — direct AlphaRelay aircraft-control path offered on detected DJI SDK-controller setups only after the operator confirms a listed DJI MSDK 5.17 aircraft and AlphaRelay verifies its live connection
 - **Goggles Mode** — DJI Avata and compatible DJI Goggles workflow on a separate Android phone or tablet; compatible USB hardware can enable the mode automatically, but the operator still taps **Start Mission** before AlphaRelay starts an Internet mission with no scenario and opens DJI Fly after screen-capture approval
@@ -64,6 +65,9 @@
 ## Style
 
 - Active voice, second person, sentence-case headings
+- Write for law-enforcement officers, not software engineers. Lead with the device, button, or outcome they recognize; define an unavoidable technical term in plain English on first use.
+- Prefer **send saved mission information**, **remote live video**, **AlphaRelay video service**, and **standard USB HDMI capture card** over unexplained terms such as sync, WebRTC, gateway/backend, or UVC.
+- Keep exact on-screen labels even when they contain technical terms, then explain what the label means and tell the reader they do not need to understand the underlying technology.
 - Bold UI labels; code formatting for paths, commands, and IP examples
 - Keep pages short — link to Troubleshooting or Connectivity instead of repeating fixes
 - Document operator-facing workflows only; do not invent unpublished behavior

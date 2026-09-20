@@ -13,16 +13,16 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
     Install AlphaRelay Operator on the field devices, activate each device license, and sign in to the web app.
   </Step>
   <Step title="Start a mission">
-    In Operator, tap **Start Mission**, choose how AlphaRelay will receive video, then complete the mission details. Use controller-screen capture, DJI RTMP or Skydio RTSP Controller Livestream, Android/iPad HDMI, or eligible Pilot mode. Command staff can also use **New Livestream** or **New HDMI mission** in the Dashboard to start those controller-video workflows in Mission Overwatch. A compatible DJI Goggles connection can enable Goggles Mode automatically, but the operator still starts the mission from the Operator landing screen.
+    In Operator, tap **Start Mission**, choose where the video will come from, then enter the mission details. AlphaRelay can capture the controller screen, open a video QR code or web link, receive a DJI or Skydio controller livestream, receive controller HDMI through a capture card, or use Pilot mode on supported DJI equipment. Command staff can also start **New Livestream** or **New HDMI mission** from the Dashboard.
   </Step>
   <Step title="Watch and log events">
-    Use Mission Overwatch's full-screen command view for remote live and focused AI live watch. Its right-rail **Mission sidebar** switches among **Timeline**, **Events**, **Ask AI**, an optional mission **Map**, and a mission-scoped **Livestream** or **HDMI Input** tab. Live Ask AI in Mission Overwatch and Android/iOS Operator answers a typed or dictated question from one fresh frame and shares saved-answer history across those views; verify each answer against the live feed. A second licensed device can use Mission Viewer for compact live viewing, event logging, Ask AI, and mission-scoped location sharing. Authorized team members can also create a revocable read-only public live QR. Controller Livestream can run gateway-side Live AI independently of the setup device. Device Live AI uses cloud analysis when available and automatically falls back to on-device detection when it is not.
+    Use Mission Overwatch to watch live video, follow the timeline, add events, ask about the current picture, and open the mission map. A second licensed phone or tablet can use Mission Viewer for the same basic live support. Authorized team members can create a read-only public QR code for viewers who do not sign in. AI can flag possible concerns, but every alert and answer must be checked by a person.
   </Step>
   <Step title="Review the mission">
-    Upload or sync footage, then follow Mission Overwatch through **Timeline**, **Media**, **AI Review**, and **Report**. Timeline filters separate **Needs Review**, **Dismissed**, and **All Events**; unresolved AI candidates move to Dismissed when Timeline review completes and remain outside the official record. Choose what AI should look for and use **Event-focused** or **Full mission — detailed** coverage. AI Review uploads and reviews original video, verifies candidate findings with evidence screenshots, and shows the latest run plus earlier analysis history. You can leave while it runs and return after the completion email. **Ask AI** uses the selected primary uploaded footage and remains available read-only after approval.
+    Let saved events and footage finish uploading, then work through **Timeline**, **Media**, **AI Review**, and **Report**. Review or dismiss AI suggestions before they can enter the official record. You can choose a faster review around known events or a longer review of the full mission. AlphaRelay emails you when the review finishes.
   </Step>
-  <Step title="Finalize the record">
-    Generate the report, seal the evidence listed in the AAR Chain of Custody, submit for supervisor review, and export when ready. Submission locks review work; approval makes record mutations permanently read-only while Ask AI remains available for read-only questions.
+  <Step title="Complete the record">
+    Generate the report, seal the evidence listed in the AAR Chain of Custody, submit for supervisor review, and export when ready. Submission prevents further review changes. Approval makes the record permanently view-only, while Ask AI remains available for view-only questions.
   </Step>
 </Steps>
 
@@ -39,7 +39,7 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
     Use AlphaRelay Operator beside an Android controller's flight app.
   </Card>
   <Card title="iPhone and iPad" icon="tablet-screen-button" href="/alpharelay/ios-copilot">
-    Capture an iOS flight app with ReplayKit, receive Controller Livestream, or use a UVC card on USB-C iPad.
+    Record an iPhone/iPad flight-app screen, open a Video Link, receive Controller Livestream, or use a USB HDMI capture card on iPad.
   </Card>
   <Card title="DJI Avata and DJI Goggles" icon="tablet-screen-button" href="/alpharelay/avata-goggles">
     Relay the goggles live view through DJI Fly.
@@ -53,8 +53,11 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
   <Card title="Controller video inputs" icon="video" href="/alpharelay/controller-video-inputs">
     Use Controller Livestream or a USB HDMI capture card while the native controller keeps aircraft control.
   </Card>
+  <Card title="Video Link" icon="qrcode" href="/alpharelay/video-link">
+    Scan or paste an authorized video link and bring it into the mission.
+  </Card>
   <Card title="Device Live AI" icon="tablet-screen-button" href="/alpharelay/local-ai">
-    Understand cloud-first live analysis and automatic on-device fallback.
+    Understand live AI alerts, internet use, and the basic on-device backup.
   </Card>
   <Card title="Reviewers" icon="play" href="/alpharelay/footage-playback">
     Import or review footage and generate a report.
@@ -77,5 +80,5 @@ AlphaRelay turns a field mission into a reviewable record: events, footage, afte
 ## Links
 
 - **Web app:** [alpha-relay.com](https://www.alpha-relay.com)
-- **AlphaRelay Operator for Android (APK):** [alpha-relay.com/download.html](https://www.alpha-relay.com/download.html)
+- **AlphaRelay Operator for Android:** [Download the Android app installer](https://www.alpha-relay.com/download.html)
 - **Ask the docs (NotebookLM):** [Chat with the documentation](https://notebooklm.google.com/notebook/d83a28f5-b26c-4908-8d5f-2c7fdfda2603)

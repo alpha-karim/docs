@@ -1,20 +1,24 @@
 ---
-title: "Controller Livestream and HDMI Capture"
-description: "Bring controller video into AlphaRelay through RTMP, RTSP, or a UVC HDMI capture card."
+title: "Connect Controller Video"
+description: "Bring DJI, Skydio, or HDMI controller video into AlphaRelay."
 icon: "video"
 ---
 
-Use these workflows when the flight controller should keep aircraft control but cannot run AlphaRelay Operator, or when you want a direct controller-video input instead of screen capture.
+Use these options when the flight controller should keep flying the aircraft but cannot run AlphaRelay Operator, or when you want the controller's video without recording its screen.
 
-- **Controller Livestream:** A DJI controller publishes to AlphaRelay with RTMP, or a Skydio controller uses RTSP External Server. Set up the mission from AlphaRelay Operator or use **New Livestream** in the browser Command Center. Internet is required during capture.
-- **Laptop HDMI Capture:** Connect the controller through a USB Video Class (UVC) capture card to a laptop and start the mission from the web app. No phone or tablet app is required. Local evidence recording can continue through a temporary internet interruption.
-- **Operator HDMI Capture:** Connect a UVC card to a compatible Android device or USB-C iPad. The Operator app records the received video and can continue locally without internet. iPhone does not expose UVC capture to this workflow.
+- **Controller Livestream:** Use the controller's built-in livestream setting. DJI calls it **Custom RTMP**. Skydio calls it **RTSP External Server**. AlphaRelay shows the exact values to enter. Internet is required.
+- **Laptop HDMI Capture:** Connect the controller's HDMI port to a laptop through a standard USB HDMI capture card. Start the mission from the web app; no phone or tablet app is required. Recording can continue during a short internet interruption.
+- **Operator HDMI Capture:** Connect the same type of capture card to a compatible Android device or USB-C iPad. Operator records the video and can continue recording without internet. iPhone does not support this USB video input.
 
 In every workflow, fly from the controller's native flight application. AlphaRelay does not take aircraft control.
 
 ## Controller Livestream
 
-Controller Livestream creates a mission-scoped publishing destination from a licensed Operator device or an authorized signed-in mission operator in Command Center. AlphaRelay shows both DJI RTMP details and, when the deployed gateway supports it, Skydio RTSP External Server details. RTMP supports either one complete URL field or separate server and stream-key fields.
+Controller Livestream creates a private destination for one active mission. AlphaRelay shows fields for DJI **Custom RTMP** and, when available, Skydio **RTSP External Server**. Some DJI screens use one **RTMP URL** field; others use separate **Server URL** and **Stream key** fields.
+
+<Note>
+  RTMP and RTSP are simply the names DJI and Skydio use for their livestream settings. You only need to copy the values AlphaRelay displays into the matching controller fields.
+</Note>
 
 ### Requirements
 
@@ -33,27 +37,27 @@ Controller Livestream creates a mission-scoped publishing destination from a lic
 6. Start streaming from the controller.
 7. Tap **View Live Mission** on Android or **View live mission** on iPhone or iPad and wait for video. Mission Overwatch can open the same active mission.
 
-If the controller disconnects, restart its publisher with the same mission destination while the mission remains active. Reopen **Show Livestream Setup** when you need to see the values again. AlphaRelay uses a six-digit RTMP stream key and a separate six-digit RTSP stream name.
+If video disconnects, restart livestreaming on the controller with the same values while the mission is still active. Reopen **Show Livestream Setup** to see them again. DJI and Skydio each use their own six-digit mission code; copy the code shown for that brand.
 
 ### Start from Command Center
 
 1. In the active-missions panel, click **New Livestream**. This action appears only while you are online and designated as a mission operator.
 2. Enter the mission name, choose a scenario, and optionally add one visible **AI detection** per line.
 3. Click **Create mission & set up livestream**.
-4. In the main live-feed area, copy the DJI RTMP or Skydio RTSP External Server values into the separate controller and start its publisher.
+4. In the main live-video area, copy the displayed values into DJI **Custom RTMP** or Skydio **RTSP External Server**, then start livestreaming on the controller.
 5. Wait for the live feed. The setup panel closes when playback begins; open **Mission sidebar → Livestream** to show it again, or click **Refresh setup** for fresh details.
 
 Opening AI detection settings closes the livestream setup panel so the two feed overlays do not cover each other.
 
 <Warning>
-  Treat the RTMP and RTSP addresses, keys, and stream names as publishing credentials. Enter them only on the intended controller and do not place them in reports, screenshots, or public messages.
+  Treat the displayed livestream address and six-digit code like a password. Enter them only on the intended controller. Do not place them in reports, screenshots, or public messages.
 </Warning>
 
-The Controller Livestream gateway runs server-side Live AI while the mission is active, so analysis does not depend on the phone that created the mission remaining on the viewer. An Operator device viewing the stream can still show alerts, ask AI about a fresh received frame, and create screenshot-backed quick, manual, or `Relay` voice events from the received full video frame. AlphaRelay coordinates gateway, browser, and device analysis to reduce duplicate alerts.
+AlphaRelay can continue Live AI on the incoming controller video even if the phone that created the mission leaves the viewer screen. A viewing phone or tablet can still show alerts, ask about the current picture, and save events with a screenshot. AlphaRelay reduces duplicate alerts when more than one device is watching.
 
 Use the active Operator or Mission Viewer settings to change **Controller audio** and **Voice event logging** for the mission. Controller audio affects the live stream and new recording segments. Voice event logging listens for `Relay` followed by the event and transcribes only the triggered utterance. A viewing Android device can use its own microphone for this even when the incoming controller stream has no audio track.
 
-When field work is complete, stop the controller's livestream first. Then close the mission in Mission Overwatch or Operator. AlphaRelay finalizes the received Controller Livestream recording into the mission record.
+When field work is complete, stop the controller's livestream first. Then close the mission in Mission Overwatch or Operator. AlphaRelay finishes the received recording and adds it to the mission record.
 
 ## Laptop HDMI Capture
 
@@ -71,14 +75,14 @@ Controller HDMI out -> capture card HDMI in -> capture card USB -> laptop
 6. Confirm the same full frame appears in the preview and supplies Live AI and event screenshots.
 7. Keep the Mission Overwatch tab open. Before ending the mission, click **Stop & upload** and wait for the recording to be secured.
 
-Laptop HDMI is video-only. AlphaRelay records MP4 when the browser supports it and WebM otherwise. If the tab or browser is interrupted, reopen the same mission and use **Recover interrupted recording**; do not clear browser data before recovery. A laptop HDMI output is not an input—a physical UVC capture card is required.
+Laptop HDMI is video-only. AlphaRelay saves the recording in a standard browser-supported video format. If the tab or browser closes unexpectedly, reopen the same mission and use **Recover interrupted recording**. Do not clear browser data first. A laptop's own HDMI port normally sends video out; it does not receive controller video. You need a physical USB HDMI capture card.
 
 ## Operator HDMI Capture
 
 Use one of these paths:
 
-- Controller HDMI out → UVC card → Android device with USB host/OTG
-- Controller HDMI out → UVC card → USB-C iPad
+- Controller HDMI out → USB HDMI capture card → compatible Android device
+- Controller HDMI out → USB HDMI capture card → USB-C iPad
 
 A powered USB hub may be necessary when the card draws more power than the device can provide.
 
@@ -86,21 +90,21 @@ A powered USB hub may be necessary when the card draws more power than the devic
 
 1. Connect the powered controller, card, and Android device before mission setup.
 2. Open Operator, select the operator and scenario, and review the mission settings.
-3. Select **HDMI Capture Card**. Operator may select it automatically when it detects a UVC input.
+3. Select **HDMI Capture Card**. Operator may select it automatically when it detects the USB video card.
 4. Tap **Start Mission** and grant the Android camera and USB-device prompts.
 5. Confirm the preview changes from **Waiting for signal** to **Capturing** before flight.
 
 ### USB-C iPad
 
-1. Connect the powered controller and UVC card to the iPad.
+1. Connect the powered controller and USB HDMI capture card to the iPad.
 2. In mission setup, choose **HDMI Capture Card** and tap **Start HDMI Capture Mission**.
 3. Grant camera permission and confirm the full-frame preview before flight.
-4. If the card disconnects, reconnect it and tap **Connect or retry HDMI input**. The prior segment finalizes and a new segment begins.
+4. If the card disconnects, reconnect it and tap **Connect or retry HDMI input**. AlphaRelay saves the earlier section and begins a new one.
 
-Operator HDMI follows the normal local recording, remote-live, Device Live AI, event-screenshot, upload, review, and custody workflow. It is video-only; optional voice events use the Android device or iPad microphone, not capture-card USB/UAC audio.
+Operator HDMI follows the normal recording, remote viewing, Device Live AI, event screenshot, upload, review, and evidence workflow. It is video-only. Voice events use the Android device or iPad microphone; AlphaRelay does not record audio carried through the capture card.
 
 ## Before operational use
 
-Test the exact controller, capture card, cable or hub, receiving device, browser when applicable, resolution, orientation, sustained recording, and disconnect/reconnect behavior in training. Confirm a stable 16:9 preview and playable closeout footage. For Controller Livestream, confirm the correct DJI RTMP or Skydio RTSP entry and verify that the publisher can reconnect.
+Test the exact controller, capture card, cable or hub, receiving device, and browser during training. Confirm a stable full-width picture, a usable recording, and recovery after unplugging and reconnecting once. For Controller Livestream, confirm that the DJI or Skydio controller can reconnect with the same displayed values.
 
 → [Start a mission](/alpharelay/start-a-mission) · [Use Operator on iPhone or iPad](/alpharelay/ios-copilot) · [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Upload footage](/alpharelay/footage-upload) · [Troubleshooting](/alpharelay/troubleshooting)

@@ -4,7 +4,7 @@ description: "Share a licensed device's location with a live mission and review 
 icon: "route"
 ---
 
-When Operational Map is enabled for your organization, AlphaRelay can show the mission pilot, remote viewers, and other selected personnel on a mission-scoped map. These positions come from licensed Android or iOS devices. They do not identify a person by biometrics and do not represent aircraft telemetry.
+When Operational Map is enabled for your organization, AlphaRelay can show the mission pilot, remote viewers, and other selected personnel on the mission map. These positions come from licensed Android or iOS devices. They do not identify a person by face, fingerprint, or other physical trait, and they do not show the aircraft's location.
 
 <Warning>
   Treat every map position as advisory. The displayed identity is the person selected on the licensed device, not an independently verified identity. Confirm identity and location through normal operational channels.
@@ -35,8 +35,8 @@ The mission pilot uses a distinct marker. Other devices can appear as selected p
 
 ## After the mission
 
-Mission-scoped breadcrumb points are retained with the mission. When sharing stops, AlphaRelay finalizes each non-empty track as deterministic GeoJSON, records its SHA-256 hash and custody creation, and shows the saved trail beneath the closed-mission Timeline. The post-mission map stays hidden when no valid location points were recorded.
+AlphaRelay saves the location trail with the mission. When sharing stops, it creates a standard map file and records a digital fingerprint so later changes can be detected. The saved trail appears beneath the closed-mission Timeline. If no valid locations were recorded, AlphaRelay does not show an empty post-mission map.
 
-An active track or a failed/pending track export blocks **Seal entire mission**. Wait for finalization or use the available retry action before sealing. A session that ended without a usable fix is reported as having no location fixes; it does not create an invented route.
+An active route, or a route that has not finished saving, blocks **Seal entire mission**. Wait for it to finish or use the available retry action before sealing. If the device recorded no usable locations, AlphaRelay reports that fact and does not invent a route.
 
 → [View a live mission](/alpharelay/view-live-mission-android) · [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Seal the mission record](/alpharelay/evidence-sealing)

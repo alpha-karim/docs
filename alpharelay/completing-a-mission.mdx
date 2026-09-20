@@ -1,6 +1,6 @@
 ---
 title: "End a Mission"
-description: "Land, stop the mission, and wait for upload or queue to finish."
+description: "Land, stop the mission, and make sure saved footage is secure."
 icon: "flag-checkered"
 ---
 
@@ -11,7 +11,7 @@ icon: "flag-checkered"
 3. Tap **Stop and complete mission** or **Stop Mission** in AlphaRelay Operator when field work is complete.
 4. For Laptop HDMI Capture, click **Stop & upload** and wait for the browser recording to be secured.
 5. Optionally open **Operations** and tap **End Mission** in Mission Overwatch.
-6. Check the upload or queue status before powering off the pilot device or closing its browser tab.
+6. Check whether footage has uploaded or is safely waiting on the device before powering it off or closing its browser tab.
 
 In a supported Pilot-mode mission, confirmed touchdown can trigger the same stop and closeout automatically. AlphaRelay stops Live AI and closes the mission before a longer aircraft-SD transfer continues. If automatic closeout does not occur, use **Stop Mission** and follow the on-screen retry state.
 
@@ -20,23 +20,24 @@ In a supported Pilot-mode mission, confirmed touchdown can trigger the same stop
 - The relay session ends with the mission.
 - SD recording stops after a successful land when supported.
 - Pilot mode can start or recover mission-time SD recording after takeoff and closes only around footage that began during the current mission.
-- In **Controller Screen Capture**, AlphaRelay finalizes the mission-long controller-screen recording instead of pulling aircraft SD video.
-- On a confirmed supported DJI SDK 5 Controller Screen Capture setup, AlphaRelay can then guide a USB reconnect to copy the matching mission-time SD clip as an optional aircraft original. The mission remains open on failure so you can retry or choose **Close without aircraft copy**.
-- In **Controller Livestream**, stop the separate controller publisher first; closing the mission finalizes the received stream recording.
-- In **HDMI Capture Card**, AlphaRelay finalizes the received UVC recording. Reconnect a missing card before closeout if the mission needs additional video.
-- In **Laptop HDMI Capture**, **Stop & upload** finalizes the recoverable browser recording before mission closeout. If interrupted, reopen the mission and use **Recover interrupted recording** without clearing browser data.
-- In **Goggles Mode**, AlphaRelay finalizes the captured DJI Fly live-view frames as an MP4 and queues it for upload. It does not pull the DJI Avata's internal-storage or microSD footage.
-- Footage may upload immediately or queue for later sync.
-- Queued Operator video is stored durably and retries when validated connectivity returns, including after the app restarts.
+- In **Controller Screen Capture**, AlphaRelay finishes the mission-long controller-screen recording instead of automatically copying aircraft SD-card video.
+- On a supported DJI Controller Screen Capture setup that AlphaRelay confirmed at mission start, AlphaRelay can guide you through reconnecting the controller to copy the matching aircraft video from its SD card. If copying fails, the mission stays open so you can retry or choose **Close without aircraft copy**.
+- In **Controller Livestream**, stop livestreaming on the controller first; closing the mission finishes the received recording.
+- In **Video Link**, closing the mission stops opening the link and finishes the AlphaRelay recording. Confirm the recording appears in **Media** before treating closeout as complete.
+- In **HDMI Capture Card**, AlphaRelay finishes the video received from the capture card. Reconnect a missing card before closeout if the mission still needs more video.
+- In **Laptop HDMI Capture**, **Stop & upload** finishes the browser recording before mission closeout. If interrupted, reopen the mission and use **Recover interrupted recording** without clearing browser data.
+- In **Goggles Mode**, AlphaRelay finishes the video captured from DJI Fly and prepares it for upload. It does not copy footage from the DJI Avata's internal storage or microSD card.
+- Footage may upload immediately or wait until internet service returns.
+- Video marked as waiting to upload stays saved on the device and retries when internet returns, including after Operator restarts.
 - Android and iOS Mission Viewer event logging stops and the selected timeline becomes read-only.
-- Mission-scoped personnel location sharing stops and each non-empty recorded track begins finalizing as GeoJSON evidence with custody and hash records.
+- Personnel location sharing stops, and each recorded trail becomes a map evidence file with a digital fingerprint and evidence-history record.
 - Mission Overwatch stops remote-live playback and switches to historical review instead of retrying the closed live stream.
 - Mission Overwatch selects **Timeline** after web closeout so review starts with unresolved events and alerts.
 - Review should wait until footage status is clear.
 - Evidence sealing must also wait until every location-sharing session has stopped and each saved track export is complete.
 
 <Warning>
-  Do not force-stop or uninstall Operator while footage is queued. On iOS, keep Operator open while ReplayKit finalization and handoff complete. Browser-initiated uploads still require the browser tab to remain open.
+  Do not force-stop or uninstall Operator while footage is waiting to upload. On iPhone/iPad, keep Operator open while Screen Recording finishes and hands off the video. Uploads started in a browser still require that browser tab to remain open.
 </Warning>
 
 → [Upload footage](/alpharelay/footage-upload)

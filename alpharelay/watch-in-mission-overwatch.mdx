@@ -1,18 +1,18 @@
 ---
 title: "Watch in Mission Overwatch"
-description: "Open a mission, connect the relay, and use live viewing tools."
+description: "Open a mission, watch live video, add events, and use command tools."
 icon: "monitor-play"
 ---
 
 Mission Overwatch is the per-mission browser workspace. Open it from **Mission Dashboard** by selecting a mission (the dashboard may label this **Open Mission Console**).
 
-Sign in at [alpha-relay.com](https://www.alpha-relay.com). The page shell can reopen after an online visit, but active Internet missions, remote live, cloud event logging, and synced review require connectivity.
+Sign in at [alpha-relay.com](https://www.alpha-relay.com). A previously opened page may reopen without internet, but active **Internet** missions, remote viewing, sending events to the agency account, and shared review require a connection.
 
 Active missions open in a full-screen command view. The header shows elapsed time, feed state, the mission-assigned operator, AI detection status, and a **Sidebar** alert count. The live feed stays in the main workspace. The right-rail **Mission sidebar** switches among **Timeline**, **Events**, **Ask AI**, an optional **Map**, and a mission-scoped tab labeled **Livestream** for browser-created Controller Livestream or **HDMI Input** for laptop capture. Mission Overwatch adapts to phone and tablet browsers; a desktop-sized screen is still easier for long footage and report reviews.
 
-## Remote live — Live stream (WebRTC)
+## Watch remote live video
 
-When AlphaRelay Operator starts a mission with validated internet, it starts remote live automatically. Open the active mission and select **Live stream (WebRTC)** to watch it.
+When AlphaRelay Operator starts a mission with working internet, it starts remote live automatically. Open the active mission and select **Live stream (WebRTC)**. WebRTC is simply the technology AlphaRelay uses to deliver the video; there is nothing for the officer to configure.
 
 If the mission began offline or remote-live setup failed, restore internet and use **Pilot console → Mission → Start remote live** to retry.
 
@@ -22,7 +22,7 @@ If the mission began offline or remote-live setup failed, restore internet and u
 
 ## Laptop HDMI Capture
 
-Create this mission from **Mission Dashboard → New HDMI mission**, add any mission-specific **AI detections**, then open **Mission sidebar → HDMI Input**. Select the UVC card and click **Connect & go live**. The browser uses the same full frame for preview, Live AI, and event screenshots.
+Create this mission from **Mission Dashboard → New HDMI mission**, add any mission-specific **AI detections**, then open **Mission sidebar → HDMI Input**. Select the USB HDMI capture card and click **Connect & go live**. The browser uses the same full picture for preview, Live AI, and event screenshots.
 
 Keep the tab open. Click **Stop & upload** and wait for the recording to be secured before **End Mission**. If the browser was interrupted, reopen the same mission and use **Recover interrupted recording** without clearing browser data.
 
@@ -51,23 +51,23 @@ Wait until a live frame is available. The answer does not update as the scene ch
 
 Click **Share** and use **Public live view** to display the QR code or copy the link. Anyone with the link can watch the active livestream and see events and alerts without signing in. The public view is read-only: it cannot log events, review alerts, or open the private mission workspace.
 
-Treat the URL like a bearer credential and share it only with intended viewers. Click **End public viewing** to revoke it immediately. Reopening **Share** can create a new link; any current link also stops working when the mission ends. Android and iOS Operator can display the same public-live QR from an active mission or Mission Viewer.
+Anyone who has the public link can view without signing in, so treat it like a password and share it only with intended viewers. Click **End public viewing** to turn it off immediately. Reopen **Share** to create a new link. The current link also stops when the mission ends. Android and iOS Operator can show the same QR code from an active mission or Mission Viewer.
 
 ## View personnel on the mission map
 
-When Operational Map is enabled, open **Mission sidebar → Map**. Use **People on map** to show or hide individuals, and select a roster entry to focus that person's live position and matching saved trail. Browser map access is limited to authorized supervisory roles. Positions are advisory and reflect the identity selected on each licensed device, not independently verified identity or aircraft telemetry.
+When Operational Map is enabled, open **Mission sidebar → Map**. Use **People on map** to show or hide individuals, and select a roster entry to focus that person's live position and saved route. Only authorized supervisors can open this map in a browser. Positions are advisory. They show the person selected on each licensed device; they do not independently verify who carries the device and do not show the aircraft's location.
 
-After the mission, a saved map appears below Timeline only when at least one valid location point exists. Active or failed track finalization blocks sealing until the track completes or is retried.
+After the mission, a saved map appears below Timeline only when the device recorded at least one valid location. A route that is still saving, or failed to save, blocks sealing until it finishes or an officer retries it.
 
-## Deployment-specific Local Network relay
+## Agency-specific Local Network connection
 
-The current public Operator workflow does not present a **Local Network** mission option. If an older or deployment-specific Android build exposes **Live Overwatch Screen**, connect it to the field device on the same reachable Wi-Fi by scan or LAN IP. That LAN path is separate from remote live and cloud sync.
+The current public Operator workflow does not show a **Local Network** mission option. If your agency's Android build includes **Live Overwatch Screen**, connect Mission Overwatch to the field device while both are on the same Wi-Fi. You can scan the code or enter the device's local network address. This same-Wi-Fi path is separate from internet live viewing and upload.
 
 ## AI live watch
 
-When configured and remote live is active, Mission Overwatch can show **AI live watch** next to the live feed controls. It defaults on unless a saved mission choice turns it off. It samples frames from **Live stream (WebRTC)** and logs mission timeline alerts only when AI flags a possible threat indicator for officer review.
+When the agency has enabled the feature and remote video is active, Mission Overwatch can show **AI live watch** next to the live-video controls. It is on by default unless a saved mission choice turns it off. AlphaRelay checks selected pictures from **Live stream (WebRTC)** and adds a timeline alert only when AI identifies a possible threat indicator for officer review.
 
-The current default cadence can start a new sample as often as every two seconds. Network and analysis time can make the effective interval longer, and AlphaRelay does not overlap analysis requests.
+AlphaRelay can start checking a new live picture as often as every two seconds. Internet and review time can make the interval longer. It finishes one check before starting another.
 
 When AI live watch is enabled, select **Show details** or leave the expanded card open to review its focus:
 
@@ -90,7 +90,7 @@ AI live watch alerts can show:
 
 Person detections use informational/yellow treatment. Possible weapons and other threat indicators use red review treatment, with **Urgent** reserved for the urgent-review level. Person-holding-a-weapon alerts rank ahead of other standard detections. The Mission Overwatch banner dismisses automatically after about three seconds, but the timeline event remains available for review.
 
-When browser AI live watch is successfully analyzing the same mission, Operator pauses device-originated cloud requests and the on-device fallback to avoid duplicate automatic alerts. If browser analysis stops or the handoff expires, device analysis resumes automatically; cloud failure then falls back to on-device detection.
+When Mission Overwatch is already running Live AI for the mission, Operator pauses its own checks to reduce duplicate alerts. If Mission Overwatch stops checking, Operator resumes automatically and can use its basic on-device backup if the online service is unavailable.
 
 Before a Device Live AI or AI live-watch alert can trigger configured screenshot analysis or enter a report, an officer must choose **Approve alert**. Choose **Dismiss alert** when the alert should be excluded. If an approved screenshot returns an analysis finding, it remains pending until an officer selects **Accept as is** or **Review & edit**. Unapproved, dismissed, and unreviewed findings do not enter the AAR narrative.
 
@@ -98,7 +98,7 @@ Treat these alerts as prompts for human review. They do not replace pilot judgme
 
 ## Closed missions
 
-After **Stop Mission** or **End Mission**, Mission Overwatch selects **Timeline** and switches to the closed-mission review tabs in order: **Timeline**, **Media** and **Play with Events**, **AI Review**, and **Report**. A mission with an existing generated AAR opens directly on **Report**. The lifecycle tracker moves through **Mission Review**, **Draft AAR**, **Evidence Sealed**, **Supervisor Review**, and **Approved & Locked**, and its next-action prompt changes as review work is completed.
+After **Stop Mission** or **End Mission**, Mission Overwatch opens the closed-mission review in this order: **Timeline**, **Media**, **AI Review**, and **Report**. **Play with Events** is available under Media. A mission that already has a generated report opens directly on **Report**. The progress tracker shows the current stage and the next action.
 
 Follow the guided review sequence:
 
@@ -107,15 +107,20 @@ Follow the guided review sequence:
 3. Analyze and decide AI findings when AI Review is available, then click **Done — continue**.
 4. Continue to **Report**.
 
-Use the Timeline filters to switch among **Needs Review**, **Dismissed**, and **All Events**. Completing Timeline review keeps human-created and approved AI events and moves remaining unaccepted AI candidates to **Dismissed** after confirmation. Dismissed items remain visible for audit and recovery until evidence is sealed, but stay outside official counts, playback markers, reports, exports, and the evidence chain. Completing AI Review keeps accepted or edited findings and rejects remaining undecided findings after confirmation. A newly synced pending item reopens the affected review step.
+Use **Needs Review**, **Dismissed**, and **All Events** to filter the Timeline. When you finish Timeline review, unresolved AI suggestions move to **Dismissed** after confirmation. They remain visible until evidence is sealed, but they stay outside official counts, video markers, reports, exports, and the evidence record. Finishing AI Review rejects any finding you did not decide. If a new item uploads later, AlphaRelay reopens the affected review step.
 
-AI Review requires at least one selected tag under **What should AI look for?**. **Event-focused** reviews original-video intervals around accepted events; **Full mission — detailed** reviews the union of selected recording timelines and prefers higher-quality/original footage where recordings overlap. The status reports original-video upload, video sections reviewed, and evidence screenshots verified. Candidate findings are checked against those screenshots before they appear for review. The latest run stays visible and earlier runs appear under **Previous analyses**. Analysis runs in the background and emails the requesting signed-in user when complete. Findings accepted in AI Review move to the timeline for final officer review before report use.
+AI Review requires at least one item under **What should AI look for?**
 
-**Ask AI** is grounded only in the selected primary uploaded footage. It does not mix mission photos or event screenshots into the question. Saved Live Ask AI questions show the exact frozen source frame beside the answer and can open it at a larger size for verification. Source images remain unaltered without model bounding boxes over finding thumbnails or the full-screen viewer. Ask AI remains available after supervisor approval as a read-only question and saved-answer workflow; it does not unlock timeline, evidence, media, AI Review finding, or report changes.
+- **Event-focused** checks video around accepted events.
+- **Full mission — detailed** checks the available mission timeline and prefers higher-quality or original video where recordings overlap.
 
-Closed-mission timelines render chronologically, with the oldest event at the top and the latest at the bottom. Closed missions show historical content only; Mission Overwatch stops remote-live playback and background live-stream retries after the mission closes.
+The status shows upload, video review, screenshot checks, and completion. AlphaRelay checks possible findings against evidence screenshots before showing them. Earlier runs remain under **Previous analyses**. You can leave the page; AlphaRelay emails you when the review finishes. Any accepted finding moves to the Timeline for final officer review before report use.
 
-While Mission Overwatch remains open, the focused mission timeline refreshes with device alerts, Android and iOS Mission Viewer events, screenshot status, and mission-close state. New alert rows can appear before their screenshots finish syncing, and these focused refreshes do not restart footage that is already playing.
+**Ask AI** uses only the selected main uploaded video. It does not mix in mission photos or event screenshots. Saved Live Ask AI answers show the exact still image used for the answer so you can inspect it. AlphaRelay does not draw AI boxes over the original evidence image. Ask AI remains available after supervisor approval for read-only questions, but it does not unlock the Timeline, evidence, Media, AI Review findings, or Report.
+
+Closed-mission timelines show the oldest event at the top and the latest at the bottom. Closed missions show recorded information only; Mission Overwatch stops remote viewing and attempts to restore the livestream after the mission closes.
+
+While Mission Overwatch remains open, the selected mission timeline updates with device alerts, Android and iOS Mission Viewer events, screenshot status, and mission-close status. A new alert may appear before its screenshot finishes uploading. These updates do not restart footage that is already playing.
 
 Authorized mission team members can use **Rename** in Mission Overwatch to correct the mission name before the report is submitted. Submitted and approved missions are read-only and cannot be renamed.
 
@@ -129,4 +134,4 @@ For a compact active-mission view, open AlphaRelay Operator on a second licensed
 
 ## Offline app shell
 
-Mission Overwatch installs a service worker on first online visit. You can also use **Install app** for a PWA shell. The shell helps the page reopen offline, but sign-in, sync, uploads, and playback links still need network access.
+After the first online visit, the browser saves the basic Mission Overwatch page. You can also choose **Install app** to place it on the device like an app. This helps the page reopen during a connection problem, but sign-in, current mission information, uploads, and video playback still need internet.

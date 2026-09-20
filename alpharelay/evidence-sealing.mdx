@@ -1,10 +1,10 @@
 ---
 title: "Seal the Mission Record"
-description: "Preserve custody evidence and export court-ready JSON."
+description: "Lock reviewed mission evidence and export its verification record."
 icon: "shield-check"
 ---
 
-Sealing locks reviewed custody evidence and hashes. It is **separate** from supervisor report approval.
+Sealing locks reviewed evidence and verifies each file's digital fingerprint. It is **separate** from supervisor report approval.
 
 <Warning>
   Sealing ≠ submitting or approving the report. Sealing preserves custody hashes. Submitting the report locks editing during supervisor review; approval makes the record permanently read-only.
@@ -12,7 +12,7 @@ Sealing locks reviewed custody evidence and hashes. It is **separate** from supe
 
 ## When to seal
 
-After footage, events, photos, and the report draft have been reviewed, the Timeline, Media, and AI Review steps are complete, timeline findings are officer-reviewed, any mission location tracks are finalized, and report-readiness **Items Requiring Officer Review** are resolved.
+Seal only after footage, events, photos, and the report draft have been reviewed; the Timeline, Media, and AI Review steps are complete; an officer has reviewed all timeline findings; all mission location routes have finished saving; and every **Item Requiring Officer Review** has been resolved.
 
 ## Steps
 
@@ -20,15 +20,15 @@ After footage, events, photos, and the report draft have been reviewed, the Time
 2. Confirm footage plays and **Play with Events** markers look correct.
 3. Confirm official event counts contain the expected human-created events, approved automatic alerts, and officer-reviewed AI findings.
 4. Open **Mission chain of custody** and review the evidence listed in the AAR Chain of Custody, including any manual photos or videos.
-5. If the mission used Location Sharing, confirm no session is still active and every non-empty GeoJSON track shows a completed export and recorded SHA-256. Retry a failed export before continuing.
+5. If the mission used Location Sharing, confirm nobody is still sharing and every recorded trail shows a completed map-file export and digital fingerprint. Retry a failed export before continuing.
 6. Click **Seal entire mission (verify downloads)** when ready.
 7. Optionally download **Download mission custody certificate (HTML)**.
 
-Sealing verifies downloaded bytes against stored hashes and locks the evidence rows explicitly included in the AAR Chain of Custody. It does not bulk-seal every retained mission asset. Manual photos and videos are registered with a SHA-256 hash before their upload is reported as successful; items included in the AAR chain are then verified and sealed through the same workflow.
+Sealing checks each included file against its saved digital fingerprint and locks the evidence listed in the **AAR Chain of Custody**. It does not automatically seal every file kept with the mission. AlphaRelay records a digital fingerprint when a manually added photo or video uploads, then checks it again when that item is included and sealed.
 
-AlphaRelay keeps the stored evidence image separate from any bounded or resized copy used for AI analysis. Screenshot-to-alert matching uses the image's actual capture time, not only the later event-log or upload time, so delayed sync does not silently substitute a nearby screenshot. Verify the displayed source image and timestamp before sealing.
+AlphaRelay keeps the original evidence image separate from any smaller copy prepared for AI. It matches screenshots by the time the image was captured, not only the later time it uploaded. This helps prevent a delayed upload from being mistaken for a nearby screenshot. Always verify the displayed image and time before sealing.
 
-Mission-scoped personnel tracks are append-only while sharing is active and finalize as deterministic GeoJSON evidence. An active sharing session or a pending/failed track export blocks sealing; a session with no valid location fixes is reported as empty rather than creating a route.
+While location sharing is active, new points can be added but earlier points are not rewritten. When sharing ends, AlphaRelay creates the saved map evidence file. Sealing is blocked if someone is still sharing or if that file has not finished. A session with no valid locations is marked empty instead of creating a false route.
 
 The mission-wide HTML certificate and exported/printed after-action report include a QR code and public certificate link. A recipient can open the current chain-of-custody certificate without signing in. The link is unguessable but works for anyone who has it, so share it only with intended recipients. The public page exposes certificate fields and current authoritative chain validation, not the signed-in mission workspace.
 
@@ -40,13 +40,13 @@ When the mission seals, AlphaRelay removes automatic alert events that were neve
 
 Evidence sealing does not by itself lock the mission name, timeline, media review, or report draft. Finish those changes before **Submit for supervisor approval**, which applies the workflow lock.
 
-## Export evidence package (JSON)
+## Export the evidence verification file
 
 For a machine-readable, court-ready bundle with cryptographic chain verification:
 
 1. Open **Mission chain of custody**.
 2. Click **Export evidence package (JSON)** on an evidence item.
 
-Use this when your agency needs JSON rather than (or in addition to) the HTML custody certificate or offline ZIP.
+The button name includes **JSON**, a standard data-file format used by records and evidence systems. Use it when your agency needs a machine-readable verification file in addition to the human-readable custody certificate or offline ZIP package.
 
 → [Export offline package](/alpharelay/export-offline-package) · [Generate a report](/alpharelay/report-generation)

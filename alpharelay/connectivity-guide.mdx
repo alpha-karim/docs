@@ -1,40 +1,42 @@
 ---
 title: "Connectivity"
-description: "Remote live, internet sync, deployment-specific LAN relay, and queued uploads."
+description: "Remote viewing, recording without internet, same-Wi-Fi options, and uploads waiting to finish."
 icon: "tower-broadcast"
 ---
 
-AlphaRelay uses separate live and sync paths. Losing one does not always stop the mission.
+AlphaRelay can keep recording even when internet service is interrupted. Live viewing, saved mission information, and footage upload are separate; one may continue while another is waiting.
 
 ```text
 AlphaRelay Operator
-  |-- Live stream (WebRTC) → Mission Overwatch / Android or iOS Mission Viewer over internet
-  |-- Controller Livestream (DJI RTMP or Skydio RTSP) ← Separate flight controller over internet
-  |-- HDMI Capture Card (UVC) ← Controller HDMI output over USB
-  `-- Cloud sync → Events, footage, reports, evidence
+  |-- Remote live video → Mission Overwatch or Mission Viewer over internet
+  |-- Video Link ← A video QR code or web link opened by AlphaRelay
+  |-- Controller Livestream ← DJI or Skydio controller streaming over internet
+  |-- HDMI Capture Card ← Controller HDMI connected through USB
+  `-- Saved mission information → Events, footage, reports, and evidence
 
 Laptop browser
-  |-- HDMI Capture Card (UVC) ← Controller HDMI output over USB
-  `-- Live stream (WebRTC) + recoverable local evidence recording
+  |-- HDMI Capture Card ← Controller HDMI connected through USB
+  `-- Remote live video + a recording stored in the browser until upload
 ```
 
-Some older or deployment-specific Android builds also expose a LAN relay to Mission Overwatch on the same Wi-Fi. The current public Operator workflow does not show that mission-start option.
+Some older or agency-specific Android builds also let Mission Overwatch view the field device over the same Wi-Fi. The current public Operator workflow does not show that mission-start option.
 
 ## Without internet
 
 - Local mission capture and event logging
-- On-device Live AI fallback and Controller Screen Capture notifications
+- Basic on-device Live AI backup and Controller Screen Capture notifications
 - HDMI Capture Card recording, preview, Device Live AI, and event screenshots
-- Queued footage and deferred cloud sync
+- Footage and mission information saved on the device until internet returns
 - Pilot license within the 10-day offline grace window
 
 ## Needs internet
 
-- Sign-in and mission sync
+- Sign-in and sending current mission information to the agency account
 - Footage and photo upload
 - Playback links
 - **Live stream (WebRTC)** setup and viewing
-- Controller Livestream publishing, playback, and finalization
+- Video Link setup, access to the source, playback, recording, and completion
+- Controller Livestream sending, playback, and recording completion
 - Mission Viewer mission list, timeline updates, event logging, alerts, and video
 - Report generation and supervisor workflow
 - Offline package and evidence JSON export downloads
@@ -50,24 +52,26 @@ A second licensed Android or iOS device can open Mission Viewer. It requires int
 
 ## Controller video inputs
 
-**Controller Livestream** requires validated internet on both the setup surface—licensed Android/iOS Operator or an authorized signed-in browser—and the separate flight controller. For DJI, AlphaRelay provides a complete RTMP URL and separate server/key values. For Skydio RTSP External Server, it provides a server address, port, and stream name. Restart the publisher with the same mission destination after a connection loss while the mission is active.
+**Video Link** requires working internet and a video link AlphaRelay can open without joining a private Wi-Fi network. AlphaRelay—not the phone or tablet—opens the link and creates the mission video and recording. **Backend relay prepared** can still mean the service is waiting for the first usable picture.
+
+**Controller Livestream** requires internet on the AlphaRelay device and the flight controller. For DJI, copy the displayed values into the controller's **Custom RTMP** setting. For Skydio, copy them into **RTSP External Server**. You do not need to understand those abbreviations. If video drops while the mission is active, restart streaming on the controller with the same values.
 
 **Operator HDMI Capture** receives video locally on Android or USB-C iPad and can keep recording when internet is unavailable. **Laptop HDMI Capture** starts online from the Dashboard and records recoverable evidence in the browser while publishing remote live. Keep the tab open and use **Stop & upload** before closeout.
 
-## Deployment-specific Local Network connection
+## Agency-specific Local Network connection
 
 If your Android build exposes **Local Network**, run it on Wi-Fi, open **Live Overwatch Screen**, and connect by scanning or entering the device IP. Trust the self-signed relay certificate if prompted. This is not a selectable mission path in the current public Operator workflow.
 
-## Queued states
+## When the app says work is waiting
 
-**Queued for cloud sync**, **Loading playback link**, or upload banners mean local data still needs to reach the cloud. Queued Operator videos are stored durably and retry when validated connectivity returns, including after the app restarts. Keep the device powered on, do not force-stop or uninstall the app, and use **Upload now**, **Sync now**, or **Sync pending items** when offered.
+**Queued for cloud sync**, **Loading playback link**, or an upload message means some saved mission information or footage has not reached the agency's AlphaRelay account yet. These are exact messages shown by the app. Operator keeps the videos on the device and tries again when internet returns, including after the app restarts. Keep the device powered on, do not force-stop or uninstall Operator, and use **Upload now**, **Sync now**, or **Sync pending items** when offered.
 
-When AlphaRelay opens with queued mission video, the startup panel shows the queue and progress. Use **Skip for now and start new mission** only when field work must begin before the older upload finishes.
+When AlphaRelay opens with video waiting to upload, the startup panel shows its progress. Use **Skip for now and start new mission** only when field work must begin before the older upload finishes.
 
 <Warning>
-  Remote live, Controller Livestream, and cloud sync require internet. HDMI capture can record locally without it. A deployment-specific LAN relay needs same-network reachability, not cloud access.
+  Remote live, Video Link, Controller Livestream, and upload require internet. HDMI capture can record locally without it. An agency-specific **Local Network** option needs both devices on the same Wi-Fi, not internet access.
 </Warning>
 
-## PWA / offline shell
+## Reopening the browser app during an outage
 
-Mission Overwatch caches its shell after an online visit. Cloud sign-in, sync, uploads, and playback still require network access.
+Mission Overwatch saves its basic page after an online visit. Sign-in, current mission information, uploads, and video playback still require internet.

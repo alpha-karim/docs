@@ -1,6 +1,6 @@
 ---
 title: "Accounts and Organizations"
-description: "Mission Dashboard, account settings, and org admin."
+description: "Use the Mission Dashboard and manage agency members, settings, and access."
 icon: "gauge-high"
 ---
 
@@ -11,7 +11,7 @@ Command home at [alpha-relay.com/dashboard.html](https://www.alpha-relay.com/das
 - **Command Center** connection and refresh status, active remote-live count, and mission KPIs
 - Active mission rows with live state, operator and scenario context, event activity, elapsed time, and alerts awaiting review
 - **New Livestream** and **New HDMI mission** for authorized mission operators to name an online mission, optionally select a scenario and AI detections, and continue directly to controller or browser capture setup in Mission Overwatch
-- **Attention queue** for remote-live failures, unsynced mission data, automatic alerts awaiting review, and report follow-ups
+- **Attention queue** for remote-viewing failures, mission information still waiting to upload, automatic alerts awaiting review, and report follow-ups
 - **Latest alerts** with review status, source mission, screenshot when available, and a link into Mission Overwatch
 - Mission history with search and filters
 - Organization-shared **Flag** / **Unflag** actions and a newest-first **Flagged missions** quick-access section; flags organize follow-up without changing the mission evidence record
@@ -28,7 +28,7 @@ Select a mission to open **Mission Overwatch** (dashboard link: **Open Mission C
 
 **Events logged** and event-based KPIs use the official mission-event set: human-created events that have not been deleted, approved automatic AI alerts, and officer-reviewed AI findings. Pending or dismissed automatic alerts can still appear under **Latest alerts** for operational awareness, but they are not included in official event totals.
 
-Long **Attention queue** and **Latest alerts** lists load additional rows as you scroll. Focus the list before keyboard scrolling. Analytics rolling windows use the organization's mission records and local calendar dates; treat the summaries as operational decision support, not as a custody export.
+Long **Attention queue** and **Latest alerts** lists show more items as you scroll. Click or tap inside the list before using a keyboard to scroll. Dashboard summaries use the organization's mission records and local calendar dates. Use them for operational awareness, not as an official evidence export.
 
 → [Import a mission](/alpharelay/import-mission)
 
@@ -82,7 +82,7 @@ Open the mission in Mission Overwatch and click **Share**. Under **Available use
 
 Mission sharing does not promote the person to Supervisor or Admin/Owner, expose every organization mission, or designate them as a mission operator. The mission creator, assigned mission team, supervisors, and admins/owners can manage sharing; a shared collaborator cannot re-share the mission.
 
-For an active mission, the same **Share** dialog prepares a **Public live view** QR code and bearer link. Recipients do not sign in and can only watch the livestream and see events and alerts. They cannot log or review events. Click **End public viewing** to revoke the current link; ending the mission also disables it.
+For an active mission, the same **Share** window prepares a **Public live view** QR code and link. Anyone with the link can view without signing in, so share it only with intended viewers. Recipients can watch and see events and alerts, but cannot add or review events. Click **End public viewing** to turn off the link; ending the mission also disables it.
 
 ### Create or edit an agency scenario
 
@@ -99,13 +99,13 @@ Use observable descriptions rather than conclusions about identity, intent, lega
 
 ## Activity Log
 
-Open **Organization Settings → Activity Log** for a read-only record of material organization, mission, media, AI-review, report, and account actions. The server records the acting person's identity, role, and time. Filter by person, mission, action, or date, and use **Load older activity** to page backward. Mission-related rows link back to Mission Overwatch when a mission is available.
+Open **Organization Settings → Activity Log** for a view-only record of important organization, mission, media, AI-review, report, and account actions. AlphaRelay records who took the action, that person's role, and the time. Filter by person, mission, action, or date, and use **Load older activity** to see earlier entries. Mission entries link back to Mission Overwatch when the mission is available.
 
 The Activity Log is an accountability view, not a control for editing or deleting the recorded actions.
 
 If your account belongs to more than one organization, use the organization switcher in the app sidebar. Switching from Mission Overwatch returns you to the selected organization's **Command Center** so mission data from the previous organization is not left in focus.
 
-After a successful cloud refresh, the selected organization's server roster is authoritative: missions deleted from that roster disappear from the dashboard, while local missions or event changes still waiting to sync are retained until AlphaRelay can upload them.
+After AlphaRelay refreshes the selected organization's online records, missions deleted from the organization disappear from the dashboard. Missions or event changes still saved only on the device remain visible until AlphaRelay can upload them.
 
 New controller pairing codes do not expire. A code still activates only one installation and remains subject to license seat, suspension, and revocation rules.
 

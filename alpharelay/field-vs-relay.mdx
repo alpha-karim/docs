@@ -1,53 +1,53 @@
 ---
 title: "Mission Connectivity"
-description: "Understand remote live, offline capture, and deployment-specific LAN relay."
+description: "Understand remote viewing, recording without internet, and agency-specific same-Wi-Fi viewing."
 icon: "split"
 ---
 
-AlphaRelay Operator presents one **Start Mission** action. It creates an Internet mission and automatically starts **Live stream (WebRTC)** when the device has validated internet.
+AlphaRelay Operator presents one **Start Mission** action. When the device has working internet, it creates the mission online and automatically starts remote live video. The app labels this **Live stream (WebRTC)**; officers do not need to configure WebRTC.
 
 ## Online mission
 
 Use the normal **Start Mission** workflow on cellular, Wi-Fi, Ethernet, or VPN internet.
 
-- Mission metadata and events sync to the cloud.
+- Mission details and events upload to the agency's AlphaRelay account.
 - Remote live starts automatically.
 - Mission Overwatch can watch live and log quick, typed, or dictated events.
-- Footage may upload during closeout or continue from the durable upload queue.
+- Footage may upload during closeout or remain safely on the device and continue later.
 
 ## Offline mission
 
-If validated internet is unavailable, **Start Mission** still begins local capture and event logging. Remote live cannot start, and cloud work waits in the sync and footage queues. When connectivity returns, queued Android footage resumes automatically; mission metadata and events also retry through the normal sync path.
+If internet is unavailable, **Start Mission** still begins supported local recording and event logging. Remote live cannot start, and saved items wait on the device. When internet returns, Android footage, mission details, and events retry automatically.
 
-## Deployment-specific Local Network relay
+## Agency-specific Local Network connection
 
-The current public Operator workflow does not show a **Local Network** mission button. Some older or deployment-specific Android builds may expose **Local Network** and **Live Overwatch Screen** for same-Wi-Fi relay viewing. In those builds:
+The standard public Operator app does not show a **Local Network** mission button. Some older or agency-specific Android versions may show **Local Network** and **Live Overwatch Screen** for viewing over the same Wi-Fi. In those versions:
 
 - The pilot and Mission Overwatch devices must share a reachable Wi-Fi network.
-- **Live Overwatch Screen** connects to the pilot device by LAN IP.
-- Remote live and cloud sync remain separate internet paths.
+- **Live Overwatch Screen** connects to the pilot device using the address shown on the same Wi-Fi network.
+- Remote viewing and sending saved mission information use separate internet connections inside AlphaRelay. One may continue if the other has a problem.
 
 ## Quick decision
 
 | Situation | Workflow |
 | --- | --- |
 | Pilot device has internet | **Start Mission**; remote live starts automatically |
-| No usable internet | **Start Mission**; capture locally and sync later |
+| No usable internet | **Start Mission**; save supported work on the device and send it later |
 | Remote viewers need live video | Keep the pilot device online and open **Live stream (WebRTC)** in Mission Overwatch |
 | A second licensed Android or iOS device needs a compact live view | Open Mission Viewer; internet is required for the mission list, timeline, alerts, events, and video |
 | Flight controller supports DJI RTMP or Skydio RTSP External Server but cannot install AlphaRelay | Create **Controller Livestream** from a licensed Android/iOS device or Command Center **New Livestream**; internet is required on the setup surface and controller |
-| Flight controller has HDMI output | Connect a UVC card to Android, USB-C iPad, or a laptop; the laptop path starts with **New HDMI mission** |
-| Your deployment exposes **Local Network** | Use its LAN relay instructions on the same reachable Wi-Fi |
+| Flight controller has HDMI output | Connect a USB HDMI capture card to Android, USB-C iPad, or a laptop; the laptop path starts with **New HDMI mission** |
+| Your agency's build shows **Local Network** | Follow its same-Wi-Fi connection instructions |
 
 <Note>
-  Remote live and cloud sync use internet. A deployment-specific LAN relay uses local Wi-Fi and is a separate connection path.
+  Remote live and upload use internet. An agency-specific **Local Network** option uses the same Wi-Fi and is a separate connection path.
 </Note>
 
 See [Connectivity](/alpharelay/connectivity-guide) for what requires internet vs local Wi‑Fi.
 
 ## Controller Screen Capture
 
-On integrated Android drone controllers, AlphaRelay enters **Controller Screen Capture** after **Start Mission**. On detected DJI SDK-controller setups, it is the recommended default beside the optional verified **Pilot mode**. Controller Screen Capture changes the live source and aircraft-control behavior, not the mission-start action.
+On supported Android drone controllers, AlphaRelay enters **Controller Screen Capture** after **Start Mission**. When a compatible direct DJI connection is available, Controller Screen Capture remains the recommended choice beside optional **Pilot mode**. It lets the normal flight app keep control.
 
 In this mode, the controller's native flight app controls the aircraft while AlphaRelay captures the controller screen, streams it to the mission, records screen footage, and logs events.
 
@@ -59,8 +59,14 @@ These workflows keep aircraft control on a separate flight controller. Controlle
 
 → [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs)
 
+## Video Link
+
+Video Link leaves aircraft or camera control on the original device. Operator scans or accepts an authorized video QR code or web link, and AlphaRelay brings that video into the mission without recording the phone or tablet screen. This requires internet and a link AlphaRelay can open from outside the controller's private network.
+
+→ [Use a Video Link](/alpharelay/video-link)
+
 ## DJI Avata with DJI Goggles
 
-Goggles Mode requires internet for remote live and sync. On a prepared Android device, a wired connection to compatible DJI Goggles turns on the mode automatically, but the operator still taps **Start Mission**. AlphaRelay then bypasses ordinary scenario selection and starts remote live from the DJI Fly goggles view.
+Goggles Mode requires internet for remote viewing and sending mission information to the agency account. On a prepared Android device, a wired connection to compatible DJI Goggles turns on the mode automatically, but the operator still taps **Start Mission**. AlphaRelay then skips ordinary scenario selection and starts remote viewing from the DJI Fly goggles view.
 
 → [DJI Avata with DJI Goggles](/alpharelay/avata-goggles)
