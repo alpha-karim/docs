@@ -10,7 +10,7 @@ For a **Video Link** mission, Operator sends the submitted web link to AlphaRela
 
 ## What runs locally
 
-- **AlphaRelay Operator**: mission setup, quick and voice events, basic on-device AI backup, Mission Viewer, live video, recording, and saved items waiting for internet
+- **AlphaRelay Operator**: mission setup, quick and voice events, permitted on-device AI checks, Mission Viewer, live video, recording, and saved items waiting for internet
 - **Mission Overwatch browser app**: basic page files saved after the first online visit; sign-in, uploads, and current mission information still need internet
 
 ## What uploads to AlphaRelay
@@ -47,9 +47,11 @@ AI Review can remember the area of the picture connected to a finding so it can 
 
 Device Live AI and AI live-watch alerts are prompts for officer review, not final findings. An officer must choose **Approve alert** before AlphaRelay can review the alert screenshot or consider it for the report. Choose **Dismiss alert** to exclude it. Any AI description of the image still requires **Accept as is** or **Review & edit**.
 
-Device Live AI uses AlphaRelay's protected online AI review when internet is working. Without internet, it automatically continues basic checks for people and possible weapons on the device. Private access codes for the online service are not stored in the app. Mission Overwatch and Operator coordinate their checks to reduce duplicate alerts.
+Live AI follows the agency's settings. Some missions use online AI with basic on-device checks when the connection is unavailable. Agency-enabled on-device-only missions keep live detection on the device and block online live-frame and alert-screenshot analysis. If the agency permits **Hybrid cloud review** and it is selected for the mission, selected pictures and uncertain detections can also go to online AI.
 
-Person detections use informational/yellow treatment and do not identify people. Operator can disable routine person alerts for a mission. Mission Overwatch provides separate controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, and safety hazards. Hand-to-hand contact and reaching into clothing or bags are not standard detections; agencies may add concrete visible behaviors as scenario or mission targets. When weapon-related detections are enabled, AlphaRelay gives their alerts the highest priority; every alert remains subject to human review.
+These settings concern live AI processing. They do not turn off remote video, evidence uploads, or other account services, and they do not mean post-mission AI Review or report drafting runs on the device. Check the mission's setting before using AI with agency evidence.
+
+Person alerts are yellow and do not identify people. Possible-weapon alerts are red and remain unconfirmed until reviewed. The available controls depend on the agency's AI mode. Turning off routine person alerts does not disable always-on weapon checks in an on-device mission. See [Live AI alerts](/alpharelay/local-ai).
 
 AlphaRelay uses the same rule everywhere an official event appears:
 
@@ -61,7 +63,7 @@ Pending, dismissed, or unreviewed AI items stay outside official counts, playbac
 
 When Operational Map is enabled, location sharing uses the person selected on the licensed device. This is a reported identity, not independent proof of who carries the device. Precise location can continue in the background while sharing is active. When sharing ends, AlphaRelay creates a map evidence file and records its digital fingerprint. AlphaRelay does not place precise location in product-usage measurements, crash reports, application logs, or mission event text.
 
-Mission Overwatch **Dictate** uses the browser's speech-recognition capability and microphone permission for manual events and Live Ask AI questions. Availability and speech processing depend on the browser and operating system; type the event or question when agency policy or browser support does not permit dictation. A Live Ask AI answer is saved against one frozen current frame and must be verified against the live feed.
+Mission Overwatch **Dictate** uses the browser's speech-recognition capability and microphone permission for manual events and Live Ask AI questions. Availability and speech processing depend on the browser and operating system; type the event or question when agency policy or browser support does not permit dictation. A Live Ask AI answer is saved against one saved live picture and must be verified against the live feed.
 
 ## Pilot agreements
 
@@ -71,7 +73,7 @@ Pilot agreement PDFs and signed copies are stored privately. Signing links conta
 
 | Action | Effect |
 | --- | --- |
-| **Seal entire mission** | Verifies and locks hashes for evidence explicitly included in the AAR Chain of Custody; retained excluded screenshots remain unsealed |
+| **Seal entire mission** | Verifies and locks digital fingerprints for evidence explicitly included in the AAR Chain of Custody; retained excluded screenshots remain unsealed |
 | **Submit for supervisor approval** | Temporarily locks the report, mission name, timeline, media, and AI Review actions until a supervisor returns it to draft or approves it |
 | **Supervisor approval** | Permanently prevents changes to the submitted record; Ask AI remains available for view-only questions |
 | **Export offline package…** / **Export evidence package (JSON)** | Point-in-time copies for retention or handoff |

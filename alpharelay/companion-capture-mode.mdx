@@ -1,10 +1,10 @@
 ---
 title: "Controller Screen Capture"
-description: "Keep the native flight app in control while AlphaRelay captures an Android controller screen."
+description: "Keep the usual flight app in control while AlphaRelay captures an Android controller screen."
 icon: "tablet-screen-button"
 ---
 
-Controller Screen Capture lets AlphaRelay run beside the native flight app on Android drone controllers. The controller's native flight app remains responsible for aircraft operation; AlphaRelay captures the controller screen, streams it into the mission, records mission footage, and logs events.
+Controller Screen Capture lets AlphaRelay run beside the usual flight app on Android drone controllers. The controller's usual flight app remains responsible for aircraft operation; AlphaRelay captures the controller screen, streams it into the mission, records mission footage, and logs events.
 
 This is the recommended capture path. On many Android drone controllers it turns on automatically after **Start Mission**. When AlphaRelay detects a supported direct DJI connection, choose **Controller Screen Capture — Recommended** instead of **Pilot mode** when the normal DJI flight app should stay in control.
 
@@ -34,13 +34,13 @@ You do not need to enable Android Developer mode to install AlphaRelay.
 
 ## What changes
 
-- The controller's native flight app remains responsible for flight, camera, and safety controls.
+- The controller's usual flight app remains responsible for flight, camera, and safety controls.
 - AlphaRelay disables direct aircraft commands in Operator.
 - The live source becomes the controller screen instead of an in-app aircraft camera preview.
 - **Takeoff**, **Land**, camera controls, and other aircraft commands in AlphaRelay are blocked.
 - AlphaRelay records one continuous controller-screen video for the mission and prepares it for upload after closeout.
 - Voice relay can still create timeline events when microphone permission is granted.
-- **Device Live AI** uses AlphaRelay's online AI review when internet is working. Without internet, it automatically continues basic checks for people and possible weapons on the device.
+- Live AI follows the agency's settings for that mission. Supported devices may use online checks with a basic device backup, or agency-enabled on-device checks. If **Hybrid cloud review** is offered and selected, online review supplements the on-device checks. See [Live AI alerts](/alpharelay/local-ai) and confirm the active status before flight.
 
 ## Start a mission
 
@@ -51,19 +51,19 @@ You do not need to enable Android Developer mode to install AlphaRelay.
 5. Tap **Start Mission**.
 6. Approve the Android screen capture prompt.
 7. Wait for AlphaRelay to move out of the way, then return to the flight app.
-8. Open or return to the controller's native flight app and fly from there.
+8. Open or return to the controller's usual flight app and fly from there.
 
 If the controller has working internet, AlphaRelay starts remote live video automatically before it asks for screen-capture permission. The app labels this **Live stream (WebRTC)**; no WebRTC setup is required. If the controller is offline, recording still starts, and events and footage wait to upload until internet returns.
 
 Before leaving the screen, AlphaRelay starts the Android recording process and shows a continuing notification. Recording begins after AlphaRelay is no longer the visible app, so return to the controller's flight app before takeoff or before the part of the operation you want to capture.
 
-Use the controller's native flight app for flight operation. Use AlphaRelay for mission start, event logging, relay / remote live setup, and mission closeout.
+Use the controller's usual flight app for flight operation. Use AlphaRelay for mission start, event logging, relay / remote live setup, and mission closeout.
 
 ## What to expect on the controller
 
 - Android shows a persistent **Controller Screen Capture** notification while screen capture is running.
 - The notification status may say **Starting controller screen capture**, **Waiting for AlphaRelay to close**, **Recording controller screen**, or the current mission-capture state.
-- AlphaRelay captures whatever is visible on the controller screen. If you open Android settings, the notification shade, or AlphaRelay itself, that screen is part of the recording until you return to the native flight app.
+- AlphaRelay captures whatever is visible on the controller screen. If you open Android settings, the notification shade, or AlphaRelay itself, that screen is part of the recording until you return to the usual flight app.
 - If the controller shows a screen-recording or screen-casting indicator, leave it enabled for the mission. Turning it off stops screen capture.
 
 ## During the mission
@@ -71,16 +71,16 @@ Use the controller's native flight app for flight operation. Use AlphaRelay for 
 - **Live stream (WebRTC)** is the on-screen name for sending the controller screen to remote Mission Overwatch users over the internet.
 - Say `relay` followed by event details to create a voice relay event. AlphaRelay saves a current controller-screen screenshot with the event when available.
 - Return to Operator for the active-mission screen. It shows recording, live video, Device Live AI, Mission Overwatch AI, alerts, events or footage waiting to upload, and elapsed mission time. It also provides quick events, manually entered events with screenshots, **Sync now**, and **Stop and complete mission**.
-- Use **Ask Live AI** to type or dictate a question about one fresh controller-screen frame. Review the transcript before asking and verify the saved answer against the live screen.
+- Use **Ask Live AI** to type or dictate a question about one current controller-screen picture. Review the transcript before asking and verify the saved answer against the live screen.
 - Use **Update AI targets** to change mission-only watch items without restarting. Changes made without internet stay saved on the device until AlphaRelay can upload them.
-- Device Live AI uses online review when available. Basic on-device checks and direct Android alerts continue without internet; timeline updates and additional online review wait for internet to return.
-- If you need AlphaRelay controls during the mission, return to AlphaRelay from recent apps or the notification, make the update, then return to the native flight app. The recording follows the visible screen.
+- Supported on-device checks and Android alerts can continue without internet while capture provides pictures. Sending saved events and images to Mission Overwatch waits for internet.
+- If you need AlphaRelay controls during the mission, return to AlphaRelay from recent apps or the notification, make the update, then return to the usual flight app. The recording follows the visible screen.
 
 ## Stop and upload
 
 After the flight, close the mission from AlphaRelay or from the notification:
 
-1. Land and finish any required work in the native flight app.
+1. Land and finish any required work in the usual flight app.
 2. Pull down the Android notification shade.
 3. Find the **Controller Screen Capture** notification.
 4. Tap **Stop Mission**.

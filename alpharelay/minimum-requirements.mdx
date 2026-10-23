@@ -48,7 +48,7 @@ icon: "clipboard-list"
 | Mission Viewer | Second licensed Operator installation in the same organization; active mission; internet; remote live required for video |
 | Operational Map | Feature enabled for the agency; correct person selected on the device; active mission; precise device location; internet for live updates; supervisor-level permission to open the map in Mission Overwatch |
 | Public live view | Active uploaded mission; internet; authorized mission-team member to create the link; no sign-in required for the read-only recipient |
-| Device Live AI | Operator capture running; internet for AlphaRelay's online AI review; a compatible device for basic checks when offline; notification permission for immediate alert banners |
+| Device Live AI | Current Operator app, supported video source, agency-enabled AI mode, required detection files, and permission for alerts. Internet is needed for online checks and video received through an online service. |
 | AI Review | Closed mission whose saved information has reached the agency account, with playable footage or mission photos, at least one selected item under **What should AI look for?**, internet, and accepted events for **Event-focused** coverage |
 | Ask AI | Closed mission whose saved information and main recording have reached the agency account; internet required |
 | Live Ask AI | Active mission with a current live picture in Mission Overwatch or Android/iOS Operator; internet and Ask AI enabled for the agency; microphone and speech permission only for optional dictation |
@@ -61,12 +61,12 @@ Grant camera, USB-device access, microphone, speech recognition, Screen Recordin
 
 Aircraft camera controls appear only when AlphaRelay detects supported aircraft and controller features. Availability still depends on aircraft firmware, installed camera or sensor, DJI support, and a successful field test.
 
-Controller Screen Capture appears on Android drone controllers that can run AlphaRelay Operator and grant screen capture permission. The controller's native flight app remains responsible for aircraft operation in that mode.
+Controller Screen Capture appears on Android drone controllers that can run AlphaRelay Operator and grant screen capture permission. The controller's usual flight app remains responsible for aircraft operation in that mode.
 
 Pilot mode is not enabled just because a DJI controller is connected. Confirm the aircraft in AlphaRelay's supported list and keep the aircraft and controller connected until AlphaRelay reports **Supported aircraft confirmed. Pilot mode is ready.** If that check does not finish, use Controller Screen Capture.
 
 The Goggles Mode workflow uses a separate Android device to display the DJI Goggles live view in DJI Fly. AlphaRelay records that screen and does not control the DJI Avata or retrieve the original aircraft camera file.
 
-The iPhone/iPad workflow captures the selected display or app through Apple's Screen Recording system. It does not include Android's automatic wired DJI Goggles detection, Android-only same-Wi-Fi relay, or Android's broader on-device AI backup.
+iPhone and iPad use Apple's Screen Recording to capture the selected display or app. They do not include Android's automatic wired DJI Goggles detection or Android-only same-Wi-Fi viewing.
 
 Run a [training mission](/alpharelay/training-mission) on the same device class before operational use.

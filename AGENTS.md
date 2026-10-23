@@ -34,13 +34,13 @@
 - **AI live watch** — Mission Overwatch control that analyzes sampled remote-live frames and logs officer-review alerts when configured; it defaults on unless a saved mission choice disables it
 - **Alert on people** — Operator mission setting for optional informational person alerts; Mission Overwatch can configure each standard detection separately, and enabled weapon-related alerts receive highest priority
 - **Scenario-specific AI targets** / **Mission-specific AI targets** — bounded visible details added to LiveAI's standard detections for an active mission
-- **Device Live AI** — cloud-first live analysis from the Operator device when internet is healthy, with automatic on-device person and possible-weapon fallback when cloud analysis is unavailable; Android also exposes the fallback controls in **Pilot console → Flight → Local AI**
+- **Device Live AI** — live checks follow the agency and mission policy: online with a basic local backup, on-device-only, or separately enabled mission-opt-in hybrid review. Do not promise cloud fallback for on-device-only missions. Public docs use plain on-device terminology; do not advertise organization-gated feature branding.
 - **Person detection** — informational/yellow alert treatment; this is not identity or face recognition
 - **Possible weapon / urgent threat** — red alert treatment that still requires human review
 - **Automatic AI-alert review** — an officer must **Approve alert** or **Dismiss alert** before a Device Live AI or AI live-watch screenshot can be analyzed or used in a report
 - **Mission sidebar** — right-rail active-mission tabs for **Timeline**, **Events**, **Ask AI**, an optional **Map**, and a conditional **Livestream** or **HDMI Input** tab
 - **Live Ask AI** — active-mission question workflow in Mission Overwatch and Android/iOS Operator that freezes one fresh current frame at submission time, returns a shared saved answer for that frame, and requires verification against the live feed
-- **Public live view** — revocable, read-only active-mission link and QR code that lets anyone with the link watch live video and see events and alerts without signing in; viewers cannot log or review events
+- **Public live view** — revocable video-only active-mission link and QR code; anyone with the link can watch without signing in, but events, alerts, and the private workspace are not exposed.
 - **Location Sharing** / **Nearby map** / **Map** — optional mission-scoped sharing of a selected person's licensed-device location; live positions are advisory, and recorded mission tracks finalize as custody-aware GeoJSON evidence
 - **Timeline finding review** — accepted AI Review findings and analyzed AI-alert screenshots require **Accept as is** or **Review & edit** in the timeline before AAR use
 - **Done — continue** — closed-mission action on Timeline, Media, and AI Review that records completion and advances to the next unfinished review step; Timeline moves remaining unaccepted AI candidates to **Dismissed**, while AI Review rejects remaining undecided findings after confirmation
@@ -71,3 +71,12 @@
 - Bold UI labels; code formatting for paths, commands, and IP examples
 - Keep pages short — link to Troubleshooting or Connectivity instead of repeating fixes
 - Document operator-facing workflows only; do not invent unpublished behavior
+
+
+## Verified documentation baseline
+
+- Last functionality audit: October 23, 2026; docs baseline `158e126` (September 19), application `origin/main` through `56e39a8e7154864c4f086323cd00c8a347d4fdf8` (October 20).
+- AI Review loads current results when opened, offers Refresh for running work, and preserves earlier analyses. Do not describe continuous polling or a Redo analysis button.
+- Combine selected creates the surviving incident record and hides source mission entries while retaining source evidence; source entries cannot be restored separately.
+- Operator removes its own recording files only after verified upload. Do not describe these device copies as permanent.
+- See `maintenance/2026-10-23-functionality-audit.md` for source references and release-verification limits.

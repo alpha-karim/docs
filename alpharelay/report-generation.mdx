@@ -4,7 +4,7 @@ description: "AI draft, officer review, submit, and supervisor approval."
 icon: "file-lines"
 ---
 
-Configured AI can draft the after-action report from mission events, footage references, photos, and custody data. A human must verify everything before submission.
+When enabled for the agency, AI can draft an after-action report from mission events, footage references, photos, and evidence history. An officer must verify everything before submission.
 
 <Warning>
   AI output is draft material — not final authority.
@@ -34,7 +34,7 @@ AlphaRelay writes reviewed findings in neutral language and leaves internal AI s
 
 ## Supervisor actions
 
-Submitting the report locks report edits, mission renaming, timeline events, footage, photos, and AI Review actions while the supervisor decides. Supervisors (often org admins) can **Approve** or **Return to draft**.
+Submitting the report locks report edits, mission renaming, timeline events, footage, photos, and AI Review actions while the supervisor decides. Supervisors (often organization admins) can **Approve** or **Return to draft**.
 
 - **Return to draft** reopens the record for corrections and resubmission.
 - **Approve** makes the record permanently read-only.
@@ -52,3 +52,9 @@ Supervisor and operator inboxes live on **Mission Dashboard** under Reports & Re
 When configured, AlphaRelay sends email when background AI Review analysis completes and on report workflow events (submit, approve, return).
 
 → [Review footage](/alpharelay/footage-playback) · [Seal the mission record](/alpharelay/evidence-sealing)
+
+## Save or print the report
+
+Open the report and click **Print / Save PDF**. Choose **Save as PDF** in the browser's print window when available, or select the agency printer. Check the preview for the mission name, report status, photographs, and custody certificate before saving or handing it over. A printed or saved draft does not become an approved report.
+
+For incidents covered by several missions, first use [Combine missions](/alpharelay/combine-missions), then review and prepare the combined report.

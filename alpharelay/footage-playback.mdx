@@ -48,13 +48,13 @@ For a closed mission whose saved information has reached the agency account, ope
 2. Choose **Event-focused** or **Full mission — detailed** under **Analysis coverage**.
 3. Click **Analyze media**.
 
-**Event-focused** reviews original-video intervals around accepted human events and approved alerts for observations live AI may have missed. Existing event screenshots serve as coverage boundaries rather than the video-analysis input. If the mission has no accepted event anchors, choose **Full mission — detailed**. Full-mission coverage reviews the union of selected recording timelines, preferring higher-quality or aircraft-original footage where recordings overlap; controller-only time gaps are still included. It can also include mission photos and takes longer.
+**Event-focused** checks sections of the original video around accepted events and approved alerts. Existing event screenshots help identify those sections; they do not replace reviewing the video. If there are no accepted events, choose **Full mission — detailed**. That option checks the combined time covered by selected recordings, uses the clearest or original recording when they overlap, and includes time available only in controller-screen footage. It can also include mission photos and takes longer.
 
-AI Review can continue after you leave the page. Its status can show the original recording upload, video sections reviewed, evidence screenshots checked, and completion. AlphaRelay first reviews the actual video, then prepares and checks evidence screenshots for possible findings before presenting them to an officer. The completion email lists video reviewed separately from screenshots checked. While AI Review remains open, it updates progress and findings automatically. You can leave the page and return after the completion email; use **Refresh** if the page was offline or the displayed information appears old.
+AI Review can continue after you leave the page. Its status can show the original recording upload, video sections reviewed, evidence screenshots checked, and completion. AlphaRelay first reviews the actual video, then prepares and checks evidence screenshots for possible findings before presenting them to an officer. The completion email lists video reviewed separately from screenshots checked. Opening **AI Review** loads the latest saved results. While analysis is running, use **Refresh** when offered to check progress. The page does not continually check for updates. You can leave and reopen the tab later or return after the completion email.
 
 - **Accept** adds a timeline event for the finding when timeline edits are still allowed. It does not complete officer review by itself.
 - **Reject** keeps the finding out of the mission timeline.
-- **Redo analysis** deletes the current AI Review runs and findings, reopens the AI Review step, then runs analysis again with the current target and coverage choices. Accepted timeline entries stay in the mission timeline.
+- Start another analysis with **Analyze media** after choosing its targets and coverage. Earlier findings and review decisions remain available under **Previous analyses**.
 - Accepted findings may also run detailed screenshot analysis when a source image is available.
 - AI Review preserves source imagery without drawing model bounding boxes over thumbnails or the full-screen viewer.
 
@@ -66,11 +66,11 @@ After accepting a finding in AI Review, open **Timeline** and review its image a
 - Choose **Review & edit** to correct the observations before saving them as officer-reviewed.
 - Use **Edit finding** to revise an already reviewed finding before the timeline locks.
 
-AI live watch and Device Live AI alerts use an additional approval gate. First choose **Approve alert** to allow configured screenshot analysis and report eligibility, or **Dismiss alert** to exclude the alert. Then use the same **Accept as is** or **Review & edit** controls for any resulting analysis. Only officer-reviewed findings are eligible for the after-action report, and the report presents them as neutral timeline observations without internal AI-review bookkeeping.
+AI live watch and Device Live AI alerts use an additional approval gate. First choose **Approve alert** to allow screenshot review when enabled for the mission and report eligibility, or **Dismiss alert** to exclude the alert. Then use the same **Accept as is** or **Review & edit** controls for any resulting analysis. Only officer-reviewed findings are eligible for the after-action report, and the report presents them as neutral timeline observations without internal AI-review bookkeeping.
 
 AI Review now collapses repeated video-frame findings from the same footage clip so reviewers are not asked to resolve the same routine person, object, or high-priority finding over and over. High-priority findings in different rough regions remain separately reviewable.
 
-Related sightings can appear as one expandable group. Expand it to compare the source images and decide each sighting. The newest run remains visible; older completed runs appear under **Previous analyses**.
+Related sightings can appear as one expandable group. Expand it to compare the source images and decide each sighting. The newest run remains visible, including when it has no findings. Earlier runs remain under **Previous analyses**, with their review decisions preserved when you start another analysis.
 
 AI Review findings and alert screenshot analyses are suggestions. Verify the source media before accepting or editing them for report or evidence use.
 
@@ -84,7 +84,7 @@ The closed-mission **Timeline** and **Media** tabs, plus **AI Review** when avai
 - **Media**: records that footage and photos were reviewed.
 - **AI Review**: keeps accepted or edited findings and asks before rejecting any undecided findings.
 
-After completion, AlphaRelay opens the next unfinished step or **Report**. New pending AI material reopens the relevant step so it can be reviewed.
+The button names the next step, such as **Done — continue to Media review**. You only need to approve the findings you intend to keep; you do not need to dismiss every remaining suggestion individually. Read the count before confirming. After completion, AlphaRelay opens the next unfinished step or **Report**. New pending AI material reopens the relevant step so it can be reviewed.
 
 ## Ask AI about the mission
 
@@ -96,6 +96,16 @@ Open **AI Review → Ask AI** for a closed mission whose saved information and p
 4. Open an item under **Previous answers** to revisit it, or click **Clear** to remove the saved question history for that mission. Saved Live Ask AI answers include the exact frozen source frame for side-by-side review and larger inspection.
 
 If supporting still frames have not been prepared, AlphaRelay prepares them before answering. Ask AI uses only the primary uploaded footage selected for the mission question. It does not mix event screenshots or mission photos into the answer. When an aircraft-original recording is available, AlphaRelay prefers it over a duplicate controller-screen view; otherwise it uses the best available playable recording.
+
+### Questions about counts and locations
+
+Be clear about the scope: **How many bicycles are visible in this picture?** is different from **How many distinct bicycles appear across the entire recording?** A recording-wide question can take longer and shows review progress.
+
+For a supported recording-wide count, open **Distinct track evidence**. This is the app's label for the sightings used to count each person or object once. Check each description and **View at** time against the recording. An unresolved sighting can be excluded, and an **at least** answer is a supported minimum rather than a complete count.
+
+If the review is interrupted, use **Resume recording review** when offered. If an earlier count is marked withdrawn, do not reuse it; ask again to request a new evidence check. Saved history keeps the withdrawn status even if another device has an older copy.
+
+Other answers can show supporting pictures and whether the evidence fully supports, partly supports, or cannot support the answer. A position such as “left side of the picture” is relative to the camera, not a verified compass direction. One still picture cannot establish earlier movement or arrival time.
 
 Ask AI does not identify unknown people or infer intent, criminality, injuries, or that an area is clear.
 

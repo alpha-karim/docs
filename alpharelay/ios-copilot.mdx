@@ -13,7 +13,7 @@ icon: "tablet-screen-button"
 - An Operator device license or one-installation pairing code
 - Screen Recording permission; microphone and speech-recognition permission only when voice events are needed
 - Internet for remote viewing, immediate upload to the agency account, online Live AI, Mission Viewer, live map updates, and footage upload. Saved events, footage, and valid location points can be sent later if internet is lost.
-- Precise foreground/background location permission when the organization uses mission personnel mapping
+- Permission to share precise location while Operator or another app is open, when the agency uses personnel mapping
 
 ## Install the app
 
@@ -40,7 +40,7 @@ From **What do you want to do?**, tap **Start a Mission**, then choose **Control
 2. Complete mission setup and tap **Start Video Link Mission**.
 3. Wait for **Backend relay prepared**, then open Mission Viewer or Mission Overwatch and confirm video arrives.
 
-Video Link requires internet. It does not record the iPhone/iPad screen or open the webpage on the device. AlphaRelay's online video service handles the live picture, recording, Live AI, screenshots, and evidence history. See [Use a Video Link](/alpharelay/video-link) for supported boundaries.
+Video Link requires internet. AlphaRelay's online video service handles the picture and recording without recording the iPhone/iPad screen. AI checks follow the agency's mission settings. If the device is responsible for those checks, keep Operator or its Mission Viewer open. See [Use a Video Link](/alpharelay/video-link).
 
 ## Start Controller Screen capture
 
@@ -64,7 +64,7 @@ Internet is required on both devices. Stop livestreaming on the controller befor
 
 1. Connect the controller's HDMI output to the USB-C iPad through a standard USB HDMI capture card.
 2. Choose **HDMI Capture Card**, complete setup, and tap **Start HDMI Capture Mission**.
-3. Grant camera permission and verify the full video frame before flight.
+3. Grant camera permission and verify the full video picture before flight.
 4. After a disconnect, reconnect the card and tap **Connect or retry HDMI input**. Operator saves the earlier section and begins another.
 
 This path is video-only. Voice events use the iPad microphone. AlphaRelay does not record audio carried through the HDMI capture card.
@@ -72,14 +72,14 @@ This path is video-only. Voice events use the iPad microphone. AlphaRelay does n
 ## Log and update the mission
 
 - Use scenario quick events or **Log event with current frame**. Operator attaches a fresh controller-screen image when capture can provide one.
-- Leave **Voice events** enabled to say `Relay` followed by the note. Operator saves the note with the latest captured frame.
+- Leave **Voice events** enabled to say `Relay` followed by the note. Operator saves the note with the latest captured picture.
 - Use **Update AI targets** to change mission-only watch items without restarting the mission. Changes made without internet stay saved on the device until AlphaRelay can upload them.
-- Use **Ask Live AI** to type or dictate a question about one fresh current capture frame. Review the transcript before submitting, then verify the saved answer against the live video. Saved answers are shared with Mission Viewer and Mission Overwatch.
+- Use **Ask Live AI** to type or dictate a question about one current captured picture. Review the transcript before submitting, then verify the saved answer against the live video. Saved answers are shared with Mission Viewer and Mission Overwatch.
 - **Live Alerts** shows whether the mission can use the iPhone's Dynamic Island or must use regular notifications. When Live Activities are available, alerts appear as a short line on the Lock Screen or Dynamic Island, including while the flight app is sideways, then return to **ALPHARELAY MONITORING**. Urgent possible-weapon alerts are red; informational people alerts are yellow.
 - During Controller Screen capture, Operator uses **Screen Sharing** notifications when the Dynamic Island is unavailable. Allow time-sensitive notifications so alerts can appear over the flight app. For HDMI capture, the Operator app can show the alerts itself.
 - Alert presentations are review prompts, not confirmed findings. The mission timeline remains the durable review surface after the brief on-screen alert clears.
 
-With working internet, AlphaRelay analyzes selected live pictures through its online service. If that service or the connection is unavailable, Operator automatically uses the device for basic people and possible-weapon checks. Every alert still requires human review.
+Live AI follows the agency's settings for that mission. Supported devices may use online checks with a basic device backup, or agency-enabled on-device checks. If **Hybrid cloud review** is offered and selected, online review supplements the on-device checks. See [Live AI alerts](/alpharelay/local-ai) and confirm the active status before flight.
 
 ## Complete the mission
 
@@ -92,20 +92,20 @@ Operator records a digital fingerprint for each completed local video and upload
 
 ## Watch another active mission
 
-From mission setup, tap **Watch Live Mission**. Choose an active mission in the same licensed organization to watch remote video, follow its live timeline and alerts, add quick or manual events, and use **Ask AI** on a fresh received frame. When Operational Map is enabled, joining starts mission-scoped location sharing for the selected person and the viewer's **Map** panel shows pilot and officer positions. Mission Viewer cannot start the mission or control the aircraft; event entry becomes read-only after the mission closes.
+From mission setup, tap **Watch Live Mission**. Choose an active mission in the same licensed organization to watch remote video, follow its live timeline and alerts, add quick or manual events, and use **Ask AI** on a current received picture. When Operational Map is enabled, joining starts mission-scoped location sharing for the selected person and the viewer's **Map** panel shows pilot and officer positions. Mission Viewer cannot start the mission or control the aircraft; event entry becomes read-only after the mission closes.
 
-Use **Share live** to show or share a read-only public QR/link. Anyone with the link can watch the active livestream and see events and alerts without signing in, but cannot log or review them. The link stops working when the mission ends.
+Use **Share live** to show or share a public QR code or link. Anyone with it can watch the active livestream without signing in. The public page shows video only. It does not show mission events or alerts and cannot be used to enter or review them. The link stops working when the mission ends.
 
 ## Share location without joining
 
-Tap **Share Location**, choose a live mission, and confirm the selected person. AlphaRelay requests precise foreground and background location and can share for up to 12 hours; tap **Stop Sharing** sooner when the person leaves the operation. Mission starts also begin sharing automatically for the selected pilot when the feature and permissions are available.
+Tap **Share Location**, choose a live mission, and confirm the selected person. AlphaRelay requests precise location while Operator or another app is open and can share for up to 12 hours; tap **Stop Sharing** sooner when the person leaves the operation. Mission starts also begin sharing automatically for the selected pilot when the feature and permissions are available.
 
 ## iOS boundaries
 
 - Operator captures the selected iOS display or app; it does not control the aircraft.
 - USB-C iPad supports a USB HDMI capture card; iPhone does not. On iPhone, use Video Link or the controller's built-in livestream setting.
 - iPhone/iPad does not use Android's automatic wired DJI Goggles detection or Android-only same-Wi-Fi relay.
-- Without internet, iPhone and iPad continue simpler on-device checks than Android.
+- On-device AI options depend on your agency and installed app. Confirm the active status and test the actual iPhone or iPad; do not assume its checks are identical to Android.
 - Dynamic Island, Live Activities, the timing of regular notifications, and alert placement in the sideways flight-app view vary by iPhone model and iOS settings. Test them on the actual flight device before operational use.
 - Apple's Screen Recording must be tested on the physical iPhone or iPad; a computer simulation does not prove field capture.
 - Personnel-map positions are advisory and reflect the person selected on the licensed device. They do not independently verify who carries the device and do not show the aircraft's location.

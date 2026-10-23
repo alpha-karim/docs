@@ -6,6 +6,8 @@ icon: "tablet-screen-button"
 
 Most live missions start from **AlphaRelay Operator**. Authorized mission operators can also start **Controller Livestream** with **New Livestream** or laptop capture with **New HDMI mission** in the Mission Dashboard, then continue in Mission Overwatch.
 
+Before starting, check the agency's AI mode on the device. If **Hybrid cloud review** is available, confirm whether this mission should use the additional online checks. The standard video-source choices do not include the phone's own camera.
+
 ## Steps
 
 1. Open AlphaRelay Operator on the Android device, iPhone, or iPad.
@@ -17,7 +19,7 @@ Most live missions start from **AlphaRelay Operator**. Authorized mission operat
 7. Leave **Alert on people** on for informational person alerts, or turn it off to suppress that routine category. Other enabled detections and mission-specific targets remain active.
 8. Tap the matching start or setup action and complete the license check if prompted.
 9. Approve Android screen capture, choose **AlphaRelay Capture** from the iPhone/iPad Screen Recording picker, scan or paste the authorized link for **Video Link**, copy the displayed livestream values into the DJI or Skydio controller, or connect the HDMI capture card.
-10. Open the native flight app when using screen capture. Use quick, manual, or `Relay` voice events and stop the mission when finished.
+10. Open the usual flight app when using screen capture. Use quick, manual, or `Relay` voice events and stop the mission when finished.
 
 Operator prevents a new start while another mission or unfinished recording is active. Use the startup recovery action to complete the existing mission normally; do not discard it to force a new start.
 
@@ -33,7 +35,7 @@ When Operational Map is enabled, Operator also starts location sharing for the s
 
 When AlphaRelay detects a supported DJI Matrice aircraft or controller, Android Operator may show additional camera controls for wide, zoom, or thermal views; preset zoom levels; the laser rangefinder; linked zoom; enhanced thermal detail; or the laser fill light. Test every needed control with the actual aircraft, camera, controller, and installed DJI software before operational use.
 
-On integrated Android drone controllers, Operator shows a simplified centered startup and goes directly from **Start Mission** to Controller Screen setup. Mission name appears above scenario in both orientations. Approve the Android screen capture prompt, then operate the aircraft in the controller's native flight app. AlphaRelay records and streams the controller screen instead of taking over flight controls. Standard Android phones and tablets keep the video-source picker and Mission Viewer option.
+On integrated Android drone controllers, Operator shows a simplified centered startup and goes directly from **Start Mission** to Controller Screen setup. Mission name appears above scenario in both orientations. Approve the Android screen capture prompt, then operate the aircraft in the controller's usual flight app. AlphaRelay records and streams the controller screen instead of taking over flight controls. Standard Android phones and tablets keep the video-source picker and Mission Viewer option.
 
 If Android detects a USB HDMI capture card, Operator adds **HDMI Capture Card** and may select it automatically. Grant the camera and USB prompts, then confirm the preview says **Capturing** before flight. This records the controller's HDMI picture without recording the Android screen.
 
@@ -71,7 +73,7 @@ To use **Pilot mode** on an eligible setup:
 4. Keep the aircraft and controller powered on and connected while AlphaRelay checks the live DJI flight-controller connection.
 5. Wait for **Supported aircraft confirmed. Pilot mode is ready.** before tapping **Start Mission**.
 
-In Pilot mode, use the persisted **High quality (4K)** switch when the mission needs that aircraft recording profile; otherwise AlphaRelay applies the 1080p profile when supported. AlphaRelay starts or recovers aircraft SD recording after it detects takeoff, stops Live AI after landing, and can automatically close a confirmed airborne mission after touchdown while the longer aircraft-footage transfer continues. Keep the aircraft, controller, and Operator powered until the transfer is secured. Some aircraft require physical-controller takeoff even in Pilot mode; AlphaRelay detects the airborne state and continues the mission.
+In Pilot mode, use the **High quality (4K)** switch when the mission needs that aircraft recording profile; otherwise AlphaRelay applies the 1080p profile when supported. AlphaRelay starts or recovers aircraft SD recording after it detects takeoff, stops Live AI after landing, and can automatically close a confirmed airborne mission after touchdown while the longer aircraft-footage transfer continues. Keep the aircraft, controller, and Operator powered until the transfer is secured. Some aircraft require physical-controller takeoff even in Pilot mode; AlphaRelay detects the airborne state and continues the mission.
 
 The current Pilot mode list includes:
 
@@ -102,8 +104,8 @@ If the aircraft is not listed or the live connection check fails, keep **Control
 
 - The mission appears in **Mission Dashboard** after AlphaRelay sends its saved information to the agency account.
 - Footage and events may upload during or after the mission depending on connectivity.
-- Use the active-mission **Alert on people** control to change routine person alerts without restarting. In Mission Overwatch, each standard detection can be enabled or disabled separately; enabled weapon-related alerts receive the highest presentation priority.
-- Use **Ask Live AI** in Android/iOS Operator or **Ask AI** in Mission Viewer to ask a typed or dictated question about one fresh current frame. Saved answers are shared with Mission Overwatch; verify each answer against the live video.
+- Use **Alert on people** to change routine person alerts without restarting. Other controls depend on the agency's AI mode. Where weapons are shown as always on, turning off people alerts leaves weapon checks active. See [Live AI alerts](/alpharelay/local-ai).
+- Use **Ask Live AI** in Android/iOS Operator or **Ask AI** in Mission Viewer to ask a typed or dictated question about one current live picture. Saved answers are shared with Mission Overwatch; verify each answer against the live video.
 - Tap **Stop and complete mission** or **Stop Mission** in Operator (or **End Mission** in Mission Overwatch) when field work is done.
 - If location sharing is enabled, confirm the person's saved route finishes processing before sealing the evidence record.
 

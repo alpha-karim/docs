@@ -10,7 +10,7 @@ Use these options when the flight controller should keep flying the aircraft but
 - **Laptop HDMI Capture:** Connect the controller's HDMI port to a laptop through a standard USB HDMI capture card. Start the mission from the web app; no phone or tablet app is required. Recording can continue during a short internet interruption.
 - **Operator HDMI Capture:** Connect the same type of capture card to a compatible Android device or USB-C iPad. Operator records the video and can continue recording without internet. iPhone does not support this USB video input.
 
-In every workflow, fly from the controller's native flight application. AlphaRelay does not take aircraft control.
+In every workflow, fly from the controller's usual flight application. AlphaRelay does not take aircraft control.
 
 ## Controller Livestream
 
@@ -53,7 +53,7 @@ Opening AI detection settings closes the livestream setup panel so the two feed 
   Treat the displayed livestream address and six-digit code like a password. Enter them only on the intended controller. Do not place them in reports, screenshots, or public messages.
 </Warning>
 
-AlphaRelay can continue Live AI on the incoming controller video even if the phone that created the mission leaves the viewer screen. A viewing phone or tablet can still show alerts, ask about the current picture, and save events with a screenshot. AlphaRelay reduces duplicate alerts when more than one device is watching.
+When the mission permits online Live AI, AlphaRelay can continue those online checks even if the setup phone leaves the viewer screen. If the mission uses on-device checks instead, keep Operator or its Mission Viewer open on the checking device. A viewing phone or tablet can show alerts and save events with a screenshot; live questions depend on the agency's AI settings.
 
 Use the active Operator or Mission Viewer settings to change **Controller audio** and **Voice event logging** for the mission. Controller audio affects the live stream and new recording segments. Voice event logging listens for `Relay` followed by the event and transcribes only the triggered utterance. A viewing Android device can use its own microphone for this even when the incoming controller stream has no audio track.
 
@@ -98,7 +98,7 @@ A powered USB hub may be necessary when the card draws more power than the devic
 
 1. Connect the powered controller and USB HDMI capture card to the iPad.
 2. In mission setup, choose **HDMI Capture Card** and tap **Start HDMI Capture Mission**.
-3. Grant camera permission and confirm the full-frame preview before flight.
+3. Grant camera permission and confirm the full-picture preview before flight.
 4. If the card disconnects, reconnect it and tap **Connect or retry HDMI input**. AlphaRelay saves the earlier section and begins a new one.
 
 Operator HDMI follows the normal recording, remote viewing, Device Live AI, event screenshot, upload, review, and evidence workflow. It is video-only. Voice events use the Android device or iPad microphone; AlphaRelay does not record audio carried through the capture card.
@@ -108,3 +108,7 @@ Operator HDMI follows the normal recording, remote viewing, Device Live AI, even
 Test the exact controller, capture card, cable or hub, receiving device, and browser during training. Confirm a stable full-width picture, a usable recording, and recovery after unplugging and reconnecting once. For Controller Livestream, confirm that the DJI or Skydio controller can reconnect with the same displayed values.
 
 → [Start a mission](/alpharelay/start-a-mission) · [Use Operator on iPhone or iPad](/alpharelay/ios-copilot) · [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Upload footage](/alpharelay/footage-upload) · [Troubleshooting](/alpharelay/troubleshooting)
+
+## Confirm AI and playback separately
+
+A moving video confirms the connection. Check the AI status separately. For missions using on-device AI, keep Operator or its Mission Viewer open to receive pictures for those checks. Online checks run only when the agency and mission settings allow them. See [Live AI alerts](/alpharelay/local-ai).

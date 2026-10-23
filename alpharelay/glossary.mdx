@@ -6,16 +6,16 @@ icon: "book"
 
 | Term | Meaning |
 | --- | --- |
-| **AI** | Configured assistance for report drafting, media review, mission-media questions, screenshot analysis, and live-watch alerts |
-| **AI live watch** | Mission Overwatch control that samples remote-live frames and logs officer-review alerts when configured; it defaults on unless a saved mission choice disables it |
+| **AI** | Artificial intelligence: software that suggests observations, answers, and report wording for an officer to check |
+| **AI live watch** | Mission Overwatch option that checks selected live pictures and suggests alerts, when permitted by the agency's AI settings |
 | **AlphaRelay Operator** | Licensed Android or iOS app for controller-screen mission capture, remote live, field events, Device Live AI, and Mission Viewer |
-| **Approve alert** | Timeline decision that allows a Device Live AI or AI live-watch alert to proceed to configured screenshot analysis and report consideration; it does not complete officer review of the analysis |
+| **Approve alert** | Timeline decision that allows a Device Live AI or AI live-watch alert to proceed to screenshot review when enabled for the mission and report consideration; it does not complete officer review of the analysis |
 | **AI Review** | Closed-mission tab for reviewing actual video against selected targets, verifying candidate findings with evidence screenshots, and accepting or rejecting mission-relevant findings |
 | **Ask AI** | AI Review area for asking questions about the main uploaded recording from a closed mission; it cannot change the record and remains available after approval |
-| **Alert on people** | Operator mission setting that controls routine person alerts; Mission Overwatch separately controls each standard detection |
+| **Alert on people** | Turns routine person alerts on or off; other available alert controls depend on the mission's AI settings |
 | **Activity Log** | View-only area under Organization Settings that shows important actions and who took them; officers can filter by person, mission, action, or date |
 | **Add optional recording** | **Media** action for adding an aircraft, goggles-screen, or other video file and lining it up with the mission timeline |
-| **AAR Chain of Custody** | Explicit report evidence set verified by **Seal entire mission**; included manual media is sealable while retained excluded screenshots remain unsealed |
+| **AAR Chain of Custody** | Evidence listed with the after-action report and checked by **Seal entire mission**; files excluded from this list are not automatically sealed |
 | **Chain of custody** | The history showing where mission evidence came from, who handled it, and whether its digital fingerprint still matches |
 | **Command Center** | Default Mission Dashboard view for operational status, active missions, attention items, automatic alerts, and report follow-ups |
 | **Controller Screen Capture** | Workflow where the normal flight app keeps control while Operator records the visible controller, iPhone, or iPad screen |
@@ -24,20 +24,20 @@ icon: "book"
 | **HDMI Capture Card** | Small adapter that turns a controller's HDMI output into USB video for Android, USB-C iPad, or a laptop; iPhone is not supported |
 | **Laptop HDMI Capture** | Browser workflow created from the Dashboard; **Connect & go live** records controller video received through a USB HDMI capture card |
 | **Goggles Mode** | DJI Avata and compatible DJI Goggles workflow where AlphaRelay on a separate Android device captures the DJI Fly live view; compatible hardware enables the mode, then the operator taps **Start Mission** |
-| **Device Live AI** | Live-video checks that use AlphaRelay's online service when available and basic on-device people/possible-weapon checks when it is not |
+| **Device Live AI** | Checks mission pictures and suggests alerts. Where the checks run depends on the agency and mission settings; see [Live AI alerts](/alpharelay/local-ai). |
 | **Internet** | The normal mission type used by **Start Mission**; internet enables remote viewing and immediate upload, while supported local recording can continue through an outage |
 | **Done — continue** | Closed-mission action that records completion of Timeline, Media, or AI Review and opens the next unfinished step; Timeline moves unresolved candidates to **Dismissed**, while AI Review rejects undecided findings |
 | **Import mission** | Mission History flow that creates a closed post-flight record from external footage and photos |
 | **Import mission data…** | Preview that lists a large evidence or mapping package on your computer without uploading or changing the files |
 | **Items Requiring Officer Review** | Report checklist items that need human resolution before submission |
-| **Live Overwatch Screen** | Connection panel used by certain Android deployments to view video over the same Wi-Fi network |
+| **Live Overwatch Screen** | Connection panel used by certain agency Android versions to view video over the same Wi-Fi network |
 | **Live stream (WebRTC)** | The app's label for remote live video over the internet; officers do not need to configure WebRTC |
-| **Live Ask AI** | Active-mission workflow in Mission Overwatch and Android/iOS Operator that answers a typed or dictated question from one fresh current frame and shares the saved answer across mission views |
+| **Live Ask AI** | Active-mission workflow in Mission Overwatch and Android/iOS Operator that answers a typed or dictated question from one current live picture and shares the saved answer across mission views |
 | **Mission sidebar** | Right-rail active-mission tabs for **Timeline**, **Events**, **Ask AI**, optional **Map**, and a conditional **Livestream** or **HDMI Input** tab |
 | **Organization Documents** | Signed pilot agreement PDFs linked to an organization |
 | **Mission Console** | Dashboard link name for opening Mission Overwatch |
-| **Mission Dashboard** | Command home — KPIs, history, search, AAR inboxes |
-| **Mission Overwatch** | Per-mission browser workspace; active missions use a full-screen live command view with a tabbed right-rail Mission sidebar, while closed missions use the review workflow |
+| **Mission Dashboard** | Agency home for mission summaries, history, search, and after-action reports awaiting review |
+| **Mission Overwatch** | Per-mission browser workspace; active missions use a full-screen live command view with a tabbed right-side Mission sidebar, while closed missions use the review workflow |
 | **Mission operator** | Separate organization-membership designation that makes a person available in the AlphaRelay Operator roster and permits mission start; it is not an organization role |
 | **Mission sharing** | **Share** workflow that gives an eligible user working access to one mission without granting organization-wide access or mission-start authority |
 | **Mission Viewer** | **View Live Mission** on Android or **Watch Live Mission** on iOS for active remote live, timeline updates and alerts, event logging, and optional mission-scoped location sharing from a secondary licensed device |
@@ -48,14 +48,17 @@ icon: "book"
 | **Pilot agreement** | Prepared agreement PDF signed through AlphaRelay before or during agency onboarding |
 | **Pilot app** | Older documentation term for the Android app now named AlphaRelay Operator |
 | **Pilot mode** | Optional direct AlphaRelay aircraft-control mode for supported DJI controller and aircraft combinations after AlphaRelay confirms the live connection |
-| **Local AI** | Android settings label for the basic checks that run on the device when AlphaRelay's online AI review is unavailable |
+| **Local AI** | Checks that run on the phone, tablet, or controller; the available options depend on the agency and device. |
 | **Pilot console** | In-app settings (Mission, Flight, Events, System) |
 | **Play with Events** | Footage player with synchronized event markers |
-| **Public live view** | Read-only link and QR code for an active mission's video, events, and alerts; anyone with the link can view without signing in until an authorized user ends it or the mission closes |
+| **Public live view** | Read-only link and QR code for an active mission's video only; it does not show events or alerts; anyone with the link can view without signing in until an authorized user ends it or the mission closes |
 | **Quick events** | One-tap event buttons; agency scenarios can define up to seven, with the standard set used when none is configured |
-| **Local Network** | Android-only option in certain deployments for viewing over the same Wi-Fi network; it is not shown in the current public Operator workflow |
+| **Local Network** | Android-only option in certain agency versions for viewing over the same Wi-Fi network; it is not shown in the current public Operator workflow |
 | **Scenario template** | Built-in or agency-created mission setup that can provide quick events, report focus, and visible AI watch targets |
 | **Trash** | Mission History recovery area that keeps a deleted mission and its linked record recoverable for up to 30 days; authorized admins can permanently **Delete now** sooner |
 | **Start a Mission** | Operator landing-screen action that opens **Choose video source** before operator, scenario, mission name, AI targets, and alert setup |
 | **Voice relay** | Voice logging with keyword `relay` before event details |
 | **What should AI look for?** | Operator-selected tags that define a post-mission AI Review run; at least one is required before **Analyze media** |
+| **Combine selected** | Brings completed missions from one agency into one incident record; hides the original entries while preserving their evidence and source information |
+| **Distinct track evidence** | Supporting sightings and recording times used to count a person or object once across a recording |
+| **Hybrid cloud review** | Optional, agency-controlled setting that adds online checks to on-device live AI while internet is available |

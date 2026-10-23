@@ -4,7 +4,7 @@ description: "Watch remote live, ask about a current frame, log events, share lo
 icon: "tablet-screen-button"
 ---
 
-Use **View Live Mission** on Android or **Watch Live Mission** on iPhone and iPad when a team member needs a compact active-mission view without opening the browser workspace. Mission Viewer can watch remote video, follow the live timeline and AI alerts, log events, ask AI about a fresh current frame, open the mission map, and create a read-only public live QR. It does not start the mission or control the aircraft.
+Use **View Live Mission** on Android or **Watch Live Mission** on iPhone and iPad when a team member needs a compact active-mission view without opening the browser workspace. Mission Viewer can watch remote video, follow the live timeline and AI alerts, log events, ask AI about a current live picture, open the mission map, and create a read-only public live QR. It does not start the mission or control the aircraft.
 
 ## Requirements
 
@@ -21,7 +21,7 @@ Use **View Live Mission** on Android or **Watch Live Mission** on iPhone and iPa
 3. Choose an active mission. Use **Refresh** if the mission started after the list opened.
 4. Watch the live video and timeline. Timeline events can continue updating while video connects or retries.
 5. Use a scenario quick-event button or enter a manual event, then tap **Log event**.
-6. Open **Ask AI**, type or dictate a question, review it, and submit it after a current live frame is available. Verify the saved answer against the video.
+6. Open **Ask AI**, type or dictate a question, review it, and submit it after a current live picture is available. Verify the saved answer against the video.
 7. Open **Nearby map** / **Map** to see mission-scoped pilot and officer positions when available.
 8. Use **Share live** or the QR control to show a read-only public live-view link.
 9. Use **Switch mission** to choose another active mission.
@@ -32,9 +32,9 @@ New AI alerts appear as highlighted banners and remain in the timeline. Person d
 
 When Operational Map is enabled, selecting a mission starts location sharing for the person selected on the viewing device. The map labels that device as a **Remote viewer**. Tap **Stop Sharing** in Operator when the viewer leaves the operation. Ending the mission or choosing another mission also updates sharing. Treat every position as advisory: it does not independently verify who carries the device and it is not the aircraft's location.
 
-The public live QR opens a browser view without requiring AlphaRelay sign-in. Anyone with the link can watch the active video and see events and alerts, but cannot log or review them. Share it only with intended viewers.
+The public live QR opens a browser view without requiring AlphaRelay sign-in. Anyone with the link can watch the active video only. The public page does not show mission events or alerts and cannot be used to log or review them. Share it only with intended viewers.
 
-Live Ask AI captures a fresh received frame after you submit the question and saves the answer into the same mission history used by Mission Overwatch and the active Operator screen. Dictation fills the question; review the transcript before submitting. The answer covers only that frame and does not follow later scene changes.
+Live Ask AI captures a current received picture after you submit the question and saves the answer into the same mission history used by Mission Overwatch and the active Operator screen. Dictation fills the question; review the transcript before submitting. The answer covers only that picture and does not follow later scene changes.
 
 For Controller Livestream missions, Mission Viewer settings can update **Controller audio** for new stream/recording segments and **Voice event logging** for `Relay` utterances. On an Android viewing device, voice-event logging can use that device's microphone even when the incoming stream has no audio track.
 
@@ -49,7 +49,7 @@ Mission Viewer marks the timeline read-only and disables event entry after the m
 - A mission can provide timeline updates even when remote video is unavailable.
 - Android viewer events cannot attach current-frame evidence until a complete live frame has arrived.
 - Mission Viewer does not expose aircraft controls or closed-mission review tools.
-- Live Ask AI needs internet, AI configuration, and a complete current frame. Dictation also needs microphone and speech-recognition permission.
+- Live Ask AI needs internet, AI enabled for the agency, and a complete current picture. Dictation also needs microphone and speech-recognition permission.
 - Anyone who receives a public live link can view the active read-only mission without signing in until an authorized user turns it off or the mission ends. Treat the link like a password.
 
 → [Use AlphaRelay Operator on iPhone or iPad](/alpharelay/ios-copilot) · [Share personnel location](/alpharelay/operational-map) · [Watch in Mission Overwatch](/alpharelay/watch-in-mission-overwatch) · [Log events](/alpharelay/event-logging)

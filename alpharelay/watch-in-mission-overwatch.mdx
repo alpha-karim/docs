@@ -8,7 +8,7 @@ Mission Overwatch is the per-mission browser workspace. Open it from **Mission D
 
 Sign in at [alpha-relay.com](https://www.alpha-relay.com). A previously opened page may reopen without internet, but active **Internet** missions, remote viewing, sending events to the agency account, and shared review require a connection.
 
-Active missions open in a full-screen command view. The header shows elapsed time, feed state, the mission-assigned operator, AI detection status, and a **Sidebar** alert count. The live feed stays in the main workspace. The right-rail **Mission sidebar** switches among **Timeline**, **Events**, **Ask AI**, an optional **Map**, and a mission-scoped tab labeled **Livestream** for browser-created Controller Livestream or **HDMI Input** for laptop capture. Mission Overwatch adapts to phone and tablet browsers; a desktop-sized screen is still easier for long footage and report reviews.
+Active missions open in a full-screen command view. The header shows elapsed time, feed state, the mission-assigned operator, AI detection status, and a **Sidebar** alert count. The live feed stays in the main workspace. The right-side **Mission sidebar** switches among **Timeline**, **Events**, **Ask AI**, an optional **Map**, and a mission-scoped tab labeled **Livestream** for browser-created Controller Livestream or **HDMI Input** for laptop capture. Mission Overwatch adapts to phone and tablet browsers; a desktop-sized screen is still easier for long footage and report reviews.
 
 ## Watch remote live video
 
@@ -28,12 +28,12 @@ Keep the tab open. Click **Stop & upload** and wait for the recording to be secu
 
 ## Mission sidebar
 
-Use the right-rail tabs while an Internet mission is active:
+Use the right-side tabs while an Internet mission is active:
 
 - **Timeline** follows incoming events and alerts.
 - **Events** contains scenario Quick Events and **Manual event**. Agency-created scenarios can provide up to seven custom buttons; the standard buttons appear when none are configured.
 - In **Events**, type a note or tap **Dictate**, review the transcript, and click **Log Manual Event**.
-- **Ask AI** asks about one current frame. It is separate from automatic AI live-watch alerts and post-mission Ask AI.
+- **Ask AI** asks about one current picture. It is separate from automatic AI live-watch alerts and post-mission Ask AI.
 - **Map** shows advisory pilot, remote-viewer, and selected-personnel positions when Operational Map is enabled and location is being shared.
 - **Livestream** reopens setup for a browser-created Controller Livestream; **HDMI Input** appears for laptop HDMI missions.
 
@@ -43,13 +43,15 @@ Dictation depends on browser speech-recognition support. If it is unavailable or
 
 ## Ask AI live
 
-Open **Mission sidebar → Ask AI**, type a question about what is visible, and click **Ask AI**. You can also tap **Dictate**, speak the question, review the transcript, and submit it normally. AlphaRelay freezes one current live frame at submission time, answers only from that frame, and saves the timestamped question and answer under **Saved questions**.
+Open **Mission sidebar → Ask AI**, type a question about what is visible, and click **Ask AI**. You can also tap **Dictate**, speak the question, review the transcript, and submit it normally. AlphaRelay freezes one current live picture at submission time, answers only from that picture, and saves the timestamped question and answer under **Saved questions**.
 
-Wait until a live frame is available. The answer does not update as the scene changes and does not identify people, perform face recognition, or infer intent, criminality, injury, or that an area is clear. Verify the answer against the live feed before acting on it.
+Wait until a live picture is available. Check the saved picture alongside the answer. An answer can be partly supported or unsupported when the image is unclear. Directions such as left and right refer to the picture, not verified compass bearings. The answer does not update as the scene changes and cannot establish earlier movement from a single picture. Live questions may be unavailable under the agency's on-device-only setting.
+
+Ask AI does not identify people, perform face recognition, or establish intent, criminality, injury, or that an area is clear. Verify the answer against the live video before acting on it.
 
 ## Share a read-only public live view
 
-Click **Share** and use **Public live view** to display the QR code or copy the link. Anyone with the link can watch the active livestream and see events and alerts without signing in. The public view is read-only: it cannot log events, review alerts, or open the private mission workspace.
+Click **Share** and use **Public live view** to display the QR code or copy the link. Anyone with the link can watch the active livestream without signing in. The public page shows video only; it does not show mission events or alerts. The public view is read-only: it cannot log events, review alerts, or open the private mission workspace.
 
 Anyone who has the public link can view without signing in, so treat it like a password and share it only with intended viewers. Click **End public viewing** to turn it off immediately. Reopen **Share** to create a new link. The current link also stops when the mission ends. Android and iOS Operator can show the same QR code from an active mission or Mission Viewer.
 
@@ -90,9 +92,9 @@ AI live watch alerts can show:
 
 Person detections use informational/yellow treatment. Possible weapons and other threat indicators use red review treatment, with **Urgent** reserved for the urgent-review level. Person-holding-a-weapon alerts rank ahead of other standard detections. The Mission Overwatch banner dismisses automatically after about three seconds, but the timeline event remains available for review.
 
-When Mission Overwatch is already running Live AI for the mission, Operator pauses its own checks to reduce duplicate alerts. If Mission Overwatch stops checking, Operator resumes automatically and can use its basic on-device backup if the online service is unavailable.
+Online checks in Mission Overwatch and Operator coordinate to reduce duplicate alerts. Agency-enabled on-device checks can continue independently. For those missions, the browser can show detection settings without running online live checks. See [Live AI alerts](/alpharelay/local-ai).
 
-Before a Device Live AI or AI live-watch alert can trigger configured screenshot analysis or enter a report, an officer must choose **Approve alert**. Choose **Dismiss alert** when the alert should be excluded. If an approved screenshot returns an analysis finding, it remains pending until an officer selects **Accept as is** or **Review & edit**. Unapproved, dismissed, and unreviewed findings do not enter the AAR narrative.
+Before a Device Live AI or AI live-watch alert can trigger screenshot review when enabled for the mission or enter a report, an officer must choose **Approve alert**. Choose **Dismiss alert** when the alert should be excluded. If an approved screenshot returns an analysis finding, it remains pending until an officer selects **Accept as is** or **Review & edit**. Unapproved, dismissed, and unreviewed findings do not enter the AAR narrative.
 
 Treat these alerts as prompts for human review. They do not replace pilot judgment, command staff review, or final report approval.
 

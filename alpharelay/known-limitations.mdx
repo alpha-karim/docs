@@ -38,12 +38,12 @@ icon: "triangle-alert"
 
 ## AI
 
-- **Device Live AI** uses AlphaRelay's online AI review when available and continues basic on-device checks for people and possible weapons when it is not. Results still depend on the device, settings, image quality, scene, internet connection, and response time. It has not been broadly field-tested with controller-screen footage.
+- Live AI follows the agency's settings for that mission. Supported devices may use online checks with a basic device backup, or agency-enabled on-device checks. If **Hybrid cloud review** is offered and selected, online review supplements the on-device checks. See [Live AI alerts](/alpharelay/local-ai) and confirm the active status before flight.
 - Device Live AI can miss small, distant, blurred, dark, or partially hidden objects and can mistake tools, toys, equipment, overlays, or silhouettes for a possible weapon. It does not determine identity, possession, intent, legality, policy compliance, injury, or whether an area is clear.
-- Spatial tracking and HUD filtering reduce repeated person/weapon alerts and controller-overlay false positives; they do not guarantee one alert per real subject or eliminate false alerts.
+- AlphaRelay tries to recognize repeated sightings and ignore flight-app messages. It can still repeat an alert, miss an object, or mistake something on screen for a real subject.
 - AI report drafts require officer review. Resolve every **Item Requiring Officer Review** before completing the report.
 - **AI Review** requires a closed mission whose saved information has reached the agency account, available media, internet, and at least one selection under **What should AI look for?**.
-- **Event-focused** AI Review requires accepted human events or approved alerts to anchor its search. It reviews original-video intervals around those moments and uses existing event screenshots as coverage boundaries. **Full mission — detailed** reviews the union of selected recording timelines, prioritizing higher-quality/original footage for overlapping time and retaining controller-only gaps. Neither mode proves that every visible moment or object was detected.
+- **Event-focused** needs accepted officer events or approved alerts to identify sections of video to review. **Full mission — detailed** checks the time covered by the selected recordings and favors the clearest view where they overlap. Neither option proves every visible moment or object was detected.
 - Full-video AI Review depends on the AI service accepting and processing the selected original recording. Large files and certain iPhone/iPad video formats can take longer. Use the visible upload, video review, screenshot check, and completion states instead of assuming a waiting job is finished.
 - AI Review can continue after you leave the page, but progress updates and the completion email depend on working AlphaRelay online services, email delivery, and internet.
 - **Ask AI** works only for a closed mission whose saved information and playable main recording have reached the agency account. It uses the main uploaded recording, not mission photos or event screenshots. It remains view-only after approval and cannot change the approved record. Blocked views, poor image quality, repeated views, moments the camera missed, or the portions reviewed by AI can limit counts and conclusions.
@@ -51,18 +51,18 @@ icon: "triangle-alert"
 - **AI live watch** requires active **Live stream (WebRTC)**, internet, Mission Overwatch online, and the feature enabled for the agency. AlphaRelay can start checking a live picture as often as every two seconds, but internet and review time may make it slower.
 - Scenario and mission AI watch items guide the visual search but do not guarantee an alert. Use concrete, visible details and verify every match against the live view or original media.
 - Person detections use informational/yellow treatment and do not perform identity or face recognition. Possible weapons and other urgent threat indicators use red treatment but remain unconfirmed until human review.
-- Mission Overwatch exposes individual standard-detection controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, and safety hazards. Enabled weapon-related alerts receive priority, but every alert remains an unconfirmed review prompt. Hand-to-hand contact and reaching into clothing or bags require an agency or mission target rather than a standard-detection switch.
-- Thermal and infrared people analysis supports white-hot, black-hot, pseudo-color palettes, and isotherm overlays, and accounts for compact overhead views. Palette colors and red highlights represent apparent temperature rather than object classes. The analysis requires multiple human-consistent structural cues and checks warm objects, rigid surfaces, furniture, vegetation, reflections, shadows, and image artifacts, but it can still miss people or produce false positives.
+- Available alert controls depend on the agency's AI mode. Some missions show separate standard detections; on-device missions can keep weapons always on and offer a people-alert switch. A red alert is still an unconfirmed observation.
+- Thermal video can use white-hot, black-hot, or color views. Colors show apparent heat. Warm buildings, equipment, reflections, and other objects can resemble people; compare every alert with the original video.
 - AI media findings are suggestions. Accepting one in AI Review moves it to the timeline; an officer must then use **Accept as is** or **Review & edit** before it is eligible for the AAR.
 - AI Review does not draw model bounding boxes over finding thumbnails or the full-screen source image.
 - Device Live AI and AI live-watch alerts require **Approve alert** before AlphaRelay can review the screenshot or consider it for a report. **Dismiss alert** excludes the alert. After approval, AlphaRelay still waits for the event, decision, and screenshot to reach the agency account, and internet is required.
-- When Mission Overwatch or online review from the Operator device is checking a mission, basic on-device checks pause to reduce duplicate alerts. On-device checks resume automatically after online review or internet stops, but there can be a short delay.
-- iPhone/iPad Operator requires iOS 26 and a real-device Screen Recording test. It does not include Android's automatic wired DJI Goggles detection, Android-only same-Wi-Fi relay, or Android's broader on-device AI backup.
+- Online checks coordinate to reduce duplicate alerts; agency-enabled on-device checks can continue independently. On-device-only missions do not automatically switch to online AI.
+- iPhone/iPad Operator requires a supported iOS version and a Screen Recording test on the actual device. It does not include Android's automatic wired DJI Goggles detection or Android-only same-Wi-Fi viewing.
 
 ## Aircraft controls
 
 - Aircraft camera tools appear only on supported aircraft and controllers and still depend on firmware, the installed camera or sensor, and DJI support.
-- **Controller Screen Capture** intentionally leaves flight and camera operation in the controller's native flight app; AlphaRelay aircraft command buttons are blocked.
+- **Controller Screen Capture** intentionally leaves flight and camera operation in the controller's usual flight app; AlphaRelay aircraft command buttons are blocked.
 - **Pilot mode** is offered only on supported DJI equipment. Selecting an aircraft from the list does not unlock it by itself; AlphaRelay must also verify the live connection.
 - **Goggles Mode** does not control the DJI Avata. The DJI Goggles and their compatible controller remain responsible for aircraft operation.
 - Validate aircraft-specific controls in training before operational use.
@@ -78,7 +78,7 @@ icon: "triangle-alert"
 
 - Large offline ZIP exports work best in Chrome or Edge. The viewer adapts to phones, but mobile file-provider rules may require reconnecting extracted package files.
 - **Dictate** depends on browser speech-recognition support, microphone permission, and any browser speech-service connectivity.
-- Live Ask AI in Mission Overwatch or Android/iOS Operator requires a fresh current frame, internet, and AI configuration. It answers only from the frame captured for that request; it does not track later scene changes. Verify shared saved answers against the live feed.
-- Public live links require an active mission and internet. Anyone who receives the link can watch live video and see events and alerts until an authorized user turns it off or the mission ends. The view is read-only, but it does not require sign-in.
+- Live Ask AI in Mission Overwatch or Android/iOS Operator requires a current live picture, internet, and AI enabled for the agency. It answers only from the frame captured for that request; it does not track later scene changes. Verify shared saved answers against the live feed.
+- Public live links require an active mission and internet. Anyone who receives the link can watch live video only, without mission events or alerts, until an authorized user turns it off or the mission ends. The view is read-only, but it does not require sign-in.
 - Operational Map must be enabled for the agency and requires the correct person selected on the device, precise location permission, and internet for live updates. Positions are advisory, may be old or unavailable, do not independently verify who carries the device, and do not show the aircraft's location. A mission cannot be sealed while someone is still sharing location or while the saved route has not finished successfully.
 - An agency-specific same-Wi-Fi connection may show a one-time browser trust prompt before Mission Overwatch can open it securely.

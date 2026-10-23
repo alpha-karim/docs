@@ -12,12 +12,12 @@ Run a short test mission to learn the workflow end to end.
 2. Select the test operator when an agency roster is available, pick a scenario template or **No scenario template**, enter `Training mission` as the mission name, and add one harmless mission-specific AI target if testing Live AI.
 3. Start the selected video option and confirm it works: approve screen capture, confirm **Capturing** for HDMI, or create **Controller Livestream**, copy the displayed values into DJI **Custom RTMP** or Skydio **RTSP External Server**, and start livestreaming on the controller. Confirm remote live when internet is available.
 4. Open the mission from Mission Dashboard and select **Live stream (WebRTC)**.
-5. If the team will use Mission Viewer, open Operator on the second licensed Android or iOS device, choose the active mission, and confirm video, timeline, and alert updates. Ask one harmless typed or dictated question about a fresh frame and verify the answer appears in shared mission history. When Operational Map is enabled, verify the selected person's location starts sharing and appears under **Nearby map** / **Map**.
+5. If the team will use Mission Viewer, open Operator on the second licensed Android or iOS device, choose the active mission, and confirm video, timeline, and alert updates. Ask one harmless typed or dictated question about a current picture and verify the answer appears in shared mission history. When Operational Map is enabled, verify the selected person's location starts sharing and appears under **Nearby map** / **Map**.
 6. Add one event from Operator (quick event, manual event with current frame, or voice: `relay <details>`).
 7. Open **Mission sidebar → Events** and add one event. Try **Dictate**, review the transcript, then click **Log Manual Event**.
-8. Open **Mission sidebar → Ask AI**, ask a harmless question about the current frame, and verify the saved answer against the live feed.
-9. Open **Share** or the mobile QR control, scan the **Public live view** code in a signed-out browser, and confirm it can only watch video, events, and alerts. Revoke the link with **End public viewing**.
-10. If Device Live AI will be used, confirm it is enabled and perform a safe person-detection check with internet. Then turn off internet in a controlled test and confirm the device continues basic checks. Confirm the informational yellow alert. Do not simulate a weapon alert with a real weapon.
+8. Open **Mission sidebar → Ask AI**, ask a harmless question about the current picture, and verify the saved answer against the live feed.
+9. Open **Share** or the mobile QR control, scan the **Public live view** code in a signed-out browser, and confirm it shows video only and does not show mission events or alerts. Revoke the link with **End public viewing**.
+10. If live AI will be used, confirm the agency's selected mode and perform a safe person-detection check. With a video source that works offline, turn off internet and verify the expected on-device checks and saved alert picture. Confirm the yellow person alert. Do not simulate a weapon alert with a real weapon.
 11. Run a short, safe exercise.
 12. Complete normal closeout for the selected option. For Video Link, verify the AlphaRelay recording appears in **Media**. For Controller Livestream, stop livestreaming on the controller first. For HDMI, verify the last needed picture arrived. If supported DJI equipment offers an aircraft-video copy, practice reconnecting USB without risking operational footage. Then use the close action shown by the app.
 13. Confirm footage uploaded or is safely waiting to upload (see the upload message). If location sharing was enabled, confirm the saved route finished processing and the post-mission map appears only when the device recorded valid locations.
@@ -35,9 +35,11 @@ Run a short test mission to learn the workflow end to end.
 - Did the public live QR work without sign-in, remain read-only, and stop working after revocation?
 - On Android, did a viewer event attach the complete live frame and show its screenshot in the timeline?
 - Did Device Live AI avoid repeated alerts for one continuously visible test subject?
-- Did online AI review stop cleanly when internet was removed, did basic checks continue on the device, and did online review later resume without duplicate alerts?
+- Did the expected AI checks continue when internet was removed, and did saved alerts and pictures reach Mission Overwatch after reconnection?
 - Did scenario-specific targets appear, and could you save one harmless mission-specific target?
 - Was footage available or safely waiting to upload as expected?
+- After upload, did the recording play from **Media**, even if Operator removed its own saved device copy?
+- For a recording-wide count, could the reviewer open each supporting sighting and compare it with the stated recording time?
 - Did Controller Screen Capture produce one continuous playable mission recording?
 - Did Video Link, Controller Livestream, or HDMI Capture, when tested, preserve the full picture, recover from a controlled disconnect, and produce playable footage?
 - Did Controller Livestream Live AI continue after the setup phone left the viewer screen?

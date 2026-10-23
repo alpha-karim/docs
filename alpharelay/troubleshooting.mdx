@@ -16,7 +16,7 @@ If QR scanning is unavailable or camera permission is denied, paste the complete
 
 ## Remote live is missing
 
-1. Confirm the pilot device has validated internet and the mission is active.
+1. Confirm the pilot device has working internet and the mission is active.
 2. Open **Pilot console → Mission** and check remote-live status.
 3. Tap **Start remote live** if automatic setup was skipped or failed.
 4. In Mission Overwatch, open the active mission and select **Live stream (WebRTC)**.
@@ -76,7 +76,7 @@ Do not force-stop or reinstall the app to bypass this guard; doing so can delay 
 
 ## Footage is waiting to upload or will not play
 
-1. Keep the pilot device powered on and restore validated internet.
+1. Keep the pilot device powered on and restore working internet.
 2. If Android Operator opens with a panel showing video waiting to upload, let it run. Use **Skip for now and start new mission** only when field work cannot wait. On iOS, use **Sync pending items** or **Sync now** and keep Operator open while it sends the files.
 3. Tap **Upload now** if shown.
 4. Wait for **Loading playback link** to clear in Mission Overwatch.
@@ -96,7 +96,7 @@ If an optional aircraft or goggles recording is out of sync, choose **Align with
 4. If voice relay is needed, grant microphone permission and confirm speech recognition is available.
 5. If the app cannot be installed, allow the browser or file manager to **install unknown apps**. Android Developer mode is not required.
 
-The controller's native flight app remains the flight control app. AlphaRelay aircraft command buttons are intentionally disabled in Controller Screen Capture.
+The controller's usual flight app remains the flight control app. AlphaRelay aircraft command buttons are intentionally disabled in Controller Screen Capture.
 
 ## Reconnect controller for SD footage is waiting
 
@@ -106,7 +106,7 @@ This optional closeout appears only when AlphaRelay confirmed supported DJI equi
 2. Open DJI Fly app info and tap **Force stop**.
 3. Open **Open by default** and clear its defaults.
 4. Return to AlphaRelay, physically unplug and reconnect the controller cable, and choose **AlphaRelay → Just once**.
-5. If the SD pull fails, verify the aircraft connection and SD card, reconnect, and tap **Retry after reconnect**.
+5. If copying from the memory card fails, verify the aircraft connection and SD card, reconnect, and tap **Retry after reconnect**.
 
 Use **Close without aircraft copy** only when you intentionally want to close with the controller-screen recording alone. AlphaRelay selects aircraft footage by its mission-time recording timestamp and does not substitute an older pre-mission clip.
 
@@ -147,7 +147,7 @@ If DJI Fly does not open automatically after approval, open it manually and conf
 ## DJI Avata remote live or upload is missing
 
 1. Keep the Android device connected to internet. If DJI Fly uses Wi-Fi live-view sharing, keep cellular data available.
-2. Keep DJI Fly in the foreground during the mission.
+2. Keep DJI Fly visible on the screen during the mission.
 3. Stop through the **Controller Screen Capture** notification or AlphaRelay **Stop Mission** button; do not force-close the app.
 4. Keep the Android device powered on while footage is waiting to upload. AlphaRelay resumes automatically when working internet returns; do not force-stop or uninstall the app.
 
@@ -183,7 +183,7 @@ AI live alert banners dismiss after about three seconds. Open the Timeline if th
 
 1. Open the mission **Timeline** in Mission Overwatch.
 2. Compare the Device Live AI or AI live-watch alert with the source screenshot or footage.
-3. Choose **Approve alert** to allow configured screenshot analysis and report consideration, or **Dismiss alert** to exclude it.
+3. Choose **Approve alert** to allow screenshot review when enabled for the mission and report consideration, or **Dismiss alert** to exclude it.
 4. After approved analysis finishes, choose **Accept as is** or **Review & edit** for the resulting finding.
 
 Approving the alert is not the same as accepting the image analysis. Both review steps are required before analyzed content can enter the report narrative.
@@ -225,7 +225,9 @@ The link also stops when the mission ends. Anyone who has it can view the active
 5. After closeout, wait for the saved route to finish processing. The post-mission map stays hidden when the device recorded no valid locations.
 
 If sealing reports an active location route or one that has not saved successfully, stop the sharing session, wait for it to finish, or use the available retry action. Do not treat an old map marker or a route with no recorded locations as verified personnel movement.
-4. Stay online and wait for the mission's saved information to reach the agency account. If the action is unavailable, sign in again and reload the page.
+
+## A completed review step reopened
+Stay online and wait for the mission's saved information to reach the agency account. If a review action is unavailable, sign in again and reload the page.
 
 A new alert or finding that reaches the agency account reopens the affected review step even if it was completed earlier.
 
@@ -235,7 +237,7 @@ A new alert or finding that reaches the agency account reopens the affected revi
 2. Move at least one tag from **Available tags** into **What should AI look for?**.
 3. For **Event-focused**, confirm the mission has an accepted human event or approved alert. If not, choose **Full mission — detailed**.
 4. Confirm the selected recordings are playable. Full-mission coverage can use multiple aligned recordings and can also include uploaded mission photos.
-5. Keep Mission Overwatch online and confirm the agency has AI Review enabled. Click **Refresh** to check progress again.
+5. Keep Mission Overwatch online and confirm the agency has AI Review enabled. Opening the tab loads the latest saved results. Use **Refresh** when shown for a running analysis; it is not a permanent button or a promise of continuous updates.
 
 The status can show the original recording upload, video sections reviewed, evidence screenshots checked, or completion. If the work is waiting or uploading, AlphaRelay has not finished reviewing the actual video. You can leave the page while it runs. AlphaRelay sends a completion email when the agency has email delivery enabled. The email lists video reviewed separately from evidence screenshots checked.
 
@@ -250,13 +252,13 @@ Ask AI can answer only from the selected main uploaded recording. If the relevan
 
 ## Device Live AI is not tagging
 
-1. Confirm **Enable automatic OpenAI + local detection** is on in Android **Pilot console → Flight → Local AI**, or confirm iOS capture and notification permission are active.
+1. Confirm the agency's AI mode is available for this mission and that Operator shows it as active. Some agency-managed settings cannot be changed by the officer.
 2. Start Controller Screen Capture; Device Live AI does not sample while capture is stopped.
-3. Check **Device Live AI** status. With internet it should report online review. After an internet or online-service failure, it should report basic checks on the device.
+3. Read the AI status. Check whether pictures have actually been reviewed. A ready or waiting message does not mean detection is running; an unavailable weapon check must not be treated as working.
 4. Confirm Operator is current and that offline checks are available on the device.
 5. Grant notification permission if events are logged but direct alerts do not appear.
 
-If the status says browser or online Live AI is active, AlphaRelay is coordinating checks for the same mission. Basic on-device checks resume automatically after online review stops or the short changeover period ends.
+Online checks coordinate between Mission Overwatch and Operator. Agency-enabled on-device checks can continue independently. On-device-only missions do not switch to online AI after an error. If **Hybrid cloud review** was selected, losing internet stops its additional online review while supported local checks continue.
 
 Review every auto-tag before treating it as an operational fact. Small, distant, dark, blurred, or partially hidden objects may be missed.
 
@@ -283,3 +285,11 @@ Open `index.html` from inside the extracted folder without moving files out. Use
 On Android, opening `index.html` can isolate it from sibling media files. If **Reconnect exported files** appears, tap **Choose package files** and select the extracted footage, photos, and printable HTML files. You can choose files more than once when Android presents different folders separately.
 
 → [Connectivity](/alpharelay/connectivity-guide) · [Known limitations](/alpharelay/known-limitations)
+
+## A count was withdrawn or a recording question stopped
+
+A withdrawn count failed an evidence check and must not be reused. Open **Previous answers** to read its status, then ask again for a new review. If **Resume recording review** appears after an interruption, use it to continue the existing review. For a completed supported count, open **Distinct track evidence** and verify the linked recording times before using the answer. See [Ask AI about the mission](/alpharelay/footage-playback#ask-ai-about-the-mission).
+
+## The recording disappeared from the phone or controller
+
+After a verified upload, Operator can remove its own local recording copy to free storage. Open the mission's **Media** tab and confirm the online recording plays. If the app still says the upload is waiting, keep the device powered and Operator installed; do not clear its saved files.

@@ -39,15 +39,15 @@ Generate the after-action report with AI drafting when configured, resolve **Ite
 → [Generate a report](/alpharelay/report-generation) · [Seal the mission record](/alpharelay/evidence-sealing) · [Export offline package](/alpharelay/export-offline-package)
 
 <Warning>
-  Sealing evidence and supervisor approval are separate steps. Sealing preserves custody hashes. Submitting the report locks timeline, media, mission-name, and AI-review changes while a supervisor decides; approval makes that lock permanent.
+  Sealing evidence and supervisor approval are separate steps. Sealing preserves evidence digital fingerprints. Submitting the report locks timeline, media, mission-name, and AI-review changes while a supervisor decides; approval makes that lock permanent.
 </Warning>
 
 ## AI across the workflow
 
 - During an active remote stream, **AI live watch** samples frames and logs possible threat indicators for officer review.
-- On an Operator device, **Device Live AI** uses AlphaRelay's online AI review when internet is working. Without it, the device automatically continues basic checks for people and possible weapons.
-- For an AI live-watch or Device Live AI alert, choose **Approve alert** to allow configured screenshot analysis and report eligibility, or **Dismiss alert** to exclude it. Then review any resulting analysis with **Accept as is** or **Review & edit**.
-- Mission Overwatch, online review from the Operator device, and basic checks on the device coordinate their work to reduce duplicate alerts. Basic on-device checks resume automatically when online review ends.
+- Live AI follows the agency's settings for that mission. Supported devices may use online checks with a basic device backup, or agency-enabled on-device checks. If **Hybrid cloud review** is offered and selected, online review supplements the on-device checks. See [Live AI alerts](/alpharelay/local-ai) and confirm the active status before flight.
+- For an AI live-watch or Device Live AI alert, choose **Approve alert** to allow screenshot review when enabled for the mission and report eligibility, or **Dismiss alert** to exclude it. Then review any resulting analysis with **Accept as is** or **Review & edit**.
+- Online checks coordinate to reduce duplicate alerts. Agency-enabled on-device checks can continue independently; follow the status shown on the mission.
 - After a closed mission reaches the agency account, **AI Review** looks for the items selected by the officer using **Event-focused** or **Full mission — detailed** coverage. Event-focused review checks sections of the original video around accepted events; it does not use the event screenshots as a substitute for video. Full-mission review checks the combined time covered by the selected recordings and favors the clearest or original recording when videos overlap. AlphaRelay then compares possible findings with evidence screenshots before presenting them for officer review.
 - Inside AI Review, **Ask AI** answers mission-specific questions from the selected main uploaded recording and shows its confidence, supporting observations, limitations, and supporting evidence. It remains view-only after approval while the approved record remains locked against changes.
 

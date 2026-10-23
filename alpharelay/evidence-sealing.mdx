@@ -7,7 +7,7 @@ icon: "shield-check"
 Sealing locks reviewed evidence and verifies each file's digital fingerprint. It is **separate** from supervisor report approval.
 
 <Warning>
-  Sealing ≠ submitting or approving the report. Sealing preserves custody hashes. Submitting the report locks editing during supervisor review; approval makes the record permanently read-only.
+  Sealing preserves the evidence's digital fingerprints so changes can be detected. Submitting a report prevents editing during supervisor review; approval makes the record permanently view-only.
 </Warning>
 
 ## When to seal
@@ -42,7 +42,7 @@ Evidence sealing does not by itself lock the mission name, timeline, media revie
 
 ## Export the evidence verification file
 
-For a machine-readable, court-ready bundle with cryptographic chain verification:
+To download a verification file for your agency's evidence system:
 
 1. Open **Mission chain of custody**.
 2. Click **Export evidence package (JSON)** on an evidence item.

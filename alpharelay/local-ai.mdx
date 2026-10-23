@@ -1,75 +1,61 @@
 ---
-title: "Use Device Live AI"
-description: "Understand live AI alerts, internet use, and the basic on-device backup."
+title: "Use live AI alerts"
+description: "Check your agency's AI mode, receive flight alerts, and review the supporting picture."
 icon: "tablet-screen-button"
 ---
 
-**Device Live AI** checks selected pictures from the live mission video and creates alerts for officer review. It can work with controller-screen video, HDMI, supported Pilot cameras, and Controller Livestream. With internet, AlphaRelay uses its protected online AI service. If that service or the connection is unavailable, Operator automatically uses the device for basic people and possible-weapon checks.
+Live AI checks pictures from the mission video and suggests observations for officer review. The options shown depend on your agency, device, and mission. Before flight, confirm the active-mission screen says checks are running and that a current picture is available.
 
-Recording must be running. Basic on-device checks and immediate alerts can work without internet. The timeline, more detailed online checks, and reporting update after internet returns.
+## Check where AI runs
 
-## Current alert controls and priority
+- **Online checks with a device backup:** AlphaRelay uses its online AI service when available. If that service or internet is unavailable, supported devices can continue basic checks for people and possible weapons.
+- **On-device checks:** When enabled for your agency, supported Android devices, iPhones, and iPads can check mission targets on the device. Live checks in this mode do not automatically switch to online AI. Recording and local alerts can continue without internet when the video comes directly from the device or connected equipment.
+- **Hybrid cloud review:** If your agency offers this exact setting and you turn it on for the mission, on-device checks continue while online AI also reviews selected pictures and uncertain detections. Without internet, only the on-device checks continue.
 
-- **Person detected** — informational/yellow treatment
-- **Multiple persons detected** — informational/yellow treatment
-- **Possible weapon detected** — urgent/red treatment
+On-device AI does not mean the whole mission stays on the device. Remote viewing, evidence uploads, location updates, and reports still use the agency's AlphaRelay account. Video Link and Controller Livestream still need internet to deliver their picture. See [Security, privacy, and AI](/alpharelay/security-privacy-ai-processing).
 
-Operator uses **Alert on people** at mission setup or during an active mission to suppress routine person alerts. In Mission Overwatch, **Standard detections** provides separate controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, and safety hazards. Keep both weapon-related categories enabled; weapon-holder alerts receive the highest presentation priority. Hand-to-hand contact and reaching into clothing or bags are no longer standard detections; an agency can still add a concrete visible behavior as a scenario-specific or mission-specific target.
+## Choose what to watch for
 
-These are assistive detections, not operational conclusions. Person detection is not face recognition or identity matching. A possible-weapon alert does not establish that an object is a weapon, who possesses it, intent, legality, or threat level.
+Use **Alert on people** to turn routine person alerts on or off. Where the on-device mission settings show weapons as always on, turning off people alerts leaves weapon checks and mission-specific targets active.
 
-## Android controls
+Other missions can show separate **Standard detections** controls in Mission Overwatch. Use the controls offered for that mission; they are not the same for every agency.
 
-1. Open **Pilot console → Flight → Local AI**.
-2. Turn **Enable automatic OpenAI + local detection** on or off.
-3. Adjust the sample rate, minimum detection score, confirmation window, or cooldown only after testing the change.
-4. Tap **Save local AI settings**.
-5. Start the selected Android capture workflow and watch the **Device Live AI** status on the active-mission dashboard, Mission Viewer, or the Live AI metrics line.
+Enter one visible item per line under **Mission-specific AI targets**, up to eight. Concrete descriptions such as a red pickup are easier to check than conclusions about intent. Location and action descriptions need particular care: a possible match does not prove where someone is or what they are doing. Use **Update AI targets** during a mission when available.
 
-During Controller Screen Capture, grant Android notification permission if the pilot should receive immediate on-controller alerts. Person notifications use the yellow informational style; possible-weapon detections use the red urgent style.
+Person alerts use yellow. Possible-weapon and other urgent alerts use red. Neither color establishes identity, possession, intent, legality, or an actual threat.
 
-Mission Overwatch and Operator coordinate so they do not create the same automatic alert twice. When Mission Overwatch is checking the live video, Operator pauses its own checks. If Mission Overwatch stops, Operator resumes automatically. If the online service is unavailable, the device's basic checks can take over.
+## Receive alerts over the flight app
 
-In Pilot mode, AlphaRelay suppresses Live AI after a land command or confirmed touchdown so the closed or closing mission does not continue producing alerts. It resumes normally on a later mission.
+### Android
 
-## iPhone and iPad
+Allow notifications. If Operator offers **Show alerts over flight apps**, choose **Allow over other apps** to let brief banners appear while DJI Fly or another flight app is visible. If you skip this, regular notifications remain available.
 
-iPhone/iPad uses the same online-first process for Screen Recording, Controller Livestream, and iPad HDMI. Without internet, it can perform basic people and possible-weapon checks on the device. Its on-device backup is more limited than Android's. Allow time-sensitive notifications if alerts should appear over the flight app.
+Check the AI status in Operator before leaving it for the flight app. Some agencies manage the on-device setting, so it may not be a switch the officer can change. On versions with adjustable **Local AI** settings under **Pilot console → Flight**, test any setting changes in training first.
 
-For Controller Livestream, AlphaRelay's online video service can run Live AI directly on the incoming controller video. This lets checks continue even when the setup phone leaves the viewer screen. AlphaRelay coordinates the browser and viewing devices to reduce duplicate alerts. If the online check stops, a viewing device can resume its own checks.
+### iPhone and iPad
 
-When Live Activities are available, iPhone presents a compact alert in the Dynamic Island or Lock Screen and then returns to the monitoring message. If Live Activities are unavailable, **Screen Sharing** notifications show the alert instead.
+Allow the requested notifications and Live Activities. Depending on the device and iOS settings, alerts can appear in the Dynamic Island, on the Lock Screen, or as **Screen Sharing** notifications. Test alerts with the actual flight app open in its sideways view.
 
-Mission-specific AI targets selected before start or updated during the mission apply to online analysis. Enter one visible item per line, up to eight. Changes made without internet wait until mission information uploads.
+For an on-device Controller Livestream or Video Link mission, keep Operator open or use its Mission Viewer so the phone or tablet can receive pictures to check. The online recording can continue separately; a recording in progress does not prove that local AI is running.
 
-## What happens after a detection
+## Check the alert evidence
 
-AlphaRelay can create a timeline event with a screenshot. Screenshots from the on-device backup can include detection boxes. AlphaRelay limits repeated alerts for the same continuously visible subject, while allowing a new subject elsewhere to create a new alert.
+AlphaRelay saves a supporting picture for an on-device alert. An alert can remain available on the device while its event and image wait for internet. A brief banner disappearing does not remove the saved event.
 
-In Controller Screen Capture, AlphaRelay tries to ignore small detections inside fixed flight-app displays and combine overlapping boxes around the same person. This reduces repeated or screen-overlay alerts, but it does not eliminate false alerts or missed detections.
+Repeated alerts for the same continuously visible subject may be reduced. Small objects, changing views, poor light, motion blur, and flight-app messages can still cause misses or incorrect alerts. For thermal video, a bright or red area shows apparent heat, not proof of a person or weapon.
 
-For thermal or infrared video, AlphaRelay checks the full picture, not only the center or brightest area. It recognizes common white-hot, black-hot, and color palettes. Bright or red areas show apparent heat; they do not automatically mean a person or threat. Roofs, pavement, vents, furniture, vegetation, reflections, shadows, and camera effects can all resemble a person, so every thermal alert requires careful human review.
+1. Open **Timeline** and compare the alert with its screenshot and original footage.
+2. Choose **Approve alert** to include a valid alert, or **Dismiss alert** to exclude it.
+3. If AlphaRelay provides an additional AI description of the screenshot, review it with **Accept as is** or **Review & edit** before report use.
 
-If the first check does not confirm a possible-weapon concern, AlphaRelay may inspect one smaller area around a person or unclear object in more detail. This may help with small objects, but it does not make the result conclusive.
+On-device-only missions can block online screenshot analysis and live questions. Approving an alert does not change the agency's AI setting. Do not assume a missing online description means the original alert or screenshot was lost.
 
-AlphaRelay saves the evidence image before showing the device alert. The banner can disappear while the Timeline event remains available for review. The service may check a picture as often as every two seconds, but it normally waits longer before logging the same continuing concern again. Internet speed, image clarity, and repeated-subject filtering can make alerts less frequent.
+## If checks stop
 
-## Review an alert in Mission Overwatch
+Return to Operator and read the status. A ready or waiting message is different from a completed check. Confirm the video is moving and the needed detection files are available. If one check is reported unavailable, do not assume all checks are working.
 
-1. Open the mission **Timeline**.
-2. Compare the alert and screenshot with the live view or source footage.
-3. Choose **Approve alert** to allow configured screenshot analysis and report eligibility, or **Dismiss alert** to exclude it from the report.
-4. If approved screenshot analysis returns a finding, choose **Accept as is** or **Review & edit** before it can enter the after-action report narrative.
+For online checks, Mission Overwatch and Operator coordinate to reduce duplicate alerts. Agency-enabled on-device checks can continue independently. Restore internet for uploads and any permitted online review, then confirm events and images arrive in Mission Overwatch.
 
-This is a two-stage review: approving the alert allows analysis and report consideration; reviewing the resulting image analysis makes the finding officer-owned.
+AI does not determine identity, intent, policy compliance, criminal activity, injury, or whether an area is clear. Verify every result before acting on it.
 
-## Limits
-
-- Device Live AI runs only while capture supplies images.
-- Mission Overwatch or Operator performs the main live checks for a mission; the device's basic backup resumes automatically when needed.
-- Internet is required for online AI, uploading mission information, and reporting, but not for basic on-device checks.
-- Small, blurred, distant, dark, partially hidden, or unusual objects may be missed. Tools, toys, sporting equipment, and silhouettes may be false positives.
-- The built-in backup has not been proven across every real controller screen and field condition. Training tests are not a guarantee of field performance.
-- Device Live AI does not determine identity, intent, policy compliance, criminal activity, injury, or whether an area is clear.
-
-→ [Log events](/alpharelay/event-logging) · [Review footage](/alpharelay/footage-playback) · [Known limitations](/alpharelay/known-limitations)
+→ [Log events](/alpharelay/event-logging) · [Review footage](/alpharelay/footage-playback) · [Troubleshooting](/alpharelay/troubleshooting)
