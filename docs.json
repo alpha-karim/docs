@@ -45,6 +45,8 @@
               "alpharelay/watch-in-mission-overwatch",
               "alpharelay/event-logging",
               "alpharelay/local-ai",
+              "alpharelay/count-people",
+              "alpharelay/join-mission-feed",
               "alpharelay/completing-a-mission"
             ]
           },

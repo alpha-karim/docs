@@ -55,7 +55,7 @@
 - **Import mission** — Mission History action for creating a closed post-flight record from external footage and photos
 - **Import mission data…** — client-side workflow preview for inventorying large evidence and mapping packages; it does not upload or change files
 - **Add optional recording** — Media action for MP4/MOV aircraft, goggles-screen, or other external recordings; AlphaRelay capture remains the mission timeline in Controller Screen Capture and Goggles Mode
-- **Ask AI source** — the selected primary uploaded footage only; Ask AI excludes mission photos and event screenshots and prefers an aircraft original when available
+- **Ask Alpha AI source** — live questions use the current picture. Closed-mission questions use logged timeline events, their screenshots and saved observations, including unaccepted events; a citation is not an approval. Media analysis is a separate action.
 - **Ask AI after approval** — remains available as a read-only question and saved-answer workflow after mission approval; timeline, evidence, media, AI Review findings, and report mutations remain locked
 - **AAR Chain of Custody** — the explicit report evidence set sealed by **Seal entire mission**; included manual photos and videos are sealable, while excluded alert screenshots remain retained but unsealed
 - **Export offline package…**, **Export evidence package (JSON)**
@@ -75,7 +75,7 @@
 
 ## Verified documentation baseline
 
-- Last functionality audit: October 23, 2026; docs baseline `158e126` (September 19), application `origin/main` through `56e39a8e7154864c4f086323cd00c8a347d4fdf8` (October 20).
+- Last functionality audit: November 16, 2026; compared application `56e39a8e..bf10d989` against docs `f719726`. Audit committed main; qualify agency-specific features.
 - AI Review loads current results when opened, offers Refresh for running work, and preserves earlier analyses. Do not describe continuous polling or a Redo analysis button.
 - Combine selected creates the surviving incident record and hides source mission entries while retaining source evidence; source entries cannot be restored separately.
 - Operator removes its own recording files only after verified upload. Do not describe these device copies as permanent.

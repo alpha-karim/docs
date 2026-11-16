@@ -8,7 +8,7 @@ Mission Overwatch is the per-mission browser workspace. Open it from **Mission D
 
 Sign in at [alpha-relay.com](https://www.alpha-relay.com). A previously opened page may reopen without internet, but active **Internet** missions, remote viewing, sending events to the agency account, and shared review require a connection.
 
-Active missions open in a full-screen command view. The header shows elapsed time, feed state, the mission-assigned operator, AI detection status, and a **Sidebar** alert count. The live feed stays in the main workspace. The right-side **Mission sidebar** switches among **Timeline**, **Events**, **Ask AI**, an optional **Map**, and a mission-scoped tab labeled **Livestream** for browser-created Controller Livestream or **HDMI Input** for laptop capture. Mission Overwatch adapts to phone and tablet browsers; a desktop-sized screen is still easier for long footage and report reviews.
+Active missions open in a full-screen command view. The header shows elapsed time, feed state, the mission-assigned operator, AI detection status, and a **Sidebar** alert count. The live feed stays in the main workspace. The right-side **Mission sidebar** switches among **Timeline**, **Events**, **Ask Alpha AI**, an optional **Map**, and a mission-scoped tab labeled **Livestream** for browser-created Controller Livestream or **HDMI Input** for laptop capture. Mission Overwatch adapts to phone and tablet browsers; a desktop-sized screen is still easier for long footage and report reviews.
 
 ## Watch remote live video
 
@@ -33,7 +33,7 @@ Use the right-side tabs while an Internet mission is active:
 - **Timeline** follows incoming events and alerts.
 - **Events** contains scenario Quick Events and **Manual event**. Agency-created scenarios can provide up to seven custom buttons; the standard buttons appear when none are configured.
 - In **Events**, type a note or tap **Dictate**, review the transcript, and click **Log Manual Event**.
-- **Ask AI** asks about one current picture. It is separate from automatic AI live-watch alerts and post-mission Ask AI.
+- **Ask Alpha AI** asks about one current picture. It is separate from automatic AI live-watch alerts and post-mission Ask AI.
 - **Map** shows advisory pilot, remote-viewer, and selected-personnel positions when Operational Map is enabled and location is being shared.
 - **Livestream** reopens setup for a browser-created Controller Livestream; **HDMI Input** appears for laptop HDMI missions.
 
@@ -43,7 +43,7 @@ Dictation depends on browser speech-recognition support. If it is unavailable or
 
 ## Ask AI live
 
-Open **Mission sidebar → Ask AI**, type a question about what is visible, and click **Ask AI**. You can also tap **Dictate**, speak the question, review the transcript, and submit it normally. AlphaRelay freezes one current live picture at submission time, answers only from that picture, and saves the timestamped question and answer under **Saved questions**.
+Open **Mission sidebar → Ask Alpha AI**, type a question about what is visible, and click **Ask Alpha AI**. You can also tap **Dictate**, speak the question, review the transcript, and submit it normally. AlphaRelay freezes one current live picture at submission time, answers only from that picture, and saves the timestamped question and answer under **Saved questions**.
 
 Wait until a live picture is available. Check the saved picture alongside the answer. An answer can be partly supported or unsupported when the image is unclear. Directions such as left and right refer to the picture, not verified compass bearings. The answer does not update as the scene changes and cannot establish earlier movement from a single picture. Live questions may be unavailable under the agency's on-device-only setting.
 
@@ -73,7 +73,7 @@ AlphaRelay can start checking a new live picture as often as every two seconds. 
 
 When AI live watch is enabled, select **Show details** or leave the expanded card open to review its focus:
 
-- **Standard detections** provides individual controls for people, person holding a weapon, visible weapons, suspected narcotics, drug paraphernalia, and safety hazards.
+- Law enforcement missions offer **Standard detections**. Routine people alerts start off. Other mission categories use the items chosen for their scenario or mission.
 - **Include scenario targets** adds the scenario's saved visual targets.
 - **Scenario-specific AI targets** come from the mission's built-in or agency scenario.
 - **Mission-specific AI targets** let you add up to eight visible details for this mission, one per line. Click **Save targets** after editing.
@@ -100,7 +100,7 @@ Treat these alerts as prompts for human review. They do not replace pilot judgme
 
 ## Closed missions
 
-After **Stop Mission** or **End Mission**, Mission Overwatch opens the closed-mission review in this order: **Timeline**, **Media**, **AI Review**, and **Report**. **Play with Events** is available under Media. A mission that already has a generated report opens directly on **Report**. The progress tracker shows the current stage and the next action.
+After **Stop Mission** or **End Mission**, Mission Overwatch opens the closed-mission review in this order: **Timeline**, **Media**, **Alpha AI Review**, and **Report**. **Play with Events** is available under Media. A mission that already has a generated report opens directly on **Report**. The progress tracker shows the current stage and the next action.
 
 Follow the guided review sequence:
 
@@ -111,14 +111,14 @@ Follow the guided review sequence:
 
 Use **Needs Review**, **Dismissed**, and **All Events** to filter the Timeline. When you finish Timeline review, unresolved AI suggestions move to **Dismissed** after confirmation. They remain visible until evidence is sealed, but they stay outside official counts, video markers, reports, exports, and the evidence record. Finishing AI Review rejects any finding you did not decide. If a new item uploads later, AlphaRelay reopens the affected review step.
 
-AI Review requires at least one item under **What should AI look for?**
+AI Review requires at least one item under **What should Alpha AI look for?**
 
 - **Event-focused** checks video around accepted events.
 - **Full mission — detailed** checks the available mission timeline and prefers higher-quality or original video where recordings overlap.
 
 The status shows upload, video review, screenshot checks, and completion. AlphaRelay checks possible findings against evidence screenshots before showing them. Earlier runs remain under **Previous analyses**. You can leave the page; AlphaRelay emails you when the review finishes. Any accepted finding moves to the Timeline for final officer review before report use.
 
-**Ask AI** uses only the selected main uploaded video. It does not mix in mission photos or event screenshots. Saved Live Ask AI answers show the exact still image used for the answer so you can inspect it. AlphaRelay does not draw AI boxes over the original evidence image. Ask AI remains available after supervisor approval for read-only questions, but it does not unlock the Timeline, evidence, Media, AI Review findings, or Report.
+Ask Alpha AI answers from the mission's logged timeline events, their screenshots, and saved observations. It can use an alert that is still awaiting review. Citing that alert does not approve it or make it eligible for a report. Saved live answers keep the original picture used to answer. Asking after supervisor approval does not unlock the record.
 
 Closed-mission timelines show the oldest event at the top and the latest at the bottom. Closed missions show recorded information only; Mission Overwatch stops remote viewing and attempts to restore the livestream after the mission closes.
 
@@ -137,3 +137,5 @@ For a compact active-mission view, open AlphaRelay Operator on a second licensed
 ## Offline app shell
 
 After the first online visit, the browser saves the basic Mission Overwatch page. You can also choose **Install app** to place it on the device like an app. This helps the page reopen during a connection problem, but sign-in, current mission information, uploads, and video playback still need internet.
+
+To contribute a second camera view to the same incident, see [Add your video to an active mission](/alpharelay/join-mission-feed). To estimate a crowd in one picture, see [Count people in a live picture](/alpharelay/count-people).

@@ -158,7 +158,7 @@ If DJI Fly does not open automatically after approval, open it manually and conf
 3. Check that the operating system can see a working microphone.
 4. If the browser speech service needs network access, confirm the browser is online.
 
-You can always type the event under **Mission sidebar → Events → Manual event**. Dictation only fills the note; review it and click **Log Manual Event** to save the event. For a Live Ask AI question in Mission Overwatch or Android/iOS Operator, dictation fills the question field; review it before clicking **Ask AI**.
+You can always type the event under **Mission sidebar → Events → Manual event**. Dictation only fills the note; review it and click **Log Manual Event** to save the event. For a Live Ask AI question in Mission Overwatch or Android/iOS Operator, dictation fills the question field; review it before clicking **Ask Alpha AI**.
 
 ## Play with Events has no markers
 
@@ -198,7 +198,7 @@ The Timeline can show pending or dismissed automatic alerts so reviewers can res
 2. Compare the finding with its source screenshot or footage.
 3. Choose **Accept as is** or **Review & edit**.
 
-Accepting a finding in **AI Review** only moves it to the timeline. The timeline review is required before that finding can enter the AAR. Submitted or approved reports lock these controls.
+Accepting a finding in **Alpha AI Review** only moves it to the timeline. The timeline review is required before that finding can enter the AAR. Submitted or approved reports lock these controls.
 
 ## Done — continue does not advance
 
@@ -233,22 +233,17 @@ A new alert or finding that reaches the agency account reopens the affected revi
 
 ## AI Review will not start or appears stuck
 
-1. Open a closed mission whose saved information has reached the agency account and select **AI Review**.
-2. Move at least one tag from **Available tags** into **What should AI look for?**.
+1. Open a closed mission whose saved information has reached the agency account and select **Alpha AI Review**.
+2. Move at least one tag from **Available tags** into **What should Alpha AI look for?**.
 3. For **Event-focused**, confirm the mission has an accepted human event or approved alert. If not, choose **Full mission — detailed**.
 4. Confirm the selected recordings are playable. Full-mission coverage can use multiple aligned recordings and can also include uploaded mission photos.
 5. Keep Mission Overwatch online and confirm the agency has AI Review enabled. Opening the tab loads the latest saved results. Use **Refresh** when shown for a running analysis; it is not a permanent button or a promise of continuous updates.
 
 The status can show the original recording upload, video sections reviewed, evidence screenshots checked, or completion. If the work is waiting or uploading, AlphaRelay has not finished reviewing the actual video. You can leave the page while it runs. AlphaRelay sends a completion email when the agency has email delivery enabled. The email lists video reviewed separately from evidence screenshots checked.
 
-## Ask AI is unavailable or cannot answer
+## Ask Alpha AI cannot answer a question about a closed mission
 
-1. Open a closed mission whose saved information has reached the agency account and select **AI Review → Ask AI**.
-2. Confirm the primary uploaded footage is available and playable. Ask AI does not use mission photos or event screenshots.
-3. Keep Mission Overwatch online and confirm the agency has Ask AI enabled.
-4. If AlphaRelay says it is preparing supporting evidence, keep the page open while it checks selected pictures from the playable footage.
-
-Ask AI can answer only from the selected main uploaded recording. If the relevant moment is missing, blocked, low quality, or outside the portions it checked, it may report that the question cannot be answered. Ask AI remains available after supervisor approval as a view-only tool. If it is missing on an approved mission, reload Mission Overwatch. Approval still prevents changes to the timeline, evidence, media, AI Review findings, and report.
+Open **Alpha AI Review → Ask Alpha AI** while online. Check that the relevant event and its screenshot have arrived on the timeline. If a screenshot could not be loaded, restore the connection and try again. If the event was never logged, open **Media** and check the original recording. Asking a question does not change an approved report.
 
 ## Device Live AI is not tagging
 
@@ -286,9 +281,9 @@ On Android, opening `index.html` can isolate it from sibling media files. If **R
 
 → [Connectivity](/alpharelay/connectivity-guide) · [Known limitations](/alpharelay/known-limitations)
 
-## A count was withdrawn or a recording question stopped
+## A live people count looks wrong
 
-A withdrawn count failed an evidence check and must not be reused. Open **Previous answers** to read its status, then ask again for a new review. If **Resume recording review** appears after an interruption, use it to continue the existing review. For a completed supported count, open **Distinct track evidence** and verify the linked recording times before using the answer. See [Ask AI about the mission](/alpharelay/footage-playback#ask-ai-about-the-mission).
+Check that you chose the right camera view (ordinary video, white-hot thermal, or black-hot thermal). Compare the marked picture with the saved original. The count describes one moment and can miss people or mark someone twice. See [Count people in a live picture](/alpharelay/count-people).
 
 ## The recording disappeared from the phone or controller
 

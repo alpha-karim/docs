@@ -4,7 +4,7 @@ description: "Choose a video source and start a live mission from AlphaRelay Ope
 icon: "tablet-screen-button"
 ---
 
-Most live missions start from **AlphaRelay Operator**. Authorized mission operators can also start **Controller Livestream** with **New Livestream** or laptop capture with **New HDMI mission** in the Mission Dashboard, then continue in Mission Overwatch.
+Most live missions start from **AlphaRelay Operator**. Authorized mission operators can also start **Controller Livestream** with **New Controller Livestream** or laptop capture with **New HDMI mission** in the Mission Dashboard, then continue in Mission Overwatch.
 
 Before starting, check the agency's AI mode on the device. If **Hybrid cloud review** is available, confirm whether this mission should use the additional online checks. The standard video-source choices do not include the phone's own camera.
 
@@ -16,7 +16,7 @@ Before starting, check the agency's AI mode on the device. If **Hybrid cloud rev
 4. Select the operating person when the agency roster is available.
 5. Select a scenario category and template, or **No scenario template**.
 6. Enter the mission name your team will recognize and optionally add up to eight **Mission-specific AI targets**, one visible item per line.
-7. Leave **Alert on people** on for informational person alerts, or turn it off to suppress that routine category. Other enabled detections and mission-specific targets remain active.
+7. Routine people alerts start off. Turn on **Alert on people** if your team wants them. The standard detection choices apply to law enforcement missions; other categories use the items selected for their scenario or mission.
 8. Tap the matching start or setup action and complete the license check if prompted.
 9. Approve Android screen capture, choose **AlphaRelay Capture** from the iPhone/iPad Screen Recording picker, scan or paste the authorized link for **Video Link**, copy the displayed livestream values into the DJI or Skydio controller, or connect the HDMI capture card.
 10. Open the usual flight app when using screen capture. Use quick, manual, or `Relay` voice events and stop the mission when finished.
@@ -25,7 +25,7 @@ Operator prevents a new start while another mission or unfinished recording is a
 
 When an online license refresh provides an agency operator roster, AlphaRelay requires a member with the separate **Mission operator** designation to be selected before start and records that person with the mission and field-created events. An officer, supervisor, admin, or owner can be designated as a mission operator. If the roster is unavailable, the app warns the crew and can continue without identified-operator attribution; reconnect and refresh before operational use when attribution is required.
 
-Built-in and agency-created scenarios can list specific items for AI to watch for. AlphaRelay adds those visible items to the mission for live alerts and post-mission AI Review. Officers can add mission-only items during setup and update them during the mission without restarting. Changes made without internet remain saved on the device until AlphaRelay can upload them. Organization admins manage agency scenarios under **Organization Settings → Settings → Mission scenarios**.
+Built-in and agency-created scenarios can list specific items for AI to watch for. AlphaRelay adds those visible items to the mission for live alerts and post-mission AI Review. Officers can add mission-only items during setup and update them during the mission without restarting. Changes made without internet remain saved on the device until AlphaRelay can upload them. Organization admins manage agency scenarios under **Organization Settings → Mission scenarios**.
 
 Agency scenarios can also provide up to seven Quick Events. If an agency scenario has no custom Quick Events, Operator and Mission Overwatch use the standard event buttons.
 
@@ -48,7 +48,7 @@ When AlphaRelay detects a supported DJI controller connection—for example, an 
 
 For a DJI Avata with compatible DJI Goggles, first show the goggles live view in DJI Fly on the Android device. Compatible hardware can enable Goggles Mode automatically, but AlphaRelay waits for you to tap **Start Mission**. It then skips ordinary scenario selection, starts a mission with no scenario and remote live, requests screen capture, and returns to DJI Fly.
 
-For a separate controller, use **Controller Livestream** on a licensed Android device, iPhone, or iPad, or click **New Livestream** in Command Center. For DJI, copy the values into **Custom RTMP**. For Skydio, copy them into **RTSP External Server**. AlphaRelay shows the exact field names, and the setup panel closes when video starts.
+For a separate controller, use **Controller Livestream** on a licensed Android device, iPhone, or iPad, or click **New Controller Livestream** in Command Center. For DJI, copy the values into **Custom RTMP**. For Skydio, copy them into **RTSP External Server**. AlphaRelay shows the exact field names, and the setup panel closes when video starts.
 
 For laptop HDMI, click **New HDMI mission** in Mission Dashboard, add any mission-specific **AI detections**, then open **Mission sidebar → HDMI Input**. **Connect & go live** starts remote live and recoverable local evidence recording together. Use **Stop & upload** before **End Mission**. Follow [Controller Livestream and HDMI Capture](/alpharelay/controller-video-inputs).
 
@@ -105,7 +105,7 @@ If the aircraft is not listed or the live connection check fails, keep **Control
 - The mission appears in **Mission Dashboard** after AlphaRelay sends its saved information to the agency account.
 - Footage and events may upload during or after the mission depending on connectivity.
 - Use **Alert on people** to change routine person alerts without restarting. Other controls depend on the agency's AI mode. Where weapons are shown as always on, turning off people alerts leaves weapon checks active. See [Live AI alerts](/alpharelay/local-ai).
-- Use **Ask Live AI** in Android/iOS Operator or **Ask AI** in Mission Viewer to ask a typed or dictated question about one current live picture. Saved answers are shared with Mission Overwatch; verify each answer against the live video.
+- Use **Ask Live AI** in Android/iOS Operator or **Ask Alpha AI** in Mission Viewer to ask a typed or dictated question about one current live picture. Saved answers are shared with Mission Overwatch; verify each answer against the live video.
 - Tap **Stop and complete mission** or **Stop Mission** in Operator (or **End Mission** in Mission Overwatch) when field work is done.
 - If location sharing is enabled, confirm the person's saved route finishes processing before sealing the evidence record.
 

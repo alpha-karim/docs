@@ -6,7 +6,7 @@ icon: "play"
 
 Open a closed mission from **Mission Dashboard**, then go to **Mission Footage**.
 
-Mission Overwatch orders closed-mission work as **Timeline**, **Media**, **AI Review**, and **Report**. It opens the next unfinished review step automatically; a mission with an existing generated AAR opens on **Report**.
+Mission Overwatch orders closed-mission work as **Timeline**, **Media**, **Alpha AI Review**, and **Report**. It opens the next unfinished review step automatically; a mission with an existing generated AAR opens on **Report**.
 
 ## Controller-screen recordings
 
@@ -38,19 +38,19 @@ After the mission is closed:
 
 ## Locks
 
-Once a report is submitted for approval, no one can change timeline events, footage, photos, the mission name, or AI Review findings. A supervisor can return the report to draft to reopen work. Approval permanently prevents those changes. **Ask AI** remains available for view-only questions and saved answers after approval; it cannot change the timeline, evidence set, AI Review findings, or report.
+Once a report is submitted for approval, no one can change timeline events, footage, photos, the mission name, or AI Review findings. A supervisor can return the report to draft to reopen work. Approval permanently prevents those changes. **Ask Alpha AI** remains available for view-only questions and saved answers after approval; it cannot change the timeline, evidence set, AI Review findings, or report.
 
 ## AI Review
 
-For a closed mission whose saved information has reached the agency account, open **AI Review** after footage or photos are available.
+For a closed mission whose saved information has reached the agency account, open **Alpha AI Review** after footage or photos are available.
 
-1. Under **Available tags**, select at least one tag to move it into **What should AI look for?**. Add a concrete custom target when needed. Only selected tags are included in the run.
+1. Under **Available tags**, select at least one tag to move it into **What should Alpha AI look for?**. Add a concrete custom target when needed. Only selected tags are included in the run.
 2. Choose **Event-focused** or **Full mission — detailed** under **Analysis coverage**.
 3. Click **Analyze media**.
 
 **Event-focused** checks sections of the original video around accepted events and approved alerts. Existing event screenshots help identify those sections; they do not replace reviewing the video. If there are no accepted events, choose **Full mission — detailed**. That option checks the combined time covered by selected recordings, uses the clearest or original recording when they overlap, and includes time available only in controller-screen footage. It can also include mission photos and takes longer.
 
-AI Review can continue after you leave the page. Its status can show the original recording upload, video sections reviewed, evidence screenshots checked, and completion. AlphaRelay first reviews the actual video, then prepares and checks evidence screenshots for possible findings before presenting them to an officer. The completion email lists video reviewed separately from screenshots checked. Opening **AI Review** loads the latest saved results. While analysis is running, use **Refresh** when offered to check progress. The page does not continually check for updates. You can leave and reopen the tab later or return after the completion email.
+AI Review can continue after you leave the page. Its status can show the original recording upload, video sections reviewed, evidence screenshots checked, and completion. AlphaRelay first reviews the actual video, then prepares and checks evidence screenshots for possible findings before presenting them to an officer. The completion email lists video reviewed separately from screenshots checked. Opening **Alpha AI Review** loads the latest saved results. While analysis is running, use **Refresh** when offered to check progress. The page does not continually check for updates. You can leave and reopen the tab later or return after the completion email.
 
 - **Accept** adds a timeline event for the finding when timeline edits are still allowed. It does not complete officer review by itself.
 - **Reject** keeps the finding out of the mission timeline.
@@ -78,39 +78,23 @@ Use **Needs Review** to focus unresolved AI alerts or screenshot analyses, **Dis
 
 ## Complete the review steps
 
-The closed-mission **Timeline** and **Media** tabs, plus **AI Review** when available, have **Done — continue**:
+The closed-mission **Timeline** and **Media** tabs, plus **Alpha AI Review** when available, have **Done — continue**:
 
 - **Timeline**: approves no items automatically. If unaccepted AI candidates remain, AlphaRelay shows the count and asks before moving them to **Dismissed**. Human-created and approved AI events remain.
 - **Media**: records that footage and photos were reviewed.
-- **AI Review**: keeps accepted or edited findings and asks before rejecting any undecided findings.
+- **Alpha AI Review**: keeps accepted or edited findings and asks before rejecting any undecided findings.
 
 The button names the next step, such as **Done — continue to Media review**. You only need to approve the findings you intend to keep; you do not need to dismiss every remaining suggestion individually. Read the count before confirming. After completion, AlphaRelay opens the next unfinished step or **Report**. New pending AI material reopens the relevant step so it can be reviewed.
 
 ## Ask AI about the mission
 
-Open **AI Review → Ask AI** for a closed mission whose saved information and playable footage have reached the agency account. You can also use this view-only tool after the mission is approved.
+Open **Alpha AI Review → Ask Alpha AI** in the closed mission. Ask Alpha AI answers from the mission's logged timeline events, their screenshots, and saved observations. It can use an alert that is still awaiting review. Citing that alert does not approve it or make it eligible for a report.
 
-1. Enter a question about visible mission details, such as **How many vehicles are visible?** or **Is a weapon visible?**
-2. Click **Ask AI**.
-3. Review the answer, confidence, supporting observations, limitations, and supporting evidence.
-4. Open an item under **Previous answers** to revisit it, or click **Clear** to remove the saved question history for that mission. Saved Live Ask AI answers include the exact frozen source frame for side-by-side review and larger inspection.
+1. Ask a specific question, such as “Which logged events show a red pickup?”
+2. Read the answer and open its cited screenshots. Compare the visible details and event times with the original recording before including anything in a report.
+3. If the moment was never logged, review the footage in **Media** or run **Analyze media**. A timeline answer cannot rule out something that happened between events.
+4. Open **Previous answers** to revisit a question. If an older answer does not match the current timeline, ask again. **Clear** removes saved question history; it does not delete the underlying mission events.
 
-If supporting still frames have not been prepared, AlphaRelay prepares them before answering. Ask AI uses only the primary uploaded footage selected for the mission question. It does not mix event screenshots or mission photos into the answer. When an aircraft-original recording is available, AlphaRelay prefers it over a duplicate controller-screen view; otherwise it uses the best available playable recording.
-
-### Questions about counts and locations
-
-Be clear about the scope: **How many bicycles are visible in this picture?** is different from **How many distinct bicycles appear across the entire recording?** A recording-wide question can take longer and shows review progress.
-
-For a supported recording-wide count, open **Distinct track evidence**. This is the app's label for the sightings used to count each person or object once. Check each description and **View at** time against the recording. An unresolved sighting can be excluded, and an **at least** answer is a supported minimum rather than a complete count.
-
-If the review is interrupted, use **Resume recording review** when offered. If an earlier count is marked withdrawn, do not reuse it; ask again to request a new evidence check. Saved history keeps the withdrawn status even if another device has an older copy.
-
-Other answers can show supporting pictures and whether the evidence fully supports, partly supports, or cannot support the answer. A position such as “left side of the picture” is relative to the camera, not a verified compass direction. One still picture cannot establish earlier movement or arrival time.
-
-Ask AI does not identify unknown people or infer intent, criminality, injuries, or that an area is clear.
-
-An exact repeat question can load a saved answer when the primary-footage selection has not changed. If that footage changes, ask again so the answer can use the current recording.
-
-Ask AI answers are suggestions. Check the listed evidence and original media before using an answer in a report, operational decision, or evidence workflow.
+Saved live questions remain available during review. Each live answer refers to the picture captured when someone asked, even if the scene changed later. Asking after supervisor approval does not unlock the record.
 
 → [Generate a report](/alpharelay/report-generation)

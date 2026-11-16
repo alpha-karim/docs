@@ -28,7 +28,7 @@ For a DJI Avata with compatible DJI Goggles, the pilot operates through the gogg
 
 Use **Video Link** when the controller or camera provides an authorized video QR code or web link. Operator scans or accepts the link, and AlphaRelay brings in that video without recording the phone or tablet screen. Internet is required, and the link must open without joining a private Wi-Fi network.
 
-Use **Controller Livestream** when a DJI controller has **Custom RTMP** or a Skydio controller has **RTSP External Server**. A licensed phone/tablet—or an authorized officer using **New Livestream** in Command Center—creates the mission and shows the exact values to copy into the controller. Internet is required.
+Use **Controller Livestream** when a DJI controller has **Custom RTMP** or a Skydio controller has **RTSP External Server**. A licensed phone/tablet—or an authorized officer using **New Controller Livestream** in Command Center—creates the mission and shows the exact values to copy into the controller. Internet is required.
 
 Use **HDMI Capture Card** when the controller has an HDMI output. Connect a standard USB HDMI capture card to Android Operator, a USB-C iPad, or a laptop. The laptop path starts from **New HDMI mission** and does not need the phone/tablet app. The flight controller keeps aircraft control.
 
@@ -42,15 +42,15 @@ On a licensed Android device, tap **View Live Mission**. On iPhone or iPad, tap 
 
 ## Key rules
 
-- Most missions start from Operator. Command Center can also start **Controller Livestream** with **New Livestream** or laptop capture with **New HDMI mission**.
+- Most missions start from Operator. Command Center can also start **Controller Livestream** with **New Controller Livestream** or laptop capture with **New HDMI mission**.
 - The landing screen separates **Start a Mission** from **View a Live Mission**. Starting first opens **Choose video source**, then the operator, scenario, mission name, AI targets, and alert settings for that source.
 - Open missions from **Mission Dashboard** (link may say **Open Mission Console**).
 - Operator presents one **Start Mission** action and starts remote live automatically when working internet is available.
-- Mission Overwatch keeps **Timeline**, **Events**, **Ask AI**, an optional **Map**, and a conditional **Livestream** or **HDMI Input** tab in the right-side **Mission sidebar**.
+- Mission Overwatch keeps **Timeline**, **Events**, **Ask Alpha AI**, an optional **Map**, and a conditional **Livestream** or **HDMI Input** tab in the right-side **Mission sidebar**.
 - **Local Network** is an Android-only same-Wi-Fi option in certain agency versions. It is not shown in the current public Operator workflow.
 - **Controller Screen Capture** starts automatically on many Android drone controllers and remains the recommended default when optional Pilot mode is available.
 - **HDMI Capture Card** works with a compatible Android device, USB-C iPad, or laptop; iPhone cannot receive this USB video.
-- **Controller Livestream** works from Android/iOS Operator or Command Center **New Livestream** and supports DJI RTMP plus Skydio RTSP External Server.
+- **Controller Livestream** works from Android/iOS Operator or Command Center **New Controller Livestream** and supports DJI RTMP plus Skydio RTSP External Server.
 - **Video Link** works from Android/iOS Operator, requires internet and an authorized web link, and lets AlphaRelay's online video service handle recording and evidence capture rather than the device.
 - **Pilot mode** is an optional alternative on supported DJI equipment and requires aircraft confirmation plus a successful live connection check.
 - Compatible DJI Goggles can enable **Goggles Mode** automatically over USB, but the operator still taps **Start Mission** before capture begins.
